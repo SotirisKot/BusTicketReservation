@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>396</x>
+      <y>99</y>
+      <w>216</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Route
+--
+Destination : String
+DeparturePoint : String
+DepartureTime : Calendar
+DepartureDate : Calendar
+EstimatedArrivalTime : Calendar
+BusID : int
+DriverID : int
+AvailableSeats : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>405</x>
+      <y>648</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Passenger
+--
+Firstname : String
+Lastname : String
+NumberID : String
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>378</x>
+      <y>387</y>
+      <w>252</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Ticket
+--
+DestinationTicket : String
+DeparturePointTicket : String
+DepartureTimeTicket : Calendar
+DepartureDateTicket : Calendar
+EstimatedArrivalTimeTicket : Calendar
+Price : int
+PassengerName : String
+PassengerID : String
+PassengerSeat : Seat
+Type : String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>234</y>
+      <w>90</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+IsConnected</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>126</y>
+      <w>243</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Schedule
+--
+Destinations : String
+DeparturePoints : String
+DepartureTimes : Calendar
+DepartureDates : Calendar
+Destination : String
+Departure : String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>891</x>
+      <y>0</y>
+      <w>243</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Bus
+--
+BusType : String
+BusModel : String
+BusID : String
+BusSeats : int
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>603</x>
+      <y>153</y>
+      <w>351</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>m1=*
+m2=1
+Ηas</panel_attributes>
+    <additional_attributes>10.0;23.0;370.0;20.0;370.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>819</x>
+      <y>441</y>
+      <w>243</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Driver
+--
+DriverName : String
+DriverID : String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>153</y>
+      <w>180</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>refersTo
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>558</y>
+      <w>54</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>m1=*
+m2=1
+buys</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;105.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>27</y>
+      <w>414</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>m1=*
+m2=1
+Has
+
+</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0;440.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>801</x>
+      <y>639</y>
+      <w>189</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Card
+--
+CardID : Long
+CardHolderName : String
+ExpirationDate : Calendar
+CVcode : int
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>585</x>
+      <y>675</y>
+      <w>234</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+Has</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>342</y>
+      <w>243</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Schedule Entry
+--
+DayOfWeek : String
+DepartureTime : Calendar
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>234</y>
+      <w>27</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+</diagram>
