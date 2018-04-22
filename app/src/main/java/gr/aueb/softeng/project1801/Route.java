@@ -1,0 +1,130 @@
+package gr.aueb.softeng.project1801;
+
+import java.util.Calendar;
+
+/**
+ * Created by George Chatzopoulos on 04/22/2018.
+ */
+
+public class Route {
+
+    private String Destination;
+    private Calendar DepartureTime;
+    private Calendar DeparturePoint;
+    private Calendar DepartureDate;
+    private Calendar EstimatedArrivalTime;
+    private Bus RouteBus;
+    private Driver Driver;
+    private int AvailableSeats;
+
+    public Route(String destination, Calendar departureTime, Calendar departurePoint, Calendar departureDate, Calendar estimatedArrivalTime, Bus routeBus, Driver driver, int availableSeats) {
+        Destination = destination;
+        DepartureTime = departureTime;
+        DeparturePoint = departurePoint;
+        DepartureDate = departureDate;
+        EstimatedArrivalTime = estimatedArrivalTime;
+        RouteBus = routeBus;
+        Driver = driver;
+        AvailableSeats = availableSeats;
+    }
+
+    public String getDestination() {
+        return Destination;
+    }
+
+    public void setDestination(String destination) {
+        Destination = destination;
+    }
+
+    public Calendar getDepartureTime() {
+        return DepartureTime;
+    }
+
+    public void setDepartureTime(Calendar departureTime) {
+        DepartureTime = departureTime;
+    }
+
+    public Calendar getDeparturePoint() {
+        return DeparturePoint;
+    }
+
+    public void setDeparturePoint(Calendar departurePoint) {
+        DeparturePoint = departurePoint;
+    }
+
+    public Calendar getDepartureDate() {
+        return DepartureDate;
+    }
+
+    public void setDepartureDate(Calendar departureDate) {
+        DepartureDate = departureDate;
+    }
+
+    public Calendar getEstimatedArrivalTime() {
+        return EstimatedArrivalTime;
+    }
+
+    public void setEstimatedArrivalTime(Calendar estimatedArrivalTime) {
+        EstimatedArrivalTime = estimatedArrivalTime;
+    }
+
+    public Bus getRouteBus() {
+        return RouteBus;
+    }
+
+    public void setRouteBus(Bus routeBus) {
+        RouteBus = routeBus;
+    }
+
+    public Driver getDriver() {
+        return Driver;
+    }
+
+    public void setDriver(Driver driver) {
+        Driver = driver;
+    }
+
+    public int getAvailableSeats() {
+        return AvailableSeats;
+    }
+
+    public void setAvailableSeats(int availableSeats) {
+        AvailableSeats = availableSeats;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Route route = (Route) o;
+
+        if (AvailableSeats != route.AvailableSeats) return false;
+        if (Destination != null ? !Destination.equals(route.Destination) : route.Destination != null)
+            return false;
+        if (DepartureTime != null ? !DepartureTime.equals(route.DepartureTime) : route.DepartureTime != null)
+            return false;
+        if (DeparturePoint != null ? !DeparturePoint.equals(route.DeparturePoint) : route.DeparturePoint != null)
+            return false;
+        if (DepartureDate != null ? !DepartureDate.equals(route.DepartureDate) : route.DepartureDate != null)
+            return false;
+        if (EstimatedArrivalTime != null ? !EstimatedArrivalTime.equals(route.EstimatedArrivalTime) : route.EstimatedArrivalTime != null)
+            return false;
+        if (RouteBus != null ? !RouteBus.equals(route.RouteBus) : route.RouteBus != null)
+            return false;
+        return Driver != null ? Driver.equals(route.Driver) : route.Driver == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Destination != null ? Destination.hashCode() : 0;
+        result = 31 * result + (DepartureTime != null ? DepartureTime.hashCode() : 0);
+        result = 31 * result + (DeparturePoint != null ? DeparturePoint.hashCode() : 0);
+        result = 31 * result + (DepartureDate != null ? DepartureDate.hashCode() : 0);
+        result = 31 * result + (EstimatedArrivalTime != null ? EstimatedArrivalTime.hashCode() : 0);
+        result = 31 * result + (RouteBus != null ? RouteBus.hashCode() : 0);
+        result = 31 * result + (Driver != null ? Driver.hashCode() : 0);
+        result = 31 * result + AvailableSeats;
+        return result;
+    }
+}

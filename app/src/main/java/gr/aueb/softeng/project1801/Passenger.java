@@ -47,7 +47,6 @@ public class Passenger {
     }
 
 
-
     //Returns a copy of the original set-> PassengerTicket
     public Set<Ticket> getAllTickets() {
         return new HashSet<>(PassengerTicket);
@@ -124,6 +123,21 @@ public class Passenger {
 
         if(!(NumberID == null ? thePassenger.NumberID == null
                 : NumberID.equals(thePassenger.NumberID))){
+
+        }
+        if(!(FirstName == null ? thePassenger.getFirstName() == null
+                : FirstName.equals(thePassenger.getFirstName()))){
+            return false;
+        }
+
+        if(!(LastName == null ? thePassenger.getLastName() == null
+                : LastName.equals(thePassenger.getLastName()))){
+            return false;
+        }
+
+        if(!(NumberID == null ? thePassenger.getNumberID() == null
+                : NumberID.equals(thePassenger.getNumberID()))){
+
             return false;
         }
 
