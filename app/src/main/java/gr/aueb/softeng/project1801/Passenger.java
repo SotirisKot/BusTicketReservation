@@ -33,6 +33,21 @@ public class Passenger {
     }
 
 
+    //Setters
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public void setNumberID(String numberID) {
+        NumberID = numberID;
+    }
+
+
+
     //Returns a copy of the original set-> PassengerTicket
     public Set<Ticket> getAllTickets() {
         return new HashSet<>(PassengerTicket);
@@ -97,18 +112,18 @@ public class Passenger {
         }
 
         Passenger thePassenger = (Passenger) other;
-        if(!(FirstName == null ? thePassenger.getFirstName() == null
-                : FirstName.equals(thePassenger.getFirstName()))){
+        if(!(FirstName == null ? thePassenger.FirstName == null
+                : FirstName.equals(thePassenger.FirstName))){
             return false;
         }
 
-        if(!(LastName == null ? thePassenger.getLastName() == null
-                : LastName.equals(thePassenger.getLastName()))){
+        if(!(LastName == null ? thePassenger.LastName == null
+                : LastName.equals(thePassenger.LastName))){
             return false;
         }
 
-        if(!(NumberID == null ? thePassenger.getNumberID() == null
-                : NumberID.equals(thePassenger.getNumberID()))){
+        if(!(NumberID == null ? thePassenger.NumberID == null
+                : NumberID.equals(thePassenger.NumberID))){
             return false;
         }
 
