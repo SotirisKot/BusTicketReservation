@@ -94,6 +94,12 @@ public class Passenger {
     }
 
 
+    //Checks if the passenger can buy the particular ticket
+    public boolean canBuy(Ticket ticket){
+        return ticket.TicketExists(ticket);
+    }
+
+
     //Overrides equals
     @Override
     public boolean equals(Object other){
@@ -125,18 +131,18 @@ public class Passenger {
                 : NumberID.equals(thePassenger.NumberID))){
 
         }
-        if(!(FirstName == null ? thePassenger.getFirstName() == null
-                : FirstName.equals(thePassenger.getFirstName()))){
+        if(!(FirstName == null ? thePassenger.FirstName == null
+                : FirstName.equals(thePassenger.FirstName))){
             return false;
         }
 
-        if(!(LastName == null ? thePassenger.getLastName() == null
-                : LastName.equals(thePassenger.getLastName()))){
+        if(!(LastName == null ? thePassenger.LastName == null
+                : LastName.equals(thePassenger.LastName))){
             return false;
         }
 
-        if(!(NumberID == null ? thePassenger.getNumberID() == null
-                : NumberID.equals(thePassenger.getNumberID()))){
+        if(!(NumberID == null ? thePassenger.NumberID == null
+                : NumberID.equals(thePassenger.NumberID))){
 
             return false;
         }

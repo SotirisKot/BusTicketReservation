@@ -67,9 +67,9 @@ public class Bus {
     @Override
     public int hashCode() {
         int result = BysType != null ? BysType.hashCode() : 0;
-        result = 31 * result + (ModelType != null ? ModelType.hashCode() : 0);
-        result = 31 * result + (BusID != null ? BusID.hashCode() : 0);
-        result = 31 * result + BusSeats;
+        result = 13 * result + (ModelType != null ? ModelType.hashCode() : 0);
+        result = 13 * result + (BusID != null ? BusID.hashCode() : 0);
+        result = 13 * result + BusSeats;
         return result;
     }
 }

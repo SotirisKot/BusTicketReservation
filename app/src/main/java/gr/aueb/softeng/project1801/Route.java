@@ -1,6 +1,6 @@
 package gr.aueb.softeng.project1801;
 
-import java.util.Calendar;
+import java.util.*;
 
 /**
  * Created by George Chatzopoulos on 04/22/2018.
@@ -16,6 +16,7 @@ public class Route {
     private Bus RouteBus;
     private Driver Driver;
     private int AvailableSeats;
+    private Set<Ticket> tickets = new HashSet<>();
 
     public Route(String destination, Calendar departureTime, Calendar departurePoint, Calendar departureDate, Calendar estimatedArrivalTime, Bus routeBus, Driver driver, int availableSeats) {
         Destination = destination;
@@ -92,6 +93,31 @@ public class Route {
         AvailableSeats = availableSeats;
     }
 
+    public Set<Ticket> getTickets(){
+        return new HashSet<>(tickets);
+    }
+
+    public void addTicket(Ticket ticket){
+        if(ticket != null){
+            ticket.setRoute(this);
+        }
+    }
+
+    public void removeTicket(Ticket ticket){
+        if(ticket != null){
+            ticket.setRoute(null);
+        }
+    }
+
+    Set<Ticket> friendRoutes(){
+        return tickets;
+    }
+
+    //Returns true if the ticket exists in the set
+    public boolean FindTicket(Ticket ticket){
+        return tickets.contains(ticket);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -118,13 +144,13 @@ public class Route {
     @Override
     public int hashCode() {
         int result = Destination != null ? Destination.hashCode() : 0;
-        result = 31 * result + (DepartureTime != null ? DepartureTime.hashCode() : 0);
-        result = 31 * result + (DeparturePoint != null ? DeparturePoint.hashCode() : 0);
-        result = 31 * result + (DepartureDate != null ? DepartureDate.hashCode() : 0);
-        result = 31 * result + (EstimatedArrivalTime != null ? EstimatedArrivalTime.hashCode() : 0);
-        result = 31 * result + (RouteBus != null ? RouteBus.hashCode() : 0);
-        result = 31 * result + (Driver != null ? Driver.hashCode() : 0);
-        result = 31 * result + AvailableSeats;
+        result = 13 * result + (DepartureTime != null ? DepartureTime.hashCode() : 0);
+        result = 13 * result + (DeparturePoint != null ? DeparturePoint.hashCode() : 0);
+        result = 13 * result + (DepartureDate != null ? DepartureDate.hashCode() : 0);
+        result = 13 * result + (EstimatedArrivalTime != null ? EstimatedArrivalTime.hashCode() : 0);
+        result = 13 * result + (RouteBus != null ? RouteBus.hashCode() : 0);
+        result = 13 * result + (Driver != null ? Driver.hashCode() : 0);
+        result = 13 * result + AvailableSeats;
         return result;
     }
 }

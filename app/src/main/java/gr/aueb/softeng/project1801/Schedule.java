@@ -1,6 +1,7 @@
 package gr.aueb.softeng.project1801;
 
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -15,10 +16,11 @@ public class Schedule {
     private Calendar DepartureDates;
     private String Destination;
     private String Departure;
-    ScheduleEntry entry;
-    Set<Route> schedule;
-    Set<ScheduleEntry> ScheduleEntry;
+    private Set<Route> routes = new HashSet<>();
+    private Set<ScheduleEntry> ScheduleEntry = new HashSet<>();
 
+
+    public Schedule(){ }
 
     public Schedule(String destinations, String departurePoints, Calendar departureTimes, Calendar departureDates, String destination, String departure) {
         Destinations = destinations;
@@ -29,30 +31,41 @@ public class Schedule {
         Departure = departure;
     }
 
-    public void addNewRoute(String Destination, String DeparturePoint){
+    public void addNewRoute(Route route){
 
-        entry.findNextRoute(getSchedule());
-
-    }
-
-    public void deleteRoute(String Destination, String DeparturePoint){
-
-        for(Route i : schedule){
-            if(schedule.equals(Destination)){
-                schedule.remove(i);
-            }
+        if(route != null){
+            routes.add(route);
         }
-
-
     }
 
-    Set<Route> getSchedule(){
-        return schedule;
+    public void deleteRoute(Route route){
+
+        if(route != null){
+            routes.remove(route);
+        }
+    }
+
+    public void addScheduleEntry(ScheduleEntry entry){
+        if(entry != null){
+            entry.setSchedule(this);
+        }
+    }
+
+    public void removeScheduleEntry(ScheduleEntry entry){
+        if(entry != null){
+            entry.setSchedule(null);
+        }
+    }
+
+    Set<Route> getRoutes(){
+        return new HashSet<>(routes);
     }
 
     Set<ScheduleEntry> getScheduleEntry(){
-        return ScheduleEntry;
+        return new HashSet<>(ScheduleEntry);
     }
+
+    Set<ScheduleEntry> friendsSchedules(){ return ScheduleEntry; }
 
     public String getDestinations() {
         return Destinations;
@@ -121,8 +134,7 @@ public class Schedule {
             return false;
         if (Departure != null ? !Departure.equals(schedule1.Departure) : schedule1.Departure != null)
             return false;
-        if (entry != null ? !entry.equals(schedule1.entry) : schedule1.entry != null) return false;
-        if (schedule != null ? !schedule.equals(schedule1.schedule) : schedule1.schedule != null)
+        if (routes != null ? !routes.equals(schedule1.routes) : schedule1.routes != null)
             return false;
         return ScheduleEntry != null ? ScheduleEntry.equals(schedule1.ScheduleEntry) : schedule1.ScheduleEntry == null;
     }
@@ -130,14 +142,13 @@ public class Schedule {
     @Override
     public int hashCode() {
         int result = Destinations != null ? Destinations.hashCode() : 0;
-        result = 31 * result + (DeparturePoints != null ? DeparturePoints.hashCode() : 0);
-        result = 31 * result + (DepartureTimes != null ? DepartureTimes.hashCode() : 0);
-        result = 31 * result + (DepartureDates != null ? DepartureDates.hashCode() : 0);
-        result = 31 * result + (Destination != null ? Destination.hashCode() : 0);
-        result = 31 * result + (Departure != null ? Departure.hashCode() : 0);
-        result = 31 * result + (entry != null ? entry.hashCode() : 0);
-        result = 31 * result + (schedule != null ? schedule.hashCode() : 0);
-        result = 31 * result + (ScheduleEntry != null ? ScheduleEntry.hashCode() : 0);
+        result = 13 * result + (DeparturePoints != null ? DeparturePoints.hashCode() : 0);
+        result = 13 * result + (DepartureTimes != null ? DepartureTimes.hashCode() : 0);
+        result = 13 * result + (DepartureDates != null ? DepartureDates.hashCode() : 0);
+        result = 13 * result + (Destination != null ? Destination.hashCode() : 0);
+        result = 13 * result + (Departure != null ? Departure.hashCode() : 0);
+        result = 13 * result + (routes != null ? routes.hashCode() : 0);
+        result = 13 * result + (ScheduleEntry != null ? ScheduleEntry.hashCode() : 0);
         return result;
     }
 }

@@ -45,7 +45,7 @@ public class Driver {
     @Override
     public int hashCode() {
         int result = DriverName != null ? DriverName.hashCode() : 0;
-        result = 31 * result + (DriverID != null ? DriverID.hashCode() : 0);
+        result = 13 * result + (DriverID != null ? DriverID.hashCode() : 0);
         return result;
     }
 }
