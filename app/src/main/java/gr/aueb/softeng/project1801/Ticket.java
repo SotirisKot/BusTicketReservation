@@ -11,6 +11,7 @@ public class Ticket {
     private Calendar DepartureDateTicket;
     private Calendar EstimatedArrivalTimeTicket;
     private double Price;
+    private Passenger passenger;
     private String PassengerName;
     private String PassengerID;
     private int PassengerSeat;
@@ -23,7 +24,7 @@ public class Ticket {
     //Constructor
     public Ticket(String DestinationTicket,String DeparturePointTicket,Calendar DepartureTimeTicket,
                   Calendar DepartureDateTicket,Calendar EstimatedArrivalTimeTicket,double Price,
-                  String PassengerName,String PassengerID,int PassengerSeat,String Type,Route route){
+                  Passenger passenger,int PassengerSeat,String Type,Route route){
 
         this.DestinationTicket = DestinationTicket;
         this.DeparturePointTicket = DeparturePointTicket;
@@ -31,8 +32,7 @@ public class Ticket {
         this.DepartureDateTicket = DepartureDateTicket;
         this.EstimatedArrivalTimeTicket = EstimatedArrivalTimeTicket;
         this.Price = Price;
-        this.PassengerName = PassengerName;
-        this.PassengerID = PassengerID;
+        this.passenger = passenger;
         this.PassengerSeat = PassengerSeat;
         this.Type = Type;
         this.route = route;
@@ -62,6 +62,10 @@ public class Ticket {
 
     public double getPrice() {
         return Price;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
     }
 
     public String getPassengerName() {
@@ -108,33 +112,39 @@ public class Ticket {
     }
 
     public void setPrice(double price) {
-        Price = price;
+        this.Price = price;
     }
 
-    public void setPassengerName(String passengerName) {
-        PassengerName = passengerName;
-    }
-
-    public void setPassengerID(String passengerID) {
-        PassengerID = passengerID;
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
     public void setPassengerSeat(int passengerSeat) {
-        PassengerSeat = passengerSeat;
+        this.PassengerSeat = passengerSeat;
+    }
+
+    public void setPassengerName(String passengerName) {
+        this.PassengerName = passengerName;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.Type = type;
+    }
+
+    public void setPassengerID(String passengerID) {
+        this.PassengerID = passengerID;
     }
 
     public void setRoute(Route route) {
         if(this.route != null){
             this.route.friendRoutes().remove(this);
+            route.setAvailableSeats(route.getAvailableSeats() + 1);
         }
 
         this.route = route;
         if(this.route != null){
             this.route.friendRoutes().add(this);
+            route.setAvailableSeats(route.getAvailableSeats() - 1);
         }
     }
 
@@ -142,6 +152,29 @@ public class Ticket {
     //Checks if the ticket is available in the route
     public boolean TicketExists(Ticket ticket){
         return route.FindTicket(ticket);
+    }
+
+
+    //Completes the purchase of a ticket if it is available
+    public boolean buyTicket(Ticket ticket, Passenger passenger, Route route){
+        if(route.getAvailableSeats() != 0){
+            if(!TicketExists(ticket)){
+                System.out.println("Ticket is available!!!");
+                PassengerName = passenger.getFirstName() + passenger.getLastName();
+                PassengerID = passenger.getNumberID();
+
+                //here it will ask for card information TODO
+
+                route.addTicket(ticket);
+                return true;
+            }else{
+                System.out.println("Ticket is not available!!!");
+                return false;
+            }
+        }else{
+            System.out.println("There are no available seats in this route!!!");
+            return false;
+        }
     }
 
     //Overrides equals
@@ -190,6 +223,16 @@ public class Ticket {
             return false;
         }
 
+        if(!(passenger == null ? theTicket.passenger == null
+                : passenger.equals(theTicket.passenger))){
+            return false;
+        }
+
+        if(!(PassengerSeat == 0 ? theTicket.PassengerSeat == 0
+                : PassengerSeat == theTicket.PassengerSeat)){
+            return false;
+        }
+
         if(!(PassengerName == null ? theTicket.PassengerName == null
                 : PassengerName.equals(theTicket.PassengerName))){
             return false;
@@ -197,11 +240,6 @@ public class Ticket {
 
         if(!(PassengerID == null ? theTicket.PassengerID == null
                 : PassengerID.equals(theTicket.PassengerID))){
-            return false;
-        }
-
-        if(!(PassengerSeat == 0 ? theTicket.PassengerSeat == 0
-                : PassengerSeat == theTicket.PassengerSeat)){
             return false;
         }
 
@@ -223,7 +261,7 @@ public class Ticket {
     public int hashCode(){
         if(DestinationTicket == null && DeparturePointTicket == null & DepartureTimeTicket == null
                 && DepartureDateTicket == null && EstimatedArrivalTimeTicket == null &&
-                Price == 0 && PassengerName == null && PassengerID == null & PassengerSeat == 0
+                Price == 0 && passenger == null && PassengerSeat == 0
                 && Type == null && route == null){
 
             return 0;
@@ -236,6 +274,7 @@ public class Ticket {
         result = DepartureDateTicket == null ? result : 13 * result + DepartureDateTicket.hashCode();
         result = EstimatedArrivalTimeTicket == null ? result : 13 * result + EstimatedArrivalTimeTicket.hashCode();
         result = Price == 0 ? result : 13 * result + (int) Price;
+        result = passenger == null ? result : 13 * result + passenger.hashCode();
         result = PassengerName == null ? result : 13 * result + PassengerName.hashCode();
         result = PassengerID == null ? result : 13 * result + PassengerID.hashCode();
         result = PassengerSeat == 0 ? result : 13 * result + PassengerSeat;

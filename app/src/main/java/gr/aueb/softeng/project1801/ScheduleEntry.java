@@ -11,30 +11,11 @@ public class ScheduleEntry {
 
     private String DayOfWeek;
     private Calendar DepartureTime;
-    private Schedule schedule;
 
-    public ScheduleEntry(String DayOfWeek,Calendar DepartureTime,Schedule schedule){
+
+    public ScheduleEntry(String DayOfWeek,Calendar DepartureTime){
         this.DayOfWeek = DayOfWeek;
         this.DepartureTime = DepartureTime;
-        this.schedule = schedule;
-    }
-
-
-    public void setSchedule(Schedule schedule){
-
-        if(this.schedule != null){
-            this.schedule.friendsSchedules().remove(this);
-        }
-
-        this.schedule = schedule;
-        if(this.schedule != null){
-            this.schedule.friendsSchedules().add(this);
-        }
-
-    }
-
-    public Schedule getSchedule() {
-        return schedule;
     }
 
     public String getDayOfWeek() {

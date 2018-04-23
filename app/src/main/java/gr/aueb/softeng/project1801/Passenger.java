@@ -7,7 +7,6 @@ public class Passenger {
     private String FirstName;
     private String LastName;
     private String NumberID;
-    private Set<Ticket> PassengerTicket = new HashSet<>();//Stores all passenger's tickets.
     private Set<Card> PassengerCard = new HashSet<>();//Stores all passenger's card.
 
     //Constructor
@@ -47,25 +46,11 @@ public class Passenger {
     }
 
 
-    //Returns a copy of the original set-> PassengerTicket
-    public Set<Ticket> getAllTickets() {
-        return new HashSet<>(PassengerTicket);
-    }
-
-
     //Returns a copy of the original set-> PassengerCard
     public Set<Card> getAllCards() {
         return new HashSet<>(PassengerCard);
     }
 
-
-    //Adds a ticket in the set if it is not null
-    public void addTicket(Ticket ticket){
-
-        if(ticket != null){
-            PassengerTicket.add(ticket);
-        }
-    }
 
 
     //Adds a card in the set if it is not null
@@ -77,14 +62,6 @@ public class Passenger {
     }
 
 
-    //Removes a ticket from the set if it exists
-    public void removeTicket(Ticket ticket){
-
-        if(ticket != null){
-            PassengerTicket.remove(ticket);
-        }
-    }
-
     //Removes a card from the set if it exists
     public void removeCard(Card card){
 
@@ -93,11 +70,6 @@ public class Passenger {
         }
     }
 
-
-    //Checks if the passenger can buy the particular ticket
-    public boolean canBuy(Ticket ticket){
-        return ticket.TicketExists(ticket);
-    }
 
 
     //Overrides equals

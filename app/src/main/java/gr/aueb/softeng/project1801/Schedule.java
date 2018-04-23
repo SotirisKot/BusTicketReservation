@@ -10,10 +10,10 @@ import java.util.Set;
 
 public class Schedule {
 
-    private String Destinations;
-    private String DeparturePoints;
-    private Calendar DepartureTimes;
-    private Calendar DepartureDates;
+    private Set<String> Destinations = new HashSet<>();
+    private Set<String> DeparturePoints = new HashSet<>();
+    private Set<Calendar> DepartureTimes = new HashSet<>();
+    private Set<Calendar> DepartureDates = new HashSet<>();
     private String Destination;
     private String Departure;
     private Set<Route> routes = new HashSet<>();
@@ -22,7 +22,8 @@ public class Schedule {
 
     public Schedule(){ }
 
-    public Schedule(String destinations, String departurePoints, Calendar departureTimes, Calendar departureDates, String destination, String departure) {
+    public Schedule(Set<String> destinations, Set<String> departurePoints, Set<Calendar> departureTimes,
+                    Set<Calendar> departureDates, String destination, String departure) {
         Destinations = destinations;
         DeparturePoints = departurePoints;
         DepartureTimes = departureTimes;
@@ -47,13 +48,13 @@ public class Schedule {
 
     public void addScheduleEntry(ScheduleEntry entry){
         if(entry != null){
-            entry.setSchedule(this);
+            ScheduleEntry.add(entry);
         }
     }
 
     public void removeScheduleEntry(ScheduleEntry entry){
         if(entry != null){
-            entry.setSchedule(null);
+            ScheduleEntry.remove(entry);
         }
     }
 
@@ -65,37 +66,35 @@ public class Schedule {
         return new HashSet<>(ScheduleEntry);
     }
 
-    Set<ScheduleEntry> friendsSchedules(){ return ScheduleEntry; }
-
-    public String getDestinations() {
-        return Destinations;
+    public Set<String> getDestinations() {
+        return new HashSet<>(Destinations);
     }
 
-    public void setDestinations(String destinations) {
+    public void setDestinations(Set<String> destinations) {
         Destinations = destinations;
     }
 
-    public String getDeparturePoints() {
-        return DeparturePoints;
+    public Set<String> getDeparturePoints() {
+        return new HashSet<>(DeparturePoints);
     }
 
-    public void setDeparturePoints(String departurePoints) {
+    public void setDeparturePoints(Set<String> departurePoints) {
         DeparturePoints = departurePoints;
     }
 
-    public Calendar getDepartureTimes() {
-        return DepartureTimes;
+    public Set<Calendar> getDepartureTimes() {
+        return new HashSet<>(DepartureTimes);
     }
 
-    public void setDepartureTimes(Calendar departureTimes) {
+    public void setDepartureTimes(Set<Calendar> departureTimes) {
         DepartureTimes = departureTimes;
     }
 
-    public Calendar getDepartureDates() {
-        return DepartureDates;
+    public Set<Calendar> getDepartureDates() {
+        return new HashSet<>(DepartureDates);
     }
 
-    public void setDepartureDates(Calendar departureDates) {
+    public void setDepartureDates(Set<Calendar> departureDates) {
         DepartureDates = departureDates;
     }
 
@@ -114,6 +113,51 @@ public class Schedule {
     public void setDeparture(String departure) {
         Departure = departure;
     }
+
+
+    public Route createRoute(String Destination,String DeparturePoint,Calendar DepartureTime
+        ,Calendar DepartureDate,Calendar EstimatedArrivalTime,Bus RouteBus,Driver Driver){
+
+        //Will check if all the chosen information about the route is valid
+        if(!Destinations.contains(Destination)){
+            System.out.println("Not a valid Destination!!!");
+            return null;
+        }
+        if(!DeparturePoints.contains(DeparturePoint)){
+            System.out.println("Not a valid departure point!!!");
+            return null;
+        }
+        if(!DepartureTimes.contains(DepartureTime)){
+            System.out.println("Not a valid departure time!!!");
+            return null;
+        }
+        if(!DepartureDates.contains(DepartureDate)){
+            System.out.println("Not a valid departure date!!!");
+            return null;
+        }
+        Route route = new Route();
+        if(RouteBus.getState() == BusState.AVAILABLE){
+            System.out.println("Bus is available");
+            route.setRouteBus(RouteBus);
+            RouteBus.setState(BusState.NOT_AVAILABLE);
+        }else{
+            System.out.println("Bus not available");
+            return null;
+        }
+        if(Driver.getState() == DriverState.AVAILABLE){
+            System.out.println("Driver is available");
+            route.setDriver(Driver);
+            Driver.setState(DriverState.NOT_AVAILABLE);
+        }else {
+            return null;
+        }
+        System.out.println("All the information is valid...will create route");
+        route.setEstimatedArrivalTime(EstimatedArrivalTime);
+        addNewRoute(route);
+
+        return route;
+    }
+
 
     @Override
     public boolean equals(Object o) {

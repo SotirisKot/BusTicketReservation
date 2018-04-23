@@ -8,6 +8,7 @@ public class Driver {
 
     private String DriverName;
     private String DriverID;
+    private DriverState state = DriverState.AVAILABLE;
 
     public Driver(String driverName, String driverID) {
         DriverName = driverName;
@@ -28,6 +29,22 @@ public class Driver {
 
     public void setDriverID(String driverID) {
         DriverID = driverID;
+    }
+
+    public DriverState getState() {
+        return state;
+    }
+
+    public void setState(DriverState state) {
+        this.state = state;
+    }
+
+    public void available(){
+        setState(DriverState.AVAILABLE);
+    }
+
+    public void not_available(){
+        setState(DriverState.NOT_AVAILABLE);
     }
 
     @Override

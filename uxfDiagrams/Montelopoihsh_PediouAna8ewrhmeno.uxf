@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.2">
-  <zoom_level>9</zoom_level>
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>7</zoom_level>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>396</x>
-      <y>99</y>
-      <w>216</w>
-      <h>144</h>
+      <x>385</x>
+      <y>252</y>
+      <w>168</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Route
 --
@@ -25,10 +24,10 @@ AvailableSeats : int
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>405</x>
-      <y>648</y>
-      <w>189</w>
-      <h>72</h>
+      <x>392</x>
+      <y>679</y>
+      <w>147</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Passenger
 --
@@ -43,10 +42,10 @@ NumberID : String
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>378</x>
-      <y>387</y>
-      <w>252</w>
-      <h>180</h>
+      <x>371</x>
+      <y>476</y>
+      <w>196</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>Ticket
 --
@@ -66,10 +65,10 @@ Type : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>486</x>
-      <y>234</y>
-      <w>90</w>
-      <h>171</h>
+      <x>455</x>
+      <y>357</y>
+      <w>77</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -80,10 +79,10 @@ IsConnected</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>0</x>
-      <y>126</y>
-      <w>243</w>
-      <h>117</h>
+      <x>77</x>
+      <y>273</y>
+      <w>189</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Schedule
 --
@@ -100,10 +99,10 @@ Departure : String
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>891</x>
-      <y>0</y>
-      <w>243</w>
-      <h>90</h>
+      <x>770</x>
+      <y>175</y>
+      <w>189</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Bus
 --
@@ -118,10 +117,10 @@ BusSeats : int
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>603</x>
-      <y>153</y>
-      <w>351</w>
-      <h>306</h>
+      <x>546</x>
+      <y>294</y>
+      <w>273</w>
+      <h>238</h>
     </coordinates>
     <panel_attributes>m1=*
 m2=1
@@ -131,10 +130,10 @@ m2=1
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>819</x>
-      <y>441</y>
-      <w>243</w>
-      <h>63</h>
+      <x>714</x>
+      <y>518</y>
+      <w>189</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Driver
 --
@@ -146,10 +145,10 @@ DriverID : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>153</y>
-      <w>180</w>
-      <h>45</h>
+      <x>259</x>
+      <y>294</y>
+      <w>140</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>refersTo
 m1=1
@@ -159,10 +158,10 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>486</x>
-      <y>558</y>
-      <w>54</w>
-      <h>117</h>
+      <x>455</x>
+      <y>609</y>
+      <w>42</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>m1=*
 m2=1
@@ -172,10 +171,10 @@ buys</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>495</x>
-      <y>27</y>
-      <w>414</w>
-      <h>90</h>
+      <x>462</x>
+      <y>196</y>
+      <w>322</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>m1=*
 m2=1
@@ -187,10 +186,10 @@ Has
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>801</x>
-      <y>639</y>
-      <w>189</w>
-      <h>90</h>
+      <x>700</x>
+      <y>672</y>
+      <w>147</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Card
 --
@@ -205,10 +204,10 @@ CVcode : int
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>585</x>
-      <y>675</y>
-      <w>234</w>
-      <h>45</h>
+      <x>532</x>
+      <y>700</y>
+      <w>182</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -219,10 +218,10 @@ Has</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>0</x>
-      <y>342</y>
-      <w>243</w>
-      <h>63</h>
+      <x>77</x>
+      <y>441</y>
+      <w>189</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Schedule Entry
 --
@@ -234,10 +233,10 @@ DepartureTime : Calendar
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>108</x>
-      <y>234</y>
-      <w>27</w>
-      <h>126</h>
+      <x>161</x>
+      <y>357</y>
+      <w>21</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1

@@ -10,6 +10,7 @@ public class Bus {
     private String ModelType;
     private String BusID;
     private int BusSeats;
+    private BusState state = BusState.AVAILABLE;
 
     public Bus(String bysType, String modelType, String busID, int busSeats) {
         BysType = bysType;
@@ -48,6 +49,22 @@ public class Bus {
 
     public void setBusSeats(int busSeats) {
         BusSeats = busSeats;
+    }
+
+    public BusState getState() {
+        return state;
+    }
+
+    public void setState(BusState state) {
+        this.state = state;
+    }
+
+    public void available() {
+        setState(BusState.AVAILABLE);
+    }
+
+    public void not_available(){
+        setState(BusState.NOT_AVAILABLE);
     }
 
     @Override

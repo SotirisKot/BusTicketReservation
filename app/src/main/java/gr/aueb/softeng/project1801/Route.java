@@ -10,7 +10,7 @@ public class Route {
 
     private String Destination;
     private Calendar DepartureTime;
-    private Calendar DeparturePoint;
+    private String DeparturePoint;
     private Calendar DepartureDate;
     private Calendar EstimatedArrivalTime;
     private Bus RouteBus;
@@ -18,7 +18,12 @@ public class Route {
     private int AvailableSeats;
     private Set<Ticket> tickets = new HashSet<>();
 
-    public Route(String destination, Calendar departureTime, Calendar departurePoint, Calendar departureDate, Calendar estimatedArrivalTime, Bus routeBus, Driver driver, int availableSeats) {
+
+    //Default constructor
+    public Route() { }
+
+    public Route(String destination, Calendar departureTime, String departurePoint, Calendar departureDate
+            ,Calendar estimatedArrivalTime, Bus routeBus, Driver driver, int availableSeats) {
         Destination = destination;
         DepartureTime = departureTime;
         DeparturePoint = departurePoint;
@@ -45,11 +50,11 @@ public class Route {
         DepartureTime = departureTime;
     }
 
-    public Calendar getDeparturePoint() {
+    public String getDeparturePoint() {
         return DeparturePoint;
     }
 
-    public void setDeparturePoint(Calendar departurePoint) {
+    public void setDeparturePoint(String departurePoint) {
         DeparturePoint = departurePoint;
     }
 
