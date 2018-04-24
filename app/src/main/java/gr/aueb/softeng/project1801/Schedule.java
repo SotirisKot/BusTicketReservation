@@ -1,8 +1,6 @@
 package gr.aueb.softeng.project1801;
 
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by George Chatzopoulos on 04/22/2018.
@@ -116,7 +114,7 @@ public class Schedule {
 
 
     public Route createRoute(String Destination,String DeparturePoint,Calendar DepartureTime
-        ,Calendar DepartureDate,Calendar EstimatedArrivalTime,Bus RouteBus,Driver Driver){
+        ,Calendar DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
 
         //Will check if all the chosen information about the route is valid
         if(!Destinations.contains(Destination)){

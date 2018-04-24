@@ -9,10 +9,10 @@ import java.util.*;
 public class Route {
 
     private String Destination;
-    private Calendar DepartureTime;
+    private String DepartureTime;
     private String DeparturePoint;
-    private Calendar DepartureDate;
-    private Calendar EstimatedArrivalTime;
+    private Date DepartureDate;
+    private String EstimatedArrivalTime;
     private Bus RouteBus;
     private Driver Driver;
     private int AvailableSeats;
@@ -22,8 +22,8 @@ public class Route {
     //Default constructor
     public Route() { }
 
-    public Route(String destination, Calendar departureTime, String departurePoint, Calendar departureDate
-            ,Calendar estimatedArrivalTime, Bus routeBus, Driver driver, int availableSeats) {
+    public Route(String destination, String departureTime, String departurePoint, Date departureDate
+            ,String estimatedArrivalTime, Bus routeBus, Driver driver) {
         Destination = destination;
         DepartureTime = departureTime;
         DeparturePoint = departurePoint;
@@ -31,7 +31,7 @@ public class Route {
         EstimatedArrivalTime = estimatedArrivalTime;
         RouteBus = routeBus;
         Driver = driver;
-        AvailableSeats = availableSeats;
+        AvailableSeats = routeBus.getBusSeats();
     }
 
     public String getDestination() {
@@ -42,11 +42,11 @@ public class Route {
         Destination = destination;
     }
 
-    public Calendar getDepartureTime() {
+    public String getDepartureTime() {
         return DepartureTime;
     }
 
-    public void setDepartureTime(Calendar departureTime) {
+    public void setDepartureTime(String departureTime) {
         DepartureTime = departureTime;
     }
 
@@ -58,19 +58,19 @@ public class Route {
         DeparturePoint = departurePoint;
     }
 
-    public Calendar getDepartureDate() {
+    public Date getDepartureDate() {
         return DepartureDate;
     }
 
-    public void setDepartureDate(Calendar departureDate) {
+    public void setDepartureDate(Date departureDate) {
         DepartureDate = departureDate;
     }
 
-    public Calendar getEstimatedArrivalTime() {
+    public String getEstimatedArrivalTime() {
         return EstimatedArrivalTime;
     }
 
-    public void setEstimatedArrivalTime(Calendar estimatedArrivalTime) {
+    public void setEstimatedArrivalTime(String estimatedArrivalTime) {
         EstimatedArrivalTime = estimatedArrivalTime;
     }
 
@@ -114,7 +114,7 @@ public class Route {
         }
     }
 
-    Set<Ticket> friendRoutes(){
+    public Set<Ticket> friendRoutes(){
         return tickets;
     }
 

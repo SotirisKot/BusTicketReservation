@@ -1,5 +1,7 @@
 package gr.aueb.softeng.project1801;
 
+import android.support.annotation.NonNull;
+
 import java.util.Calendar;
 import java.util.Set;
 
@@ -7,22 +9,22 @@ import java.util.Set;
  * Created by George Chatzopoulos on 04/22/2018.
  */
 
-public class ScheduleEntry {
+public class ScheduleEntry implements Comparable<ScheduleEntry>{
 
-    private String DayOfWeek;
+    private Calendar DayOfWeek;
     private Calendar DepartureTime;
 
 
-    public ScheduleEntry(String DayOfWeek,Calendar DepartureTime){
+    public ScheduleEntry(Calendar DayOfWeek,Calendar DepartureTime){
         this.DayOfWeek = DayOfWeek;
         this.DepartureTime = DepartureTime;
     }
 
-    public String getDayOfWeek() {
+    public Calendar getDayOfWeek() {
         return DayOfWeek;
     }
 
-    public void setDayOfWeek(String dayOfWeek) {
+    public void setDayOfWeek(Calendar dayOfWeek) {
         DayOfWeek = dayOfWeek;
     }
 
@@ -40,6 +42,15 @@ public class ScheduleEntry {
         }else{
             System.out.println("Empty Schedule!");
         }
+    }
+
+    @Override
+    public int compareTo(ScheduleEntry other) {
+        if(this.getDayOfWeek().before(other.getDayOfWeek())
+                && this.getDepartureTime().before(other.getDepartureTime())){
+            return 1;
+        }
+        return 0;
     }
 
     @Override

@@ -3,13 +3,15 @@ package gr.aueb.softeng.project1801;
 
 import java.util.*;
 
+import javax.xml.transform.Source;
+
 public class Ticket {
 
     private String DestinationTicket;
     private String DeparturePointTicket;
-    private Calendar DepartureTimeTicket;
-    private Calendar DepartureDateTicket;
-    private Calendar EstimatedArrivalTimeTicket;
+    private String DepartureTimeTicket;
+    private Date DepartureDateTicket;
+    private String EstimatedArrivalTimeTicket;
     private double Price;
     private Passenger passenger;
     private String PassengerName;
@@ -22,8 +24,8 @@ public class Ticket {
     public Ticket() { }
 
     //Constructor
-    public Ticket(String DestinationTicket,String DeparturePointTicket,Calendar DepartureTimeTicket,
-                  Calendar DepartureDateTicket,Calendar EstimatedArrivalTimeTicket,double Price,
+    public Ticket(String DestinationTicket,String DeparturePointTicket,String DepartureTimeTicket,
+                  Date DepartureDateTicket,String EstimatedArrivalTimeTicket,double Price,
                   Passenger passenger,int PassengerSeat,String Type,Route route){
 
         this.DestinationTicket = DestinationTicket;
@@ -48,15 +50,15 @@ public class Ticket {
         return DeparturePointTicket;
     }
 
-    public Calendar getDepartureTimeTicket() {
+    public String getDepartureTimeTicket() {
         return DepartureTimeTicket;
     }
 
-    public Calendar getDepartureDateTicket() {
+    public Date getDepartureDateTicket() {
         return DepartureDateTicket;
     }
 
-    public Calendar getEstimatedArrivalTimeTicket() {
+    public String getEstimatedArrivalTimeTicket() {
         return EstimatedArrivalTimeTicket;
     }
 
@@ -99,15 +101,15 @@ public class Ticket {
         DeparturePointTicket = departurePointTicket;
     }
 
-    public void setDepartureTimeTicket(Calendar departureTimeTicket) {
+    public void setDepartureTimeTicket(String departureTimeTicket) {
         DepartureTimeTicket = departureTimeTicket;
     }
 
-    public void setDepartureDateTicket(Calendar departureDateTicket) {
+    public void setDepartureDateTicket(Date departureDateTicket) {
         DepartureDateTicket = departureDateTicket;
     }
 
-    public void setEstimatedArrivalTimeTicket(Calendar estimatedArrivalTimeTicket) {
+    public void setEstimatedArrivalTimeTicket(String estimatedArrivalTimeTicket) {
         EstimatedArrivalTimeTicket = estimatedArrivalTimeTicket;
     }
 
@@ -160,6 +162,7 @@ public class Ticket {
         if(route.getAvailableSeats() != 0){
             if(!TicketExists(ticket)){
                 System.out.println("Ticket is available!!!");
+                setPassenger(passenger);
                 PassengerName = passenger.getFirstName() + passenger.getLastName();
                 PassengerID = passenger.getNumberID();
 
