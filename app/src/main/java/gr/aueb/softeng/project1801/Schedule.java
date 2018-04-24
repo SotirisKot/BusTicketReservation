@@ -1,5 +1,6 @@
 package gr.aueb.softeng.project1801;
 
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,11 +15,13 @@ public class Schedule {
     private Set<String> DeparturePoints = new HashSet<>();
     private Set<Calendar> DepartureTimes = new HashSet<>();
     private Set<Calendar> DepartureDates = new HashSet<>();
+    private Calendar date;
+    private Calendar time;
+    private Calendar selectedDate;
     private String Destination;
     private String Departure;
     private Set<Route> routes = new HashSet<>();
     private Set<ScheduleEntry> ScheduleEntry = new HashSet<>();
-
 
     public Schedule(){ }
 
@@ -46,9 +49,20 @@ public class Schedule {
         }
     }
 
-    public void addScheduleEntry(ScheduleEntry entry){
-        if(entry != null){
-            ScheduleEntry.add(entry);
+    public Calendar chooseDate(Calendar date){
+        return selectedDate = date;
+    }
+
+    public void addScheduleEntry(ScheduleEntry entry) throws ParseException {
+        if (entry != null) {
+            Calendar Date = entry.findNextRoute(date, time);
+            if (Date == null) {
+                System.out.println("No available date");
+            } else {
+                System.out.println("The Date is: " + Date);
+                entry.setDepartureTime(Date);
+                ScheduleEntry.add(entry);
+            }
         }
     }
 
@@ -57,6 +71,8 @@ public class Schedule {
             ScheduleEntry.remove(entry);
         }
     }
+
+
 
     Set<Route> getRoutes(){
         return new HashSet<>(routes);
