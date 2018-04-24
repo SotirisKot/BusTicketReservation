@@ -26,11 +26,12 @@ public class TicketTest {
         calendar.set(Calendar.MONTH,4);
         calendar.set(Calendar.DAY_OF_MONTH,24);
 
+
         bus = new Bus("Type1", "Mercendes", "AR1314",50);
         driver = new Driver("Anastasios Lepipas", "AL1997");
 
         passenger = new Passenger("Sotiris","Kotitsas","SK9");
-        route = new Route("Athens","8:00PM","Nafplio",calendar.getTime(),
+        route = new Route("Athens","8:00PM","Nafplio", calendar,
                 "10:00PM",bus,driver);
     }
 

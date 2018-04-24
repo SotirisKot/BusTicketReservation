@@ -10,7 +10,7 @@ public class Ticket {
     private String DestinationTicket;
     private String DeparturePointTicket;
     private String DepartureTimeTicket;
-    private Date DepartureDateTicket;
+    private Calendar DepartureDateTicket;
     private String EstimatedArrivalTimeTicket;
     private double Price;
     private Passenger passenger;
@@ -25,7 +25,7 @@ public class Ticket {
 
     //Constructor
     public Ticket(String DestinationTicket,String DeparturePointTicket,String DepartureTimeTicket,
-                  Date DepartureDateTicket,String EstimatedArrivalTimeTicket,double Price,
+                  Calendar DepartureDateTicket,String EstimatedArrivalTimeTicket,double Price,
                   Passenger passenger,int PassengerSeat,String Type,Route route){
 
         this.DestinationTicket = DestinationTicket;
@@ -54,7 +54,7 @@ public class Ticket {
         return DepartureTimeTicket;
     }
 
-    public Date getDepartureDateTicket() {
+    public Calendar getDepartureDateTicket() {
         return DepartureDateTicket;
     }
 
@@ -105,7 +105,7 @@ public class Ticket {
         DepartureTimeTicket = departureTimeTicket;
     }
 
-    public void setDepartureDateTicket(Date departureDateTicket) {
+    public void setDepartureDateTicket(Calendar departureDateTicket) {
         DepartureDateTicket = departureDateTicket;
     }
 

@@ -132,7 +132,7 @@ public class Schedule {
 
 
     public Route createRoute(String Destination,String DeparturePoint,Calendar DepartureTime
-        ,Calendar DepartureDate,Calendar EstimatedArrivalTime,Bus RouteBus,Driver Driver){
+        ,Calendar DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
 
         //Will check if all the chosen information about the route is valid
         if(!Destinations.contains(Destination)){
