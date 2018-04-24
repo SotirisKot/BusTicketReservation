@@ -21,10 +21,10 @@ import java.util.Set;
 public class ScheduleEntry {
 
     private String DayOfWeek;
-    private Calendar DepartureTime;
+    private String DepartureTime;
     private Schedule sc;
 
-    public ScheduleEntry(String DayOfWeek,Calendar DepartureTime){
+    public ScheduleEntry(String DayOfWeek,String DepartureTime){
         this.DayOfWeek = DayOfWeek;
         this.DepartureTime = DepartureTime;
     }
@@ -37,21 +37,21 @@ public class ScheduleEntry {
         DayOfWeek = dayOfWeek;
     }
 
-    public Calendar getDepartureTime() {
+    public String getDepartureTime() {
         return DepartureTime;
     }
 
-    public void setDepartureTime(Calendar departureTime) {
+    public void setDepartureTime(String departureTime) {
         DepartureTime = departureTime;
     }
 
-    public Calendar findNextRoute(Calendar date, Calendar time) throws ParseException {
+    public String findNextRoute(String date, String time) throws ParseException {
         String input_date = Format(date);
         boolean hasDate = false;
         HashMap<String,Calendar> dates = new HashMap<String,Calendar>();
         sc.getRoutes();
-        Calendar finalDate = null;
-        finalDate.set(0,0,0);
+        String finalDate = null;
+        finalDate = "null";
 
         for(Route i : sc.getRoutes()){
             if((i.getDepartureDate().equals(date) && i.getDepartureTime().equals(time) && input_date.equals(Format(i.getDepartureDate())))){
@@ -78,8 +78,8 @@ public class ScheduleEntry {
         return finalDate;
     }
 
-    public String Format(Calendar date) throws ParseException {
-        String input_date=date.toString();
+    public String Format(String input_date) throws ParseException {
+        //String input_date=date.toString();
         SimpleDateFormat format1=new SimpleDateFormat("dd/MM/yyyy");
         Date dt1=format1.parse(input_date);
         DateFormat format2=new SimpleDateFormat("EEEE");

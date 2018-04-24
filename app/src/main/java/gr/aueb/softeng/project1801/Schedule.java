@@ -13,11 +13,11 @@ public class Schedule {
 
     private Set<String> Destinations = new HashSet<>();
     private Set<String> DeparturePoints = new HashSet<>();
-    private Set<Calendar> DepartureTimes = new HashSet<>();
-    private Set<Calendar> DepartureDates = new HashSet<>();
-    private Calendar date;
-    private Calendar time;
-    private Calendar selectedDate;
+    private Set<String> DepartureTimes = new HashSet<>();
+    private Set<String> DepartureDates = new HashSet<>();
+    private String date;
+    private String time;
+    private String selectedDate;
     private String Destination;
     private String Departure;
     private Set<Route> routes = new HashSet<>();
@@ -25,8 +25,8 @@ public class Schedule {
 
     public Schedule(){ }
 
-    public Schedule(Set<String> destinations, Set<String> departurePoints, Set<Calendar> departureTimes,
-                    Set<Calendar> departureDates, String destination, String departure) {
+    public Schedule(Set<String> destinations, Set<String> departurePoints, Set<String> departureTimes,
+                    Set<String> departureDates, String destination, String departure) {
         Destinations = destinations;
         DeparturePoints = departurePoints;
         DepartureTimes = departureTimes;
@@ -39,24 +39,31 @@ public class Schedule {
 
         if(route != null){
             routes.add(route);
+            System.out.println("New route added!");
+        }else{
+            System.out.println("Empty route");
         }
+
     }
 
     public void deleteRoute(Route route){
 
         if(route != null){
             routes.remove(route);
+            System.out.println("Route removed!");
+        }else{
+            System.out.println("Empty route");
         }
     }
 
-    public Calendar chooseDate(Calendar date){
+    public String chooseDate(String date){
         return selectedDate = date;
     }
 
     public void addScheduleEntry(ScheduleEntry entry) throws ParseException {
         if (entry != null) {
-            Calendar Date = entry.findNextRoute(date, time);
-            if (Date == null) {
+            String Date = entry.findNextRoute(date, time);
+            if (Date.equals("null")) {
                 System.out.println("No available date");
             } else {
                 System.out.println("The Date is: " + Date);
@@ -98,19 +105,19 @@ public class Schedule {
         DeparturePoints = departurePoints;
     }
 
-    public Set<Calendar> getDepartureTimes() {
+    public Set<String> getDepartureTimes() {
         return new HashSet<>(DepartureTimes);
     }
 
-    public void setDepartureTimes(Set<Calendar> departureTimes) {
+    public void setDepartureTimes(Set<String> departureTimes) {
         DepartureTimes = departureTimes;
     }
 
-    public Set<Calendar> getDepartureDates() {
+    public Set<String> getDepartureDates() {
         return new HashSet<>(DepartureDates);
     }
 
-    public void setDepartureDates(Set<Calendar> departureDates) {
+    public void setDepartureDates(Set<String> departureDates) {
         DepartureDates = departureDates;
     }
 
@@ -130,9 +137,8 @@ public class Schedule {
         Departure = departure;
     }
 
-
-    public Route createRoute(String Destination,String DeparturePoint,Calendar DepartureTime
-        ,Calendar DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
+    public Route createRoute(String Destination,String DeparturePoint,String DepartureTime
+        ,String DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
 
         //Will check if all the chosen information about the route is valid
         if(!Destinations.contains(Destination)){

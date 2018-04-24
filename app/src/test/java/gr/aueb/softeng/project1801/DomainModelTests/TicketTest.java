@@ -21,17 +21,17 @@ public class TicketTest {
     @Before
     public void setUp(){
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR,2018);
-        calendar.set(Calendar.MONTH,4);
-        calendar.set(Calendar.DAY_OF_MONTH,24);
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(Calendar.YEAR,2018);
+//        calendar.set(Calendar.MONTH,4);
+//        calendar.set(Calendar.DAY_OF_MONTH,24);
 
 
         bus = new Bus("Type1", "Mercendes", "AR1314",50);
         driver = new Driver("Anastasios Lepipas", "AL1997");
 
         passenger = new Passenger("Sotiris","Kotitsas","SK9");
-        route = new Route("Athens","8:00PM","Nafplio", calendar,
+        route = new Route("Athens","8:00PM","Nafplio", "2018-4-24",
                 "10:00PM",bus,driver);
     }
 
