@@ -1,7 +1,10 @@
 package gr.aueb.softeng.project1801;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -81,11 +84,11 @@ public class Schedule {
 
 
 
-    Set<Route> getRoutes(){
+    public Set<Route> getRoutes(){
         return new HashSet<>(routes);
     }
 
-    Set<ScheduleEntry> getScheduleEntry(){
+    public Set<ScheduleEntry> getScheduleEntry(){
         return new HashSet<>(ScheduleEntry);
     }
 
@@ -145,6 +148,7 @@ public class Schedule {
             System.out.println("Not a valid Destination!!!");
             return null;
         }
+
         if(!DeparturePoints.contains(DeparturePoint)){
             System.out.println("Not a valid departure point!!!");
             return null;
@@ -171,6 +175,7 @@ public class Schedule {
             route.setDriver(Driver);
             Driver.setState(DriverState.NOT_AVAILABLE);
         }else {
+            System.out.println("Driver not available");
             return null;
         }
         System.out.println("All the information is valid...will create route");
@@ -178,6 +183,56 @@ public class Schedule {
         addNewRoute(route);
 
         return route;
+    }
+
+    public String findNextRoute(String date, String time) throws ParseException {
+        String input_date = Format(date);
+        boolean hasDate = false;
+        String finalDate = "null";
+
+        if(!getRoutes().isEmpty()) {
+            for (Route i : getRoutes()) {
+                if ((i.getDepartureDate().equals(date) && i.getDepartureTime().equals(time) &&
+                        input_date.equals(Format(i.getDepartureDate())))) {
+                    System.out.println("I already have a route that date");
+                    hasDate = false;
+                } else {
+                    System.out.println("Empty day");
+                    hasDate = true;
+                    finalDate = i.getDepartureDate();
+                    //System.out.println(finalDate);
+                    break;
+                }
+                if (hasDate == false && input_date.equals(Format(i.getDepartureDate()))) {
+                    if (i.getDepartureTime().equals(time)) {
+                        System.out.println("heyyy");
+                        continue;
+                    } else {
+                        System.out.println("heyyy2222");
+                        finalDate = i.getDepartureDate();
+                        hasDate = true;
+                        break;
+                    }
+                }
+
+            }
+        }else{
+            Route route = new Route();
+            route.setDestination(Destination);
+
+        }
+
+        return finalDate;
+    }
+
+    public String Format(String input_date) throws ParseException {
+        //String input_date=date.toString();
+        SimpleDateFormat format1=new SimpleDateFormat("dd/MM/yyyy");
+        Date dt1=format1.parse(input_date);
+        DateFormat format2=new SimpleDateFormat("EEEE");
+        String finalDay=format2.format(dt1);
+
+        return finalDay;
     }
 
 
