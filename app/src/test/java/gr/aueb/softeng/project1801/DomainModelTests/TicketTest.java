@@ -20,13 +20,6 @@ public class TicketTest {
 
     @Before
     public void setUp(){
-
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.set(Calendar.YEAR,2018);
-//        calendar.set(Calendar.MONTH,4);
-//        calendar.set(Calendar.DAY_OF_MONTH,24);
-
-
         bus = new Bus("Type1", "Mercendes", "AR1314",50);
         driver = new Driver("Anastasios Lepipas", "AL1997");
 
