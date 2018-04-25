@@ -96,7 +96,7 @@ public class PassengerTest {
         passenger2.setFirstName(firstname);
         passenger2.setLastName(lastname);
         passenger2.setNumberID(numberID);
-        assertTrue(passenger1.equals(passenger2) == true);
+        assertTrue(passenger1.equals(passenger2));
     }
 
 

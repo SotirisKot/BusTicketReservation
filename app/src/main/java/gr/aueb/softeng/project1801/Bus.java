@@ -6,7 +6,7 @@ package gr.aueb.softeng.project1801;
 
 public class Bus {
 
-    private String BysType;
+    private String BusType;
     private String ModelType;
     private String BusID;
     private int BusSeats;
@@ -15,18 +15,18 @@ public class Bus {
     public Bus() { }
 
     public Bus(String bysType, String modelType, String busID, int busSeats) {
-        BysType = bysType;
+        BusType = bysType;
         ModelType = modelType;
         BusID = busID;
         BusSeats = busSeats;
     }
 
-    public String getBysType() {
-        return BysType;
+    public String getBusType() {
+        return BusType;
     }
 
-    public void setBysType(String bysType) {
-        BysType = bysType;
+    public void setBusType(String busType) {
+        BusType = busType;
     }
 
     public String getModelType() {
@@ -77,7 +77,7 @@ public class Bus {
         Bus bus = (Bus) o;
 
         if (BusSeats != bus.BusSeats) return false;
-        if (BysType != null ? !BysType.equals(bus.BysType) : bus.BysType != null) return false;
+        if (BusType != null ? !BusType.equals(bus.BusType) : bus.BusType != null) return false;
         if (ModelType != null ? !ModelType.equals(bus.ModelType) : bus.ModelType != null)
             return false;
         return BusID != null ? BusID.equals(bus.BusID) : bus.BusID == null;
@@ -85,7 +85,7 @@ public class Bus {
 
     @Override
     public int hashCode() {
-        int result = BysType != null ? BysType.hashCode() : 0;
+        int result = BusType != null ? BusType.hashCode() : 0;
         result = 13 * result + (ModelType != null ? ModelType.hashCode() : 0);
         result = 13 * result + (BusID != null ? BusID.hashCode() : 0);
         result = 13 * result + BusSeats;
