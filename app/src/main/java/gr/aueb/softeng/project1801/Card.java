@@ -1,16 +1,16 @@
 package gr.aueb.softeng.project1801;
 
-import java.util.*;
+
 
 public class Card {
 
     private String CardHolderName;
     private String CardID;
-    private Calendar ExpirationDate;
+    private SystemCalendar ExpirationDate;
     private int CVcode;
 
     //Constructor
-    public Card(String CardHolderName,String CardID,Calendar ExpirationDate){
+    public Card(String CardHolderName,String CardID,SystemCalendar ExpirationDate){
         this.CardHolderName = CardHolderName;
         this.CardID = CardID;
         this.ExpirationDate = ExpirationDate;
@@ -29,7 +29,7 @@ public class Card {
     }
 
     //Returns the card's ExpirationDate
-    public Calendar getExpirationDate() {
+    public SystemCalendar getExpirationDate() {
         return ExpirationDate;
     }
 
@@ -51,7 +51,7 @@ public class Card {
         this.CVcode = CVcode;
     }
 
-    public void setExpirationDate(Calendar expirationDate) {
+    public void setExpirationDate(SystemCalendar expirationDate) {
         ExpirationDate = expirationDate;
     }
 
