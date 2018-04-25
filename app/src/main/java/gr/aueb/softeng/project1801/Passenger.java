@@ -16,6 +16,8 @@ public class Passenger {
         this.NumberID = NumberID;
     }
 
+    public Passenger() {}
+
     //Returns the firstname of the passenger
     public String getFirstName() {
         return FirstName;
