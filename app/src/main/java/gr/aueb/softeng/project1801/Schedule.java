@@ -1,11 +1,13 @@
 package gr.aueb.softeng.project1801;
 
+import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -17,7 +19,7 @@ public class Schedule {
     private Set<String> Destinations = new HashSet<>();
     private Set<String> DeparturePoints = new HashSet<>();
     private Set<String> DepartureTimes = new HashSet<>();
-    private Set<String> DepartureDates = new HashSet<>();
+    private Set<SystemCalendar> DepartureDates = new HashSet<>();
     private String date;
     private String time;
     private String selectedDate;
@@ -29,7 +31,7 @@ public class Schedule {
     public Schedule(){ }
 
     public Schedule(Set<String> destinations, Set<String> departurePoints, Set<String> departureTimes,
-                    Set<String> departureDates, String destination, String departure) {
+                    Set<SystemCalendar> departureDates, String destination, String departure) {
         Destinations = destinations;
         DeparturePoints = departurePoints;
         DepartureTimes = departureTimes;
@@ -59,20 +61,10 @@ public class Schedule {
         }
     }
 
-    public String chooseDate(String date){
-        return selectedDate = date;
-    }
 
-    public void addScheduleEntry(ScheduleEntry entry) throws ParseException {
+    public void addScheduleEntry(ScheduleEntry entry) {
         if (entry != null) {
-            String Date = entry.findNextRoute(date, time);
-            if (Date.equals("null")) {
-                System.out.println("No available date");
-            } else {
-                System.out.println("The Date is: " + Date);
-                entry.setDepartureTime(Date);
-                ScheduleEntry.add(entry);
-            }
+            ScheduleEntry.add(entry);
         }
     }
 
@@ -116,12 +108,16 @@ public class Schedule {
         DepartureTimes = departureTimes;
     }
 
-    public Set<String> getDepartureDates() {
+    public Set<SystemCalendar> getDepartureDates() {
         return new HashSet<>(DepartureDates);
     }
 
-    public void setDepartureDates(Set<String> departureDates) {
+    public void setDepartureDates(Set<SystemCalendar> departureDates) {
         DepartureDates = departureDates;
+    }
+
+    public void setRoutes(Set<Route> routes) {
+        this.routes = routes;
     }
 
     public String getDestination() {
@@ -141,7 +137,7 @@ public class Schedule {
     }
 
     public Route createRoute(String Destination,String DeparturePoint,String DepartureTime
-        ,String DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
+        ,SystemCalendar DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
 
         //Will check if all the chosen information about the route is valid
         if(!Destinations.contains(Destination)){
@@ -161,11 +157,12 @@ public class Schedule {
             System.out.println("Not a valid departure date!!!");
             return null;
         }
+
         Route route = new Route();
         if(RouteBus.getState() == BusState.AVAILABLE){
             System.out.println("Bus is available");
             route.setRouteBus(RouteBus);
-            RouteBus.setState(BusState.NOT_AVAILABLE);
+            RouteBus.not_available();
         }else{
             System.out.println("Bus not available");
             return null;
@@ -173,7 +170,7 @@ public class Schedule {
         if(Driver.getState() == DriverState.AVAILABLE){
             System.out.println("Driver is available");
             route.setDriver(Driver);
-            Driver.setState(DriverState.NOT_AVAILABLE);
+            Driver.not_available();
         }else {
             System.out.println("Driver not available");
             return null;
@@ -185,55 +182,43 @@ public class Schedule {
         return route;
     }
 
-    public String findNextRoute(String date, String time) throws ParseException {
-        String input_date = Format(date);
-        boolean hasDate = false;
-        String finalDate = "null";
 
-        if(!getRoutes().isEmpty()) {
-            for (Route i : getRoutes()) {
-                if ((i.getDepartureDate().equals(date) && i.getDepartureTime().equals(time) &&
-                        input_date.equals(Format(i.getDepartureDate())))) {
-                    System.out.println("I already have a route that date");
-                    hasDate = false;
-                } else {
-                    System.out.println("Empty day");
-                    hasDate = true;
-                    finalDate = i.getDepartureDate();
-                    //System.out.println(finalDate);
+    public ScheduleEntry findNextAvailableDate(ScheduleEntry entry) {
+        String time = entry.getDepartureTime();
+        ScheduleEntry AvailableEntry =  new ScheduleEntry();
+        System.out.println("Asked for: " + entry.getDayOfWeek()+ "/" +entry.getCalendar().getMonth()
+                + " and time: " + time);
+        boolean FoundDate = false;
+        while(!FoundDate){
+            boolean found = true;
+
+            for(Route route : getRoutes()){
+                if(entry.getDayOfWeek() == route.getDepartureDate().getDayOfMonth() && time.equals(route.getDepartureTime())
+                        && entry.getCalendar().getMonth() == route.getDepartureDate().getMonth()){
+
+                    System.out.println("The slot is taken...searching for next available date");
+                    entry.setCalendar(entry.getCalendar().addDays(7));
+                    found = false;
                     break;
                 }
-                if (hasDate == false && input_date.equals(Format(i.getDepartureDate()))) {
-                    if (i.getDepartureTime().equals(time)) {
-                        System.out.println("heyyy");
-                        continue;
-                    } else {
-                        System.out.println("heyyy2222");
-                        finalDate = i.getDepartureDate();
-                        hasDate = true;
-                        break;
-                    }
-                }
-
             }
-        }else{
-            Route route = new Route();
-            route.setDestination(Destination);
 
+            if(found){
+                FoundDate = true;
+                SystemCalendar calendar = new SystemCalendar(entry.getCalendar().getYear()
+                        ,entry.getCalendar().getMonth(),entry.getDayOfWeek());
+                System.out.println("Found: " + entry.getDayOfWeek()+"/"+entry.getCalendar().getMonth()
+                        + " and time: " + time);
+                System.out.println();
+                AvailableEntry.setDepartureTime(time);
+                AvailableEntry.setCalendar(calendar);
+                AvailableEntry.setDayOfWeek(calendar.getDayOfMonth());
+                addScheduleEntry(AvailableEntry);
+            }
         }
-
-        return finalDate;
+        return AvailableEntry;
     }
 
-    public String Format(String input_date) throws ParseException {
-        //String input_date=date.toString();
-        SimpleDateFormat format1=new SimpleDateFormat("dd/MM/yyyy");
-        Date dt1=format1.parse(input_date);
-        DateFormat format2=new SimpleDateFormat("EEEE");
-        String finalDay=format2.format(dt1);
-
-        return finalDay;
-    }
 
 
     @Override

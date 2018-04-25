@@ -10,7 +10,7 @@ public class Ticket {
     private String DestinationTicket;
     private String DeparturePointTicket;
     private String DepartureTimeTicket;
-    private String DepartureDateTicket;
+    private SystemCalendar DepartureDateTicket;
     private String EstimatedArrivalTimeTicket;
     private double Price;
     private Passenger passenger;
@@ -25,7 +25,7 @@ public class Ticket {
 
     //Constructor
     public Ticket(String DestinationTicket,String DeparturePointTicket,String DepartureTimeTicket,
-                  String DepartureDateTicket,String EstimatedArrivalTimeTicket,double Price,
+                  SystemCalendar DepartureDateTicket,String EstimatedArrivalTimeTicket,double Price,
                   Passenger passenger,int PassengerSeat,String Type,Route route){
 
         this.DestinationTicket = DestinationTicket;
@@ -54,7 +54,7 @@ public class Ticket {
         return DepartureTimeTicket;
     }
 
-    public String getDepartureDateTicket() {
+    public SystemCalendar getDepartureDateTicket() {
         return DepartureDateTicket;
     }
 
@@ -105,7 +105,7 @@ public class Ticket {
         DepartureTimeTicket = departureTimeTicket;
     }
 
-    public void setDepartureDateTicket(String departureDateTicket) {
+    public void setDepartureDateTicket(SystemCalendar departureDateTicket) {
         DepartureDateTicket = departureDateTicket;
     }
 
@@ -140,13 +140,13 @@ public class Ticket {
     public void setRoute(Route route) {
         if(this.route != null){
             this.route.friendRoutes().remove(this);
-            route.setAvailableSeats(route.getAvailableSeats() + 1);
+            this.route.setAvailableSeats(this.route.getAvailableSeats() + 1);
         }
 
         this.route = route;
         if(this.route != null){
             this.route.friendRoutes().add(this);
-            route.setAvailableSeats(route.getAvailableSeats() - 1);
+            this.route.setAvailableSeats(this.route.getAvailableSeats() - 1);
         }
     }
 

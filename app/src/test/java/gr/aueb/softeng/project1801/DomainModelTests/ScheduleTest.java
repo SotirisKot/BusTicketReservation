@@ -4,24 +4,18 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.text.Format;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
-
 import gr.aueb.softeng.project1801.Bus;
 import gr.aueb.softeng.project1801.BusState;
 import gr.aueb.softeng.project1801.Driver;
 import gr.aueb.softeng.project1801.DriverState;
-import gr.aueb.softeng.project1801.Passenger;
 import gr.aueb.softeng.project1801.Route;
 import gr.aueb.softeng.project1801.Schedule;
 import gr.aueb.softeng.project1801.ScheduleEntry;
-
-import static gr.aueb.softeng.project1801.BusState.AVAILABLE;
-import static gr.aueb.softeng.project1801.BusState.NOT_AVAILABLE;
+import gr.aueb.softeng.project1801.SystemCalendar;
 
 
 //
@@ -34,7 +28,7 @@ public class ScheduleTest {
      Set<String> Destinations = new HashSet<>();
      Set<String> DeparturePoints = new HashSet<>();
      Set<String> DepartureTimes = new HashSet<>();
-     Set<String> DepartureDates = new HashSet<>();
+     Set<SystemCalendar> DepartureDates = new HashSet<>();
      Calendar date;
      Calendar time;
      Calendar selectedDate;
@@ -44,6 +38,7 @@ public class ScheduleTest {
      Set<ScheduleEntry> ScheduleEntry = new HashSet<>();
      Bus bus;
      Driver driver;
+     SystemCalendar calendar1,calendar2,calendar3,calendar4;
      Route route1,route2,route3,route4,route5;
 
      @Before
@@ -64,10 +59,15 @@ public class ScheduleTest {
          DepartureTimes.add("14:00PM");
          DepartureTimes.add("21:00PM");
 
-         DepartureDates.add("23-4-2018");
-         DepartureDates.add("12-5-2018");
-         DepartureDates.add("30-4-2018");
-         DepartureDates.add("1-5-2018");
+         calendar1 = new SystemCalendar(2018,4,23);
+         calendar2 = new SystemCalendar(2018,4,12);
+         calendar3 = new SystemCalendar(2018,4,30);
+         calendar4 = new SystemCalendar(2018,5,1);
+
+         DepartureDates.add(calendar1);
+         DepartureDates.add(calendar2);
+         DepartureDates.add(calendar3);
+         DepartureDates.add(calendar4);
 
          Destination = "Patra";
          Departure = "Athens";
@@ -75,13 +75,14 @@ public class ScheduleTest {
          bus = new Bus("Type1", "Mercendes", "AR1314",50);
          driver = new Driver("Anastasios Lepipas", "AL1997");
 
-         route1 = new Route("Athens","9:00AM","Nafplio", "24-4-2018",
+
+         route1 = new Route("Athens","9:00AM","Nafplio", calendar1,
                  "10:00PM",bus,driver);
-         route2 = new Route("Patra","9:00AM","Athens","12-5-2018",
+         route2 = new Route("Patra","9:00AM","Athens",calendar2,
                  "11:00PM",bus,driver);
-         route3 = new Route("Argos","14:00PM","Nauplio","1-5-2018",
+         route3 = new Route("Argos","9:00AM","Nauplio",calendar3,
                  "15:00PM",bus,driver);
-         route4 = new Route("Athens","21:00PM","Argos","30-4-2018",
+         route4 = new Route("Athens","21:00PM","Argos",calendar4,
                  "22:30PM",bus,driver);
 
 
@@ -163,22 +164,18 @@ public class ScheduleTest {
         sc.setDepartureTimes(DepartureTimes);
         sc.setDepartureDates(DepartureDates);
 
-        sc.createRoute("Athens","Patra","9:00AM","23-4-2018"
-                ,"11:30AM",bus,driver);
-
         Assert.assertTrue(sc.getDestinations().contains("Athens"));
         Assert.assertTrue(sc.getDeparturePoints().contains("Patra"));
         Assert.assertTrue(sc.getDepartureTimes().contains("9:00AM"));
-        Assert.assertTrue(sc.getDepartureDates().contains("23-4-2018"));
-        Route route = new Route();
+        Assert.assertTrue(sc.getDepartureDates().contains(calendar1));
+
+
         bus.available();
-        route.setRouteBus(bus);
         driver.available();
-        route.setDriver(driver);
-        Assert.assertTrue(route.getRouteBus().getState() == AVAILABLE);
-        Assert.assertTrue(route.getDriver().getState() == DriverState.AVAILABLE);
-        route.setEstimatedArrivalTime("11:30AM");
-        sc.addNewRoute(route);
+
+        Route route = sc.createRoute("Athens","Patra","9:00AM",calendar1
+                ,"11:30AM",bus,driver);
+
         Assert.assertTrue(route!=null);
 
     }
@@ -192,24 +189,18 @@ public class ScheduleTest {
         sc.setDepartureDates(DepartureDates);
 
 
-        sc.createRoute("Athe","Patra","9:00AM","23-4-2018"
-                ,"11:30PM",bus,driver);
-
         Assert.assertTrue(!(sc.getDestinations().contains("Athe")));
         Assert.assertTrue(sc.getDeparturePoints().contains("Patra"));
         Assert.assertTrue(sc.getDepartureTimes().contains("9:00AM"));
-        Assert.assertTrue(sc.getDepartureDates().contains("23-4-2018"));
-        Route route = new Route();
-        bus.available();
-        route.setRouteBus(bus);
-        driver.available();
-        route.setDriver(driver);
-        Assert.assertTrue(route.getRouteBus().getState() == AVAILABLE);
-        Assert.assertTrue(route.getDriver().getState() == DriverState.AVAILABLE);
-        route.setEstimatedArrivalTime("11:30AM");
-        sc.addNewRoute(route);
-        Assert.assertTrue(route!=null);
+        Assert.assertTrue(sc.getDepartureDates().contains(calendar1));
 
+        bus.available();
+        driver.available();
+
+        Route route = sc.createRoute("Athe","Patra","9:00AM",calendar1
+                ,"11:30AM",bus,driver);
+
+        Assert.assertTrue(route == null);
     }
 
     @Test
@@ -221,23 +212,18 @@ public class ScheduleTest {
         sc.setDepartureDates(DepartureDates);
 
 
-        sc.createRoute("Athens","Petra","9:00AM","23-4-2018"
-                ,"11:30PM",bus,driver);
-
         Assert.assertTrue(sc.getDestinations().contains("Athens"));
         Assert.assertTrue(!(sc.getDeparturePoints().contains("Petra")));
         Assert.assertTrue(sc.getDepartureTimes().contains("9:00AM"));
-        Assert.assertTrue(sc.getDepartureDates().contains("23-4-2018"));
-        Route route = new Route();
+        Assert.assertTrue(sc.getDepartureDates().contains(calendar1));
+
         bus.available();
-        route.setRouteBus(bus);
         driver.available();
-        route.setDriver(driver);
-        Assert.assertTrue(route.getRouteBus().getState() == AVAILABLE);
-        Assert.assertTrue(route.getDriver().getState() == DriverState.AVAILABLE);
-        route.setEstimatedArrivalTime("11:30AM");
-        sc.addNewRoute(route);
-        Assert.assertTrue(route!=null);
+
+        Route route = sc.createRoute("Athens","Petra","9:00AM",calendar1
+                ,"11:30PM",bus,driver);
+
+        Assert.assertTrue(route == null);
 
     }
 
@@ -251,23 +237,20 @@ public class ScheduleTest {
         sc.setDepartureDates(DepartureDates);
 
 
-        sc.createRoute("Athens","Patra","20:00PM","23-4-2018"
-                ,"11:30PM",bus,driver);
 
         Assert.assertTrue(sc.getDestinations().contains("Athens"));
         Assert.assertTrue(sc.getDeparturePoints().contains("Patra"));
         Assert.assertTrue(!(sc.getDepartureTimes().contains("20:00PM")));
-        Assert.assertTrue(sc.getDepartureDates().contains("23-4-2018"));
-        Route route = new Route();
+        Assert.assertTrue(sc.getDepartureDates().contains(calendar1));
+
         bus.available();
-        route.setRouteBus(bus);
         driver.available();
-        route.setDriver(driver);
-        Assert.assertTrue(route.getRouteBus().getState() == AVAILABLE);
-        Assert.assertTrue(route.getDriver().getState() == DriverState.AVAILABLE);
-        route.setEstimatedArrivalTime("11:30AM");
-        sc.addNewRoute(route);
-        Assert.assertTrue(route!=null);
+
+
+        Route route = sc.createRoute("Athens","Patra","20:00PM",calendar1
+                ,"11:30PM",bus,driver);
+
+        Assert.assertTrue(route == null);
 
     }
 
@@ -278,88 +261,69 @@ public class ScheduleTest {
         sc.setDeparturePoints(DeparturePoints);
         sc.setDepartureTimes(DepartureTimes);
         sc.setDepartureDates(DepartureDates);
-
-
-        sc.createRoute("Athens","Patra","9:00AM","29-4-2018"
-                ,"11:30PM",bus,driver);
+        SystemCalendar calendar = new SystemCalendar(2018,4,29);
 
         Assert.assertTrue(sc.getDestinations().contains("Athens"));
         Assert.assertTrue(sc.getDeparturePoints().contains("Patra"));
         Assert.assertTrue(sc.getDepartureTimes().contains("9:00AM"));
-        Assert.assertTrue(!(sc.getDepartureDates().contains("29-4-2018")));
-        Route route = new Route();
+        Assert.assertTrue(!(sc.getDepartureDates().contains(calendar)));
+
         bus.available();
-        route.setRouteBus(bus);
         driver.available();
-        route.setDriver(driver);
-        Assert.assertTrue(route.getRouteBus().getState() == AVAILABLE);
-        Assert.assertTrue(route.getDriver().getState() == DriverState.AVAILABLE);
-        route.setEstimatedArrivalTime("11:30AM");
-        sc.addNewRoute(route);
-        Assert.assertTrue(route!=null);
+
+        Route route = sc.createRoute("Athens","Patra","9:00AM",calendar
+                ,"11:30PM",bus,driver);
+        Assert.assertTrue(route == null);
 
     }
 
     @Test
-    public void TestCreateRouteWithInavaliableBus(){
+    public void TestCreateRouteWithInavailableBus(){
         Schedule sc = new Schedule();
         sc.setDestinations(Destinations);
         sc.setDeparturePoints(DeparturePoints);
         sc.setDepartureTimes(DepartureTimes);
         sc.setDepartureDates(DepartureDates);
-
         bus.not_available();
-        sc.createRoute("Athens","Patra","9:00AM","23-4-2018"
-                ,"11:30PM",bus,driver);
 
         Assert.assertTrue(sc.getDestinations().contains("Athens"));
         Assert.assertTrue(sc.getDeparturePoints().contains("Patra"));
         Assert.assertTrue(sc.getDepartureTimes().contains("9:00AM"));
-        Assert.assertTrue(sc.getDepartureDates().contains("23-4-2018"));
-        Route route = new Route();
-        route.setRouteBus(bus);
-        route.getRouteBus().not_available();
-        route.setDriver(driver);
-        route.getDriver().available();
-        Assert.assertTrue(route.getRouteBus().getState() != BusState.AVAILABLE);
-        Assert.assertTrue(route.getDriver().getState() == DriverState.AVAILABLE);
-        route.setEstimatedArrivalTime("11:30AM");
-        sc.addNewRoute(route);
-        Assert.assertTrue(route!=null);
+        Assert.assertTrue(sc.getDepartureDates().contains(calendar1));
+        Assert.assertTrue(bus.getState() != BusState.AVAILABLE);
+
+        Route route = sc.createRoute("Athens","Patra","9:00AM",calendar1
+                ,"11:30PM",bus,driver);
+
+        Assert.assertTrue(route == null);
 
     }
 
     @Test
-    public void TestCreateRouteWithInavaliableDriver(){
+    public void TestCreateRouteWithInavailableDriver(){
         Schedule sc = new Schedule();
         sc.setDestinations(Destinations);
         sc.setDeparturePoints(DeparturePoints);
         sc.setDepartureTimes(DepartureTimes);
         sc.setDepartureDates(DepartureDates);
-
         driver.not_available();
-        sc.createRoute("Athens","Patra","9:00AM","23-4-2018"
-                ,"11:30PM",bus,driver);
 
         Assert.assertTrue(sc.getDestinations().contains("Athens"));
         Assert.assertTrue(sc.getDeparturePoints().contains("Patra"));
         Assert.assertTrue(sc.getDepartureTimes().contains("9:00AM"));
-        Assert.assertTrue(sc.getDepartureDates().contains("23-4-2018"));
-        Route route = new Route();
-        route.setRouteBus(bus);
-        route.getRouteBus().setState(AVAILABLE);
-        route.setDriver(driver);
-        route.getDriver().not_available();
-        Assert.assertTrue(route.getRouteBus().getState() == BusState.AVAILABLE);
-        Assert.assertTrue(route.getDriver().getState() != DriverState.AVAILABLE);
-        route.setEstimatedArrivalTime("11:30AM");
-        sc.addNewRoute(route);
-        Assert.assertTrue(route!=null);
+        Assert.assertTrue(sc.getDepartureDates().contains(calendar1));
+        Assert.assertTrue(bus.getState() == BusState.AVAILABLE);
+        Assert.assertTrue(driver.getState() != DriverState.AVAILABLE);
+
+        Route route = sc.createRoute("Athens","Patra","9:00AM",calendar1
+                ,"11:30PM",bus,driver);
+
+        Assert.assertTrue(route == null);
 
     }
 
     @Test
-    public void TestFindNextRoute() throws ParseException {
+    public void TestFindNextAvailableDateWhenSlotTaken() {
         Schedule sc = new Schedule();
         sc.setDepartureDates(DepartureDates);
         sc.setDeparturePoints(DeparturePoints);
@@ -367,26 +331,41 @@ public class ScheduleTest {
         sc.setDestination(Destination);
         sc.setDepartureTimes(DepartureTimes);
         sc.addNewRoute(route1);
-        sc.findNextRoute("24/4/2018","9:00AM");
-        Assert.assertTrue(sc.getRoutes()!=null);
-        Assert.assertTrue("24/4/2018".equals("24/4/2018")&&"9:00AM".equals("9:00AM")
-                && true);
+        sc.addNewRoute(route2);
+        sc.addNewRoute(route3);
+        sc.addNewRoute(route4);
 
+        SystemCalendar calendar = new SystemCalendar(2018,4,23);
+        ScheduleEntry entry = new ScheduleEntry("9:00AM",calendar);
 
+        ScheduleEntry AvailableEntry = sc.findNextAvailableDate(entry);
 
-
+        Assert.assertTrue(AvailableEntry != null);
+        Assert.assertEquals(7,AvailableEntry.getDayOfWeek());
 
     }
 
+    @Test
+    public void TestFindNextAvailableDateWhenSlotAvailable() {
+        Schedule sc = new Schedule();
+        sc.setDepartureDates(DepartureDates);
+        sc.setDeparturePoints(DeparturePoints);
+        sc.setDestinations(Destinations);
+        sc.setDestination(Destination);
+        sc.setDepartureTimes(DepartureTimes);
+        sc.addNewRoute(route1);
+        sc.addNewRoute(route2);
+        sc.addNewRoute(route3);
+        sc.addNewRoute(route4);
 
+        SystemCalendar calendar = new SystemCalendar(2018,4,2);
+        ScheduleEntry entry = new ScheduleEntry("9:00AM",calendar);
 
+        ScheduleEntry AvailableEntry = sc.findNextAvailableDate(entry);
 
-
-
-
-
-
-
+        Assert.assertTrue(AvailableEntry != null);
+        Assert.assertEquals(2,AvailableEntry.getDayOfWeek());
+    }
 
 
 }

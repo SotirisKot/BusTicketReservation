@@ -7,6 +7,7 @@ import gr.aueb.softeng.project1801.Bus;
 import gr.aueb.softeng.project1801.Driver;
 import gr.aueb.softeng.project1801.Passenger;
 import gr.aueb.softeng.project1801.Route;
+import gr.aueb.softeng.project1801.SystemCalendar;
 import gr.aueb.softeng.project1801.Ticket;
 
 
@@ -16,15 +17,17 @@ public class TicketTest {
     Route route;
     Bus bus;
     Driver driver;
-
+    SystemCalendar calendar;
 
     @Before
     public void setUp(){
+        calendar = new SystemCalendar(2018,4,14);
+
         bus = new Bus("Type1", "Mercendes", "AR1314",50);
         driver = new Driver("Anastasios Lepipas", "AL1997");
 
         passenger = new Passenger("Sotiris","Kotitsas","SK9");
-        route = new Route("Athens","8:00PM","Nafplio", "2018-4-24",
+        route = new Route("Athens","8:00PM","Nafplio", calendar,
                 "10:00PM",bus,driver);
     }
 

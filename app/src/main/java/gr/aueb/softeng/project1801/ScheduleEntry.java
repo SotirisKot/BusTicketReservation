@@ -20,20 +20,23 @@ import java.util.Set;
 
 public class ScheduleEntry {
 
-    private String DayOfWeek;
+    private int DayOfWeek;
     private String DepartureTime;
-    private Schedule sc;
+    private SystemCalendar calendar;
 
-    public ScheduleEntry(String DayOfWeek,String DepartureTime){
-        this.DayOfWeek = DayOfWeek;
+    public ScheduleEntry() { }
+
+    public ScheduleEntry(String DepartureTime,SystemCalendar calendar){
+        this.DayOfWeek = calendar.getDayOfMonth();
         this.DepartureTime = DepartureTime;
+        this.calendar = calendar;
     }
 
-    public String getDayOfWeek() {
+    public int getDayOfWeek() {
         return DayOfWeek;
     }
 
-    public void setDayOfWeek(String dayOfWeek) {
+    public void setDayOfWeek(int dayOfWeek) {
         DayOfWeek = dayOfWeek;
     }
 
@@ -45,47 +48,13 @@ public class ScheduleEntry {
         DepartureTime = departureTime;
     }
 
-    public String findNextRoute(String date, String time) throws ParseException {
-        String input_date = Format(date);
-        boolean hasDate = false;
-        HashMap<String,Calendar> dates = new HashMap<String,Calendar>();
-        sc.getRoutes();
-        String finalDate = null;
-        finalDate = "null";
-
-        for(Route i : sc.getRoutes()){
-            if((i.getDepartureDate().equals(date) && i.getDepartureTime().equals(time) && input_date.equals(Format(i.getDepartureDate())))){
-                System.out.println("I already have a route that date");
-                hasDate = false;
-            }else{
-                System.out.println("Empty day");
-                hasDate = true;
-                finalDate = i.getDepartureDate();
-                break;
-            }
-            if(hasDate == false && input_date.equals(Format(i.getDepartureDate()))){
-                if(i.getDepartureTime().equals(time)){
-                    continue;
-                }else{
-                    finalDate = i.getDepartureDate();
-                    hasDate = true;
-                    break;
-                }
-            }
-
-        }
-
-        return finalDate;
+    public SystemCalendar getCalendar(){
+        return calendar;
     }
 
-    public String Format(String input_date) throws ParseException {
-        //String input_date=date.toString();
-        SimpleDateFormat format1=new SimpleDateFormat("dd/MM/yyyy");
-        Date dt1=format1.parse(input_date);
-        DateFormat format2=new SimpleDateFormat("EEEE");
-        String finalDay=format2.format(dt1);
-
-        return finalDay;
+    public void setCalendar(SystemCalendar calendar) {
+        this.calendar = calendar;
+        this.DayOfWeek = calendar.getDayOfMonth();
     }
 
     @Override
@@ -95,14 +64,14 @@ public class ScheduleEntry {
 
         ScheduleEntry that = (ScheduleEntry) o;
 
-        if (DayOfWeek != null ? !DayOfWeek.equals(that.DayOfWeek) : that.DayOfWeek != null)
+        if (DayOfWeek != 0 ? DayOfWeek != (that.DayOfWeek) : that.DayOfWeek != 0)
             return false;
         return DepartureTime != null ? DepartureTime.equals(that.DepartureTime) : that.DepartureTime == null;
     }
 
     @Override
     public int hashCode() {
-        int result = DayOfWeek != null ? DayOfWeek.hashCode() : 0;
+        int result = DayOfWeek;
         result = 13 * result + (DepartureTime != null ? DepartureTime.hashCode() : 0);
         return result;
     }
