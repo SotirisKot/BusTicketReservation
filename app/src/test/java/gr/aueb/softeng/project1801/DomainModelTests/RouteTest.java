@@ -264,14 +264,18 @@ public class RouteTest {
     public void getTickets() {
         Route route = new Route();
         Ticket ticket1 = new Ticket();
+        ticket1.setDestinationTicket("Argos");
         Ticket ticket2 = new Ticket();
+        ticket2.setDestinationTicket("Na3os");
         Ticket ticket3 = new Ticket();
+        ticket3.setDestinationTicket("Serres");
         route.addTicket(ticket1);
         route.addTicket(ticket2);
         route.removeTicket(ticket2);
         route.addTicket(ticket3);
-        assertTrue(route.getTickets().size() == 1);
+        assertTrue(route.getTickets().size() == 2);
         assertTrue(route.getTickets().contains(ticket1));
+        assertTrue(!(route.getTickets().contains(ticket2)));
         assertTrue(route.getTickets().contains(ticket3));
     }
 

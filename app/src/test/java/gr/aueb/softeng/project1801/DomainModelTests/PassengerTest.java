@@ -55,14 +55,18 @@ public class PassengerTest {
     public void getAllCards() {
         Passenger passenger = new Passenger();
         Card card1 = new Card();
+        card1.setCardHolderName("Sotiris Kotitsas");
         Card card2 = new Card();
+        card2.setCardHolderName("Giorgos Chatzopoulos");
         Card card3 = new Card();
+        card3.setCardHolderName("Tasos Lepiaps");
         passenger.addCard(card1);
         passenger.addCard(card2);
         passenger.removeCard(card2);
         passenger.addCard(card3);
-        assertTrue(passenger.getAllCards().size() == 1);
+        assertTrue(passenger.getAllCards().size() == 2);
         assertTrue(passenger.getAllCards().contains(card1));
+        assertTrue(!(passenger.getAllCards().contains(card2)));
         assertTrue(passenger.getAllCards().contains(card3));
     }
 
