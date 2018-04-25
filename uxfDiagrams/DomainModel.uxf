@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>296</x>
+      <y>800</y>
+      <w>208</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>Passenger
+Package::Domain
+--
+-FirstName: String
+-Lastname: String
+-NumberID: String
+-PassengerCard : Set&lt;Card&gt;
+--
++getFirstName():String{Firstname}
++setFirstName(Firstname:String)
++getLastName():String{Lastname}
++setLastName(Lastname:String)
++getNumberID():String{NumberID}
++setNumberID(NumberID:String)
++addCard(Card card) : void
++removeCard(Card card) : void
++getAllCards() : Set&lt;Card&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>56</y>
+      <w>208</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>Bus
+Package::Domain
+--
+-BusType: String
+-BusModel: String
+-BusID: String
+-BusSeats:Int
+-state:BusState
+--
++getBusType():String{BusType}
++setBusType(BusType:String)
++getBusModel():String{BusModel}
++setBusModel(BusModel:String)
++getBusID():String{BusID}
++setBusID(BusID:String)
++getBusSeats():Int{BusSeats}
++setBusSeats(BusSeats:Int)
++available():void
++not_available():void
++getState() : BusState
++setState(BusState state)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1072</x>
+      <y>472</y>
+      <w>208</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Driver
+Package::Domain
+--
+-DriverName: String
+-DriverID: String
+-state: DriverState
+--
++getDriverName():String{DriverName}
++setDriverName(DriverName:String)
++getDriverID():String{DriverID}
++setDriverID(DriverID:String)
++available():void
++not_available():void
++getState() : DriverState
++setState(DriverState state)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>688</x>
+      <y>800</y>
+      <w>304</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Card
+Package::Domain
+--
+-CardHolderName: String
+-CardID: String
+-ExpirationDate:SystemCalendar
+-CVcode:Int
+--
++getCardHolderName():String{CardHolderName}
++setCardHolderName(CardHolderName:String)
++getCardID():Long{CardID}
++setCardID(CardID:Long)
++getExpirationDate():SystemCalendar{ExpirationDate}
++setExpirationDate(ExpirationDate:SystemCalendar)
++getCVcode():Int{CVcode}
++setCVcode(CVcode:Int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>128</x>
+      <y>480</y>
+      <w>256</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>ScheduleEntry
+Package::Domain
+--
+-DayOfWeek: int
+-DepartureTime: String
+-calendar: SystemCalendar
+--
++getDayOfWeek():int{DayOfWeek}
++setDayOfWeek(DayOfWeek:int)
++getDepartureTime():String{DepartureTime}
++setDepartureTime(DepartureTime:String)
++getCalendar():SystemCalendar{calendar}
++setCalendar(calendar:SystemCalendar)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>112</y>
+      <w>432</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>Schedule
+Package::Domain
+--
+-Destinations: Set&lt;String&gt;
+-DeparturePoints: Set&lt;String&gt;
+-DepartureTimes: Set&lt;String&gt;
+-DepartureDates: Set&lt;SystemCalendar&gt;
+-Destination: String
+-Departure: String
+-Routes : Set&lt;Routes&gt;
+-ScheduleEntry : set&lt;ScheduleEntry&gt;
+--
++getRoutes():Route{routes}
++setRoutes(routes:Route)
++addNewRoute(route:Route)
++deleteRoute(route:Route)
++addScheduleEntry(entry:ScheduleEntry)
++removeScheduleEntry(entry:ScheduleEntry)
++createRoute(Destination:String,DeparturePoint:String
+,DepartureTime:String,DepartureDate:SystemCalendar,EstimatedArrival:String
+,RouteBus:Bus,Driver:Driver):Route{route}
++findNextAvailableDate(entry:ScheduleEntry):ScheduleEntry{AvailableEntry}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>88</y>
+      <w>344</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>Route
+Package::Domain
+--
+-Destination: String
+-DeparturePoint: String
+-DepartureTime: String
+-DepartureDate: SystemCalendar
+-EstimatedArrivalTime: String
+-RouteBus : Bus
+-Driver : Driver
+-AvailableSeats: Int
+-Tickets : Set&lt;Tickets&gt;
+--
+
++addTicket(ticket:Ticket)
++removeTicket(ticket:Ticket)
++FindTicket(ticket:Ticket):Boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>416</y>
+      <w>400</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>Ticket
+Package::Domain
+--
+-DestinationTicket: String
+-DeparturePointTicket: String
+-DepartureTimeTicket: String
+-DepartureDateTicket: SystemCalendar
+-EstimatedArrivalTimeTicket: String
+-Price:double
+-passenger : Passenger
+-PassengerName : String
+-PassengerID : String
+-route : Route
+-PassengerSeat: int
+-Type:String
+--
++TicketExists(ticket:Ticket):Boolean
++buyTicket(ticket:Ticket,passenger:Passenger,route:Route):Boolean
++setPassenger(passenger : Passenger)
++getPassenger():Passenger{passenger}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>888</y>
+      <w>208</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>504</x>
+      <y>880</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>664</x>
+      <y>880</y>
+      <w>80</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>392</x>
+      <y>728</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>736</x>
+      <y>688</y>
+      <w>80</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>736</x>
+      <y>296</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>744</x>
+      <y>400</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>744</x>
+      <y>312</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>168</y>
+      <w>160</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>240</y>
+      <w>248</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>290.0;290.0;290.0;180.0;60.0;180.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>944</x>
+      <y>232</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1056</x>
+      <y>160</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1176</x>
+      <y>448</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>256</y>
+      <w>136</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>488</x>
+      <y>248</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>576</x>
+      <y>248</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>680</y>
+      <w>384</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;90.0;460.0;90.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>944</x>
+      <y>160</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>400</y>
+      <w>24</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
