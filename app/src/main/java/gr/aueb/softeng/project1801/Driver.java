@@ -17,8 +17,6 @@ public class Driver {
         DriverID = driverID;
     }
 
-    public Driver() {}
-
     public String getDriverName() {
         return DriverName;
     }

@@ -19,7 +19,7 @@ public class PassengerTest {
     @Test
     public void getLastName() {
         Passenger passenger = new Passenger();
-        passenger.setFirstName("Montana");
+        passenger.setLastName("Montana");
         assertTrue(passenger.getLastName().equals("Montana"));
     }
 
@@ -27,7 +27,7 @@ public class PassengerTest {
     public void getNumberID() {
         Passenger passenger = new Passenger();
         passenger.setNumberID("666");
-        assertTrue(passenger.getFirstName().equals("666"));
+        assertTrue(passenger.getNumberID().equals("666"));
     }
 
     @Test
@@ -41,18 +41,26 @@ public class PassengerTest {
     public void setLastName() {
         Passenger passenger = new Passenger();
         passenger.setFirstName("Montana");
-        assertTrue(passenger.getLastName().equals("Montana"));
+        assertTrue(passenger.getFirstName().equals("Montana"));
     }
 
     @Test
     public void setNumberID() {
         Passenger passenger = new Passenger();
         passenger.setNumberID("666");
-        assertTrue(passenger.getFirstName().equals("666"));
+        assertTrue(passenger.getNumberID().equals("666"));
     }
 
     @Test
     public void getAllCards() {
+        Passenger passenger = new Passenger();
+        Card card1 = new Card();
+        Card card2 = new Card();
+        Card card3 = new Card();
+        passenger.addCard(card1);
+        passenger.removeCard(card2);
+        passenger.addCard(card3);
+        assertTrue(passenger.getAllCards().size() == 1);
     }
 
     @Test

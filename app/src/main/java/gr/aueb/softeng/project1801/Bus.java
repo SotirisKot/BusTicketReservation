@@ -21,8 +21,6 @@ public class Bus {
         BusSeats = busSeats;
     }
 
-    public Bus() {}
-
     public String getBysType() {
         return BysType;
     }
