@@ -58,9 +58,12 @@ public class PassengerTest {
         Card card2 = new Card();
         Card card3 = new Card();
         passenger.addCard(card1);
+        passenger.addCard(card2);
         passenger.removeCard(card2);
         passenger.addCard(card3);
         assertTrue(passenger.getAllCards().size() == 1);
+        assertTrue(passenger.getAllCards().contains(card1));
+        assertTrue(passenger.getAllCards().contains(card3));
     }
 
     @Test
