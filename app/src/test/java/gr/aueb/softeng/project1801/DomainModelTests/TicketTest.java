@@ -10,6 +10,8 @@ import gr.aueb.softeng.project1801.Route;
 import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
 import gr.aueb.softeng.project1801.Ticket;
 
+import static org.junit.Assert.assertTrue;
+
 
 public class TicketTest {
 
@@ -160,5 +162,253 @@ public class TicketTest {
 
         Assert.assertEquals(passenger.getFirstName() + passenger.getLastName(),ticket.getPassengerName());
         Assert.assertEquals(passenger.getNumberID(),ticket.getPassengerID());
+    }
+
+    @Test
+    public void getDestinationTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setDestinationTicket("Serres");
+        assertTrue(ticket.getDestinationTicket().equals("Serres"));
+    }
+
+    @Test
+    public void getDeparturePointTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setDeparturePointTicket("Pefki");
+        assertTrue(ticket.getDeparturePointTicket().equals("Pefki"));
+    }
+
+    @Test
+    public void getDepartureTimeTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setDepartureTimeTicket("12:00");
+        assertTrue(ticket.getDepartureTimeTicket().equals("12:00"));
+    }
+
+    @Test
+    public void getDepartureDateTicket() {
+        Ticket ticket = new Ticket();
+        SystemCalendar systemCalendar = new SystemCalendar(2018,05,03);
+        ticket.setDepartureDateTicket(systemCalendar);
+        SystemCalendar temp_systemCalendar = new SystemCalendar(2018,05,03);
+        assertTrue(ticket.getDepartureDateTicket().compareTo(temp_systemCalendar) == 0);
+    }
+
+    @Test
+    public void getEstimatedArrivalTimeTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setEstimatedArrivalTimeTicket("20:00");
+        assertTrue(ticket.getEstimatedArrivalTimeTicket().equals("20:00"));
+    }
+
+    @Test
+    public void getPrice() {
+        Ticket ticket = new Ticket();
+        ticket.setPrice(50.0);
+        assertTrue(ticket.getPrice() == 50.0);
+    }
+
+    @Test
+    public void getPassenger() {
+        Ticket ticket1 = new Ticket();
+        Ticket ticket2 = new Ticket();
+        Passenger passenger1 = new Passenger();
+        passenger1.setNumberID("U2175");
+        ticket1.setPassenger(passenger1);
+        Passenger passenger2 = new Passenger();
+        passenger2.setNumberID("U2175");
+        ticket2.setPassenger(passenger2);
+        assertTrue(ticket1.getPassenger().equals(ticket2.getPassenger()));
+    }
+
+    @Test
+    public void getPassengerName() {
+        Ticket ticket = new Ticket();
+        ticket.setPassengerName("Toni");
+        assertTrue(ticket.getPassengerName().equals("Toni"));
+    }
+
+    @Test
+    public void getPassengerID() {
+        Ticket ticket = new Ticket();
+        ticket.setPassengerID("U5866");
+        assertTrue(ticket.getPassengerName().equals("U5866"));
+    }
+
+    @Test
+    public void getPassengerSeat() {
+        Ticket ticket = new Ticket();
+        ticket.setPassengerSeat(21);
+        assertTrue(ticket.getPassengerSeat() == 21);
+    }
+
+    @Test
+    public void getType() {
+        Ticket ticket = new Ticket();
+        ticket.setType("Aplo");
+        assertTrue(ticket.getType().equals("Aplo"));
+    }
+
+    @Test
+    public void getRoute() {
+        Ticket ticket1 = new Ticket();
+        Ticket ticket2 = new Ticket();
+        Route route1 = new Route();
+        route1.setDepartureTime("12:00");
+        route1.setDestination("Serres");
+        ticket1.setRoute(route1);
+        Route route2 = new Route();
+        route2.setDepartureTime("12:00");
+        route2.setDestination("Serres");
+        ticket2.setRoute(route2);
+        assertTrue(ticket1.getRoute().equals(ticket2.getRoute()));
+    }
+
+    @Test
+    public void setDestinationTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setDestinationTicket("Serres");
+        assertTrue(ticket.getDestinationTicket().equals("Serres"));
+    }
+
+    @Test
+    public void setDeparturePointTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setDeparturePointTicket("Pefki");
+        assertTrue(ticket.getDeparturePointTicket().equals("Pefki"));
+    }
+
+    @Test
+    public void setDepartureTimeTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setDepartureTimeTicket("12:00");
+        assertTrue(ticket.getDepartureTimeTicket().equals("12:00"));
+    }
+
+    @Test
+    public void setDepartureDateTicket() {
+        Ticket ticket = new Ticket();
+        SystemCalendar systemCalendar = new SystemCalendar(2018,05,03);
+        ticket.setDepartureDateTicket(systemCalendar);
+        SystemCalendar temp_systemCalendar = new SystemCalendar(2018,05,03);
+        assertTrue(ticket.getDepartureDateTicket().compareTo(temp_systemCalendar) == 0);
+    }
+
+    @Test
+    public void setEstimatedArrivalTimeTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setEstimatedArrivalTimeTicket("20:00");
+        assertTrue(ticket.getEstimatedArrivalTimeTicket().equals("20:00"));
+    }
+
+    @Test
+    public void setPrice() {
+        Ticket ticket = new Ticket();
+        ticket.setPrice(50.0);
+        assertTrue(ticket.getPrice() == 50.0);
+    }
+
+    @Test
+    public void setPassenger() {
+        Ticket ticket1 = new Ticket();
+        Ticket ticket2 = new Ticket();
+        Passenger passenger1 = new Passenger();
+        passenger1.setNumberID("U2175");
+        ticket1.setPassenger(passenger1);
+        Passenger passenger2 = new Passenger();
+        passenger2.setNumberID("U2175");
+        ticket2.setPassenger(passenger2);
+        assertTrue(ticket1.getPassenger().equals(ticket2.getPassenger()));
+    }
+
+    @Test
+    public void setPassengerSeat() {
+        Ticket ticket = new Ticket();
+        ticket.setPassengerSeat(21);
+        assertTrue(ticket.getPassengerSeat() == 21);
+    }
+
+    @Test
+    public void setPassengerName() {
+        Ticket ticket = new Ticket();
+        ticket.setPassengerName("Toni");
+        assertTrue(ticket.getPassengerName().equals("Toni"));
+    }
+
+    @Test
+    public void setType() {
+        Ticket ticket = new Ticket();
+        ticket.setType("Aplo");
+        assertTrue(ticket.getType().equals("Aplo"));
+    }
+
+    @Test
+    public void setPassengerID() {
+        Ticket ticket = new Ticket();
+        ticket.setPassengerID("U5866");
+        assertTrue(ticket.getPassengerName().equals("U5866"));
+    }
+
+    @Test
+    public void setRoute() {
+        Ticket ticket1 = new Ticket();
+        Ticket ticket2 = new Ticket();
+        Route route1 = new Route();
+        route1.setDepartureTime("12:00");
+        route1.setDestination("Serres");
+        ticket1.setRoute(route1);
+        Route route2 = new Route();
+        route2.setDepartureTime("12:00");
+        route2.setDestination("Serres");
+        ticket2.setRoute(route2);
+        assertTrue(ticket1.getRoute().equals(ticket2.getRoute()));
+    }
+
+
+    @Test
+    public void equals() {
+
+        String destinationTicket = "Argos";
+        String departurePointTicket = "Zografou";
+        String departureTimeTicket = "11:00";
+        SystemCalendar departureDateTicket = new SystemCalendar(2018,05,03);;
+        String estimatedArrivalTimeTicket = "14:00:";
+        double price = 19.0;
+        Passenger passenger = new Passenger();
+        passenger.setNumberID("U2168");
+        String passengerName = "Sotiris";
+        String passengerID = passenger.getNumberID();
+        int passengerSeat = 21;
+        String type = "Aplos";
+        Route route = new Route();
+        route.setDepartureTime("11.00");
+
+        Ticket ticket1 = new Ticket();
+        Ticket ticket2 = new Ticket();
+        ticket1.setDestinationTicket(destinationTicket);
+        ticket1.setDeparturePointTicket(departurePointTicket);
+        ticket1.setDepartureTimeTicket(departureTimeTicket);
+        ticket1.setDepartureDateTicket(departureDateTicket);
+        ticket1.setEstimatedArrivalTimeTicket(estimatedArrivalTimeTicket);
+        ticket1.setPrice(price);
+        ticket1.setPassenger(passenger);
+        ticket1.setPassengerName(passengerName);
+        ticket1.setPassengerName(passengerName);
+        ticket1.setPassengerSeat(passengerSeat);
+        ticket1.setType(type);
+        ticket1.setRoute(route);
+        ticket2.setDestinationTicket(destinationTicket);
+        ticket2.setDeparturePointTicket(departurePointTicket);
+        ticket2.setDepartureTimeTicket(departureTimeTicket);
+        ticket2.setDepartureDateTicket(departureDateTicket);
+        ticket2.setEstimatedArrivalTimeTicket(estimatedArrivalTimeTicket);
+        ticket2.setPrice(price);
+        ticket2.setPassenger(passenger);
+        ticket2.setPassengerName(passengerName);
+        ticket2.setPassengerName(passengerName);
+        ticket2.setPassengerSeat(passengerSeat);
+        ticket2.setType(type);
+        ticket2.setRoute(route);
+        assertTrue(ticket1.equals(ticket2));
     }
 }

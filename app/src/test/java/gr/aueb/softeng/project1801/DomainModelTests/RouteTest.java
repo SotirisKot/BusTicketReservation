@@ -308,7 +308,9 @@ public class RouteTest {
         SystemCalendar departureDate = new SystemCalendar(2018,05,03);
         String estimatedArrivalTime = " 20:00";
         Bus routeBus = new Bus();
+        routeBus.setBusType("Diorofo");
         Driver driver = new Driver();
+        driver.setDriverID("D2109");
         int availableSeats = 100;
         Route route1 = new Route();
         Route route2 = new Route();
@@ -328,6 +330,5 @@ public class RouteTest {
         route2.setAvailableSeats(availableSeats);
         assertTrue(route1.equals(route2));
     }
-
 
 }
