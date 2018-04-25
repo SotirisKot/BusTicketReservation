@@ -282,6 +282,7 @@ public class RouteTest {
         route.addTicket(ticket);
         assertTrue(route.getTickets().size() == 1);
         assertTrue(route.getTickets().contains(ticket));
+
     }
 
     @Test
