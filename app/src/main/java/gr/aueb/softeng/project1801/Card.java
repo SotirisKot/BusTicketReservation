@@ -16,6 +16,8 @@ public class Card {
         this.ExpirationDate = ExpirationDate;
     }
 
+    public  Card() {}
+
     //Returns the card's CardHolderName
     public String getCardHolderName() {
         return CardHolderName;
