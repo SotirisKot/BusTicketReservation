@@ -10,6 +10,8 @@ public class Driver {
     private String DriverID;
     private DriverState state = DriverState.AVAILABLE;
 
+    public Driver() { }
+
     public Driver(String driverName, String driverID) {
         DriverName = driverName;
         DriverID = driverID;

@@ -12,6 +12,8 @@ public class Bus {
     private int BusSeats;
     private BusState state = BusState.AVAILABLE;
 
+    public Bus() { }
+
     public Bus(String bysType, String modelType, String busID, int busSeats) {
         BysType = bysType;
         ModelType = modelType;
