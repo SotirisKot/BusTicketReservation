@@ -2,6 +2,8 @@ package gr.aueb.softeng.project1801;
 
 import java.util.*;
 
+import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+
 /**
  * Created by George Chatzopoulos on 04/22/2018.
  */

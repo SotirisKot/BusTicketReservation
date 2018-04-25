@@ -1,9 +1,7 @@
 package gr.aueb.softeng.project1801;
 
 
-import java.util.*;
-
-import javax.xml.transform.Source;
+import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
 
 public class Ticket {
 

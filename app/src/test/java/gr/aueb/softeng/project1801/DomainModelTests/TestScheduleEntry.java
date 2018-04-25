@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import gr.aueb.softeng.project1801.ScheduleEntry;
-import gr.aueb.softeng.project1801.SystemCalendar;
+import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
 
 /**
  * Created by George Chatzopoulos on 04/25/2018.
@@ -14,9 +14,9 @@ import gr.aueb.softeng.project1801.SystemCalendar;
 
 public class TestScheduleEntry {
 
-    SystemCalendar calendar;
-    String DepartureTime;
-    int DayOfWeek;
+    private SystemCalendar calendar;
+    private String DepartureTime;
+    private int DayOfWeek;
 
     @Before
     public void SetUp(){
@@ -63,14 +63,5 @@ public class TestScheduleEntry {
         Assert.assertEquals(4,calendar.getMonth());
         Assert.assertEquals(25,calendar.getDayOfMonth());
     }
-
-
-
-
-
-
-
-
-
 
 }

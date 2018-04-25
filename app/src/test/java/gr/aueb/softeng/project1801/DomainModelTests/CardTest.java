@@ -2,12 +2,8 @@ package gr.aueb.softeng.project1801.DomainModelTests;
 
 import org.junit.Test;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import gr.aueb.softeng.project1801.Card;
-import gr.aueb.softeng.project1801.Passenger;
-import gr.aueb.softeng.project1801.SystemCalendar;
+import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
 
 import static org.junit.Assert.*;
 
@@ -31,9 +27,9 @@ public class CardTest {
     @Test
     public void getExpirationDate() {
         Card card = new Card();
-        SystemCalendar systemCalendar = new SystemCalendar(2020,01,01);
+        SystemCalendar systemCalendar = new SystemCalendar(2020,1,1);
         card.setExpirationDate(systemCalendar);
-        SystemCalendar temp_systemCalendar = new SystemCalendar(2020,01,01);
+        SystemCalendar temp_systemCalendar = new SystemCalendar(2020,1,1);
         assertTrue((card.getExpirationDate()).compareTo(temp_systemCalendar) == 0);
     }
 
@@ -68,9 +64,9 @@ public class CardTest {
     @Test
     public void setExpirationDate() {
         Card card = new Card();
-        SystemCalendar systemCalendar = new SystemCalendar(2020,01,01);
+        SystemCalendar systemCalendar = new SystemCalendar(2020,1,1);
         card.setExpirationDate(systemCalendar);
-        SystemCalendar temp_systemCalendar = new SystemCalendar(2020,01,01);
+        SystemCalendar temp_systemCalendar = new SystemCalendar(2020,1,1);
         assertTrue((card.getExpirationDate()).compareTo(temp_systemCalendar) == 0);
     }
 
@@ -80,7 +76,7 @@ public class CardTest {
         String cardHolderName = "Toni Montana";
         String cardID = "6666 6666 6666 6666";
         int CVcode = 666;
-        SystemCalendar cal = new SystemCalendar(2020,01,01);
+        SystemCalendar cal = new SystemCalendar(2020,1,1);
         Card card1 = new Card();
         Card card2 = new Card();
         card1.setCardHolderName(cardHolderName);

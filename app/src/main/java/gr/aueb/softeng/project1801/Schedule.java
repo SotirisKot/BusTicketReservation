@@ -1,18 +1,11 @@
 package gr.aueb.softeng.project1801;
 
-import java.sql.SQLOutput;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
-/**
- * Created by George Chatzopoulos on 04/22/2018.
- */
+import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+
 
 public class Schedule {
 
@@ -20,9 +13,6 @@ public class Schedule {
     private Set<String> DeparturePoints = new HashSet<>();
     private Set<String> DepartureTimes = new HashSet<>();
     private Set<SystemCalendar> DepartureDates = new HashSet<>();
-    private String date;
-    private String time;
-    private String selectedDate;
     private String Destination;
     private String Departure;
     private Set<Route> routes = new HashSet<>();
@@ -65,6 +55,8 @@ public class Schedule {
     public void addScheduleEntry(ScheduleEntry entry) {
         if (entry != null) {
             ScheduleEntry.add(entry);
+            DepartureDates.add(entry.getCalendar());
+            DepartureTimes.add(entry.getDepartureTime());
         }
     }
 
@@ -109,7 +101,7 @@ public class Schedule {
     }
 
     public Set<SystemCalendar> getDepartureDates() {
-        return new HashSet<>(DepartureDates);
+        return DepartureDates;
     }
 
     public void setDepartureDates(Set<SystemCalendar> departureDates) {
@@ -153,11 +145,11 @@ public class Schedule {
             System.out.println("Not a valid departure time!!!");
             return null;
         }
+
         if(!DepartureDates.contains(DepartureDate)){
             System.out.println("Not a valid departure date!!!");
             return null;
         }
-
         Route route = new Route();
         if(RouteBus.getState() == BusState.AVAILABLE){
             System.out.println("Bus is available");
@@ -176,6 +168,10 @@ public class Schedule {
             return null;
         }
         System.out.println("All the information is valid...will create route");
+        route.setDestination(Destination);
+        route.setDeparturePoint(DeparturePoint);
+        route.setDepartureTime(DepartureTime);
+        route.setDepartureDate(DepartureDate);
         route.setEstimatedArrivalTime(EstimatedArrivalTime);
         addNewRoute(route);
 
@@ -218,7 +214,6 @@ public class Schedule {
         }
         return AvailableEntry;
     }
-
 
 
     @Override

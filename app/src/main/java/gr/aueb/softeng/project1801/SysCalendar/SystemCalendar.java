@@ -1,4 +1,4 @@
-package gr.aueb.softeng.project1801;
+package gr.aueb.softeng.project1801.SysCalendar;
 
 import java.util.Calendar;
 
@@ -91,6 +91,7 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
         public int compareTo(SystemCalendar other) {
             return date.compareTo(other.date);
         }
+
 
 
         @Override

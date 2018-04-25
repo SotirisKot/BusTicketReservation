@@ -1,18 +1,6 @@
 package gr.aueb.softeng.project1801;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
 
 /**
  * Created by George Chatzopoulos on 04/22/2018.
