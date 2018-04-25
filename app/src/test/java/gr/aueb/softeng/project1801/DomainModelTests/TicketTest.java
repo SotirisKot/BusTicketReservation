@@ -232,7 +232,7 @@ public class TicketTest {
     public void getPassengerID() {
         Ticket ticket = new Ticket();
         ticket.setPassengerID("U5866");
-        assertTrue(ticket.getPassengerName().equals("U5866"));
+        assertTrue(ticket.getPassengerID().equals("U5866"));
     }
 
     @Test
@@ -346,7 +346,7 @@ public class TicketTest {
     public void setPassengerID() {
         Ticket ticket = new Ticket();
         ticket.setPassengerID("U5866");
-        assertTrue(ticket.getPassengerName().equals("U5866"));
+        assertTrue(ticket.getPassengerID().equals("U5866"));
     }
 
     @Test
