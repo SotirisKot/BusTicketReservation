@@ -5,6 +5,7 @@ import gr.aueb.softeng.project1801.Bus;
 import gr.aueb.softeng.project1801.Driver;
 import gr.aueb.softeng.project1801.Passenger;
 import gr.aueb.softeng.project1801.Route;
+import gr.aueb.softeng.project1801.SystemCalendar;
 import gr.aueb.softeng.project1801.Ticket;
 
 import static org.junit.Assert.*;
@@ -15,18 +16,20 @@ public class RouteTest {
     Driver driver;
     Passenger passenger;
     Ticket ticket;
+    SystemCalendar calendar;
 
     @Before
     public void setUp(){
         bus = new Bus("Type1", "Mercendes", "AR1314",50);
         driver = new Driver("Anastasios Lepipas", "AL1997");
         passenger = new Passenger("Sotiris","Kotitsas","SK9");
+        calendar = new SystemCalendar(2018,4,14);
 
         ticket = new Ticket();
         ticket.setDestinationTicket("Athens");
         ticket.setDeparturePointTicket("Nafplio");
         ticket.setDepartureTimeTicket("8:00PM");
-        ticket.setDepartureDateTicket("2018-4-24");
+        ticket.setDepartureDateTicket(calendar);
         ticket.setPassenger(passenger);
         ticket.setPassengerName(passenger.getFirstName()+passenger.getLastName());
         ticket.setPassengerID(passenger.getNumberID());

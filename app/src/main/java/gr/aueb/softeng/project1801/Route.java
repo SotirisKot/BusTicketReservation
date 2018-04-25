@@ -11,7 +11,7 @@ public class Route {
     private String Destination;
     private String DepartureTime;
     private String DeparturePoint;
-    private String DepartureDate;
+    private SystemCalendar DepartureDate;
     private String EstimatedArrivalTime;
     private Bus RouteBus;
     private Driver Driver;
@@ -22,7 +22,7 @@ public class Route {
     //Default constructor
     public Route() { }
 
-    public Route(String destination, String departureTime, String departurePoint, String departureDate
+    public Route(String destination, String departureTime, String departurePoint, SystemCalendar departureDate
             ,String estimatedArrivalTime, Bus routeBus, Driver driver) {
         Destination = destination;
         DepartureTime = departureTime;
@@ -58,11 +58,11 @@ public class Route {
         DeparturePoint = departurePoint;
     }
 
-    public String getDepartureDate() {
+    public SystemCalendar getDepartureDate() {
         return DepartureDate;
     }
 
-    public void setDepartureDate(String departureDate) {
+    public void setDepartureDate(SystemCalendar departureDate) {
         DepartureDate = departureDate;
     }
 
