@@ -236,6 +236,17 @@ public class Schedule {
         }
     }
 
+    public void printStatisticsBasedOnDate(SystemCalendar calendar){
+
+        for(Route route: routes){
+            if(route.getDepartureDate().equals(calendar)){
+                printStatistics(route);
+                System.out.println();
+            }
+        }
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

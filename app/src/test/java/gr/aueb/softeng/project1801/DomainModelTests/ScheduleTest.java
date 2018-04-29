@@ -500,4 +500,21 @@ public class ScheduleTest {
 
         sc.printStatistics(route1);
     }
+
+    @Test
+    public void TestPrintStatisticsBasedOnDate(){
+        Schedule sc = new Schedule();
+        sc.setDepartureDates(DepartureDates);
+        sc.setDeparturePoints(DeparturePoints);
+        sc.setDestinations(Destinations);
+        sc.setDestination(Destination);
+        sc.setDepartureTimes(DepartureTimes);
+        sc.addNewRoute(route1);
+        sc.addNewRoute(route2);
+        sc.addNewRoute(route3);
+        sc.addNewRoute(route4);
+
+        sc.printStatisticsBasedOnDate(calendar1);
+    }
+
 }
