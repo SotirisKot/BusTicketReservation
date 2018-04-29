@@ -145,18 +145,18 @@ public class RouteTest {
     @Test
     public void getDepartureDate() {
         Route route = new Route();
-        SystemCalendar systemCalendar = new SystemCalendar(2018,05,03);
+        SystemCalendar systemCalendar = new SystemCalendar(2018,5,3);
         route.setDepartureDate(systemCalendar);
-        SystemCalendar temp_systemCalendar = new SystemCalendar(2018,05,03);
+        SystemCalendar temp_systemCalendar = new SystemCalendar(2018,5,3);
         assertTrue(route.getDepartureDate().compareTo(temp_systemCalendar) == 0);
     }
 
     @Test
     public void setDepartureDate() {
         Route route = new Route();
-        SystemCalendar systemCalendar = new SystemCalendar(2018,05,03);
+        SystemCalendar systemCalendar = new SystemCalendar(2018,5,3);
         route.setDepartureDate(systemCalendar);
-        SystemCalendar temp_systemCalendar = new SystemCalendar(2018,05,03);
+        SystemCalendar temp_systemCalendar = new SystemCalendar(2018,5,3);
         assertTrue(route.getDepartureDate().compareTo(temp_systemCalendar) == 0);
     }
 
@@ -301,11 +301,9 @@ public class RouteTest {
 
     @Test
     public void equals() {
-
         String destination = "Serres";
         String departureTime = "12:00";
-        String departurePoint = "Pefki";
-        SystemCalendar departureDate = new SystemCalendar(2018,05,03);
+        SystemCalendar departureDate = new SystemCalendar(2018,5,3);
         String estimatedArrivalTime = " 20:00";
         Bus routeBus = new Bus();
         routeBus.setBusType("Diorofo");

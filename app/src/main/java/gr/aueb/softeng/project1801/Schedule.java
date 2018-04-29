@@ -128,7 +128,7 @@ public class Schedule {
         Departure = departure;
     }
 
-    public Route createRoute(String Destination,String DeparturePoint,String DepartureTime
+    public Route createRoute(String Destination,String DepartureTime,String DeparturePoint
         ,SystemCalendar DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
 
         //Will check if all the chosen information about the route is valid
@@ -167,14 +167,20 @@ public class Schedule {
             System.out.println("Driver not available");
             return null;
         }
-        System.out.println("All the information is valid...will create route");
         route.setDestination(Destination);
         route.setDeparturePoint(DeparturePoint);
         route.setDepartureTime(DepartureTime);
         route.setDepartureDate(DepartureDate);
         route.setEstimatedArrivalTime(EstimatedArrivalTime);
-        addNewRoute(route);
+        route.setAvailableSeats(RouteBus.getBusSeats());
+        if (findRoute(route)){
+            System.out.println("Route already exists!!!");
+            return null;
+        }else{
+            System.out.println("Route information valid...will create route!!");
+            addNewRoute(route);
 
+        }
         return route;
     }
 
@@ -215,6 +221,20 @@ public class Schedule {
         return AvailableEntry;
     }
 
+    private boolean findRoute(Route route){
+        return routes.contains(route);
+    }
+
+    public void printStatistics(Route route){
+        //prints the statistics about this route based on how many seats are available.
+        double statistic;
+        if(findRoute(route)){
+            statistic = ((double)route.getAvailableSeats()/route.getRouteBus().getBusSeats())*100;
+            route.printData(statistic);
+        }else {
+            System.out.println("The route you requested does not exist...");
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

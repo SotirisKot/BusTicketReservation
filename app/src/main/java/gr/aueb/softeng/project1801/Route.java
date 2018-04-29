@@ -1,5 +1,7 @@
 package gr.aueb.softeng.project1801;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
@@ -34,6 +36,8 @@ public class Route {
         RouteBus = routeBus;
         Driver = driver;
         AvailableSeats = routeBus.getBusSeats();
+        RouteBus.not_available();
+        Driver.not_available();
     }
 
     public String getDestination() {
@@ -125,6 +129,23 @@ public class Route {
         return tickets.contains(ticket);
     }
 
+
+
+    public void printData(double statistic){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+        System.out.println("Destination: "+ this.Destination);
+        System.out.println("Departure point: "+ this.DeparturePoint);
+        System.out.println("Departure time: "+ this.DepartureTime);
+        System.out.println("Departure date: " + dateFormat.format(this.DepartureDate.getJavaCalendar().getTime()));
+        System.out.println("Estimated arrival time: " + this.EstimatedArrivalTime);
+        System.out.println("Route bus: " + this.RouteBus.getBusType());
+        System.out.println("Driver: " + this.Driver.getDriverID());
+        System.out.println("Available seats: "+ this.AvailableSeats +"... " +
+                statistic +"% "+" empty!!!");
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -132,7 +153,6 @@ public class Route {
 
         Route route = (Route) o;
 
-        if (AvailableSeats != route.AvailableSeats) return false;
         if (Destination != null ? !Destination.equals(route.Destination) : route.Destination != null)
             return false;
         if (DepartureTime != null ? !DepartureTime.equals(route.DepartureTime) : route.DepartureTime != null)
@@ -140,8 +160,6 @@ public class Route {
         if (DeparturePoint != null ? !DeparturePoint.equals(route.DeparturePoint) : route.DeparturePoint != null)
             return false;
         if (DepartureDate != null ? !DepartureDate.equals(route.DepartureDate) : route.DepartureDate != null)
-            return false;
-        if (EstimatedArrivalTime != null ? !EstimatedArrivalTime.equals(route.EstimatedArrivalTime) : route.EstimatedArrivalTime != null)
             return false;
         if (RouteBus != null ? !RouteBus.equals(route.RouteBus) : route.RouteBus != null)
             return false;
@@ -154,10 +172,8 @@ public class Route {
         result = 13 * result + (DepartureTime != null ? DepartureTime.hashCode() : 0);
         result = 13 * result + (DeparturePoint != null ? DeparturePoint.hashCode() : 0);
         result = 13 * result + (DepartureDate != null ? DepartureDate.hashCode() : 0);
-        result = 13 * result + (EstimatedArrivalTime != null ? EstimatedArrivalTime.hashCode() : 0);
         result = 13 * result + (RouteBus != null ? RouteBus.hashCode() : 0);
         result = 13 * result + (Driver != null ? Driver.hashCode() : 0);
-        result = 13 * result + AvailableSeats;
         return result;
     }
 }
