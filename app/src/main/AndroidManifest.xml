@@ -19,12 +19,16 @@
         <activity
             android:name=".Employee_login"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light"/>
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".Owner_login"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+             />
     </application>
 
 </manifest>
