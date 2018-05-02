@@ -17,10 +17,11 @@ public class Card {
      * @param CardID (required) card ID of the card.
      * @param ExpirationDate (required) expiration date of the card.
      */
-    public Card(String CardHolderName,String CardID,SystemCalendar ExpirationDate){
+    public Card(String CardHolderName,String CardID,SystemCalendar ExpirationDate,int CVcode){
         this.CardHolderName = CardHolderName;
         this.CardID = CardID;
         this.ExpirationDate = ExpirationDate;
+        this.CVcode = CVcode;
     }
 
     /**

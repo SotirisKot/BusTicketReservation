@@ -1,23 +1,21 @@
 package gr.aueb.softeng.project1801.view;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.time.Instant;
+import gr.aueb.softeng.project1801.dataImpl.DataInitializer;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btn_user;
     Button btn_employee;
     Button btn_owner;
+    private static boolean initialized = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +30,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_employee.setOnClickListener(this);
         btn_owner.setOnClickListener(this);
 
+        if(!initialized){
+            new DataInitializer().prepareData();
+            initialized = true;
+            Toast.makeText(this,"Loading Data!!",Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

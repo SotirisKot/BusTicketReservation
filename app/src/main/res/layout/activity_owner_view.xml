@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/statistics"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="457dp"
+        android:layout_marginEnd="231dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="231dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        android:text="Statistics"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AddRoute"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="459dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="4dp"
+        android:text="Add Route"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/statistics"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
