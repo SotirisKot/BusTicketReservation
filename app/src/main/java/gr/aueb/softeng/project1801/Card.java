@@ -10,54 +10,86 @@ public class Card {
     private SystemCalendar ExpirationDate;
     private int CVcode;
 
-    //Constructor
+    /**
+     *
+     * Constructor.
+     * @param CardHolderName (required) Card Holder Name of the card.
+     * @param CardID (required) card ID of the card.
+     * @param ExpirationDate (required) expiration date of the card.
+     */
     public Card(String CardHolderName,String CardID,SystemCalendar ExpirationDate){
         this.CardHolderName = CardHolderName;
         this.CardID = CardID;
         this.ExpirationDate = ExpirationDate;
     }
 
+    /**
+     *
+     * Default constructor,which construct a Card object.
+     */
     public  Card() {}
 
-    //Returns the card's CardHolderName
+    /** @return Card Holder Name passed to the constructor.  */
     public String getCardHolderName() {
         return CardHolderName;
     }
 
-    //Returns the card's CardID
+    /** @return Card ID passed to the constructor.  */
     public String getCardID() {
         return CardID;
     }
 
-    //Returns the card's ExpirationDate
+    /** @return Expiration Date of the card.  */
     public SystemCalendar getExpirationDate() {
         return ExpirationDate;
     }
 
-    //Returns the card's CVcode
+    /** @return CV code of the card.  */
     public int getCVcode() {
         return CVcode;
     }
 
     //Setters
+
+    /**
+     *
+     * @param cardHolderName Card Holder Name to set
+     */
     public void setCardHolderName(String cardHolderName) {
         CardHolderName = cardHolderName;
     }
 
+    /**
+     *
+     * @param cardID card ID to set
+     */
     public void setCardID(String cardID) {
         CardID = cardID;
     }
 
+    /**
+     *
+     * @param CVcode CV code to set
+     */
     public void setCVcode(int CVcode) {
         this.CVcode = CVcode;
     }
 
+    /**
+     *
+     * @param expirationDate expiration Date to set
+     */
     public void setExpirationDate(SystemCalendar expirationDate) {
         ExpirationDate = expirationDate;
     }
 
 
-    //Overrides equals
+    /**
+     * Comparing two objects.
+     *
+     * This method checks if two object are the same.
+     * @param other must be an object.
+     */
     @Override
     public boolean equals(Object other){
         if(other == null){
@@ -92,7 +124,13 @@ public class Card {
         return true;
     }
 
-    //Overrides hashCode
+    /**
+     * Getting the hashCode of an object.
+     *
+     * This method checks if two object has the same hasCode.
+     * If the method equals returned "true" the hasCode of the two objects must be the same.
+     * If the method equals returned "false" the hasCode of the two objects must not be the same.
+     */
     @Override
     public int hashCode(){
         if(CardHolderName == null && CardID == null && CVcode == 0 && ExpirationDate == null){
