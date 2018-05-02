@@ -11,7 +11,7 @@ public class ScheduleEntry {
 
     /**
      *
-     * Default constructor,which construct a ScheduleEntry object.
+     * Default constructor,which constructs a ScheduleEntry object.
      */
     public ScheduleEntry() { }
 

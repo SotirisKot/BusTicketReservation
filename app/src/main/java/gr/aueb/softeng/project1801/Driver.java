@@ -1,8 +1,5 @@
 package gr.aueb.softeng.project1801;
 
-/**
- * Created by George Chatzopoulos on 04/22/2018.
- */
 
 public class Driver {
 
@@ -12,7 +9,7 @@ public class Driver {
 
     /**
      *
-     * Default constructor,which construct a Driver object.
+     * Default constructor,which constructs a Driver object.
      */
     public Driver() { }
 

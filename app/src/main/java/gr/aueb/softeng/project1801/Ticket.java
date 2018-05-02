@@ -18,7 +18,10 @@ public class Ticket {
     private String Type;
     private Route route;
 
-    //Default Constructor
+    /**
+     *
+     * Default constructor,which constructs a Ticket object.
+     */
     public Ticket() { }
 
     //Constructor
@@ -178,7 +181,12 @@ public class Ticket {
         }
     }
 
-    //Overrides equals
+    /**
+     * Comparing two objects.
+     *
+     * This method checks if two object are the same.
+     * @param other must be an object.
+     */
     @Override
     public boolean equals(Object other){
 
@@ -257,7 +265,13 @@ public class Ticket {
         return true;
     }
 
-    //When equals is overrided always override hashCode
+    /**
+     * Getting the hashCode of an object.
+     *
+     * This method checks if two object has the same hasCode.
+     * If the method equals returned "true" the hasCode of the two objects must be the same.
+     * If the method equals returned "false" the hasCode of the two objects must not be the same.
+     */
     @Override
     public int hashCode(){
         if(DestinationTicket == null && DeparturePointTicket == null & DepartureTimeTicket == null

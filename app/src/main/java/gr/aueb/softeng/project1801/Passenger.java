@@ -24,7 +24,7 @@ public class Passenger {
 
     /**
      *
-     * Default constructor,which construct a Passenger object.
+     * Default constructor,which constructs a Passenger object.
      */
     public Passenger() {}
 

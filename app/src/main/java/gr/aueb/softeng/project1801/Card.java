@@ -25,7 +25,7 @@ public class Card {
 
     /**
      *
-     * Default constructor,which construct a Card object.
+     * Default constructor,which constructs a Card object.
      */
     public  Card() {}
 

@@ -10,7 +10,7 @@ public class Bus {
 
     /**
      *
-     * Default constructor,which construct a Bus object.
+     * Default constructor,which constructs a Bus object.
      */
     public Bus() { }
 
