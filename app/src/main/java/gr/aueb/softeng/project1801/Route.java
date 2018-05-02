@@ -23,9 +23,23 @@ public class Route {
     private Set<Ticket> tickets = new HashSet<>();
 
 
-    //Default constructor
+    /**
+     *
+     * Default constructor,which constructs a Route object.
+     */
     public Route() { }
 
+    /**
+     *
+     * Constructor.
+     * @param destination (required) Destination of the route.
+     * @param departureTime (required) Departure Ticket of the route.
+     * @param departurePoint (required) Departure Point of the route.
+     * @param departureDate (required) Departure Date of the route.
+     * @param estimatedArrivalTime (required) Estimated Arrival Time of the route.
+     * @param routeBus (required) route Bus of the route.
+     * @param driver (required) driver of the route.
+     */
     public Route(String destination, String departureTime, String departurePoint, SystemCalendar departureDate
             ,String estimatedArrivalTime, Bus routeBus, Driver driver) {
         Destination = destination;
@@ -40,97 +54,176 @@ public class Route {
         Driver.not_available();
     }
 
+    /** @return Destination passed to the constructor.  */
     public String getDestination() {
         return Destination;
     }
 
+    /**
+     *
+     * @param destination destination to set
+     */
     public void setDestination(String destination) {
         Destination = destination;
     }
 
+    /** @return DepartureTime passed to the constructor.  */
     public String getDepartureTime() {
         return DepartureTime;
     }
 
+    /**
+     *
+     * @param departureTime departure Time to set
+     */
     public void setDepartureTime(String departureTime) {
         DepartureTime = departureTime;
     }
 
+    /** @return DeparturePoint passed to the constructor.  */
     public String getDeparturePoint() {
         return DeparturePoint;
     }
 
+    /**
+     *
+     * @param departurePoint departure Point to set
+     */
     public void setDeparturePoint(String departurePoint) {
         DeparturePoint = departurePoint;
     }
 
+    /** @return DepartureDate passed to the constructor.  */
     public SystemCalendar getDepartureDate() {
         return DepartureDate;
     }
 
+    /**
+     *
+     * @param departureDate departure Date to set
+     */
     public void setDepartureDate(SystemCalendar departureDate) {
         DepartureDate = departureDate;
     }
 
+    /** @return EstimatedArrivalTime passed to the constructor.  */
     public String getEstimatedArrivalTime() {
         return EstimatedArrivalTime;
     }
 
+    /**
+     *
+     * @param estimatedArrivalTime estimated Arrival Time to set
+     */
     public void setEstimatedArrivalTime(String estimatedArrivalTime) {
         EstimatedArrivalTime = estimatedArrivalTime;
     }
 
+    /** @return RouteBus passed to the constructor.  */
     public Bus getRouteBus() {
         return RouteBus;
     }
 
+    /**
+     *
+     * @param routeBus route Bus to set
+     */
     public void setRouteBus(Bus routeBus) {
         RouteBus = routeBus;
     }
 
+    /** @return Driver passed to the constructor.  */
     public Driver getDriver() {
         return Driver;
     }
 
+    /**
+     *
+     * @param driver driver to set
+     */
     public void setDriver(Driver driver) {
         Driver = driver;
     }
 
+    /** @return AvailableSeats passed to the constructor.  */
     public int getAvailableSeats() {
         return AvailableSeats;
     }
 
+    /**
+     *
+     * @param availableSeats available Seats to set
+     */
     public void setAvailableSeats(int availableSeats) {
         AvailableSeats = availableSeats;
     }
 
+    /**
+     * Returning a set.
+     *
+     * This method returns a copy of the original set-> tickets.
+     * The set that is being returned contains Ticket objects.
+     */
     public Set<Ticket> getTickets(){
         return new HashSet<>(tickets);
     }
 
+    /**
+     * Adding a ticket in the set.
+     *
+     * This method checks if an object is null or not.
+     * @param ticket must be an object.
+     * If the object is not null,then we add the object into the set.
+     * If the object is null,then we do not add the object into the set.
+     */
     public void addTicket(Ticket ticket){
         if(ticket != null){
             ticket.setRoute(this);
         }
     }
 
+    /**
+     * Removing a card from the set.
+     *
+     * This method checks if an object is null or not.
+     * @param ticket must be an object.
+     * If the object is not null,then we remove the object from the set.
+     */
     public void removeTicket(Ticket ticket){
         if(ticket != null){
             ticket.setRoute(null);
         }
     }
 
+    /**
+     * Returning a set.
+     *
+     * This method returns the original set-> tickets.
+     * The set that is being returned contains Ticket objects.
+     */
     public Set<Ticket> friendRoutes(){
         return tickets;
     }
 
-    //Returns true if the ticket exists in the set
+    /**
+     * Finding a ticket.
+     *
+     * This method tries to find a ticket inside of the set-> tickets.
+     * @param ticket must be an object.
+     * The set contains Ticket objects.
+     * @return "true" if the ticket exists in the set or else "false"
+     */
     public boolean FindTicket(Ticket ticket){
         return tickets.contains(ticket);
     }
 
 
-
+    /**
+     * Printing data.
+     *
+     * @param statistic must be a double.
+     * This method prints the statistics of the routes.
+     */
     public void printData(double statistic){
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
@@ -146,6 +239,12 @@ public class Route {
     }
 
 
+    /**
+     * Comparing two objects.
+     *
+     * This method checks if two object are the same.
+     * @param o must be an object.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -166,6 +265,13 @@ public class Route {
         return Driver != null ? Driver.equals(route.Driver) : route.Driver == null;
     }
 
+    /**
+     * Getting the hashCode of an object.
+     *
+     * This method checks if two object has the same hasCode.
+     * If the method equals returned "true" the hasCode of the two objects must be the same.
+     * If the method equals returned "false" the hasCode of the two objects must not be the same.
+     */
     @Override
     public int hashCode() {
         int result = Destination != null ? Destination.hashCode() : 0;

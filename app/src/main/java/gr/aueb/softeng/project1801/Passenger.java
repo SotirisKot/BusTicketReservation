@@ -9,53 +9,86 @@ public class Passenger {
     private String NumberID;
     private Set<Card> PassengerCard = new HashSet<>();//Stores all passenger's card.
 
-    //Constructor
+    /**
+     *
+     * Constructor.
+     * @param FirstName (required) First Name of the passenger.
+     * @param LastName (required) Last Name of the passenger.
+     * @param NumberID (required) Number ID of the passenger.
+     */
     public Passenger(String FirstName,String LastName,String NumberID){
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.NumberID = NumberID;
     }
 
+    /**
+     *
+     * Default constructor,which constructs a Passenger object.
+     */
     public Passenger() {}
 
-    //Returns the firstname of the passenger
+    /** @return FirstName passed to the constructor.  */
     public String getFirstName() {
         return FirstName;
     }
 
-    //Returns the lastname of the passenger
+    /** @return LastName passed to the constructor.  */
     public String getLastName() {
         return LastName;
     }
 
-    //Returns the numberID of the passenger
+    /** @return NumberID passed to the constructor.  */
     public String getNumberID() {
         return NumberID;
     }
 
 
     //Setters
+
+    /**
+     *
+     * @param firstName first name to set
+     */
     public void setFirstName(String firstName) {
         FirstName = firstName;
     }
 
+    /**
+     *
+     * @param lastName last name to set
+     */
     public void setLastName(String lastName) {
         LastName = lastName;
     }
 
+    /**
+     *
+     * @param numberID number ID to set
+     */
     public void setNumberID(String numberID) {
         NumberID = numberID;
     }
 
 
-    //Returns a copy of the original set-> PassengerCard
+    /**
+     * Returning a set.
+     *
+     * This method returns a copy of the original set-> PassengerCard.
+     * The set that is being returned contains Card objects.
+     */
     public Set<Card> getAllCards() {
         return new HashSet<>(PassengerCard);
     }
 
 
-
-    //Adds a card in the set if it is not null
+    /**
+     * Adding a card in the set.
+     *
+     * This method checks if an object is null or not.
+     * If the object is not null,then we add the object into the set.
+     * If the object is null,then we do not add the object into the set.
+     */
     public void addCard(Card card){
 
         if(card != null){
@@ -63,8 +96,12 @@ public class Passenger {
         }
     }
 
-
-    //Removes a card from the set if it exists
+    /**
+     * Removing a card from the set.
+     *
+     * This method checks if an object is null or not.
+     * If the object is not null,then we remove the object from the set.
+     */
     public void removeCard(Card card){
 
         if(card != null){
@@ -74,7 +111,12 @@ public class Passenger {
 
 
 
-    //Overrides equals
+    /**
+     * Comparing two objects.
+     *
+     * This method checks if two object are the same.
+     * @param other must be an object.
+     */
     @Override
     public boolean equals(Object other){
 
@@ -124,7 +166,13 @@ public class Passenger {
         return true;
     }
 
-    //When equals is overrided always override hashCode
+    /**
+     * Getting the hashCode of an object.
+     *
+     * This method checks if two object has the same hasCode.
+     * If the method equals returned "true" the hasCode of the two objects must be the same.
+     * If the method equals returned "false" the hasCode of the two objects must not be the same.
+     */
     @Override
     public int hashCode(){
         if(FirstName == null && LastName == null & NumberID == null){

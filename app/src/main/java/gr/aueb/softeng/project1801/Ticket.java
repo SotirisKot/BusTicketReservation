@@ -18,10 +18,26 @@ public class Ticket {
     private String Type;
     private Route route;
 
-    //Default Constructor
+    /**
+     *
+     * Default constructor,which constructs a Ticket object.
+     */
     public Ticket() { }
 
-    //Constructor
+    /**
+     *
+     * Constructor.
+     * @param DestinationTicket (required) Destination Ticket of the ticket.
+     * @param DeparturePointTicket (required) Departure Point Ticket of the ticket.
+     * @param DepartureTimeTicket (required) Departure Time Ticket of the ticket.
+     * @param DepartureDateTicket (required) Departure Date Ticket of the ticket.
+     * @param EstimatedArrivalTimeTicket (required) Estimated Arrival Time Ticket of the ticket.
+     * @param Price (required) price of the ticket.
+     * @param passenger (required) passenger of the ticket.
+     * @param PassengerSeat (required) passenger Seat of the ticket.
+     * @param Type (required) type of the ticket.
+     * @param route (required) route of the ticket.
+     */
     public Ticket(String DestinationTicket,String DeparturePointTicket,String DepartureTimeTicket,
                   SystemCalendar DepartureDateTicket,String EstimatedArrivalTimeTicket,double Price,
                   Passenger passenger,int PassengerSeat,String Type,Route route){
@@ -40,50 +56,62 @@ public class Ticket {
 
     //Getters
 
+    /** @return DestinationTicket passed to the constructor.  */
     public String getDestinationTicket() {
         return DestinationTicket;
     }
 
+    /** @return DeparturePointTicket passed to the constructor.  */
     public String getDeparturePointTicket() {
         return DeparturePointTicket;
     }
 
+    /** @return DepartureTimeTicket passed to the constructor.  */
     public String getDepartureTimeTicket() {
         return DepartureTimeTicket;
     }
 
+    /** @return DepartureDateTicket passed to the constructor.  */
     public SystemCalendar getDepartureDateTicket() {
         return DepartureDateTicket;
     }
 
+    /** @return EstimatedArrivalTimeTicket passed to the constructor.  */
     public String getEstimatedArrivalTimeTicket() {
         return EstimatedArrivalTimeTicket;
     }
 
+    /** @return Price passed to the constructor.  */
     public double getPrice() {
         return Price;
     }
 
+    /** @return passenger passed to the constructor.  */
     public Passenger getPassenger() {
         return passenger;
     }
 
+    /** @return PassengerName passed to the constructor.  */
     public String getPassengerName() {
         return PassengerName;
     }
 
+    /** @return PassengerID passed to the constructor.  */
     public String getPassengerID() {
         return PassengerID;
     }
 
+    /** @return PassengerSeat passed to the constructor.  */
     public int getPassengerSeat() {
         return PassengerSeat;
     }
 
+    /** @return Type passed to the constructor.  */
     public String getType() {
         return Type;
     }
 
+    /** @return route passed to the constructor.  */
     public Route getRoute() {
         return route;
     }
@@ -91,50 +119,98 @@ public class Ticket {
 
     //Setters
 
+    /**
+     *
+     * @param destinationTicket destination Ticket to set
+     */
     public void setDestinationTicket(String destinationTicket) {
         DestinationTicket = destinationTicket;
     }
 
+    /**
+     *
+     * @param departurePointTicket departure Point Ticket to set
+     */
     public void setDeparturePointTicket(String departurePointTicket) {
         DeparturePointTicket = departurePointTicket;
     }
 
+    /**
+     *
+     * @param departureTimeTicket departure Time Ticket to set
+     */
     public void setDepartureTimeTicket(String departureTimeTicket) {
         DepartureTimeTicket = departureTimeTicket;
     }
 
+    /**
+     *
+     * @param departureDateTicket departure Date Ticket to set
+     */
     public void setDepartureDateTicket(SystemCalendar departureDateTicket) {
         DepartureDateTicket = departureDateTicket;
     }
 
+    /**
+     *
+     * @param estimatedArrivalTimeTicket estimated Arrival Time Ticket to set
+     */
     public void setEstimatedArrivalTimeTicket(String estimatedArrivalTimeTicket) {
         EstimatedArrivalTimeTicket = estimatedArrivalTimeTicket;
     }
 
+    /**
+     *
+     * @param price price to set
+     */
     public void setPrice(double price) {
         this.Price = price;
     }
 
+    /**
+     *
+     * @param passenger passenger to set
+     */
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
     }
 
+    /**
+     *
+     * @param passengerSeat passenger Seat to set
+     */
     public void setPassengerSeat(int passengerSeat) {
         this.PassengerSeat = passengerSeat;
     }
 
+    /**
+     *
+     * @param passengerName passenger Name to set
+     */
     public void setPassengerName(String passengerName) {
         this.PassengerName = passengerName;
     }
 
+    /**
+     *
+     * @param type type to set
+     */
     public void setType(String type) {
         this.Type = type;
     }
 
+    /**
+     *
+     * @param passengerID passenger ID to set
+     */
     public void setPassengerID(String passengerID) {
         this.PassengerID = passengerID;
     }
 
+    /**
+     *
+     * @param route route to set
+     */
     public void setRoute(Route route) {
         if(this.route != null){
             this.route.friendRoutes().remove(this);
@@ -149,13 +225,26 @@ public class Ticket {
     }
 
 
-    //Checks if the ticket is available in the route
+    /**
+     * //Checking availability.
+     *
+     * This method checks if the ticket is available in the route.
+     * @param ticket must be an object.
+     */
     public boolean TicketExists(Ticket ticket){
         return route.FindTicket(ticket);
     }
 
 
-    //Completes the purchase of a ticket if it is available
+    /**
+     * //Compliting purchase availability.
+     *
+     * This method completes the purchase of a ticket if it is available.
+     * @param ticket must be an object.
+     * @param passenger must be an object.
+     * @param route must be an object.
+     * @return "true" if the passenger can buy the ticket or else "false"
+     */
     public boolean buyTicket(Ticket ticket, Passenger passenger, Route route){
         if(route.getAvailableSeats() != 0){
             if(!TicketExists(ticket)){
@@ -178,7 +267,12 @@ public class Ticket {
         }
     }
 
-    //Overrides equals
+    /**
+     * Comparing two objects.
+     *
+     * This method checks if two object are the same.
+     * @param other must be an object.
+     */
     @Override
     public boolean equals(Object other){
 
@@ -257,7 +351,13 @@ public class Ticket {
         return true;
     }
 
-    //When equals is overrided always override hashCode
+    /**
+     * Getting the hashCode of an object.
+     *
+     * This method checks if two object has the same hasCode.
+     * If the method equals returned "true" the hasCode of the two objects must be the same.
+     * If the method equals returned "false" the hasCode of the two objects must not be the same.
+     */
     @Override
     public int hashCode(){
         if(DestinationTicket == null && DeparturePointTicket == null & DepartureTimeTicket == null
