@@ -18,6 +18,10 @@ public class Schedule {
     private Set<Route> routes = new HashSet<>();
     private Set<ScheduleEntry> ScheduleEntry = new HashSet<>();
 
+    /**
+     *
+     * Default constructor,which constructs a Schedule object.
+     */
     public Schedule(){ }
 
     public Schedule(Set<String> destinations, Set<String> departurePoints, Set<String> departureTimes,
@@ -246,7 +250,12 @@ public class Schedule {
         }
     }
 
-
+    /**
+     * Comparing two objects.
+     *
+     * This method checks if two object are the same.
+     * @param other must be an object.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -271,6 +280,13 @@ public class Schedule {
         return ScheduleEntry != null ? ScheduleEntry.equals(schedule1.ScheduleEntry) : schedule1.ScheduleEntry == null;
     }
 
+    /**
+     * Getting the hashCode of an object.
+     *
+     * This method checks if two object has the same hasCode.
+     * If the method equals returned "true" the hasCode of the two objects must be the same.
+     * If the method equals returned "false" the hasCode of the two objects must not be the same.
+     */
     @Override
     public int hashCode() {
         int result = Destinations != null ? Destinations.hashCode() : 0;

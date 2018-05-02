@@ -243,6 +243,7 @@ public class Ticket {
      * @param ticket must be an object.
      * @param passenger must be an object.
      * @param route must be an object.
+     * @return "true" if the passenger can buy the ticket or else "false"
      */
     public boolean buyTicket(Ticket ticket, Passenger passenger, Route route){
         if(route.getAvailableSeats() != 0){

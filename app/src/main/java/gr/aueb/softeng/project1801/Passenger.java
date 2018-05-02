@@ -71,7 +71,12 @@ public class Passenger {
     }
 
 
-    //Returns a copy of the original set-> PassengerCard
+    /**
+     * Returning a set.
+     *
+     * This method returns a copy of the original set-> PassengerCard.
+     * The set that is being returned contains Card objects.
+     */
     public Set<Card> getAllCards() {
         return new HashSet<>(PassengerCard);
     }
@@ -97,7 +102,6 @@ public class Passenger {
      * This method checks if an object is null or not.
      * If the object is not null,then we remove the object into the set.
      */
-    //Removes a card from the set if it exists
     public void removeCard(Card card){
 
         if(card != null){
