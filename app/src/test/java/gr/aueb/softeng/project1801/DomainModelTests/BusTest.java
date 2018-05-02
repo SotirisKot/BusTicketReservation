@@ -10,6 +10,11 @@ import static org.junit.Assert.assertTrue;
 
 public class BusTest {
 
+    /**
+     * Changing bus state.
+     *
+     * This method changes the bus state from available to not available.
+     */
     @Test
     public void fromAvailableToNot(){
         Bus bus = new Bus();
@@ -18,6 +23,11 @@ public class BusTest {
         Assert.assertEquals(BusState.NOT_AVAILABLE,bus.getState());
     }
 
+    /**
+     * Changing bus state.
+     *
+     * This method changes the bus state from not available to available.
+     */
     @Test
     public void fromNotAvailableToAvailable(){
         Bus bus = new Bus();
@@ -27,6 +37,7 @@ public class BusTest {
         Assert.assertEquals(BusState.AVAILABLE,bus.getState());
     }
 
+    /** @return BusType passed to the constructor.  */
     @Test
     public void getBusType() {
         Bus bus = new Bus();
@@ -41,6 +52,7 @@ public class BusTest {
         assertTrue(bus.getBusType().equals("Diorofo"));
     }
 
+    /** @return  ModelType passed to the constructor.  */
     @Test
     public void getModelType() {
         Bus bus = new Bus();
@@ -55,12 +67,14 @@ public class BusTest {
         assertTrue(bus.getModelType().equals("Astiko"));
     }
 
+    /** @return BusID passed to the constructor.  */
     @Test
     public void getBusID() {
         Bus bus = new Bus();
         bus.setBusID("666");
         assertTrue(bus.getBusID().equals("666"));
     }
+
 
     @Test
     public void setBusID() {
@@ -69,6 +83,7 @@ public class BusTest {
         assertTrue(bus.getBusID().equals("666"));
     }
 
+    /** @return BusSeats passed to the constructor.  */
     @Test
     public void getBusSeats() {
         Bus bus = new Bus();
@@ -83,6 +98,7 @@ public class BusTest {
         assertTrue(bus.getBusSeats() == 100);
     }
 
+    /** @return current State of the bus */
     @Test
     public void getState() {
         Bus bus = new Bus();
@@ -97,6 +113,11 @@ public class BusTest {
         assertTrue(bus.getState() == BusState.AVAILABLE);
     }
 
+    /**
+     * Comparing two objects.
+     *
+     * This method checks if two object are the same.
+     */
     @Test
     public void equals() {
         String busType = "Diorofo";
