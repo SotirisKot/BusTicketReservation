@@ -97,10 +97,10 @@ public class Passenger {
     }
 
     /**
-     * Removing a card in the set.
+     * Removing a card from the set.
      *
      * This method checks if an object is null or not.
-     * If the object is not null,then we remove the object into the set.
+     * If the object is not null,then we remove the object from the set.
      */
     public void removeCard(Card card){
 

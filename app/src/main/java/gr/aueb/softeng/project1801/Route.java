@@ -172,7 +172,7 @@ public class Route {
      * Adding a ticket in the set.
      *
      * This method checks if an object is null or not.
-     * This method checks if an object is null or not.
+     * @param ticket must be an object.
      * If the object is not null,then we add the object into the set.
      * If the object is null,then we do not add the object into the set.
      */
@@ -183,11 +183,11 @@ public class Route {
     }
 
     /**
-     * Removing a card in the set.
+     * Removing a card from the set.
      *
      * This method checks if an object is null or not.
      * @param ticket must be an object.
-     * If the object is not null,then we remove the object into the set.
+     * If the object is not null,then we remove the object from the set.
      */
     public void removeTicket(Ticket ticket){
         if(ticket != null){
