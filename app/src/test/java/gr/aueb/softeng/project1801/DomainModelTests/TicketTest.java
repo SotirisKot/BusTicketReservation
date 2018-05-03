@@ -7,7 +7,7 @@ import gr.aueb.softeng.project1801.Bus;
 import gr.aueb.softeng.project1801.Driver;
 import gr.aueb.softeng.project1801.Passenger;
 import gr.aueb.softeng.project1801.Route;
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.Ticket;
 
 import static org.junit.Assert.assertTrue;

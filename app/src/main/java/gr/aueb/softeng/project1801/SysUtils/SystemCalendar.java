@@ -1,4 +1,4 @@
-package gr.aueb.softeng.project1801.SysCalendar;
+package gr.aueb.softeng.project1801.SysUtils;
 
 import java.util.Calendar;
 

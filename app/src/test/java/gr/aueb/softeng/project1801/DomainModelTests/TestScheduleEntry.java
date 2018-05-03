@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import gr.aueb.softeng.project1801.ScheduleEntry;
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 /**
  * Created by George Chatzopoulos on 04/25/2018.

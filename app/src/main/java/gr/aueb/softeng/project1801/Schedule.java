@@ -4,7 +4,7 @@ package gr.aueb.softeng.project1801;
 import java.util.HashSet;
 import java.util.Set;
 
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 
 public class Schedule {
@@ -342,7 +342,7 @@ public class Schedule {
         double statistic;
         if(findRoute(route)){
             statistic = ((double)route.getAvailableSeats()/route.getRouteBus().getBusSeats())*100;
-            route.printData(statistic);
+            route.printData();
         }else {
             System.out.println("The route you requested does not exist...");
         }

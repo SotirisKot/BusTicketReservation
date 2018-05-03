@@ -1,12 +1,12 @@
-package gr.aueb.softeng.project1801.dataImpl;
+package gr.aueb.softeng.project1801.memorydao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Schedule;
-import gr.aueb.softeng.project1801.data_interfaces.ScheduleData;
+import gr.aueb.softeng.project1801.dao.ScheduleDAO;
 
-public class ScheduleImpl implements ScheduleData{
+public class ScheduleDAOMemory implements ScheduleDAO {
 
     protected static List<Schedule> entities = new ArrayList<Schedule>();
 

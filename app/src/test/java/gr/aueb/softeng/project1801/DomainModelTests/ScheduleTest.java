@@ -13,7 +13,7 @@ import gr.aueb.softeng.project1801.DriverState;
 import gr.aueb.softeng.project1801.Route;
 import gr.aueb.softeng.project1801.Schedule;
 import gr.aueb.softeng.project1801.ScheduleEntry;
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.Ticket;
 
 

@@ -1,4 +1,4 @@
-package gr.aueb.softeng.project1801.dataImpl;
+package gr.aueb.softeng.project1801.memorydao;
 
 import gr.aueb.softeng.project1801.Bus;
 import gr.aueb.softeng.project1801.Card;
@@ -6,13 +6,13 @@ import gr.aueb.softeng.project1801.Driver;
 import gr.aueb.softeng.project1801.Passenger;
 import gr.aueb.softeng.project1801.Route;
 import gr.aueb.softeng.project1801.Schedule;
-import gr.aueb.softeng.project1801.data_interfaces.BusData;
-import gr.aueb.softeng.project1801.data_interfaces.CardData;
-import gr.aueb.softeng.project1801.data_interfaces.DriverData;
-import gr.aueb.softeng.project1801.data_interfaces.Initializer;
-import gr.aueb.softeng.project1801.data_interfaces.PassengerData;
-import gr.aueb.softeng.project1801.data_interfaces.RouteData;
-import gr.aueb.softeng.project1801.data_interfaces.ScheduleData;
+import gr.aueb.softeng.project1801.dao.BusDAO;
+import gr.aueb.softeng.project1801.dao.CardDAO;
+import gr.aueb.softeng.project1801.dao.DriverDAO;
+import gr.aueb.softeng.project1801.dao.Initializer;
+import gr.aueb.softeng.project1801.dao.PassengerDAO;
+import gr.aueb.softeng.project1801.dao.RouteDAO;
+import gr.aueb.softeng.project1801.dao.ScheduleDAO;
 
 public class DataInitializer extends Initializer{
 
@@ -45,32 +45,32 @@ public class DataInitializer extends Initializer{
     }
 
     @Override
-    public BusData getBusData() {
-        return new BusImpl();
+    public BusDAO getBusData() {
+        return new BusDAOMemory();
     }
 
     @Override
-    public CardData getCardData() {
-        return new CardImpl();
+    public CardDAO getCardData() {
+        return new CardDAOMemory();
     }
 
     @Override
-    public DriverData getDriverData() {
-        return new DriverImpl();
+    public DriverDAO getDriverData() {
+        return new DriverDAOMemory();
     }
 
     @Override
-    public PassengerData getPassengerData() {
-        return new PassengerImpl();
+    public PassengerDAO getPassengerData() {
+        return new PassengerDAOMemory();
     }
 
     @Override
-    public RouteData getRouteData() {
-        return new RouteImpl();
+    public RouteDAO getRouteData() {
+        return new RouteDAOMemory();
     }
 
     @Override
-    public ScheduleData getScheduleData() {
-        return new ScheduleImpl();
+    public ScheduleDAO getScheduleData() {
+        return new ScheduleDAOMemory();
     }
 }

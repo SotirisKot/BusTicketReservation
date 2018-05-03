@@ -1,12 +1,12 @@
-package gr.aueb.softeng.project1801.dataImpl;
+package gr.aueb.softeng.project1801.memorydao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Passenger;
-import gr.aueb.softeng.project1801.data_interfaces.PassengerData;
+import gr.aueb.softeng.project1801.dao.PassengerDAO;
 
-public class PassengerImpl implements PassengerData{
+public class PassengerDAOMemory implements PassengerDAO {
 
     protected static List<Passenger> entities = new ArrayList<Passenger>();
 

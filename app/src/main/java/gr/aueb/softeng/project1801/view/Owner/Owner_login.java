@@ -1,12 +1,13 @@
-package gr.aueb.softeng.project1801.view;
+package gr.aueb.softeng.project1801.view.Owner;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.Toast;
+
+import gr.aueb.softeng.project1801.view.R;
 
 public class Owner_login extends AppCompatActivity implements View.OnClickListener {
     Button btn_next;
@@ -26,8 +27,10 @@ public class Owner_login extends AppCompatActivity implements View.OnClickListen
         switch(v.getId()){
             case R.id.btn_next:
                 Toast.makeText(this,"Ιδιοκτήτης εισήλθε!",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Owner_login.this,Owner_View.class);
+                Intent intent = new Intent(this,Owner_View.class);
                 startActivity(intent);
+                System.out.println("geiaaaaaaaaaaaaaaaa");
+                break;
         }
     }
 }

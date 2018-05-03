@@ -1,10 +1,10 @@
-package gr.aueb.softeng.project1801.data_interfaces;
+package gr.aueb.softeng.project1801.dao;
 
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Bus;
 
-public interface BusData {
+public interface BusDAO {
 
     //finds the bus based on BusID
     Bus find(String BusID);

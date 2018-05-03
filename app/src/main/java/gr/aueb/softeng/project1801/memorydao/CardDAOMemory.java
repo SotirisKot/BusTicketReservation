@@ -1,13 +1,13 @@
-package gr.aueb.softeng.project1801.dataImpl;
+package gr.aueb.softeng.project1801.memorydao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Card;
-import gr.aueb.softeng.project1801.data_interfaces.CardData;
+import gr.aueb.softeng.project1801.dao.CardDAO;
 
 
-public class CardImpl implements CardData {
+public class CardDAOMemory implements CardDAO {
 
     protected static List<Card> entities = new ArrayList<Card>();
 

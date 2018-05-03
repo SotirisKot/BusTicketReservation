@@ -1,12 +1,12 @@
-package gr.aueb.softeng.project1801.dataImpl;
+package gr.aueb.softeng.project1801.memorydao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Driver;
-import gr.aueb.softeng.project1801.data_interfaces.DriverData;
+import gr.aueb.softeng.project1801.dao.DriverDAO;
 
-public class DriverImpl implements DriverData{
+public class DriverDAOMemory implements DriverDAO {
 
     protected static List<Driver> entities = new ArrayList<Driver>();
 

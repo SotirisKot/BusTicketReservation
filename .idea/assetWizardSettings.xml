@@ -34,7 +34,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\George Chatzopoulos\Desktop\Bus.png" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/image-info.png" />
+                                      <entry key="outputName" value="ic_info" />
                                       <entry key="theme" value="CUSTOM" />
                                       <entry key="themeColor" value="000000" />
                                     </map>
@@ -47,7 +48,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundImage" value="C:\Users\George Chatzopoulos\Desktop\Bus.png" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/C:\Users\George Chatzopoulos\Desktop\Bus.png" />
                                       <entry key="legacyIconShape" value="NONE" />
                                     </map>
                                   </option>

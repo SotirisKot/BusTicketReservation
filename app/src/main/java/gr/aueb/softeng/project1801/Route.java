@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 /**
  * Created by George Chatzopoulos on 04/22/2018.
@@ -221,21 +221,32 @@ public class Route {
     /**
      * Printing data.
      *
-     * @param statistic must be a double.
+     *
      * This method prints the statistics of the routes.
      */
-    public void printData(double statistic){
+    public String printData(){
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        StringBuilder string = new StringBuilder();
+        string.append(this.Destination);
+        string.append("\n");
+        string.append(this.DeparturePoint);
+        string.append("\n");
+        string.append(this.DepartureTime);
+        string.append("\n");
+        string.append(dateFormat.format(this.DepartureDate.getJavaCalendar().getTime()));
+        string.append("\n");
+        string.append(this.EstimatedArrivalTime);
+        string.append("\n");
+        string.append(this.RouteBus.getBusType());
+        string.append("\n");
+        string.append(this.Driver.getDriverID());
+        string.append("\n");
+        string.append(this.AvailableSeats);
+        string.append("...");
+        double statistic = ((double)this.AvailableSeats/this.getRouteBus().getBusSeats())*100;
+        string.append(statistic);
 
-        System.out.println("Destination: "+ this.Destination);
-        System.out.println("Departure point: "+ this.DeparturePoint);
-        System.out.println("Departure time: "+ this.DepartureTime);
-        System.out.println("Departure date: " + dateFormat.format(this.DepartureDate.getJavaCalendar().getTime()));
-        System.out.println("Estimated arrival time: " + this.EstimatedArrivalTime);
-        System.out.println("Route bus: " + this.RouteBus.getBusType());
-        System.out.println("Driver: " + this.Driver.getDriverID());
-        System.out.println("Available seats: "+ this.AvailableSeats +"... " +
-                statistic +"% "+" empty!!!");
+        return string.toString();
     }
 
 

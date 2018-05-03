@@ -1,10 +1,10 @@
-package gr.aueb.softeng.project1801.data_interfaces;
+package gr.aueb.softeng.project1801.dao;
 
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Driver;
 
-public interface DriverData {
+public interface DriverDAO {
 
     //finds the driver based on the driver id
     Driver find(String DriverID);

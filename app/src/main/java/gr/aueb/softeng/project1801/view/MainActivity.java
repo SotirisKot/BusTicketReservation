@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import gr.aueb.softeng.project1801.dataImpl.DataInitializer;
+import gr.aueb.softeng.project1801.memorydao.DataInitializer;
+import gr.aueb.softeng.project1801.view.Owner.Owner_login;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{

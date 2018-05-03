@@ -1,6 +1,6 @@
 package gr.aueb.softeng.project1801;
 
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 
 public class ScheduleEntry {

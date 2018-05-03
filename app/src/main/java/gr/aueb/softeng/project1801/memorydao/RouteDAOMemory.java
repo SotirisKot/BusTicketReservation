@@ -1,13 +1,13 @@
-package gr.aueb.softeng.project1801.dataImpl;
+package gr.aueb.softeng.project1801.memorydao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Route;
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
-import gr.aueb.softeng.project1801.data_interfaces.RouteData;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
+import gr.aueb.softeng.project1801.dao.RouteDAO;
 
-public class RouteImpl implements RouteData{
+public class RouteDAOMemory implements RouteDAO {
 
     protected static List<Route> entities = new ArrayList<Route>();
 

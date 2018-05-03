@@ -21,7 +21,7 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name=".Owner_login"
+            android:name=".Owner.Owner_login"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
         <activity
@@ -29,6 +29,16 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"
              />
+        <activity
+            android:name=".Owner.Owner_View"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            />
+        <activity
+            android:name=".Owner.Statistics.StatisticsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            />
     </application>
 
 </manifest>

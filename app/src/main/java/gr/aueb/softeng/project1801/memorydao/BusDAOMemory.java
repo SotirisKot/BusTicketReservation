@@ -1,12 +1,12 @@
-package gr.aueb.softeng.project1801.dataImpl;
+package gr.aueb.softeng.project1801.memorydao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Bus;
-import gr.aueb.softeng.project1801.data_interfaces.BusData;
+import gr.aueb.softeng.project1801.dao.BusDAO;
 
-public class BusImpl implements BusData{
+public class BusDAOMemory implements BusDAO {
 
     protected static List<Bus> entities = new ArrayList<Bus>();
 

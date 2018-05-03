@@ -1,11 +1,11 @@
-package gr.aueb.softeng.project1801.data_interfaces;
+package gr.aueb.softeng.project1801.dao;
 
 import java.util.List;
 
 import gr.aueb.softeng.project1801.Route;
-import gr.aueb.softeng.project1801.SysCalendar.SystemCalendar;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
-public interface RouteData {
+public interface RouteDAO {
 
     //finds a route based on the details given
     Route find(String destination, String departureTime, String departurePoint, SystemCalendar departureDate);
