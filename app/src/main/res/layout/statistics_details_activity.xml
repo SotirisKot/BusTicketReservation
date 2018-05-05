@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/basic_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/basic_info"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/destination"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_destination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/departure_point"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/departure_point"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_departure_point"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/departure_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/departure_date"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_departure_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/departure_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/departure_time"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_departure_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/available_seats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/available_seats"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_seats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/bus_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/bus_type"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_bus_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/driver_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/driver_id"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_driver_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/arrival_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/arrival_time"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_arrival_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/statistics"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/statistic"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_statistics"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>

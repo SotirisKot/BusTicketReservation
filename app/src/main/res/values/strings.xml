@@ -15,4 +15,17 @@
         completions."
     </string>
     <color name="custom">#3D5069</color>
+
+    <string name="basic_info">Basic Info</string>
+    <string name="destination">Destination</string>
+    <string name="departure_point">Departure Point</string>
+    <string name="departure_date">Departure Date</string>
+    <string name="departure_time"> Departure Time</string>
+    <string name="available_seats">Available Seats</string>
+    <string name="bus_type">Bus Type</string>
+    <string name="driver_id">Driver ID</string>
+    <string name="arrival_time">Arrival Time</string>
+    <string name="statistic">Statistic</string>
+
+
 </resources>

@@ -39,6 +39,11 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"
             />
+        <activity
+            android:name=".Owner.StatisticsDetails.StatisticsDetailsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"
+            />
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.List;
 import gr.aueb.softeng.project1801.SysUtils.DataRow;
 import gr.aueb.softeng.project1801.memorydao.RouteDAOMemory;
+import gr.aueb.softeng.project1801.view.Owner.StatisticsDetails.StatisticsDetailsActivity;
 import gr.aueb.softeng.project1801.view.R;
 import gr.aueb.softeng.project1801.view.Util.CustomAdapter;
 
@@ -36,7 +37,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DataRow data = (DataRow) parent.getItemAtPosition(position);
-                presenter.onclickItem(data.getData1(),data.getData2(),data.getData3(),data.getData4());
+                presenter.onclickItem(data.getData1().split(" {2}-")[0],data.getData2(),data.getData3(),data.getData4());
             }
         });
 
@@ -47,8 +48,8 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
        adapter.loadData(data);
     }
 
-    public void clickItem(String destination,String departurePoint,String departureDate,String departureTime){
-        Intent intent = new Intent(this,StatisticsActivity.class);
+    public void clickItem(String departurePoint,String destination,String departureDate,String departureTime){
+        Intent intent = new Intent(this,StatisticsDetailsActivity.class);
         intent.putExtra("destination",destination);
         intent.putExtra("departurePoint",departurePoint);
         intent.putExtra("departureDate",departureDate);
