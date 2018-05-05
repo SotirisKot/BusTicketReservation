@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.aueb.softeng.project1801.Route;
+import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.DataRow;
 import gr.aueb.softeng.project1801.dao.RouteDAO;
 
@@ -33,7 +33,6 @@ public class StatisticsPresenter {
 
         onloadData();
     }
-
 
     void onloadData(){
         view.loadData(createData(routeDAO.findAll()));

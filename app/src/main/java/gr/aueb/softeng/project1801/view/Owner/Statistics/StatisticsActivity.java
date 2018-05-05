@@ -63,7 +63,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
         intent.putExtra("departurePoint",departurePoint);
         intent.putExtra("departureDate",departureDate);
         intent.putExtra("departureTime",departureTime);
-        startActivity(intent);
+        startActivityForResult(intent,1);
     }
 
     @Override
@@ -93,5 +93,14 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
         searchListRoute.setQuery("", false);
         searchListRoute.clearFocus();
         presenter.onloadData();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){//deletion successful...recreate the activity
+            recreate();
+        }
     }
 }

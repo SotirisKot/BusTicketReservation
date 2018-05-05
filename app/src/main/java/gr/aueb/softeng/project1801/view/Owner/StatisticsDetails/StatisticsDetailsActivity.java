@@ -1,7 +1,12 @@
 package gr.aueb.softeng.project1801.view.Owner.StatisticsDetails;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -105,6 +110,37 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
         ((TextView)findViewById(R.id.text_statistics)).setText(statisticS);
     }
 
+
+    @Override
+    public void ClickDeleteButton(String warning) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(StatisticsDetailsActivity.this);
+        alert.setCancelable(true);
+        DialogInterface.OnClickListener Positivelistener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                presenter.onDelete();
+            }
+        };
+        DialogInterface.OnClickListener Negativelistener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showToast("Deletion Cancelled");
+
+            }
+        };
+
+        alert.setPositiveButton(R.string.yes_button,Positivelistener);
+        alert.setNegativeButton(R.string.no_button,Negativelistener);
+        alert.setMessage(warning);
+        alert.create().show();
+    }
+
+    @Override
+    public void delete(String message) {
+        showToast(message);
+        finish();
+    }
+
     public void showToast(String value){
         Toast.makeText(this, value, Toast.LENGTH_LONG).show();
     }
@@ -116,5 +152,11 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
         presenter = new StatisticsDetailsPresenter(this, new RouteDAOMemory());
 
+        findViewById(R.id.delete_route_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onClickDeleteButton();
+            }
+        });
     }
 }

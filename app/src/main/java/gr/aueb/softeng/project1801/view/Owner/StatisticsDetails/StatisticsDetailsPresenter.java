@@ -3,7 +3,7 @@ package gr.aueb.softeng.project1801.view.Owner.StatisticsDetails;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import gr.aueb.softeng.project1801.Route;
+import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.dao.RouteDAO;
 
@@ -50,5 +50,15 @@ public class StatisticsDetailsPresenter {
     public void onShowToast(String value)
     {
         view.showToast(value);
+    }
+
+    void onClickDeleteButton(){
+        view.ClickDeleteButton("Are you sure you want to delete this route?");
+    }
+
+    void onDelete(){
+        routes.delete(presentedRoute);
+        presentedRoute = null;
+        view.delete("Route successfully deleted!!");
     }
 }

@@ -1,4 +1,4 @@
-package gr.aueb.softeng.project1801;
+package gr.aueb.softeng.project1801.DomainModel;
 
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 

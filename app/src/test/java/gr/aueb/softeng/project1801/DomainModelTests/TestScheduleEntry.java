@@ -5,7 +5,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import gr.aueb.softeng.project1801.ScheduleEntry;
+import gr.aueb.softeng.project1801.DomainModel.ScheduleEntry;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 public class TestScheduleEntry {

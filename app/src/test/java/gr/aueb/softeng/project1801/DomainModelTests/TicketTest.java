@@ -3,12 +3,12 @@ package gr.aueb.softeng.project1801.DomainModelTests;
 
 import org.junit.*;
 
-import gr.aueb.softeng.project1801.Bus;
-import gr.aueb.softeng.project1801.Driver;
-import gr.aueb.softeng.project1801.Passenger;
-import gr.aueb.softeng.project1801.Route;
+import gr.aueb.softeng.project1801.DomainModel.Bus;
+import gr.aueb.softeng.project1801.DomainModel.Driver;
+import gr.aueb.softeng.project1801.DomainModel.Passenger;
+import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
-import gr.aueb.softeng.project1801.Ticket;
+import gr.aueb.softeng.project1801.DomainModel.Ticket;
 
 import static org.junit.Assert.assertTrue;
 

@@ -27,6 +27,8 @@
     <string name="driver_id">Driver ID</string>
     <string name="arrival_time">Arrival Time</string>
     <string name="statistic">Statistic</string>
+    <string name="delete_route">Delete Route</string>
 
-
+    <string name="yes_button">YES</string>
+    <string name="no_button">NO</string>
 </resources>

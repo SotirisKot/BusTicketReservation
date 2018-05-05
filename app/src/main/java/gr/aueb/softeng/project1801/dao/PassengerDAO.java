@@ -2,7 +2,7 @@ package gr.aueb.softeng.project1801.dao;
 
 import java.util.List;
 
-import gr.aueb.softeng.project1801.Passenger;
+import gr.aueb.softeng.project1801.DomainModel.Passenger;
 
 public interface PassengerDAO {
 

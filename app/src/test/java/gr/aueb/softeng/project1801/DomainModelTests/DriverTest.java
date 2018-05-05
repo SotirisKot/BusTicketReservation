@@ -3,9 +3,8 @@ package gr.aueb.softeng.project1801.DomainModelTests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import gr.aueb.softeng.project1801.BusState;
-import gr.aueb.softeng.project1801.Driver;
-import gr.aueb.softeng.project1801.DriverState;
+import gr.aueb.softeng.project1801.DomainModel.Driver;
+import gr.aueb.softeng.project1801.DomainModel.DriverState;
 
 import static org.junit.Assert.assertTrue;
 

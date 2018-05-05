@@ -1,4 +1,4 @@
-package gr.aueb.softeng.project1801;
+package gr.aueb.softeng.project1801.DomainModel;
 
 
 import java.util.HashSet;
@@ -16,7 +16,7 @@ public class Schedule {
     private String Destination;
     private String Departure;
     private Set<Route> routes = new HashSet<>();
-    private Set<ScheduleEntry> ScheduleEntry = new HashSet<>();
+    private Set<gr.aueb.softeng.project1801.DomainModel.ScheduleEntry> ScheduleEntry = new HashSet<>();
 
     /**
      *
@@ -220,8 +220,8 @@ public class Schedule {
      * This method creates a new route if there isn't any conflict with the information of the (new)route we want to add.
      * @return Route object(not empty) if we can add the new route in the schedule or else an empty one object"
      */
-    public Route createRoute(String Destination,String DepartureTime,String DeparturePoint
-        ,SystemCalendar DepartureDate,String EstimatedArrivalTime,Bus RouteBus,Driver Driver){
+    public Route createRoute(String Destination, String DepartureTime, String DeparturePoint
+        , SystemCalendar DepartureDate, String EstimatedArrivalTime, Bus RouteBus, Driver Driver){
 
         //Will check if all the chosen information about the route is valid
         if(!Destinations.contains(Destination)){

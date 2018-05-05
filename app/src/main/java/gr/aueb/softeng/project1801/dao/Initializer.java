@@ -3,13 +3,13 @@ package gr.aueb.softeng.project1801.dao;
 import java.util.HashSet;
 import java.util.Set;
 
-import gr.aueb.softeng.project1801.Bus;
-import gr.aueb.softeng.project1801.Card;
-import gr.aueb.softeng.project1801.Driver;
-import gr.aueb.softeng.project1801.Passenger;
-import gr.aueb.softeng.project1801.Route;
-import gr.aueb.softeng.project1801.Schedule;
-import gr.aueb.softeng.project1801.ScheduleEntry;
+import gr.aueb.softeng.project1801.DomainModel.Bus;
+import gr.aueb.softeng.project1801.DomainModel.Card;
+import gr.aueb.softeng.project1801.DomainModel.Driver;
+import gr.aueb.softeng.project1801.DomainModel.Passenger;
+import gr.aueb.softeng.project1801.DomainModel.Route;
+import gr.aueb.softeng.project1801.DomainModel.Schedule;
+import gr.aueb.softeng.project1801.DomainModel.ScheduleEntry;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 /**

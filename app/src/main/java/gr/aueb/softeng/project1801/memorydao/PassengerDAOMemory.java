@@ -3,7 +3,7 @@ package gr.aueb.softeng.project1801.memorydao;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.aueb.softeng.project1801.Passenger;
+import gr.aueb.softeng.project1801.DomainModel.Passenger;
 import gr.aueb.softeng.project1801.dao.PassengerDAO;
 
 public class PassengerDAOMemory implements PassengerDAO {

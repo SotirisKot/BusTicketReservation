@@ -2,8 +2,8 @@ package gr.aueb.softeng.project1801.DomainModelTests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import gr.aueb.softeng.project1801.Bus;
-import gr.aueb.softeng.project1801.BusState;
+import gr.aueb.softeng.project1801.DomainModel.Bus;
+import gr.aueb.softeng.project1801.DomainModel.BusState;
 
 import static org.junit.Assert.assertTrue;
 

@@ -2,7 +2,7 @@ package gr.aueb.softeng.project1801.DomainModelTests;
 
 import org.junit.Test;
 
-import gr.aueb.softeng.project1801.Card;
+import gr.aueb.softeng.project1801.DomainModel.Card;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 import static org.junit.Assert.*;

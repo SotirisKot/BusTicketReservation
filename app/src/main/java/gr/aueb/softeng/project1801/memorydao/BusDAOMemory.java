@@ -3,7 +3,7 @@ package gr.aueb.softeng.project1801.memorydao;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.aueb.softeng.project1801.Bus;
+import gr.aueb.softeng.project1801.DomainModel.Bus;
 import gr.aueb.softeng.project1801.dao.BusDAO;
 
 public class BusDAOMemory implements BusDAO {

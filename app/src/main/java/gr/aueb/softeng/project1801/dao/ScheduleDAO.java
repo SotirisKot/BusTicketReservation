@@ -2,7 +2,7 @@ package gr.aueb.softeng.project1801.dao;
 
 import java.util.List;
 
-import gr.aueb.softeng.project1801.Schedule;
+import gr.aueb.softeng.project1801.DomainModel.Schedule;
 
 public interface ScheduleDAO {
 

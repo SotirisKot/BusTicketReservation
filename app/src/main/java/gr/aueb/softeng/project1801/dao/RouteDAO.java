@@ -2,7 +2,7 @@ package gr.aueb.softeng.project1801.dao;
 
 import java.util.List;
 
-import gr.aueb.softeng.project1801.Route;
+import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 public interface RouteDAO {

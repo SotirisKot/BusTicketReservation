@@ -1,4 +1,4 @@
-package gr.aueb.softeng.project1801;
+package gr.aueb.softeng.project1801.DomainModel;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,7 +18,7 @@ public class Route {
     private SystemCalendar DepartureDate;
     private String EstimatedArrivalTime;
     private Bus RouteBus;
-    private Driver Driver;
+    private gr.aueb.softeng.project1801.DomainModel.Driver Driver;
     private int AvailableSeats;
     private Set<Ticket> tickets = new HashSet<>();
 

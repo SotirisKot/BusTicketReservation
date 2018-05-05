@@ -2,7 +2,7 @@ package gr.aueb.softeng.project1801.dao;
 
 import java.util.List;
 
-import gr.aueb.softeng.project1801.Driver;
+import gr.aueb.softeng.project1801.DomainModel.Driver;
 
 public interface DriverDAO {
 

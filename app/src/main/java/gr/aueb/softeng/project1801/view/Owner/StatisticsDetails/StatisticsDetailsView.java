@@ -31,4 +31,8 @@ public interface StatisticsDetailsView {
     void showToast(String value);
 
     void setActivityName(String value);
+
+    void ClickDeleteButton(String warning);
+
+    void delete(String message);
 }
