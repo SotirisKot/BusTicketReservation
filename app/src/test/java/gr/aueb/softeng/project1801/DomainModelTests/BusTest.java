@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 public class BusTest {
 
     /**
-     * Changing bus state.
+     * Changing bus's state.
      *
      * This method changes the bus state from available to not available.
      */
@@ -24,7 +24,7 @@ public class BusTest {
     }
 
     /**
-     * Changing bus state.
+     * Changing bus's state.
      *
      * This method changes the bus state from not available to available.
      */
@@ -37,7 +37,7 @@ public class BusTest {
         Assert.assertEquals(BusState.AVAILABLE,bus.getState());
     }
 
-    /** @return BusType passed to the constructor.  */
+    /** Returns BusType passed to the constructor.  */
     @Test
     public void getBusType() {
         Bus bus = new Bus();
@@ -52,7 +52,7 @@ public class BusTest {
         assertTrue(bus.getBusType().equals("Diorofo"));
     }
 
-    /** @return  ModelType passed to the constructor.  */
+    /** Returns  ModelType passed to the constructor.  */
     @Test
     public void getModelType() {
         Bus bus = new Bus();
@@ -67,7 +67,7 @@ public class BusTest {
         assertTrue(bus.getModelType().equals("Astiko"));
     }
 
-    /** @return BusID passed to the constructor.  */
+    /** Returns BusID passed to the constructor.  */
     @Test
     public void getBusID() {
         Bus bus = new Bus();
@@ -83,7 +83,7 @@ public class BusTest {
         assertTrue(bus.getBusID().equals("666"));
     }
 
-    /** @return BusSeats passed to the constructor.  */
+    /** Returns BusSeats passed to the constructor.  */
     @Test
     public void getBusSeats() {
         Bus bus = new Bus();
@@ -98,7 +98,7 @@ public class BusTest {
         assertTrue(bus.getBusSeats() == 100);
     }
 
-    /** @return current State of the bus */
+    /** Returns current State of the bus */
     @Test
     public void getState() {
         Bus bus = new Bus();
@@ -116,7 +116,7 @@ public class BusTest {
     /**
      * Comparing two objects.
      *
-     * This method checks if two object are the same.
+     * This method creates and checks if two object are the same.
      */
     @Test
     public void equals() {

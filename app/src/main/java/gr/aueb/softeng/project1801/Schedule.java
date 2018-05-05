@@ -352,7 +352,7 @@ public class Schedule {
      * Printing data.
      *
      * @param calendar must be a SystemCalendar object.
-     * This method prints the statistics of the schedules based on a date.
+     * This method prints the statistics of the schedules based on a specific date.
      */
     public void printStatisticsBasedOnDate(SystemCalendar calendar){
 

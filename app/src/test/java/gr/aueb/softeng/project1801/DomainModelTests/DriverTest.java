@@ -12,6 +12,11 @@ import static org.junit.Assert.assertTrue;
 
 public class DriverTest {
 
+    /**
+     * Changing driver's state.
+     *
+     * This method changes the bus state from available to not available.
+     */
     @Test
     public void fromAvailableToNot(){
         Driver driver = new Driver();
@@ -20,6 +25,11 @@ public class DriverTest {
         Assert.assertEquals(DriverState.NOT_AVAILABLE,driver.getState());
     }
 
+    /**
+     * Changing driver's state.
+     *
+     * This method changes the bus state from not available to available.
+     */
     @Test
     public void fromNotAvailableToAvailable(){
         Driver driver = new Driver();
@@ -29,6 +39,7 @@ public class DriverTest {
         Assert.assertEquals(DriverState.AVAILABLE,driver.getState());
     }
 
+    /** Returns DriverName passed to the constructor.  */
     @Test
     public void getDriverName() {
         Driver driver = new Driver();
@@ -43,6 +54,7 @@ public class DriverTest {
         assertTrue(driver.getDriverName().equals("Toni"));
     }
 
+    /** Returns DriverID passed to the constructor.  */
     @Test
     public void getDriverID() {
         Driver driver = new Driver();
@@ -57,6 +69,7 @@ public class DriverTest {
         assertTrue(driver.getDriverID().equals("666"));
     }
 
+    /** Returns current State of the bus */
     @Test
     public void getState() {
         Driver driver = new Driver();
@@ -71,6 +84,11 @@ public class DriverTest {
         assertTrue(driver.getState() == DriverState.AVAILABLE);
     }
 
+    /**
+     * Comparing two objects.
+     *
+     * This method creates and checks if two object are the same.
+     */
     @Test
     public void equals() {
         String driverName = "Toni";

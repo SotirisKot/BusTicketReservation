@@ -29,7 +29,12 @@ public class ScheduleTest {
      private SystemCalendar calendar1,calendar2,calendar3,calendar4;
      private Route route1,route2,route3,route4,route5;
 
-     @Before
+    /**
+     * Initializing Route,Bus,Driver,SystemCalendar object and adding values to Destinations,DeparturePoints,DepartureTimes,DepartureDates sets.
+     *
+     * This method creates a Route,Bus,Driver,SystemCalendar object and sets values to some sets.
+     */
+    @Before
     public void setUp(){
 
          Destinations.add("Athens");
@@ -78,6 +83,11 @@ public class ScheduleTest {
     @After
     public void tearDown(){ }
 
+    /**
+     * Adding a new route.
+     *
+     * This method creates Schedule object,set values to it, adds new routes and tries to check their existance.
+     */
     @Test
     public void TestAddNewRoute(){
         Schedule sc = new Schedule();
@@ -99,6 +109,11 @@ public class ScheduleTest {
         Assert.assertTrue(sc.getRoutes().contains(route4));
     }
 
+    /**
+     * Trying to add a new null route.
+     *
+     * This method creates Schedule object,set values to it, adds a new null route and tries to check their existance.
+     */
     @Test
     public void TestAddNewRouteWithNullRoute(){
         Schedule sc = new Schedule();
@@ -111,6 +126,11 @@ public class ScheduleTest {
         Assert.assertTrue(!sc.getRoutes().contains(route5));
     }
 
+    /**
+     * Deleting a route.
+     *
+     * This method creates Schedule object,set values to it, adds new routes and after that tries to delete them.
+     */
     @Test
     public void TestDeleteRoute(){
         Schedule sc = new Schedule();
@@ -144,6 +164,11 @@ public class ScheduleTest {
         Assert.assertTrue(!sc.getRoutes().contains(route4));
     }
 
+    /**
+     * Trying to delete a null route.
+     *
+     * This method creates Schedule object,set values to it, adds a new null route and after that tries to delete it.
+     */
     @Test
     public void TestDeleteNullRoute(){
         Schedule sc = new Schedule();
@@ -157,6 +182,11 @@ public class ScheduleTest {
         Assert.assertTrue(sc.getRoutes().size()==0);
     }
 
+    /**
+     * Adding ScheduleEntru.
+     *
+     * This method creates Schedule,SystemCalendar,ScheduleEntry object,set values to them, adds a new schedule entry and after that tries to check it's existance.
+     */
     @Test
     public void TestAddScheduleEntry(){
         Schedule sc = new Schedule();
@@ -168,6 +198,11 @@ public class ScheduleTest {
         Assert.assertTrue(sc.getScheduleEntry().contains(entry));
     }
 
+    /**
+     * Trying to add a null ScheduleEntru.
+     *
+     * This method creates a Schedule object,set values to it, adds a new null schedule entry and after that tries to check if it's empty.
+     */
     @Test
     public void TestAddScheduleEntryNull(){
         Schedule sc = new Schedule();
@@ -177,6 +212,11 @@ public class ScheduleTest {
     }
 
 
+    /**
+     * Removing ScheduleEntru.
+     *
+     * This method creates Schedule,SystemCalendar,ScheduleEntry object,set values to them, adds a new schedule entry and after that tries to check it's existance.Then, deletes the (previous new) schedule entry and check it's existance.
+     */
     @Test
     public void TestRemoveScheduleEntry(){
         Schedule sc = new Schedule();
@@ -192,6 +232,11 @@ public class ScheduleTest {
         Assert.assertTrue(!sc.getScheduleEntry().contains(entry));
     }
 
+    /**
+     * Trying to remove a null ScheduleEntru.
+     *
+     * This method creates a Schedule object,set values to it,tries to remove a null schedule entry and finally checks it's existance.
+     */
     @Test
     public void TestRemoveScheduleNull(){
         Schedule sc = new Schedule();
@@ -200,6 +245,11 @@ public class ScheduleTest {
         Assert.assertTrue(sc.getScheduleEntry().isEmpty());
     }
 
+    /**
+     * Creating a valid route.
+     *
+     * This method creates Schedule,Route object,set values to them,tries to double check their values and finally creates the new route(if we have valid information).
+     */
     @Test
     public void TestCreateRouteWithValidInfo(){
         Schedule sc = new Schedule();
@@ -231,6 +281,11 @@ public class ScheduleTest {
 
     }
 
+    /**
+     * Trying to create an existing route.
+     *
+     * This method creates Schedule,Route object,set values to them,adds new routes, and finally tries to create a new route that already exists.
+     */
     @Test
     public void TestCreateRouteWhenRouteAlreadyExists(){
         Schedule sc = new Schedule();
@@ -253,6 +308,11 @@ public class ScheduleTest {
         Assert.assertTrue(route == null);
     }
 
+    /**
+     * Trying to create a route with wrong destination.
+     *
+     * This method creates Schedule,Route object,set values to them,tries to double check their values and to decide if this route has correct destination.
+     */
     @Test
     public void TestCreateRouteWithWrongDestination(){
         Schedule sc = new Schedule();
@@ -276,6 +336,11 @@ public class ScheduleTest {
         Assert.assertTrue(route == null);
     }
 
+    /**
+     * Trying to create a route with wrong departure point.
+     *
+     * This method creates Schedule,Route object,set values to them,tries to double check their values and to decide if this route has correct departure point.
+     */
     @Test
     public void TestCreateRouteWithWrongDeparturePoint(){
         Schedule sc = new Schedule();
@@ -301,6 +366,11 @@ public class ScheduleTest {
     }
 
 
+    /**
+     * Trying to create a route with wrong departure time.
+     *
+     * This method creates Schedule,Route object,set values to them,tries to double check their values and to decide if this route has correct departure time.
+     */
     @Test
     public void TestCreateRouteWithWrongDepartureTime(){
         Schedule sc = new Schedule();
@@ -327,6 +397,11 @@ public class ScheduleTest {
 
     }
 
+    /**
+     * Trying to create a route with wrong departure date.
+     *
+     * This method creates Schedule,Route object,set values to them,tries to double check their values and to decide if this route has correct departure date.
+     */
     @Test
     public void TestCreateRouteWithWrongDepartureDate(){
         Schedule sc = new Schedule();
@@ -350,6 +425,11 @@ public class ScheduleTest {
 
     }
 
+    /**
+     * Trying to create a route with invalid bus.
+     *
+     * This method creates Schedule,Route object,set values to them,tries to double check their values and to decide if this route has correct bus.
+     */
     @Test
     public void TestCreateRouteWithInavailableBus(){
         Schedule sc = new Schedule();
@@ -372,6 +452,11 @@ public class ScheduleTest {
 
     }
 
+    /**
+     * Trying to create a route with unavailable driver.
+     *
+     * This method creates Schedule,Route object,set values to them,tries to double check their values and to decide if this route has correct driver.
+     */
     @Test
     public void TestCreateRouteWithInavailableDriver(){
         Schedule sc = new Schedule();
@@ -394,6 +479,12 @@ public class ScheduleTest {
 
     }
 
+
+    /**
+     * Trying to find an available date for a route.
+     *
+     * This method creates Schedule,SystemCalendar,ScheduleEntry object,set values to them,tries to find an available date(that is not takens by another route) to add a new route but finally sees that the slot is already taken.So it cannot continue to add the new route.
+     */
     @Test
     public void TestFindNextAvailableDateWhenSlotTaken() {
         Schedule sc = new Schedule();
@@ -417,6 +508,11 @@ public class ScheduleTest {
 
     }
 
+    /**
+     * Finding next available date for a route.
+     *
+     * This method creates Schedule,SystemCalendar,ScheduleEntry object,set values to them,tries to find an available date(that is not takens by another route) to add a new route.
+     */
     @Test
     public void TestFindNextAvailableDateWhenSlotAvailable() {
         Schedule sc = new Schedule();
@@ -440,6 +536,11 @@ public class ScheduleTest {
     }
 
 
+    /**
+     * Checking cration of a route.
+     *
+     * This method creates a Schedule,SystemCalendar,ScheduleEntry,Route objects and sets values to it and finally tries to check the correctness of the route.
+     */
     @Test
     public void TestFullCreationOfRoute(){
         Schedule sc = new Schedule();
@@ -478,6 +579,11 @@ public class ScheduleTest {
 
     }
 
+    /**
+     * Printing data.
+     *
+     * This method creates Schedule object,set values to it and tries to print the statistics of a route.
+     */
     @Test
     public void TestPrintStatistics(){
         Schedule sc = new Schedule();
@@ -501,6 +607,11 @@ public class ScheduleTest {
         sc.printStatistics(route1);
     }
 
+    /**
+     * Printing data.
+     *
+     * This method creates Schedule object,set values to it and tries to print the statistics of a route based on a specific date.
+     */
     @Test
     public void TestPrintStatisticsBasedOnDate(){
         Schedule sc = new Schedule();

@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 public class CardTest {
 
 
+    /** Returns Card Holder Name passed to the constructor.  */
     @Test
     public void getCardHolderName() {
         Card card = new Card();
@@ -17,6 +18,7 @@ public class CardTest {
         assertTrue(card.getCardID().equals("Toni Montana"));
     }
 
+    /** Returns Card ID passed to the constructor.  */
     @Test
     public void getCardID() {
         Card card = new Card();
@@ -24,6 +26,7 @@ public class CardTest {
         assertTrue(card.getCardID().equals("6666 6666 6666 6666"));
     }
 
+    /** Returns Expiration Date of the card.  */
     @Test
     public void getExpirationDate() {
         Card card = new Card();
@@ -33,6 +36,7 @@ public class CardTest {
         assertTrue((card.getExpirationDate()).compareTo(temp_systemCalendar) == 0);
     }
 
+    /** Returns CV code of the card.  */
     @Test
     public void getCVcode() {
         Card card = new Card();
@@ -71,6 +75,11 @@ public class CardTest {
     }
 
 
+    /**
+     * Comparing two objects.
+     *
+     * This method creates and checks if two object are the same.
+     */
     @Test
     public void equals() {
         String cardHolderName = "Toni Montana";

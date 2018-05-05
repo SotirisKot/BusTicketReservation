@@ -21,6 +21,11 @@ public class TicketTest {
     Driver driver;
     SystemCalendar calendar;
 
+    /**
+     * Initializing a Route,Bus,Driver,Passesnger,SystemCalendar object.
+     *
+     * This method creates a Route,Bus,Driver,Passesnger,SystemCalendar object and sets values to it.
+     */
     @Before
     public void setUp(){
         calendar = new SystemCalendar(2018,4,14);
@@ -37,6 +42,11 @@ public class TicketTest {
     public void tearDown(){ }
 
 
+    /**
+     * Findind an existing ticket.
+     *
+     * This method creates a Ticket object, sets values to it and tries to find the (previous added)ticket.
+     */
     @Test
     public void TestTicketExistsIfAdded(){
         Ticket ticket = new Ticket();
@@ -55,6 +65,11 @@ public class TicketTest {
         Assert.assertTrue(ticket.TicketExists(ticket));
     }
 
+    /**
+     * DoubleChecking the existence of a ticket.
+     *
+     * This method creates a Ticket object, sets values to it and tries to create another Ticket object with same values and finally checks it's existance.
+     */
     @Test
     public void TestTicketExistsWhenSameTicket(){
         Ticket ticket = new Ticket();
@@ -87,6 +102,12 @@ public class TicketTest {
         Assert.assertTrue(Newticket.TicketExists(Newticket));
     }
 
+
+    /**
+     * Checking the existence of a ticket.
+     *
+     * This method creates two Ticket objects, sets values to them and tries to check the existance of them.
+     */
     @Test
     public void TestTicketExistsWhenNotSame(){
         Ticket ticket = new Ticket();
@@ -120,6 +141,11 @@ public class TicketTest {
         Assert.assertTrue(Newticket.TicketExists(Newticket));
     }
 
+    /**
+     * Trying to buy an unavailable seat.
+     *
+     * This method creates a Ticket object, sets values to it and makes it unavailable and tries to buy a (unavailable)seat.
+     */
     @Test
     public void TestBuyTicketWhenSeatsAreNotAvailable(){
         Ticket ticket = new Ticket();
@@ -127,6 +153,11 @@ public class TicketTest {
         Assert.assertTrue(!ticket.buyTicket(ticket,passenger,route));
     }
 
+    /**
+     * Trying to buy an unavailable ticket.
+     *
+     * This method creates a Ticket object, sets values to it and makes it unavailable and tries to buy the (previous unavailable)ticket.
+     */
     @Test
     public void TestBuyTicketWhenTicketIsNotAvailable(){
         Ticket ticket = new Ticket();
@@ -146,6 +177,11 @@ public class TicketTest {
         Assert.assertTrue(!ticket.buyTicket(ticket,passenger,route));
     }
 
+    /**
+     * Buying an available ticket.
+     *
+     * This method creates a Ticket object, sets values to it and tries to buy the (previous available)ticket.
+     */
     @Test
     public void TestBuyTicketWhenAvailable(){
         Ticket ticket = new Ticket();
@@ -164,6 +200,7 @@ public class TicketTest {
         Assert.assertEquals(passenger.getNumberID(),ticket.getPassengerID());
     }
 
+    /** Returns DestinationTicket passed to the constructor.  */
     @Test
     public void getDestinationTicket() {
         Ticket ticket = new Ticket();
@@ -171,6 +208,7 @@ public class TicketTest {
         assertTrue(ticket.getDestinationTicket().equals("Serres"));
     }
 
+    /** Returns DeparturePointTicket passed to the constructor.  */
     @Test
     public void getDeparturePointTicket() {
         Ticket ticket = new Ticket();
@@ -178,6 +216,7 @@ public class TicketTest {
         assertTrue(ticket.getDeparturePointTicket().equals("Pefki"));
     }
 
+    /** Returns DepartureTimeTicket passed to the constructor.  */
     @Test
     public void getDepartureTimeTicket() {
         Ticket ticket = new Ticket();
@@ -185,6 +224,7 @@ public class TicketTest {
         assertTrue(ticket.getDepartureTimeTicket().equals("12:00"));
     }
 
+    /** Return DepartureDateTicket passed to the constructor.  */
     @Test
     public void getDepartureDateTicket() {
         Ticket ticket = new Ticket();
@@ -194,6 +234,7 @@ public class TicketTest {
         assertTrue(ticket.getDepartureDateTicket().compareTo(temp_systemCalendar) == 0);
     }
 
+    /** Returns EstimatedArrivalTimeTicket passed to the constructor.  */
     @Test
     public void getEstimatedArrivalTimeTicket() {
         Ticket ticket = new Ticket();
@@ -201,6 +242,7 @@ public class TicketTest {
         assertTrue(ticket.getEstimatedArrivalTimeTicket().equals("20:00"));
     }
 
+    /** Returns Price passed to the constructor.  */
     @Test
     public void getPrice() {
         Ticket ticket = new Ticket();
@@ -208,6 +250,7 @@ public class TicketTest {
         assertTrue(ticket.getPrice() == 50.0);
     }
 
+    /** Returns passenger passed to the constructor.  */
     @Test
     public void getPassenger() {
         Ticket ticket1 = new Ticket();
@@ -221,6 +264,7 @@ public class TicketTest {
         assertTrue(ticket1.getPassenger().equals(ticket2.getPassenger()));
     }
 
+    /** Returns PassengerName passed to the constructor.  */
     @Test
     public void getPassengerName() {
         Ticket ticket = new Ticket();
@@ -228,6 +272,7 @@ public class TicketTest {
         assertTrue(ticket.getPassengerName().equals("Toni"));
     }
 
+    /** Returns PassengerID passed to the constructor.  */
     @Test
     public void getPassengerID() {
         Ticket ticket = new Ticket();
@@ -235,6 +280,7 @@ public class TicketTest {
         assertTrue(ticket.getPassengerID().equals("U5866"));
     }
 
+    /** Returns PassengerSeat passed to the constructor.  */
     @Test
     public void getPassengerSeat() {
         Ticket ticket = new Ticket();
@@ -242,6 +288,7 @@ public class TicketTest {
         assertTrue(ticket.getPassengerSeat() == 21);
     }
 
+    /** Returns Type passed to the constructor.  */
     @Test
     public void getType() {
         Ticket ticket = new Ticket();
@@ -249,6 +296,7 @@ public class TicketTest {
         assertTrue(ticket.getType().equals("Aplo"));
     }
 
+    /** Returns route passed to the constructor.  */
     @Test
     public void getRoute() {
         Ticket ticket1 = new Ticket();
@@ -365,6 +413,11 @@ public class TicketTest {
     }
 
 
+    /**
+     * Comparing two objects.
+     *
+     * This method creates and checks if two object are the same.
+     */
     @Test
     public void equals() {
 

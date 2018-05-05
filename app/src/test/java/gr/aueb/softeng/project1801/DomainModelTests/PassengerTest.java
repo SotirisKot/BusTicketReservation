@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 
 public class PassengerTest {
 
+    /** Returns FirstName passed to the constructor.  */
     @Test
     public void getFirstName() {
         Passenger passenger = new Passenger();
@@ -16,6 +17,7 @@ public class PassengerTest {
         assertTrue(passenger.getFirstName().equals("Toni"));
     }
 
+    /** Returns LastName passed to the constructor.  */
     @Test
     public void getLastName() {
         Passenger passenger = new Passenger();
@@ -23,6 +25,7 @@ public class PassengerTest {
         assertTrue(passenger.getLastName().equals("Montana"));
     }
 
+    /** Returns NumberID passed to the constructor.  */
     @Test
     public void getNumberID() {
         Passenger passenger = new Passenger();
@@ -51,6 +54,12 @@ public class PassengerTest {
         assertTrue(passenger.getNumberID().equals("666"));
     }
 
+    /**
+     * Returning a set.
+     *
+     * This method creates Card objects,inserts them into a set and finally checks if these objects were inserted correctly.
+     * The set that is being returned contains Card objects.
+     */
     @Test
     public void getAllCards() {
         Passenger passenger = new Passenger();
@@ -70,6 +79,13 @@ public class PassengerTest {
         assertTrue(passenger.getAllCards().contains(card3));
     }
 
+    /**
+     * Adding a card in the set.
+     *
+     * This method creates and checks if an object is null or not.
+     * If the object is not null,then it adds the object into the set and it also checks that the set includes it after the insertion.
+     * If the object is null,then we do not add the object into the set.
+     */
     @Test
     public void addCard() {
         Passenger passenger = new Passenger();
@@ -79,6 +95,12 @@ public class PassengerTest {
         assertTrue(passenger.getAllCards().contains(card));
     }
 
+    /**
+     * Removing a card from the set.
+     *
+     * This method creates and checks if an object is null or not and it also checks that the set doesn't include it any more after the deletion.
+     * If the object is not null,then we remove the object from the set.
+     */
     @Test
     public void removeCard() {
         Passenger passenger = new Passenger();
@@ -90,6 +112,11 @@ public class PassengerTest {
 
     }
 
+    /**
+     * Comparing two objects.
+     *
+     * This method creates and checks if two object are the same.
+     */
     @Test
     public void equals() {
         String firstname = "Toni";

@@ -18,6 +18,11 @@ public class RouteTest {
     Ticket ticket;
     SystemCalendar calendar;
 
+    /**
+     * Initializing a Ticket,Bus,Driver,Passesnger,SystemCalendar object.
+     *
+     * This method creates a Ticket,Bus,Driver,Passesnger,SystemCalendar object and sets values to it.
+     */
     @Before
     public void setUp(){
         bus = new Bus("Type1", "Mercendes", "AR1314",50);
@@ -41,6 +46,11 @@ public class RouteTest {
     @After
     public void tearDown(){ }
 
+    /**
+     * Adding a not null ticket.
+     *
+     * This method creates a Route object, sets values to it,adds a tickets to this specific object and tries to find the (previous)ticket that is not null.
+     */
     @Test
     public void TestAddTicketWhenTicketNotNull(){
         Route route = new Route();
@@ -53,6 +63,11 @@ public class RouteTest {
         Assert.assertEquals(bus.getBusSeats()-1,route.getAvailableSeats());
     }
 
+    /**
+     * Trying to add a null ticket.
+     *
+     * This method creates a Route object, sets values to it,tries to add a null tickets to this specific object and tries to find the (previousticket that is null.
+     */
     @Test
     public void TestAddTicketWhenTicketNull(){
         Route route = new Route();
@@ -63,6 +78,11 @@ public class RouteTest {
 
     }
 
+    /**
+     * Removing a ticket.
+     *
+     * This method creates a Route object, sets values to it,tries to add a tickets to this specific object and tries to remove the (previous)ticket that is not null.
+     */
     @Test
     public void TestRemoveTicketWhenTicketNotNull(){
         Route route = new Route();
@@ -80,6 +100,11 @@ public class RouteTest {
 
     }
 
+    /**
+     * Searching for a ticket.
+     *
+     * This method creates a Route object, sets values to it and tries to find a ticket that exists.
+     */
     @Test
     public void FindTicketWhenTicketExists(){
         Route route = new Route();
@@ -89,6 +114,11 @@ public class RouteTest {
         Assert.assertTrue(route.FindTicket(ticket));
     }
 
+    /**
+     * Searching for a unknown ticket.
+     *
+     * This method creates a Route object, sets values to it and tries to find a ticket that doesn't exist.
+     */
     @Test
     public void FindTicketWhenNotExists(){
         Route route = new Route();
@@ -99,6 +129,7 @@ public class RouteTest {
         Assert.assertTrue(!route.FindTicket(ticket));
     }
 
+    /** Returns Destination passed to the constructor.  */
     @Test
     public void getDestination() {
         Route route = new Route();
@@ -113,6 +144,7 @@ public class RouteTest {
         assertTrue(route.getDestination().equals("Serres"));
     }
 
+    /** Returns DepartureTime passed to the constructor.  */
     @Test
     public void getDepartureTime() {
         Route route = new Route();
@@ -127,6 +159,7 @@ public class RouteTest {
         assertTrue(route.getDepartureTime().equals("12:00"));
     }
 
+    /** Returns DeparturePoint passed to the constructor.  */
     @Test
     public void getDeparturePoint() {
         Route route = new Route();
@@ -141,6 +174,7 @@ public class RouteTest {
         assertTrue(route.getDeparturePoint().equals("Pefki"));
     }
 
+    /** Returns DepartureDate passed to the constructor.  */
     @Test
     public void getDepartureDate() {
         Route route = new Route();
@@ -159,6 +193,7 @@ public class RouteTest {
         assertTrue(route.getDepartureDate().compareTo(temp_systemCalendar) == 0);
     }
 
+    /** Returns EstimatedArrivalTime passed to the constructor.  */
     @Test
     public void getEstimatedArrivalTime() {
         Route route = new Route();
@@ -173,6 +208,7 @@ public class RouteTest {
         assertTrue(route.getEstimatedArrivalTime().equals("20:00"));
     }
 
+    /** Returns RouteBus passed to the constructor.  */
     @Test
     public void getRouteBus() {
         Route route = new Route();
@@ -215,6 +251,7 @@ public class RouteTest {
         assertTrue(route.getRouteBus().equals(temp_bus));
     }
 
+    /** Returns Driver passed to the constructor.  */
     @Test
     public void getDriver() {
         Route route = new Route();
@@ -245,6 +282,7 @@ public class RouteTest {
         assertTrue(route.getDriver().equals(temp_driver));
     }
 
+    /** Returns AvailableSeats passed to the constructor.  */
     @Test
     public void getAvailableSeats() {
         Route route = new Route();
@@ -259,6 +297,12 @@ public class RouteTest {
         assertTrue(route.getAvailableSeats() == 100);
     }
 
+    /**
+     * Returning a set.
+     *
+     * This method creates Ticket objects,inserts them into a set and finally checks if these objects were inserted correctly.
+     * The set that is being returned contains Ticket objects.
+     */
     @Test
     public void getTickets() {
         Route route = new Route();
@@ -278,6 +322,13 @@ public class RouteTest {
         assertTrue(route.getTickets().contains(ticket3));
     }
 
+    /**
+     * Adding a ticket in the set.
+     *
+     * This method creates and checks if an object is null or not.
+     * If the object is not null,then it adds the object into the set and it also checks that the set includes it after the insertion.
+     * If the object is null,then we do not add the object into the set.
+     */
     @Test
     public void addTicket() {
         Route route = new Route();
@@ -288,6 +339,12 @@ public class RouteTest {
 
     }
 
+    /**
+     * Removing a ticket from the set.
+     *
+     * This method creates and checks if an object is null or not and it also check that the set doesn't include it any more after the deletion.
+     * If the object is not null,then we remove the object from the set.
+     */
     @Test
     public void removeTicket() {
         Route route = new Route();
@@ -298,6 +355,11 @@ public class RouteTest {
         assertTrue(!(route.getTickets().contains(ticket)));
     }
 
+    /**
+     * Comparing two objects.
+     *
+     * This method creates and checks if two object are the same.
+     */
     @Test
     public void equals() {
         String destination = "Serres";
