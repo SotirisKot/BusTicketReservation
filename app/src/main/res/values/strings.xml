@@ -16,6 +16,7 @@
     </string>
     <color name="custom">#3D5069</color>
 
+    <string name="search">Search</string>
     <string name="basic_info">Basic Info</string>
     <string name="destination">Destination</string>
     <string name="departure_point">Departure Point</string>

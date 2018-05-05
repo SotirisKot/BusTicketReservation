@@ -3,9 +3,12 @@ package gr.aueb.softeng.project1801.view.Owner.Statistics;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Filter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 import java.util.List;
 import gr.aueb.softeng.project1801.SysUtils.DataRow;
@@ -14,11 +17,12 @@ import gr.aueb.softeng.project1801.view.Owner.StatisticsDetails.StatisticsDetail
 import gr.aueb.softeng.project1801.view.R;
 import gr.aueb.softeng.project1801.view.Util.CustomAdapter;
 
-public class StatisticsActivity extends AppCompatActivity implements StatisticsView {
+public class StatisticsActivity extends AppCompatActivity implements StatisticsView,SearchView.OnQueryTextListener,SearchView.OnCloseListener {
 
     StatisticsPresenter presenter;
     private ListView routeList;
     private CustomAdapter adapter;
+    private SearchView searchListRoute;
 
 
     @Override
@@ -30,6 +34,11 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
 
         routeList = (ListView) findViewById(R.id.route_list);
         routeList.setAdapter(adapter);
+        routeList.setTextFilterEnabled(false);
+
+        searchListRoute = (SearchView) findViewById(R.id.routes_list_search);
+        searchListRoute.setOnQueryTextListener(this);
+        searchListRoute.setOnCloseListener(this);
 
         presenter = new StatisticsPresenter(this, new RouteDAOMemory());
 
@@ -60,5 +69,29 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
     @Override
     public void showToast(String value) {
         Toast.makeText(this, value, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        Filter filter = adapter.getFilter();
+        filter.filter(newText);
+        return true;
+    }
+
+    @Override
+    public boolean onClose() {
+        clear_search_results();
+        return true;
+    }
+
+    private void clear_search_results() {
+        searchListRoute.setQuery("", false);
+        searchListRoute.clearFocus();
+        presenter.onloadData();
     }
 }
