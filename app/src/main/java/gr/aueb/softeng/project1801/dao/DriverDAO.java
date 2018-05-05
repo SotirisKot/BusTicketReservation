@@ -26,7 +26,7 @@ public interface DriverDAO {
     void delete(Driver driver);
 
     /**
-     * This method finds and return all the drivers that are saved in the database.
+     * This method finds and returns all the drivers that are saved in the database.
      * @return all the drivers
      */
     List<Driver> findAll();

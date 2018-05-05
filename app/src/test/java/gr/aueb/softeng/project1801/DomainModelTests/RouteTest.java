@@ -9,6 +9,7 @@ import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.Ticket;
 
 import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 public class RouteTest {
 
@@ -43,8 +44,15 @@ public class RouteTest {
         ticket.setEstimatedArrivalTimeTicket("10:00PM");
     }
 
+    /**
+     * This method helps us to perform cleanup after each test method completes.
+     */
     @After
-    public void tearDown(){ }
+    public void tearDown(){
+        System.out.println("Running: tearDown");
+        passenger = null;
+        assertNull(passenger);
+    }
 
     /**
      * Adding a not null ticket.

@@ -19,7 +19,7 @@ import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 public abstract class Initializer {
 
     /**
-     * This method deletes the saved data.
+     * This method deletes all the saved data.
      */
     protected abstract void eraseData();
 

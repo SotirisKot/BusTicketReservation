@@ -26,7 +26,7 @@ public interface PassengerDAO {
     void delete(Passenger passenger);
 
     /**
-     * This method finds and return all the passengers that are saved in the database.
+     * This method finds and returns all the passengers that are saved in the database.
      * @return all the passengers
      */
     List<Passenger> findAll();

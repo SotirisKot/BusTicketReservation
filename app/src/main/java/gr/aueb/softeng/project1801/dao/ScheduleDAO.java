@@ -7,11 +7,11 @@ import gr.aueb.softeng.project1801.Schedule;
 public interface ScheduleDAO {
 
     /**
-     * This method finds a schedule based on the scheduleID.
-     * @param scheduleID ,the schedule
+     * This method finds the schedule based on (the schedule) that we want to check.
+     * @param schedule ,the schedule
      * @return the schedule
      */
-    Schedule find(Schedule scheduleID);
+    Schedule find(Schedule schedule);
 
     /**
      * This method saves a schedule in the database.
@@ -26,7 +26,7 @@ public interface ScheduleDAO {
     void delete(Schedule schedule);
 
     /**
-     * This method finds and return all the schedules that are saved in the database.
+     * This method finds and returns all the schedules that are saved in the database.
      * @return all the schedules
      */
     List<Schedule> findAll();

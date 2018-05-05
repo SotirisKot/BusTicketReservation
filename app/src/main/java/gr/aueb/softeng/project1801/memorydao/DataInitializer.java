@@ -16,6 +16,9 @@ import gr.aueb.softeng.project1801.dao.ScheduleDAO;
 
 public class DataInitializer extends Initializer{
 
+    /**
+     * This method deletes all the saved data.
+     */
     protected void eraseData(){
 
         for(Bus bus : getBusData().findAll()){
@@ -41,34 +44,57 @@ public class DataInitializer extends Initializer{
         for(Schedule schedule : getScheduleData().findAll()){
             getScheduleData().delete(schedule);
         }
-
     }
 
+    /**
+     * This method returns the bus data.
+     * @return the bus data
+     */
     @Override
     public BusDAO getBusData() {
         return new BusDAOMemory();
     }
 
+    /**
+     * This method returns the card data.
+     * @return the card data
+     */
     @Override
     public CardDAO getCardData() {
         return new CardDAOMemory();
     }
 
+    /**
+     * This method returns the driver data.
+     * @return the driver data
+     */
     @Override
     public DriverDAO getDriverData() {
         return new DriverDAOMemory();
     }
 
+    /**
+     * This method returns the passenger data.
+     * @return the passenger data
+     */
     @Override
     public PassengerDAO getPassengerData() {
         return new PassengerDAOMemory();
     }
 
+    /**
+     * This method returns the route data.
+     * @return the route data
+     */
     @Override
     public RouteDAO getRouteData() {
         return new RouteDAOMemory();
     }
 
+    /**
+     * This method returns the schedule data.
+     * @return the schedule data
+     */
     @Override
     public ScheduleDAO getScheduleData() {
         return new ScheduleDAOMemory();

@@ -30,7 +30,7 @@ public interface RouteDAO {
     void delete(Route route);
 
     /**
-     * This method finds and return all the routes that are saved in the database.
+     * This method finds and returns all the routes that are saved in the database.
      * @return all the routes
      */
     List<Route> findAll();

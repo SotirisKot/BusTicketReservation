@@ -27,7 +27,7 @@ public interface BusDAO {
     void delete(Bus bus);
 
     /**
-     * This method finds and return all the buses that are saved in the database.
+     * This method finds and returns all the buses that are saved in the database.
      * @return all the buses
      */
     List<Bus> findAll();

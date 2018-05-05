@@ -26,7 +26,7 @@ public interface CardDAO {
     void delete(Card card);
 
     /**
-     * This method finds and return all the cards that are saved in the database.
+     * This method finds and returns all the cards that are saved in the database.
      * @return all the cards
      */
     List<Card> findAll();
