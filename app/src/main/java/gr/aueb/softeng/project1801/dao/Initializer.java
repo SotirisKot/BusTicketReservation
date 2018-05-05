@@ -12,10 +12,20 @@ import gr.aueb.softeng.project1801.Schedule;
 import gr.aueb.softeng.project1801.ScheduleEntry;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
+/**
+ * This class undertakes to initialize the data in the database.
+ * Provides data for the examples and control tests.
+ */
 public abstract class Initializer {
 
+    /**
+     * This method deletes the saved data.
+     */
     protected abstract void eraseData();
 
+    /**
+     * This method inserts the training data.
+     */
     public void prepareData(){
 
         //erase the data first
@@ -119,15 +129,39 @@ public abstract class Initializer {
 
     }
 
+    /**
+     * This method returns the bus data.
+     * @return the bus data
+     */
     public abstract BusDAO getBusData();
 
+    /**
+     * This method returns the card data.
+     * @return the card data
+     */
     public abstract CardDAO getCardData();
 
+    /**
+     * This method returns the passenger data.
+     * @return the passenger data
+     */
     public abstract PassengerDAO getPassengerData();
 
+    /**
+     * This method returns the driver data.
+     * @return the driver data
+     */
     public abstract DriverDAO getDriverData();
 
+    /**
+     * This method returns the route data.
+     * @return the route data
+     */
     public abstract RouteDAO getRouteData();
 
+    /**
+     * This method returns the schedule data.
+     * @return the schedule data
+     */
     public abstract ScheduleDAO getScheduleData();
 }

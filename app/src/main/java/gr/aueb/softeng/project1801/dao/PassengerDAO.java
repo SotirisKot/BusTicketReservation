@@ -6,15 +6,28 @@ import gr.aueb.softeng.project1801.Passenger;
 
 public interface PassengerDAO {
 
-    //returns a passenger based on the number id
+    /**
+     * This method finds a passenger based on the NumberID.
+     * @param NumberID ,the passenger's number ID
+     * @return the passenger
+     */
     Passenger find(String NumberID);
 
-    //saves a passenger
+    /**
+     * This method saves a passenger in the database.
+     * @param passenger ,the passenger
+     */
     void save(Passenger passenger);
 
-    //deletes a passenger
+    /**
+     * This method deletes a passenger from the database.
+     * @param passenger ,the passenger
+     */
     void delete(Passenger passenger);
 
-    //returns all the passengers
+    /**
+     * This method finds and return all the passengers that are saved in the database.
+     * @return all the passengers
+     */
     List<Passenger> findAll();
 }

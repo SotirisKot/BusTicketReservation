@@ -6,15 +6,28 @@ import gr.aueb.softeng.project1801.Driver;
 
 public interface DriverDAO {
 
-    //finds the driver based on the driver id
+    /**
+     * This method finds a driver based on the DriverID.
+     * @param DriverID ,the driver's ID
+     * @return the driver
+     */
     Driver find(String DriverID);
 
-    //saves a driver in the database
+    /**
+     * This method saves a driver in the database.
+     * @param driver ,the driver
+     */
     void save(Driver driver);
 
-    //deletes a driver from the database
+    /**
+     * This method deletes a driver from the database.
+     * @param driver ,the driver
+     */
     void delete(Driver driver);
 
-    //returns all the drivers in the database
+    /**
+     * This method finds and return all the drivers that are saved in the database.
+     * @return all the drivers
+     */
     List<Driver> findAll();
 }

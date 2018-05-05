@@ -6,15 +6,28 @@ import gr.aueb.softeng.project1801.Card;
 
 public interface CardDAO {
 
-    //finds a card based on the owner's name
+    /**
+     * This method finds a card based on the owner's name.
+     * @param cardHolderName ,the owner's name
+     * @return the card
+     */
     Card find(String cardHolderName);
 
-    //saves a card in the database..must be linked to a passenger
+    /**
+     * This method saves a card in the database and must be linked with a passenger.
+     * @param card ,the card
+     */
     void save(Card card);
 
-    //deletes a card from the database
+    /**
+     * This method deletes a card from the database.
+     * @param card ,the card
+     */
     void delete(Card card);
 
-    //returns all the cards
+    /**
+     * This method finds and return all the cards that are saved in the database.
+     * @return all the cards
+     */
     List<Card> findAll();
 }

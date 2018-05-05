@@ -6,16 +6,30 @@ import gr.aueb.softeng.project1801.Bus;
 
 public interface BusDAO {
 
-    //finds the bus based on BusID
+    /**
+     * This method finds a bus based on the BusID.
+     * @param BusID ,the bus's ID
+     * @return the bus
+     */
     Bus find(String BusID);
 
-    //saves a bus in the database
+    /**
+     * This method saves a bus in the database.
+     * @param bus ,the bus
+     */
     void save(Bus bus);
 
-    //deletes a bus from the database
+
+    /**
+     * This method deletes a bus from the database.
+     * @param bus ,the bus
+     */
     void delete(Bus bus);
 
-    //returns all the buses that are saved in the database
+    /**
+     * This method finds and return all the buses that are saved in the database.
+     * @return all the buses
+     */
     List<Bus> findAll();
 
 }

@@ -7,15 +7,31 @@ import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 public interface RouteDAO {
 
-    //finds a route based on the details given
+    /**
+     * This method finds a route based on the details given.
+     * @param destination ,the destination
+     * @param departureTime ,the departure time
+     * @param departurePoint ,the departure point
+     * @param departureDate , the departure date
+     * @return the route
+     */
     Route find(String destination, String departureTime, String departurePoint, SystemCalendar departureDate);
 
-    //saves a route
+    /**
+     * This method saves a route in the database.
+     * @param route ,the route
+     */
     void save(Route route);
 
-    //deletes a route
+    /**
+     * This method deletes a route from the database.
+     * @param route ,the route
+     */
     void delete(Route route);
 
-    //returns all the routes
+    /**
+     * This method finds and return all the routes that are saved in the database.
+     * @return all the routes
+     */
     List<Route> findAll();
 }
