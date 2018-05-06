@@ -67,9 +67,14 @@ public class ManageRoutesPresenter  {
     }
 
     private boolean validateDate(String date){
-        if(date.matches("([0-9]{4})/([0-12]{1})/([0-9]{2})")){
-            return true;
-        }else{
+        String[] parts = date.split("/");
+        try {
+            if(Integer.parseInt(parts[0]) >= 2018 && Integer.parseInt(parts[1]) > 0 && Integer.parseInt(parts[1]) <=12
+                    && Integer.parseInt(parts[2]) > 0 && Integer.parseInt(parts[2]) <= 31){
+                return true;
+            }
+            return false;
+        } catch (Exception e){
             return false;
         }
     }
@@ -87,7 +92,7 @@ public class ManageRoutesPresenter  {
 
         if(!validateDate(date)){
 
-            view.showAlertMessage("Wrong date format..Try : yyyy/M/dd");
+            view.showAlertMessage("Invalid Date...Try again!!");
 
         }else {
             String[] parts = date.split("/");

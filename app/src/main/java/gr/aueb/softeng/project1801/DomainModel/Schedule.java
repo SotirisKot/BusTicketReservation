@@ -238,10 +238,6 @@ public class Schedule {
             return null;
         }
 
-        if(!DepartureDates.contains(DepartureDate)){
-            System.out.println("Not a valid departure date!!!");
-            return null;
-        }
         Route route = new Route();
         if(RouteBus.getState() == BusState.AVAILABLE){
             System.out.println("Bus is available");
