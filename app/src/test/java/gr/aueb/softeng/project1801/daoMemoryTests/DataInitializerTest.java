@@ -14,6 +14,11 @@ import gr.aueb.softeng.project1801.DomainModel.Passenger;
 import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.DomainModel.Schedule;
 import gr.aueb.softeng.project1801.dao.BusDAO;
+import gr.aueb.softeng.project1801.dao.CardDAO;
+import gr.aueb.softeng.project1801.dao.DriverDAO;
+import gr.aueb.softeng.project1801.dao.PassengerDAO;
+import gr.aueb.softeng.project1801.dao.RouteDAO;
+import gr.aueb.softeng.project1801.dao.ScheduleDAO;
 import gr.aueb.softeng.project1801.memorydao.BusDAOMemory;
 import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 
@@ -30,8 +35,13 @@ public class DataInitializerTest {
     private Schedule schedule;
     private DataInitializer dataInitializer;
     private BusDAO busDAO;
+    private DriverDAO driverDAO;
+    private CardDAO cardDAO;
+    private PassengerDAO passengerDAO;
+    private ScheduleDAO scheduleDAO;
+    private RouteDAO routeDAO;
 
-    @Before
+/*    @Before
     public void setUp(){
 
         bus = new Bus();
@@ -63,6 +73,6 @@ public class DataInitializerTest {
         //  assertTrue(bus == null);
 
 
-    }
+    }*/
 
 }
