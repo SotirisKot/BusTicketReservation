@@ -7,7 +7,6 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
         private static final long MILLIS_PER_DAY = 86400000;
         private Calendar date;
 
-
         /**
          *
          * Constructor.
@@ -21,7 +20,6 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
             trimToDays(this.date);
         }
 
-
         /**
          *
          * Constructor.
@@ -33,6 +31,10 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
             trimToDays(this.date);
         }
 
+        /**
+         * This method trims a specific date into days.
+         * @param javaDate ,the date
+         */
         private void trimToDays(Calendar javaDate) {
             javaDate.set(Calendar.HOUR_OF_DAY, 0);
             javaDate.set(Calendar.MINUTE, 0);
@@ -40,7 +42,12 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
             javaDate.set(Calendar.MILLISECOND, 0);
         }
 
-
+        /**
+         * This method computes the duration of a specific date into days.
+         * @param other ,a system calendar date that we want to calculate the duration
+         * @return the number of days,if it returns positive number of days
+         * means the other date is later, while the opposite is negative.
+         */
         public long durationInDays(SystemCalendar other) {
             long timeDiff = other.date.getTimeInMillis() - date.getTimeInMillis();
             return timeDiff / MILLIS_PER_DAY;
@@ -67,24 +74,36 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
         }
 
 
+        /**
+         * This method checks if a date is later than another date.
+         * @param other ,a system calendar date that we want to check
+         * @return "true" if the date is later than another date or else "false"
+         */
         public boolean after(SystemCalendar other) {
             if (equals(other)) {
                 return false;
             }
-
             return date.after(other.date);
         }
 
 
+        /**
+         * This method checks if a date is prior to another date.
+         * @param other ,a system calendar date that we want to check
+         * @return "true" if the date is prior to another date or else "false"
+         */
         public boolean before(SystemCalendar other) {
             if (equals(other)) {
                 return false;
             }
-
             return date.before(other.date);
         }
 
-
+        /**
+         * This method returns a date with the added days.
+         * @param days ,the days we want to add
+         * @return the new SystemCalend object with the added days
+         */
         public SystemCalendar addDays(int days) {
             Calendar newDate = Calendar.getInstance();
             newDate.setTimeInMillis(date.getTimeInMillis());
@@ -93,6 +112,10 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
         }
 
 
+        /**
+         * This method returns a new {@code Calendar} date.
+         * @return the new Calendar object
+         */
         public Calendar getJavaCalendar() {
             Calendar javaCalendar = Calendar.getInstance();
             javaCalendar.setTimeInMillis(date.getTimeInMillis());
@@ -100,6 +123,10 @@ public class SystemCalendar implements  Comparable<SystemCalendar> {
             return javaCalendar;
         }
 
+    /**
+     * This method helps to compare two SystemCalendar objects.
+     * @return a number in order to understand the comparison of two SystemCalendar objects
+     */
         public int compareTo(SystemCalendar other) {
             return date.compareTo(other.date);
         }
