@@ -26,7 +26,6 @@ public class BusDAOMemory implements BusDAO {
         if(!entities.contains(bus)){
             entities.add(bus);
         }
-
     }
 
     /**
