@@ -29,7 +29,6 @@ public class Owner_login extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(this,"Ιδιοκτήτης εισήλθε!",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this,Owner_View.class);
                 startActivity(intent);
-                System.out.println("geiaaaaaaaaaaaaaaaa");
                 break;
         }
     }

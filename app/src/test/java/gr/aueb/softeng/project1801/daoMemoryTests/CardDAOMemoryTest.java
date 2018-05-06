@@ -58,7 +58,7 @@ public class CardDAOMemoryTest {
      * This method saves a new card in the database.
      */
     @Test
-    public void save() {
+    public void save(){
         Card card5 = new Card();
         card5.setCardID("1542");
 
@@ -75,7 +75,7 @@ public class CardDAOMemoryTest {
      * @return all the cards
      */
     @Test
-    public void findAll() {
+    public void findAll(){
         for (Card card : cardList) {
             assertTrue(cardList.contains(card));
         }
