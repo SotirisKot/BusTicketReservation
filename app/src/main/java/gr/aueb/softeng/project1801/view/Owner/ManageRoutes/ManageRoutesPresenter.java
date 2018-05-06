@@ -67,7 +67,7 @@ public class ManageRoutesPresenter  {
     }
 
     private boolean validateDate(String date){
-        if(date.matches("([0-9]{4})/([0-9]{1})/([0-9]{2})")){
+        if(date.matches("([0-9]{4})/([0-12]{1})/([0-9]{2})")){
             return true;
         }else{
             return false;
