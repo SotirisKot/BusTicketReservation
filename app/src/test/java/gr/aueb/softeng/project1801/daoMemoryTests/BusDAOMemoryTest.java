@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.DomainModel.Bus;
+import gr.aueb.softeng.project1801.dao.BusDAO;
+import gr.aueb.softeng.project1801.memorydao.BusDAOMemory;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +18,8 @@ public class BusDAOMemoryTest {
     private Bus bus2 = new Bus();
     private Bus bus3 = new Bus();
     private Bus bus4 = new Bus();
-    private List<Bus> busList = new ArrayList<>();
+    private BusDAO busDAO;
+ //   private List<Bus> busList = new ArrayList<>();
 
 
     /**
@@ -31,10 +34,11 @@ public class BusDAOMemoryTest {
         bus3.setBusID("5733");
         bus4.setBusID("1674");
 
-        busList.add(bus1);
-        busList.add(bus2);
-        busList.add(bus3);
-        busList.add(bus4);
+        busDAO = new BusDAOMemory();
+        busDAO.save(bus1);
+        busDAO.save(bus2);
+        busDAO.save(bus3);
+        busDAO.save(bus4);
 
     }
 
@@ -45,7 +49,10 @@ public class BusDAOMemoryTest {
      */
     @Test
     public void find() {
-        for(Bus bus: busList){
+        Bus bus5 = new Bus();
+        bus5.setBusID("1542");
+        busDAO.save(bus5);
+/*        for(Bus bus: busList){
             if(bus.getBusID().equals("5733")){
                 assertTrue(bus3.getBusID().equals("5733"));
                 break;
@@ -53,7 +60,9 @@ public class BusDAOMemoryTest {
         }
         assertTrue(!(bus3.getBusID().equals("1232")));
         assertTrue(!(bus3.getBusID().equals("4512")));
-        assertTrue(!(bus3.getBusID().equals("1674")));
+        assertTrue(!(bus3.getBusID().equals("1674")));*/
+        assertTrue(busDAO.find("1542").equals(bus5));
+
     }
 
     /**
@@ -65,11 +74,8 @@ public class BusDAOMemoryTest {
     public void save() {
         Bus bus5 = new Bus();
         bus5.setBusID("1542");
-
-        if(!busList.contains(bus5)){
-            busList.add(bus5);
-        }
-        assertTrue(busList.contains(bus5));
+        busDAO.save(bus5);
+        assertTrue(busDAO.findAll().contains(bus5));
     }
 
     /**
@@ -79,10 +85,12 @@ public class BusDAOMemoryTest {
      */
     @Test
     public void delete() {
-        if(busList.contains(bus3)){
-            busList.remove(bus3);
-        }
-        assertTrue(!busList.contains(bus3));
+        Bus bus5 = new Bus();
+        bus5.setBusID("1542");
+        busDAO.save(bus5);
+        busDAO.delete(bus5);
+
+        assertTrue(!busDAO.findAll().contains(bus5));
 
     }
 
@@ -94,13 +102,18 @@ public class BusDAOMemoryTest {
      */
     @Test
     public void findAll() {
-        for (Bus bus : busList) {
-            assertTrue(busList.contains(bus));
-        }
-        assertTrue(busList.contains(bus1));
-        assertTrue(busList.contains(bus2));
-        assertTrue(busList.contains(bus3));
-        assertTrue(busList.contains(bus4));
+        assertTrue(busDAO.findAll().contains(bus1));
+        assertTrue(busDAO.findAll().contains(bus2));
+        assertTrue(busDAO.findAll().contains(bus3));
+        assertTrue(busDAO.findAll().contains(bus4));
+        assertTrue(busDAO.findAll().size() == 4);
+//        for (Bus bus : busList) {
+//            assertTrue(busList.contains(bus));
+//        }
+//        assertTrue(busList.contains(bus1));
+//        assertTrue(busList.contains(bus2));
+//        assertTrue(busList.contains(bus3));
+//        assertTrue(busList.contains(bus4));
 
 
     }

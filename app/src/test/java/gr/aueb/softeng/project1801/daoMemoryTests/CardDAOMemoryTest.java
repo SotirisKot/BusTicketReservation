@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.DomainModel.Card;
+import gr.aueb.softeng.project1801.DomainModel.Schedule;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
+import gr.aueb.softeng.project1801.dao.CardDAO;
+import gr.aueb.softeng.project1801.memorydao.CardDAOMemory;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +20,8 @@ public class CardDAOMemoryTest {
     private Card card2 = new Card();
     private Card card3 = new Card();
     private Card card4 = new Card();
-    private List<Card> cardList = new ArrayList<>();
+    private CardDAO cardDAO;
+  //  private List<Card> cardList = new ArrayList<>();
 
 
     /**
@@ -26,16 +31,16 @@ public class CardDAOMemoryTest {
      */
     @Before
     public void setUp(){
-        card1.setCardID("1232");
-        card2.setCardID("4512");
-        card3.setCardID("5733");
-        card4.setCardID("1674");
+        card1.setCardHolderName("Sotirios Kotitsas");
+        card2.setCardHolderName("Giorgios Chatzopoulos");
+        card3.setCardHolderName("Tasos Lepipas");
+        card4.setCardHolderName("Nikos Lyberopoulos");
 
-        cardList.add(card1);
-        cardList.add(card2);
-        cardList.add(card3);
-        cardList.add(card4);
-
+        cardDAO = new CardDAOMemory();
+        cardDAO.save(card1);
+        cardDAO.save(card2);
+        cardDAO.save(card3);
+        cardDAO.save(card4);
     }
 
     /**
@@ -45,10 +50,16 @@ public class CardDAOMemoryTest {
      */
     @Test
     public void delete() {
-        if(cardList.contains(card3)){
+        Card card5 = new Card();
+        card5.setCardHolderName("Toni Montana");
+        cardDAO.save(card5);
+        cardDAO.delete(card5);
+        assertTrue(!cardDAO.findAll().contains(card5));
+
+/*        if(cardList.contains(card3)){
             cardList.remove(card3);
         }
-        assertTrue(!cardList.contains(card3));
+        assertTrue(!cardList.contains(card3));*/
 
     }
 
@@ -60,12 +71,15 @@ public class CardDAOMemoryTest {
     @Test
     public void save(){
         Card card5 = new Card();
-        card5.setCardID("1542");
+        card5.setCardHolderName("Toni Montana");
+        cardDAO.save(card5);
+        assertTrue(cardDAO.findAll().contains(card5));
 
-        if(!cardList.contains(card5)){
+
+      /*  if(!cardList.contains(card5)){
             cardList.add(card5);
         }
-        assertTrue(cardList.contains(card5));
+        assertTrue(cardList.contains(card5));*/
     }
 
     /**
@@ -76,14 +90,21 @@ public class CardDAOMemoryTest {
      */
     @Test
     public void findAll(){
-        for (Card card : cardList) {
+
+        assertTrue(cardDAO.findAll().contains(card1));
+        assertTrue(cardDAO.findAll().contains(card2));
+        assertTrue(cardDAO.findAll().contains(card3));
+        assertTrue(cardDAO.findAll().contains(card4));
+        assertTrue(cardDAO.findAll().size() == 4);
+
+    /*    for (Card card : cardList) {
             assertTrue(cardList.contains(card));
         }
         assertTrue(cardList.contains(card1));
         assertTrue(cardList.contains(card2));
         assertTrue(cardList.contains(card3));
         assertTrue(cardList.contains(card4));
-
+*/
 
     }
     /**
@@ -93,7 +114,12 @@ public class CardDAOMemoryTest {
      */
     @Test
     public void find() {
-        for(Card card: cardList){
+        Card card5 = new Card();
+        card5.setCardHolderName("Toni Montana");
+        cardDAO.save(card5);
+        assertTrue(cardDAO.find("Toni Montana").equals(card5));
+
+  /*      for(Card card: cardList){
             if(card.getCardID().equals("5733")){
                 assertTrue(card3.getCardID().equals("5733"));
                 break;
@@ -102,5 +128,6 @@ public class CardDAOMemoryTest {
         assertTrue(!(card3.getCardID().equals("1232")));
         assertTrue(!(card3.getCardID().equals("4512")));
         assertTrue(!(card3.getCardID().equals("1674")));
+    }*/
     }
 }

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.DomainModel.Passenger;
+import gr.aueb.softeng.project1801.dao.PassengerDAO;
+import gr.aueb.softeng.project1801.memorydao.PassengerDAOMemory;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +18,8 @@ public class PassengerDAOMemoryTest {
     private Passenger passenger2 = new Passenger();
     private Passenger passenger3 = new Passenger();
     private Passenger passenger4 = new Passenger();
-    private List<Passenger> passengerList = new ArrayList<>();
+    private PassengerDAO passengerDAO;
+  //  private List<Passenger> passengerList = new ArrayList<>();
 
     /**
      * Initializing data.
@@ -30,10 +33,12 @@ public class PassengerDAOMemoryTest {
         passenger3.setNumberID("5733");
         passenger4.setNumberID("1674");
 
-        passengerList.add(passenger1);
-        passengerList.add(passenger2);
-        passengerList.add(passenger3);
-        passengerList.add(passenger4);
+        passengerDAO = new PassengerDAOMemory();
+
+        passengerDAO.save(passenger1);
+        passengerDAO.save(passenger2);
+        passengerDAO.save(passenger3);
+        passengerDAO.save(passenger4);
 
     }
 
@@ -46,11 +51,14 @@ public class PassengerDAOMemoryTest {
     public void save() {
         Passenger passenger5 = new Passenger();
         passenger5.setNumberID("1542");
+        passengerDAO.save(passenger5);
+        assertTrue(passengerDAO.findAll().contains(passenger5));
 
-        if(!passengerList.contains(passenger5)){
+
+/*        if(!passengerList.contains(passenger5)){
             passengerList.add(passenger5);
         }
-        assertTrue(passengerList.contains(passenger5));
+        assertTrue(passengerList.contains(passenger5));*/
     }
     /**
      * Deleting a passenger;
@@ -59,10 +67,16 @@ public class PassengerDAOMemoryTest {
      */
     @Test
     public void delete() {
-        if(passengerList.contains(passenger3)){
-            passengerList.remove(passenger3);
-        }
-        assertTrue(!passengerList.contains(passenger3));
+        Passenger passenger5 = new Passenger();
+        passenger5.setNumberID("1542");
+        passengerDAO.save(passenger5);
+        passengerDAO.delete(passenger5);
+        assertTrue(!passengerDAO.findAll().contains(passenger5));
+
+//        if(passengerList.contains(passenger3)){
+//            passengerList.remove(passenger3);
+//        }
+//        assertTrue(!passengerList.contains(passenger3));
 
     }
 
@@ -73,15 +87,20 @@ public class PassengerDAOMemoryTest {
      */
     @Test
     public void find() {
-        for(Passenger passenger: passengerList){
-            if(passenger.getNumberID().equals("5733")){
-                assertTrue(passenger3.getNumberID().equals("5733"));
-                break;
-            }
-        }
-        assertTrue(!(passenger3.getNumberID().equals("1232")));
-        assertTrue(!(passenger3.getNumberID().equals("4512")));
-        assertTrue(!(passenger3.getNumberID().equals("1674")));
+        Passenger passenger5 = new Passenger();
+        passenger5.setNumberID("1542");
+        passengerDAO.save(passenger5);
+        assertTrue(passengerDAO.find("1542").equals(passenger5));
+
+//        for(Passenger passenger: passengerList){
+//            if(passenger.getNumberID().equals("5733")){
+//                assertTrue(passenger3.getNumberID().equals("5733"));
+//                break;
+//            }
+//        }
+//        assertTrue(!(passenger3.getNumberID().equals("1232")));
+//        assertTrue(!(passenger3.getNumberID().equals("4512")));
+//        assertTrue(!(passenger3.getNumberID().equals("1674")));
     }
 
     /**
@@ -92,13 +111,19 @@ public class PassengerDAOMemoryTest {
      */
     @Test
     public void findAll() {
-        for (Passenger passenger : passengerList) {
+        assertTrue(passengerDAO.findAll().contains(passenger1));
+        assertTrue(passengerDAO.findAll().contains(passenger2));
+        assertTrue(passengerDAO.findAll().contains(passenger3));
+        assertTrue(passengerDAO.findAll().contains(passenger4));
+        assertTrue(passengerDAO.findAll().size() == 4);
+
+     /*   for (Passenger passenger : passengerList) {
             assertTrue(passengerList.contains(passenger));
         }
         assertTrue(passengerList.contains(passenger1));
         assertTrue(passengerList.contains(passenger2));
         assertTrue(passengerList.contains(passenger3));
-        assertTrue(passengerList.contains(passenger4));
+        assertTrue(passengerList.contains(passenger4));*/
 
     }
 }

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.DomainModel.Driver;
+import gr.aueb.softeng.project1801.dao.DriverDAO;
+import gr.aueb.softeng.project1801.memorydao.DriverDAOMemory;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +18,8 @@ public class DriverDAOMemoryTest {
     private Driver driver2 = new Driver();
     private Driver driver3 = new Driver();
     private Driver driver4 = new Driver();
-    private List<Driver> driverList = new ArrayList<>();
+    private DriverDAO driverDAO;
+ //   private List<Driver> driverList = new ArrayList<>();
 
 
     /**
@@ -31,10 +34,11 @@ public class DriverDAOMemoryTest {
         driver3.setDriverID("5733");
         driver4.setDriverID("1674");
 
-        driverList.add(driver1);
-        driverList.add(driver2);
-        driverList.add(driver3);
-        driverList.add(driver4);
+        driverDAO = new DriverDAOMemory();
+        driverDAO.save(driver1);
+        driverDAO.save(driver2);
+        driverDAO.save(driver3);
+        driverDAO.save(driver4);
 
     }
 
@@ -45,10 +49,17 @@ public class DriverDAOMemoryTest {
      */
     @Test
     public void delete() {
-        if(driverList.contains(driver3)){
+        Driver driver5 = new Driver();
+        driver5.setDriverID("1542");
+        driverDAO.save(driver5);
+        driverDAO.delete(driver5);
+
+        assertTrue(!driverDAO.findAll().contains(driver5));
+
+      /*  if(driverList.contains(driver3)){
             driverList.remove(driver3);
         }
-        assertTrue(!driverList.contains(driver3));
+        assertTrue(!driverList.contains(driver3));*/
 
     }
 
@@ -61,11 +72,14 @@ public class DriverDAOMemoryTest {
     public void save() {
         Driver driver5 = new Driver();
         driver5.setDriverID("1542");
+        driverDAO.save(driver5);
+        assertTrue(driverDAO.findAll().contains(driver5));
 
-        if(!driverList.contains(driver5)){
+
+  /*      if(!driverList.contains(driver5)){
             driverList.add(driver5);
         }
-        assertTrue(driverList.contains(driver5));
+        assertTrue(driverList.contains(driver5));*/
     }
 
     /**
@@ -75,7 +89,12 @@ public class DriverDAOMemoryTest {
      */
     @Test
     public void find() {
-        for(Driver driver: driverList){
+        Driver driver5 = new Driver();
+        driver5.setDriverID("1542");
+        driverDAO.save(driver5);
+        assertTrue(driverDAO.find("1542").equals(driver5));
+
+/*        for(Driver driver: driverList){
             if(driver.getDriverID().equals("5733")){
                 assertTrue(driver3.getDriverID().equals("5733"));
                 break;
@@ -83,10 +102,15 @@ public class DriverDAOMemoryTest {
         }
         assertTrue(!(driver3.getDriverID().equals("1232")));
         assertTrue(!(driver3.getDriverID().equals("4512")));
-        assertTrue(!(driver3.getDriverID().equals("1674")));
+        assertTrue(!(driver3.getDriverID().equals("1674")));*/
     }
 
     @Test
     public void findAll() {
+        assertTrue(driverDAO.findAll().contains(driver1));
+        assertTrue(driverDAO.findAll().contains(driver2));
+        assertTrue(driverDAO.findAll().contains(driver3));
+        assertTrue(driverDAO.findAll().contains(driver4));
+        assertTrue(driverDAO.findAll().size() == 4);
     }
 }
