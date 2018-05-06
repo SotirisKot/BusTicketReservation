@@ -50,6 +50,8 @@ public abstract class Initializer {
         busDAO.save(new Bus("Type3","Scania","SC1269",48));
         busDAO.save(new Bus("Type2","Ford","F1269",50));
         busDAO.save(new Bus("Type4","Mercedes","M269",40));
+        busDAO.save(new Bus("Type3","Mercedes","M270",40));
+
 
         DriverDAO driverData = getDriverData();
 
@@ -59,6 +61,7 @@ public abstract class Initializer {
         driverData.save(new Driver("Giannis Bouzios","GB1997"));
         driverData.save(new Driver("Sotiris Vasileiou","SV1997"));
         driverData.save(new Driver("Petros Dimitrakopoulos","PD1997"));
+        driverData.save(new Driver("Sot Kot","SP1997"));
 
         RouteDAO routeDAO = getRouteData();
 
@@ -95,17 +98,65 @@ public abstract class Initializer {
         Destinations.add("Χαλκιδα");
         Destinations.add("Βολος");
         Destinations.add("Λαρισα");
+        Destinations.add("Ασπροπυργος");
+        Destinations.add("Ελευσινα");
+        Destinations.add("Ισθμος");
+        Destinations.add("Μεγαρα");
+        Destinations.add("Αδαμι");
+        Destinations.add("Αγιοι Αποστολοι");
+        Destinations.add("Αγναντα");
+        Destinations.add("Αρχαια Επιδαυρος");
+        Destinations.add("Αρχαια Τιρινθα");
+        Destinations.add("Αργος");
+        Destinations.add("Δαλαμαναρα");
+        Destinations.add("Δριοπι");
+        Destinations.add("Φουρνη");
+        Destinations.add("Γαλατας");
+        Destinations.add("Καλλονη");
+        Destinations.add("Κρανιδι");
+        Destinations.add("Λιγουριο");
+        Destinations.add("Πορτοχελι");
+        Destinations.add("Τριζινα");
 
         DeparturePoints.add("Αθηνα");
         DeparturePoints.add("Θεσσαλονικη");
         DeparturePoints.add("Ναυπλιο");
         DeparturePoints.add("Αργος");
+        DeparturePoints.add("Γαλατας");
+        DeparturePoints.add("Ισθμος");
+        DeparturePoints.add("Κρανιδι");
+        DeparturePoints.add("Μεθανα");
+        DeparturePoints.add("Τριπολη");
+        DeparturePoints.add("Βιτινα");
+        DeparturePoints.add("Χαλεπα");
+        DeparturePoints.add("Κιβερι");
+        DeparturePoints.add("Νεα Κιος");
+        DeparturePoints.add("Πατρα");
+        DeparturePoints.add("Λιγουριο");
+        DeparturePoints.add("Καργια");
+        DeparturePoints.add("Χουνη");
+        DeparturePoints.add("Δρεπανο");
+        DeparturePoints.add("Τολο");
+        DeparturePoints.add("Καλαματα");
 
+        DepartureTimes.add("7:00PM");
+        DepartureTimes.add("8:00PM");
+        DepartureTimes.add("9:00PM");
+        DepartureTimes.add("10:00PM");
+        DepartureTimes.add("11:00PM");
+        DepartureTimes.add("12:00PM");
+        DepartureTimes.add("1:00AM");
+        DepartureTimes.add("2:00AM");
+        DepartureTimes.add("3:00AM");
+        DepartureTimes.add("4:00AM");
+        DepartureTimes.add("5:00AM");
+        DepartureTimes.add("6:00AM");
+        DepartureTimes.add("7:00AM");
+        DepartureTimes.add("8:00AM");
         DepartureTimes.add("9:00AM");
-        DepartureTimes.add("2:15PM");
-        DepartureTimes.add("10:30AM");
-        DepartureTimes.add("12:30AM");
-        DepartureTimes.add("11:30AM");
+        DepartureTimes.add("10:00AM");
+        DepartureTimes.add("11:00AM");
+        DepartureTimes.add("12:00AM");
 
         Schedule schedule = new Schedule();
         schedule.setDestinations(Destinations);
@@ -113,16 +164,16 @@ public abstract class Initializer {
         schedule.setDepartureTimes(DepartureTimes);
         schedule.setDepartureDates(DepartureDates);
 
-        schedule.getRoutes().add(routeDAO.find("Αθηνα","9:00AM","Ναυπλιο", calendar1));
-        schedule.getRoutes().add(routeDAO.find("Πατρα","9:00AM","Αθηνα",calendar2));
-        schedule.getRoutes().add(routeDAO.find("Θεσσαλονικη","2:15PM","Αθηνα",calendar3));
-        schedule.getRoutes().add(routeDAO.find("Χαλκιδα","10:30AM","Αθηνα",calendar4));
-        schedule.getRoutes().add(routeDAO.find("Βολος","12:30AM","Αργος",calendar5));
-        schedule.getRoutes().add(routeDAO.find("Λαρισα","11:30AM","Θεσσαλονικη",calendar6));
+        schedule.addNewRoute(routeDAO.find("Αθηνα","9:00AM","Ναυπλιο", calendar1));
+        schedule.addNewRoute(routeDAO.find("Πατρα","9:00AM","Αθηνα",calendar2));
+        schedule.addNewRoute(routeDAO.find("Θεσσαλονικη","2:15PM","Αθηνα",calendar3));
+        schedule.addNewRoute(routeDAO.find("Χαλκιδα","10:30AM","Αθηνα",calendar4));
+        schedule.addNewRoute(routeDAO.find("Βολος","12:30AM","Αργος",calendar5));
+        schedule.addNewRoute(routeDAO.find("Λαρισα","11:30AM","Θεσσαλονικη",calendar6));
 
         for(Route route: schedule.getRoutes()){
             ScheduleEntry entry = new ScheduleEntry(route.getDepartureTime(),route.getDepartureDate());
-            schedule.getScheduleEntry().add(entry);
+            schedule.addScheduleEntry(entry);
         }
 
         scheduleDAO.save(schedule);

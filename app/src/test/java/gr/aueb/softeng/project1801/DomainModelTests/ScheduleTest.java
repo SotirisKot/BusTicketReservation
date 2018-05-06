@@ -28,6 +28,7 @@ public class ScheduleTest {
      private Driver driver;
      private SystemCalendar calendar1,calendar2,calendar3,calendar4;
      private Route route1,route2,route3,route4,route5;
+     private ScheduleEntry entry1,entry2,entry3,entry4;
 
     /**
      * Initializing Route,Bus,Driver,SystemCalendar object and adding values to Destinations,DeparturePoints,DepartureTimes,DepartureDates sets.
@@ -77,7 +78,10 @@ public class ScheduleTest {
          route4 = new Route("Athens","21:00PM","Argos",calendar4,
                  "22:30PM",bus,driver);
 
-
+         entry1 = new ScheduleEntry(route1.getDepartureTime(),route1.getDepartureDate());
+         entry2 = new ScheduleEntry(route2.getDepartureTime(),route2.getDepartureDate());
+         entry3 = new ScheduleEntry(route3.getDepartureTime(),route3.getDepartureDate());
+         entry4 = new ScheduleEntry(route4.getDepartureTime(),route4.getDepartureDate());
      }
 
     @After
@@ -498,10 +502,13 @@ public class ScheduleTest {
         sc.addNewRoute(route3);
         sc.addNewRoute(route4);
 
-        SystemCalendar calendar = new SystemCalendar(2018,4,23);
-        ScheduleEntry entry = new ScheduleEntry("9:00AM",calendar);
+        sc.addScheduleEntry(entry1);
+        sc.addScheduleEntry(entry2);
+        sc.addScheduleEntry(entry3);
+        sc.addScheduleEntry(entry4);
 
-        ScheduleEntry AvailableEntry = sc.findNextAvailableDate(entry);
+
+        ScheduleEntry AvailableEntry = sc.findNextAvailableDate(entry1);
 
         Assert.assertTrue(AvailableEntry != null);
         Assert.assertEquals(7,AvailableEntry.getDayOfWeek());

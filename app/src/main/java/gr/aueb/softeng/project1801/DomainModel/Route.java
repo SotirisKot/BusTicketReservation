@@ -271,9 +271,8 @@ public class Route {
             return false;
         if (DepartureDate != null ? !DepartureDate.equals(route.DepartureDate) : route.DepartureDate != null)
             return false;
-        if (RouteBus != null ? !RouteBus.equals(route.RouteBus) : route.RouteBus != null)
-            return false;
-        return Driver != null ? Driver.equals(route.Driver) : route.Driver == null;
+
+        return true;
     }
 
     /**
@@ -289,8 +288,6 @@ public class Route {
         result = 13 * result + (DepartureTime != null ? DepartureTime.hashCode() : 0);
         result = 13 * result + (DeparturePoint != null ? DeparturePoint.hashCode() : 0);
         result = 13 * result + (DepartureDate != null ? DepartureDate.hashCode() : 0);
-        result = 13 * result + (RouteBus != null ? RouteBus.hashCode() : 0);
-        result = 13 * result + (Driver != null ? Driver.hashCode() : 0);
         return result;
     }
 }

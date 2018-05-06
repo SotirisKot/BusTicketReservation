@@ -18,17 +18,20 @@
 
     <string name="search">Search</string>
     <string name="basic_info">Basic Info</string>
+    <string name="route_info">Enter Route Info</string>
     <string name="destination">Destination</string>
     <string name="departure_point">Departure Point</string>
     <string name="departure_date">Departure Date</string>
     <string name="departure_time"> Departure Time</string>
     <string name="available_seats">Available Seats</string>
     <string name="bus_type">Bus Type</string>
+    <string name="bus_id">Bus ID</string>
     <string name="driver_id">Driver ID</string>
     <string name="arrival_time">Arrival Time</string>
     <string name="statistic">Statistic</string>
     <string name="delete_route">Delete Route</string>
-
+    <string name="save_route">Save Route</string>
     <string name="yes_button">YES</string>
     <string name="no_button">NO</string>
+    <string name="ok_button">OK</string>
 </resources>

@@ -44,6 +44,11 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"
             />
+        <activity
+            android:name=".Owner.ManageRoutes.ManageRoutesActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
+
     </application>
 
 </manifest>

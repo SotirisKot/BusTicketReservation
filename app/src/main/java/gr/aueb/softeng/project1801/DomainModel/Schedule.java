@@ -16,7 +16,7 @@ public class Schedule {
     private String Destination;
     private String Departure;
     private Set<Route> routes = new HashSet<>();
-    private Set<gr.aueb.softeng.project1801.DomainModel.ScheduleEntry> ScheduleEntry = new HashSet<>();
+    private Set<ScheduleEntry> ScheduleEntry = new HashSet<>();
 
     /**
      *
@@ -270,8 +270,9 @@ public class Schedule {
             return null;
         }else{
             System.out.println("Route information valid...will create route!!");
+            ScheduleEntry newEntry = new ScheduleEntry(route.getDepartureTime(),route.getDepartureDate());
             addNewRoute(route);
-
+            addScheduleEntry(newEntry);
         }
         return route;
     }
@@ -285,20 +286,20 @@ public class Schedule {
      * @return ScheduleEntry object(not empty) if there is a next available date to add a new route in the schedule or else an empty one object"
      */
     public ScheduleEntry findNextAvailableDate(ScheduleEntry entry) {
+        ScheduleEntry temp = new ScheduleEntry(entry.getDepartureTime(),entry.getCalendar());
         String time = entry.getDepartureTime();
         ScheduleEntry AvailableEntry =  new ScheduleEntry();
-        System.out.println("Asked for: " + entry.getDayOfWeek()+ "/" +entry.getCalendar().getMonth()
+        System.out.println("Asked for: " + temp.getDayOfWeek()+ "/" +temp.getCalendar().getMonth()
                 + " and time: " + time);
         boolean FoundDate = false;
         while(!FoundDate){
             boolean found = true;
-
-            for(Route route : getRoutes()){
-                if(entry.getDayOfWeek() == route.getDepartureDate().getDayOfMonth() && time.equals(route.getDepartureTime())
-                        && entry.getCalendar().getMonth() == route.getDepartureDate().getMonth()){
+            for(ScheduleEntry entry1 : getScheduleEntry()){
+                if(temp.getDayOfWeek() == entry1.getDayOfWeek() && time.equals(entry1.getDepartureTime())
+                        && temp.getCalendar().getMonth() == entry1.getCalendar().getMonth()){
 
                     System.out.println("The slot is taken...searching for next available date");
-                    entry.setCalendar(entry.getCalendar().addDays(7));
+                    temp.setCalendar(temp.getCalendar().addDays(7));
                     found = false;
                     break;
                 }
@@ -306,15 +307,14 @@ public class Schedule {
 
             if(found){
                 FoundDate = true;
-                SystemCalendar calendar = new SystemCalendar(entry.getCalendar().getYear()
-                        ,entry.getCalendar().getMonth(),entry.getDayOfWeek());
-                System.out.println("Found: " + entry.getDayOfWeek()+"/"+entry.getCalendar().getMonth()
+                SystemCalendar calendar = new SystemCalendar(temp.getCalendar().getYear()
+                        ,temp.getCalendar().getMonth(),temp.getDayOfWeek());
+                System.out.println("Found: " + temp.getDayOfWeek()+"/"+temp.getCalendar().getMonth()
                         + " and time: " + time);
                 System.out.println();
                 AvailableEntry.setDepartureTime(time);
                 AvailableEntry.setCalendar(calendar);
                 AvailableEntry.setDayOfWeek(calendar.getDayOfMonth());
-                addScheduleEntry(AvailableEntry);
             }
         }
         return AvailableEntry;

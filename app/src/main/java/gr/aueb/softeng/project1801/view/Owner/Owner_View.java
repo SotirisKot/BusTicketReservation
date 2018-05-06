@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import gr.aueb.softeng.project1801.view.Owner.ManageRoutes.ManageRoutesActivity;
 import gr.aueb.softeng.project1801.view.Owner.Statistics.StatisticsActivity;
 import gr.aueb.softeng.project1801.view.R;
 
@@ -35,8 +36,19 @@ public class Owner_View extends AppCompatActivity implements View.OnClickListene
                 startActivity(intent);
                 break;
             case R.id.AddRoute:
+                Intent intent1 = new Intent(Owner_View.this, ManageRoutesActivity.class);
+                startActivityForResult(intent1,1);
                 break;
 
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){//creation successful...recreate the activity
+            recreate();
         }
     }
 
