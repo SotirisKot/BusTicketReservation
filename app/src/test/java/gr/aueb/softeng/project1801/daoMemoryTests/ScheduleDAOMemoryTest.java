@@ -104,6 +104,7 @@ public class ScheduleDAOMemoryTest {
         Set<String> DeparturePoints = new HashSet<>();
         Set<String> DepartureTimes = new HashSet<>();
         Set<SystemCalendar> DepartureDates = new HashSet<>();
+
         Destinations.add("Athens");
     /*    Destinations.add("Patra");
         Destinations.add("Nauplio");
@@ -121,7 +122,7 @@ public class ScheduleDAOMemoryTest {
 
         SystemCalendar calendar1,calendar2,calendar3,calendar4;
 
-        calendar1 = new SystemCalendar(2018,4,23);
+        calendar1 = new SystemCalendar(2018,6,23);
   /*      calendar2 = new SystemCalendar(2018,4,12);
         calendar3 = new SystemCalendar(2018,4,30);
         calendar4 = new SystemCalendar(2018,5,1);*/
@@ -140,8 +141,7 @@ public class ScheduleDAOMemoryTest {
         schedule5.setDepartureDates(DepartureDates);
         schedule5.setDestinations(Destinations);
         scheduleDAO.save(schedule5);
-        scheduleDAO.delete(schedule5);
-        assertTrue(!scheduleDAO.find(Destinations,DeparturePoints,DepartureTimes,DepartureDates,"Olimpos","Athens").equals(schedule5));
+        assertTrue(scheduleDAO.find(Destinations,DeparturePoints,DepartureTimes,DepartureDates,"Olimpos","Athens").equals(schedule5));
 
         /*   for(Schedule schedule: scheduleList){
             if(schedule.getDestination().equals("Serres")){
