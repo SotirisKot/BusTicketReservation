@@ -66,6 +66,10 @@
             android:name=".Passenger.Buy_Ticket.BuyTicketActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".Passenger.Search_Route.SearchRouteActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
     </application>
 
 </manifest>
