@@ -14,6 +14,8 @@ public interface BuyTicketsView {
 
     void setDeparturePointsList(List<String> departures);
 
+    void setNumberOfSeats(List<String> num_seats);
+
     String getDestination();
 
     String getDeparturepoint();

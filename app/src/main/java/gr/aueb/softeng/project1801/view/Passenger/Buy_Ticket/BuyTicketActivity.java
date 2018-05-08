@@ -22,7 +22,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
 
     @Override
     public String getNumberOfSeats(){
-        return ((EditText)findViewById(R.id.seats_num)).getText().toString().trim();
+        return ((Spinner)findViewById(R.id.seats)).getSelectedItem().toString().trim();
     }
 
     @Override
@@ -45,8 +45,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
         AlertDialog.Builder alert = new AlertDialog.Builder(BuyTicketActivity.this);
         alert.setCancelable(true);
         alert.setMessage(message);
-        alert.setPositiveButton(R.string.yes_button,null);
-        alert.setNegativeButton(R.string.no_button,null);
+        alert.setPositiveButton(R.string.ok_button,null);
 
         alert.create().show();
     }
@@ -64,6 +63,14 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ((Spinner) findViewById(R.id.departure_points)).setAdapter(arrayAdapter);
     }
+
+    @Override
+    public void setNumberOfSeats(List<String> seats) {
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,seats);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ((Spinner) findViewById(R.id.seats)).setAdapter(arrayAdapter);
+    }
+
 
     @Override
     public void ShowToast(String message) {
