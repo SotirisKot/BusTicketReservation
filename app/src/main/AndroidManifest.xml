@@ -15,7 +15,7 @@
         android:theme="@style/Theme.AppCompat.Light">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
@@ -26,24 +26,21 @@
         </activity>
 
         <activity
-            android:name=".User_login"
+            android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat.Light">
+        </activity>
+
         <activity
             android:name=".Employee_login"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name=".Owner.Owner_login"
+            android:name=".Owner.OwnerHome.Owner_login"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
         <activity
-            android:name=".HomeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light"
-             />
-        <activity
-            android:name=".Owner.Owner_View"
+            android:name=".Owner.OwnerHome.Owner_View"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"
             />
@@ -61,7 +58,14 @@
             android:name=".Owner.ManageRoutes.ManageRoutesActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
-
+        <activity
+            android:name=".Passenger.PassengerHome.UserView"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".Passenger.Buy_Ticket.BuyTicketActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
     </application>
 
 </manifest>

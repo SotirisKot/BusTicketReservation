@@ -67,7 +67,7 @@ public class ManageRoutesPresenter  {
     }
 
     private boolean validateDate(String date){
-        String[] parts = date.split("/");
+        String[] parts = date.replaceAll("\\s+"," ").split("/");
         try {
             if(Integer.parseInt(parts[0]) >= 2018 && Integer.parseInt(parts[1]) > 0 && Integer.parseInt(parts[1]) <=12
                     && Integer.parseInt(parts[2]) > 0 && Integer.parseInt(parts[2]) <= 31){

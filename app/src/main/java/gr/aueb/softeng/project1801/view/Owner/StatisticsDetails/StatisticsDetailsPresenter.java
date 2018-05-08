@@ -27,11 +27,6 @@ public class StatisticsDetailsPresenter {
         String[] parts = date.split("/");
         SystemCalendar calendar = new SystemCalendar(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
 
-        System.out.println(view.getDestination());
-        System.out.println(view.getDepartureTime());
-        System.out.println(view.getDeparturePoint());
-
-
         presentedRoute = routes.find(view.getDestination(),view.getDepartureTime(),view.getDeparturePoint()
             ,calendar);
 

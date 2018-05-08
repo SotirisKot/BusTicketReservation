@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 2000;
+    private static boolean initialized = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +24,11 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
             }
         },SPLASH_TIME_OUT);
+
+        if(!initialized){
+            new DataInitializer().prepareData();
+            initialized = true;
+            Toast.makeText(this,"Loading Data!!",Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -51,7 +51,9 @@ public abstract class Initializer {
         busDAO.save(new Bus("Type2","Ford","F1269",50));
         busDAO.save(new Bus("Type4","Mercedes","M269",40));
         busDAO.save(new Bus("Type3","Mercedes","M270",40));
-
+        busDAO.save(new Bus("Type1","Toyota","T260",25));
+        busDAO.save(new Bus("Type2","Scania","S220",50));
+        busDAO.save(new Bus("Type3","Ford","F265",40));
 
         DriverDAO driverData = getDriverData();
 
@@ -62,6 +64,7 @@ public abstract class Initializer {
         driverData.save(new Driver("Sotiris Vasileiou","SV1997"));
         driverData.save(new Driver("Petros Dimitrakopoulos","PD1997"));
         driverData.save(new Driver("Sot Kot","SP1997"));
+        driverData.save(new Driver("Rafaella Kot","RK1997"));
 
         RouteDAO routeDAO = getRouteData();
 

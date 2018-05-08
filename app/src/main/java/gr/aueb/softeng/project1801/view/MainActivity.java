@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import gr.aueb.softeng.project1801.memorydao.DataInitializer;
-import gr.aueb.softeng.project1801.view.Owner.Owner_login;
+import gr.aueb.softeng.project1801.view.Owner.OwnerHome.Owner_login;
+import gr.aueb.softeng.project1801.view.Passenger.PassengerHome.UserView;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_user;
     Button btn_employee;
     Button btn_owner;
-    private static boolean initialized = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_employee.setOnClickListener(this);
         btn_owner.setOnClickListener(this);
 
-        if(!initialized){
-            new DataInitializer().prepareData();
-            initialized = true;
-            Toast.makeText(this,"Loading Data!!",Toast.LENGTH_LONG).show();
-        }
+
     }
 
     @Override
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.btn_user:
                 Toast.makeText(this,"Αγαπητέ Επιβάτη, καλώς ήρθες στην πλατφόρμα μας!",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MainActivity.this,User_login.class);
+                Intent intent = new Intent(MainActivity.this,UserView.class);
                 startActivity(intent);
                 break;
             case R.id.btn_employee:

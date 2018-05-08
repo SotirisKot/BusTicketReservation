@@ -34,4 +34,6 @@
     <string name="yes_button">YES</string>
     <string name="no_button">NO</string>
     <string name="ok_button">OK</string>
+    <string name="seats">Seats</string>
+    <string name="Search_Route">Search Route</string>
 </resources>

@@ -1,4 +1,4 @@
-package gr.aueb.softeng.project1801.view.Owner;
+package gr.aueb.softeng.project1801.view.Owner.OwnerHome;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
