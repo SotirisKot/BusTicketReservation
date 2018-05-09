@@ -3,11 +3,8 @@ package gr.aueb.softeng.project1801.daoMemoryTests;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import gr.aueb.softeng.project1801.DomainModel.Route;
-import gr.aueb.softeng.project1801.DomainModel.Schedule;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.dao.RouteDAO;
 import gr.aueb.softeng.project1801.memorydao.RouteDAOMemory;
@@ -21,7 +18,6 @@ public class RouteDAOMemoryTest {
     private Route route3 = new Route();
     private Route route4 = new Route();
     private RouteDAO routeDAO;
-//    private List<Route> routeList = new ArrayList<>();
 
 
     /**
@@ -64,11 +60,6 @@ public class RouteDAOMemoryTest {
         routeDAO.save(route5);
         assertTrue(routeDAO.findAll().contains(route5));
 
-
-/*        if(!routeList.contains(route5)){
-            routeList.add(route5);
-        }
-        assertTrue(routeList.contains(route5));*/
     }
 
     /**
@@ -84,11 +75,6 @@ public class RouteDAOMemoryTest {
         routeDAO.save(route5);
         routeDAO.delete(route5);
         assertTrue(!routeDAO.findAll().contains(route5));
-
-/*        if(routeList.contains(route3)){
-            routeList.remove(route3);
-        }
-        assertTrue(!routeList.contains(route3));*/
 
     }
 
@@ -108,15 +94,6 @@ public class RouteDAOMemoryTest {
         routeDAO.save(route5);
         assertTrue(routeDAO.find("Olimpos","10:00","Athens",systemCalendar).equals(route5));
 
-/*        for(Route route: routeList){
-            if(route.getDestination().equals("Serres")){
-                assertTrue(route3.getDestination().equals("Serres"));
-                break;
-            }
-        }
-        assertTrue(!(route3.getDestination().equals("Nauplio")));
-        assertTrue(!(route3.getDestination().equals("Naxos")));
-        assertTrue(!(route3.getDestination().equals("Oropos")));*/
     }
 
     /**
@@ -132,14 +109,6 @@ public class RouteDAOMemoryTest {
         assertTrue(routeDAO.findAll().contains(route3));
         assertTrue(routeDAO.findAll().contains(route4));
         assertTrue(routeDAO.findAll().size() == 4);
-
-/*        for (Route route : routeList) {
-            assertTrue(routeList.contains(route));
-        }
-        assertTrue(routeList.contains(route1));
-        assertTrue(routeList.contains(route2));
-        assertTrue(routeList.contains(route3));
-        assertTrue(routeList.contains(route4));*/
 
     }
 }

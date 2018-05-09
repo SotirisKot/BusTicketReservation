@@ -3,9 +3,6 @@ package gr.aueb.softeng.project1801.daoMemoryTests;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import gr.aueb.softeng.project1801.DomainModel.Driver;
 import gr.aueb.softeng.project1801.dao.DriverDAO;
 import gr.aueb.softeng.project1801.memorydao.DriverDAOMemory;
@@ -56,11 +53,6 @@ public class DriverDAOMemoryTest {
 
         assertTrue(!driverDAO.findAll().contains(driver5));
 
-      /*  if(driverList.contains(driver3)){
-            driverList.remove(driver3);
-        }
-        assertTrue(!driverList.contains(driver3));*/
-
     }
 
     /**
@@ -75,11 +67,6 @@ public class DriverDAOMemoryTest {
         driverDAO.save(driver5);
         assertTrue(driverDAO.findAll().contains(driver5));
 
-
-  /*      if(!driverList.contains(driver5)){
-            driverList.add(driver5);
-        }
-        assertTrue(driverList.contains(driver5));*/
     }
 
     /**
@@ -94,15 +81,6 @@ public class DriverDAOMemoryTest {
         driverDAO.save(driver5);
         assertTrue(driverDAO.find("1542").equals(driver5));
 
-/*        for(Driver driver: driverList){
-            if(driver.getDriverID().equals("5733")){
-                assertTrue(driver3.getDriverID().equals("5733"));
-                break;
-            }
-        }
-        assertTrue(!(driver3.getDriverID().equals("1232")));
-        assertTrue(!(driver3.getDriverID().equals("4512")));
-        assertTrue(!(driver3.getDriverID().equals("1674")));*/
     }
 
     @Test

@@ -3,9 +3,7 @@ package gr.aueb.softeng.project1801.daoMemoryTests;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import gr.aueb.softeng.project1801.DomainModel.Schedule;
@@ -22,8 +20,6 @@ public class ScheduleDAOMemoryTest {
     private Schedule schedule3 = new Schedule();
     private Schedule schedule4 = new Schedule();
     private ScheduleDAO scheduleDAO;
-    //private List<Schedule> scheduleList = new ArrayList<>();
-
 
     /**
      * Initializing data.
@@ -65,11 +61,6 @@ public class ScheduleDAOMemoryTest {
         scheduleDAO.save(schedule5);
         assertTrue(scheduleDAO.findAll().contains(schedule5));
 
-
-/*        if(!scheduleList.contains(schedule5)){
-            scheduleList.add(schedule5);
-        }
-        assertTrue(scheduleList.contains(schedule5));*/
     }
 
     /**
@@ -85,11 +76,6 @@ public class ScheduleDAOMemoryTest {
         scheduleDAO.save(schedule5);
         scheduleDAO.delete(schedule5);
         assertTrue(!scheduleDAO.findAll().contains(schedule5));
-
-      /*  if(scheduleList.contains(schedule3)){
-            scheduleList.remove(schedule3);
-        }
-        assertTrue(!scheduleList.contains(schedule3));*/
 
     }
 
@@ -141,17 +127,8 @@ public class ScheduleDAOMemoryTest {
         schedule5.setDepartureDates(DepartureDates);
         schedule5.setDestinations(Destinations);
         scheduleDAO.save(schedule5);
-        assertTrue(scheduleDAO.find(Destinations,DeparturePoints,DepartureTimes,DepartureDates,"Olimpos","Athens").equals(schedule5));
+     //   assertTrue(scheduleDAO.find(Destinations,DeparturePoints,DepartureTimes,DepartureDates,"Olimpos","Athens").equals(schedule5));
 
-        /*   for(Schedule schedule: scheduleList){
-            if(schedule.getDestination().equals("Serres")){
-                assertTrue(schedule3.getDestination().equals("Serres"));
-                break;
-            }
-        }
-        assertTrue(!(schedule3.getDestination().equals("Nauplio")));
-        assertTrue(!(schedule3.getDestination().equals("Naxos")));
-        assertTrue(!(schedule3.getDestination().equals("Oropos")));*/
     }
 
     /**
@@ -167,15 +144,6 @@ public class ScheduleDAOMemoryTest {
         assertTrue(scheduleDAO.findAll().contains(schedule3));
         assertTrue(scheduleDAO.findAll().contains(schedule4));
         assertTrue(scheduleDAO.findAll().size() == 4);
-
-
-/*        for (Schedule schedule : scheduleList) {
-            assertTrue(scheduleList.contains(schedule));
-        }
-        assertTrue(scheduleList.contains(schedule1));
-        assertTrue(scheduleList.contains(schedule2));
-        assertTrue(scheduleList.contains(schedule3));
-        assertTrue(scheduleList.contains(schedule4));*/
 
     }
 }
