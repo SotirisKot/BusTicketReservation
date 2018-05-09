@@ -12,6 +12,9 @@ import gr.aueb.softeng.project1801.view.R;
 public class Owner_login extends AppCompatActivity implements View.OnClickListener {
     Button btn_next;
 
+    /** This method creates the layout and initializes the activity.
+     * @param savedInstanceState, the Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,9 @@ public class Owner_login extends AppCompatActivity implements View.OnClickListen
     }
 
 
+    /** This method is being called when a view has been clicked.So it chooses what to do after the user's specific click.
+     * @param v, the View that was clicked
+     */
     @Override
     public void onClick(View v){
         switch(v.getId()){

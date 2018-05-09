@@ -18,6 +18,11 @@ public class StatisticsDetailsPresenter {
     private RouteDAO routes;
     private Route presentedRoute;
 
+    /**
+     * This method initializes the Presenter in order to be able to show statistics details of the routes in later time.
+     * @param view, an instance of view
+     * @param routes, an instance of routeDao
+     */
     public StatisticsDetailsPresenter(StatisticsDetailsView view,RouteDAO routes){
         this.view = view;
         this.routes = routes;
@@ -47,15 +52,25 @@ public class StatisticsDetailsPresenter {
 
     }
 
+    /**
+     * This method pops up a toast with a message.
+     * @param value, the message that is being displayed in the toast
+     */
     public void onShowToast(String value)
     {
         view.showToast(value);
     }
 
+    /**
+     * This method prints a warning dialog message before deletion in order to ensure the process that is going to be executed.
+     */
     void onClickDeleteButton(){
         view.ClickDeleteButton("Are you sure you want to delete this route?");
     }
 
+    /**
+     * This method deletes a specific route.
+     */
     void onDelete(){
         ScheduleDAO sc = new ScheduleDAOMemory();
         Schedule schedule = sc.findAll().get(0);

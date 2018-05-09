@@ -3,9 +3,6 @@ package gr.aueb.softeng.project1801.daoMemoryTests;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import gr.aueb.softeng.project1801.DomainModel.Bus;
 import gr.aueb.softeng.project1801.dao.BusDAO;
 import gr.aueb.softeng.project1801.memorydao.BusDAOMemory;
@@ -19,7 +16,6 @@ public class BusDAOMemoryTest {
     private Bus bus3 = new Bus();
     private Bus bus4 = new Bus();
     private BusDAO busDAO;
- //   private List<Bus> busList = new ArrayList<>();
 
 
     /**
@@ -52,15 +48,7 @@ public class BusDAOMemoryTest {
         Bus bus5 = new Bus();
         bus5.setBusID("1542");
         busDAO.save(bus5);
-/*        for(Bus bus: busList){
-            if(bus.getBusID().equals("5733")){
-                assertTrue(bus3.getBusID().equals("5733"));
-                break;
-            }
-        }
-        assertTrue(!(bus3.getBusID().equals("1232")));
-        assertTrue(!(bus3.getBusID().equals("4512")));
-        assertTrue(!(bus3.getBusID().equals("1674")));*/
+
         assertTrue(busDAO.find("1542").equals(bus5));
 
     }
@@ -107,14 +95,6 @@ public class BusDAOMemoryTest {
         assertTrue(busDAO.findAll().contains(bus3));
         assertTrue(busDAO.findAll().contains(bus4));
         assertTrue(busDAO.findAll().size() == 4);
-//        for (Bus bus : busList) {
-//            assertTrue(busList.contains(bus));
-//        }
-//        assertTrue(busList.contains(bus1));
-//        assertTrue(busList.contains(bus2));
-//        assertTrue(busList.contains(bus3));
-//        assertTrue(busList.contains(bus4));
-
 
     }
 }

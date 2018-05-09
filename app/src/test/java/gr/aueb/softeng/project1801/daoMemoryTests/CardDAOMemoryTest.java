@@ -3,12 +3,7 @@ package gr.aueb.softeng.project1801.daoMemoryTests;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import gr.aueb.softeng.project1801.DomainModel.Card;
-import gr.aueb.softeng.project1801.DomainModel.Schedule;
-import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.dao.CardDAO;
 import gr.aueb.softeng.project1801.memorydao.CardDAOMemory;
 
@@ -21,8 +16,6 @@ public class CardDAOMemoryTest {
     private Card card3 = new Card();
     private Card card4 = new Card();
     private CardDAO cardDAO;
-  //  private List<Card> cardList = new ArrayList<>();
-
 
     /**
      * Initializing data.
@@ -56,11 +49,6 @@ public class CardDAOMemoryTest {
         cardDAO.delete(card5);
         assertTrue(!cardDAO.findAll().contains(card5));
 
-/*        if(cardList.contains(card3)){
-            cardList.remove(card3);
-        }
-        assertTrue(!cardList.contains(card3));*/
-
     }
 
     /**
@@ -75,11 +63,6 @@ public class CardDAOMemoryTest {
         cardDAO.save(card5);
         assertTrue(cardDAO.findAll().contains(card5));
 
-
-      /*  if(!cardList.contains(card5)){
-            cardList.add(card5);
-        }
-        assertTrue(cardList.contains(card5));*/
     }
 
     /**
@@ -90,23 +73,13 @@ public class CardDAOMemoryTest {
      */
     @Test
     public void findAll(){
-
         assertTrue(cardDAO.findAll().contains(card1));
         assertTrue(cardDAO.findAll().contains(card2));
         assertTrue(cardDAO.findAll().contains(card3));
         assertTrue(cardDAO.findAll().contains(card4));
-        assertTrue(cardDAO.findAll().size() == 4);
-
-    /*    for (Card card : cardList) {
-            assertTrue(cardList.contains(card));
-        }
-        assertTrue(cardList.contains(card1));
-        assertTrue(cardList.contains(card2));
-        assertTrue(cardList.contains(card3));
-        assertTrue(cardList.contains(card4));
-*/
-
+        assertTrue(cardDAO.findAll().size() == 5);
     }
+
     /**
      * Finding a specific card.
      *
@@ -119,15 +92,5 @@ public class CardDAOMemoryTest {
         cardDAO.save(card5);
         assertTrue(cardDAO.find("Toni Montana").equals(card5));
 
-  /*      for(Card card: cardList){
-            if(card.getCardID().equals("5733")){
-                assertTrue(card3.getCardID().equals("5733"));
-                break;
-            }
-        }
-        assertTrue(!(card3.getCardID().equals("1232")));
-        assertTrue(!(card3.getCardID().equals("4512")));
-        assertTrue(!(card3.getCardID().equals("1674")));
-    }*/
     }
 }
