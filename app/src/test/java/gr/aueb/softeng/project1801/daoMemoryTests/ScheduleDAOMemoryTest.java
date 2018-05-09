@@ -106,52 +106,39 @@ public class ScheduleDAOMemoryTest {
         Set<SystemCalendar> DepartureDates = new HashSet<>();
 
         Destinations.add("Athens");
-    /*    Destinations.add("Patra");
-        Destinations.add("Nauplio");
-        Destinations.add("Argos");*/
 
         DeparturePoints.add("Athens");
-/*        DeparturePoints.add("Patra");
-        DeparturePoints.add("Nauplio");
-        DeparturePoints.add("Argos");*/
+
 
         DepartureTimes.add("9:00AM");
-     /*   DepartureTimes.add("11:00AM");
-        DepartureTimes.add("14:00PM");
-        DepartureTimes.add("21:00PM");*/
+
 
         SystemCalendar calendar1,calendar2,calendar3,calendar4;
 
         calendar1 = new SystemCalendar(2018,6,23);
-  /*      calendar2 = new SystemCalendar(2018,4,12);
-        calendar3 = new SystemCalendar(2018,4,30);
-        calendar4 = new SystemCalendar(2018,5,1);*/
+
 
         DepartureDates.add(calendar1);
-     /*   DepartureDates.add(calendar2);
-        DepartureDates.add(calendar3);
-        DepartureDates.add(calendar4);*/
         Schedule schedule5 = new Schedule();
 
         schedule5.setDestination("Olimpos");
-       // schedule5.setDeparturePoints("Athens");
+
         schedule5.setDeparture("Athens");
         schedule5.setDeparturePoints(DeparturePoints);
         schedule5.setDepartureTimes(DepartureTimes);
         schedule5.setDepartureDates(DepartureDates);
         schedule5.setDestinations(Destinations);
         scheduleDAO.save(schedule5);
-        assertTrue(scheduleDAO.find(Destinations,DeparturePoints,DepartureTimes,DepartureDates,"Olimpos","Athens").equals(schedule5));
 
-        /*   for(Schedule schedule: scheduleList){
-            if(schedule.getDestination().equals("Serres")){
-                assertTrue(schedule3.getDestination().equals("Serres"));
-                break;
-            }
-        }
-        assertTrue(!(schedule3.getDestination().equals("Nauplio")));
-        assertTrue(!(schedule3.getDestination().equals("Naxos")));
-        assertTrue(!(schedule3.getDestination().equals("Oropos")));*/
+        Schedule sc6 = new Schedule();
+        sc6.setDestination("Olimpos");
+        sc6.setDeparture("Athens");
+        sc6.setDeparturePoints(DeparturePoints);
+        sc6.setDepartureTimes(DepartureTimes);
+        sc6.setDepartureDates(DepartureDates);
+        sc6.setDestinations(Destinations);
+
+        assertTrue(scheduleDAO.find(sc6).equals(schedule5));
     }
 
     /**
