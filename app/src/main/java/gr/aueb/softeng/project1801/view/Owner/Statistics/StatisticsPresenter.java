@@ -34,16 +34,17 @@ public class StatisticsPresenter {
         onloadData();
     }
 
-    void onloadData(){
+    public void onloadData(){
         view.loadData(createData(routeDAO.findAll()));
     }
 
-    void onShowToast(String value)
+    public void onShowToast(String value)
     {
         view.showToast(value);
     }
 
-    void onclickItem(String destination,String departurePoint,String departureDate,String departureTime){
+    public void onclickItem(String destination,String departurePoint,String departureDate,String departureTime){
         view.clickItem(destination,departurePoint,departureDate,departureTime);
     }
+
 }

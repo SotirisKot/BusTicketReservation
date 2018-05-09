@@ -1,5 +1,6 @@
 package gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import gr.aueb.softeng.project1801.memorydao.ScheduleDAOMemory;
+import gr.aueb.softeng.project1801.view.Passenger.Search_Route.SearchRouteActivity;
 import gr.aueb.softeng.project1801.view.R;
 
 public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsView {
@@ -80,7 +82,12 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
 
     @Override
     public void searchRoute(String destination,String departurePoint,String departureDate,String seats){
-
+        Intent intent = new Intent(this,SearchRouteActivity.class);
+        intent.putExtra("destination",destination);
+        intent.putExtra("departurePoint",departurePoint);
+        intent.putExtra("departureDate",departureDate);
+        intent.putExtra("seats",seats);
+        startActivityForResult(intent,1);
     }
 
     @Override
