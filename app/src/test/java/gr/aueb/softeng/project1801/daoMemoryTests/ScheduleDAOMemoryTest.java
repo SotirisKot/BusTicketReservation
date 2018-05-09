@@ -109,7 +109,6 @@ public class ScheduleDAOMemoryTest {
 
         DeparturePoints.add("Athens");
 
-
         DepartureTimes.add("9:00AM");
 
 
