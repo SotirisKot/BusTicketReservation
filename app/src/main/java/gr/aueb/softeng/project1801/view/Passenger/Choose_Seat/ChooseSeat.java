@@ -78,6 +78,9 @@ public class ChooseSeat extends AppCompatActivity implements View.OnClickListene
         seat29.setOnClickListener(this);
         seat30 = (Button)findViewById(R.id.seat30);
         seat30.setOnClickListener(this);
+
+        //sooot boreis na baleis custom adapter edo se gridview kai na min kaneis auto,xaxaxa 30 koubia,kai 8a briskeis pio patise o xristis me to id pou stou epistrefei i lista
+        //kane oti 8es aplos einai ligo protogono
     }
 
 
