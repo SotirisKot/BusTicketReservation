@@ -44,16 +44,16 @@ public abstract class Initializer {
 
         BusDAO busDAO = getBusData();
 
-        busDAO.save(new Bus("Type1", "Mercedes", "AR1314",50));
-        busDAO.save(new Bus("Type2","Scania","SC1496",40));
-        busDAO.save(new Bus("Type1","Honda","H1269",33));
-        busDAO.save(new Bus("Type3","Scania","SC1269",48));
-        busDAO.save(new Bus("Type2","Ford","F1269",50));
-        busDAO.save(new Bus("Type4","Mercedes","M269",40));
-        busDAO.save(new Bus("Type3","Mercedes","M270",40));
-        busDAO.save(new Bus("Type1","Toyota","T260",25));
-        busDAO.save(new Bus("Type2","Scania","S220",50));
-        busDAO.save(new Bus("Type3","Ford","F265",40));
+        busDAO.save(new Bus("Type1", "Mercedes", "AR1314",30));
+        busDAO.save(new Bus("Type2","Scania","SC1496",30));
+        busDAO.save(new Bus("Type1","Honda","H1269",30));
+        busDAO.save(new Bus("Type3","Scania","SC1269",30));
+        busDAO.save(new Bus("Type2","Ford","F1269",30));
+        busDAO.save(new Bus("Type4","Mercedes","M269",30));
+        busDAO.save(new Bus("Type3","Mercedes","M270",30));
+        busDAO.save(new Bus("Type1","Toyota","T260",30));
+        busDAO.save(new Bus("Type2","Scania","S220",30));
+        busDAO.save(new Bus("Type3","Ford","F265",30));
 
         DriverDAO driverData = getDriverData();
 

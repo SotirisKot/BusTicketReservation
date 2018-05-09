@@ -70,6 +70,10 @@
             android:name=".Passenger.Search_Route.SearchRouteActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".Passenger.Choose_Seat.ChooseSeatActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
     </application>
 
 </manifest>

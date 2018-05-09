@@ -6,13 +6,13 @@ import gr.aueb.softeng.project1801.SysUtils.DataRow;
 
 public interface SearchRouteView {
 
-    void clickItem(String destination,String departurePoint,String departureDate,String departureTime);
+    void clickItem(String destination,String departurePoint,String departureDate,String departureTime,String seats);
 
     void loadData(List<DataRow> data);
 
     void showToast(String value);
 
-    void showAlertMessage(String message,String destination,String departurePoint,String departureDate,String departureTime);
+    void showAlertMessage(String message,String destination,String departurePoint,String departureDate,String departureTime,String seats);
 
     String getDestination();
 

@@ -1,7 +1,5 @@
 package gr.aueb.softeng.project1801.view.Passenger.Search_Route;
 
-import android.support.design.widget.Snackbar;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -66,14 +64,14 @@ public class SearchRoutePresenter {
 
     }
 
-    public void onFinalClick(String destination,String departurePoint,String departureDate,String departureTime)
+    public void onFinalClick(String destination,String departurePoint,String departureDate,String departureTime,String seats)
     {
-        view.clickItem(destination,departurePoint,departureDate,departureTime);
+        view.clickItem(destination,departurePoint,departureDate,departureTime,seats);
     }
 
-    public void onclickItem(String value,String destination,String departurePoint,String departureDate,String departureTime){
+    public void onclickItem(String value,String destination,String departurePoint,String departureDate,String departureTime,String seats){
 
-        view.showAlertMessage(value,destination,departurePoint,departureDate,departureTime);
+        view.showAlertMessage(value,destination,departurePoint,departureDate,departureTime,seats);
 
     }
 

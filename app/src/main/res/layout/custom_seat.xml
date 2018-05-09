@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/seat_image"
+        android:layout_width="59dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:contentDescription="passenger"
+        app:layout_constraintStart_toEndOf="@+id/num_seat"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_airline_seat_recline_extra_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/num_seat"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

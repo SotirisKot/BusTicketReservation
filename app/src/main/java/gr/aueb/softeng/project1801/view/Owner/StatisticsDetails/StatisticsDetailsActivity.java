@@ -187,7 +187,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
      */
     @Override
     public void delete(String message) {
-        showToast(message);
+        presenter.onShowToast(message);
         finish();
     }
 

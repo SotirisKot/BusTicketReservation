@@ -1,5 +1,6 @@
 package gr.aueb.softeng.project1801.daoMemoryTests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,6 +37,9 @@ public class CardDAOMemoryTest {
         cardDAO.save(card4);
     }
 
+    @After
+    public void tearDown(){ }
+
     /**
      * Deleting a card;
      *
@@ -61,7 +65,9 @@ public class CardDAOMemoryTest {
         Card card5 = new Card();
         card5.setCardHolderName("Toni Montana");
         cardDAO.save(card5);
+
         assertTrue(cardDAO.findAll().contains(card5));
+        assertTrue(cardDAO.find("Toni Montana").equals(card5));
 
     }
 

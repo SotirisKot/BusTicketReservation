@@ -1,6 +1,7 @@
 package gr.aueb.softeng.project1801.view.Passenger.Search_Route;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import java.util.List;
 import gr.aueb.softeng.project1801.SysUtils.DataRow;
 import gr.aueb.softeng.project1801.memorydao.ScheduleDAOMemory;
+import gr.aueb.softeng.project1801.view.Passenger.Choose_Seat.ChooseSeatActivity;
 import gr.aueb.softeng.project1801.view.R;
 import gr.aueb.softeng.project1801.view.Util.CustomAdapter;
 
@@ -38,7 +40,7 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DataRow data = (DataRow) parent.getItemAtPosition(position);
                 presenter.onclickItem("Are you sure this is the route you want?",data.getData1().split(" {2}-")[0],
-                        data.getData2(),data.getData3(),data.getData4());
+                        data.getData2(),data.getData3(),data.getData4(),getSeats());
             }
         });
     }
@@ -89,13 +91,14 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
     }
 
     @Override
-    public void showAlertMessage(String message, final String destination, final String departurePoint, final String departureDate, final String departureTime){
+    public void showAlertMessage(String message, final String destination, final String departurePoint, final String departureDate, final String departureTime,
+                                 final String seats){
         AlertDialog.Builder alert = new AlertDialog.Builder(SearchRouteActivity.this);
         alert.setCancelable(true);
         DialogInterface.OnClickListener Positivelistener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                presenter.onFinalClick(destination,departurePoint,departureDate,departureTime);
+                presenter.onFinalClick(destination,departurePoint,departureDate,departureTime,seats);
             }
         };
         DialogInterface.OnClickListener Negativelistener = new DialogInterface.OnClickListener() {
@@ -105,7 +108,6 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
 
             }
         };
-
         alert.setPositiveButton(R.string.yes_button,Positivelistener);
         alert.setNegativeButton(R.string.no_button,Negativelistener);
         alert.setMessage(message);
@@ -113,8 +115,14 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
     }
 
     @Override
-    public void clickItem(String destination,String departurePoint,String departureDate,String departureTime){
-
+    public void clickItem(String destination,String departurePoint,String departureDate,String departureTime,String seats){
+        Intent intent = new Intent(this, ChooseSeatActivity.class);
+        intent.putExtra("destination",destination);
+        intent.putExtra("departurePoint",departurePoint);
+        intent.putExtra("departureDate",departureDate);
+        intent.putExtra("departureTime",departureTime);
+        intent.putExtra("seats",seats);
+        startActivity(intent);
     }
 
     @Override
