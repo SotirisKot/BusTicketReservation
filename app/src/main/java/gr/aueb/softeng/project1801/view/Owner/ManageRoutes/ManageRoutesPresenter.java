@@ -28,6 +28,13 @@ public class ManageRoutesPresenter  {
     private DriverDAO driver;
 
 
+    /**
+     * This method initializes the Presenter.
+     * @param view, an instance of a view
+     * @param schedule, an instaces of scheduleDao
+     * @param bus, an instance of a bus
+     * @param driver, an instance of a driver
+     */
     public ManageRoutesPresenter(ManageRoutesView view,ScheduleDAO schedule,BusDAO bus,DriverDAO driver){
 
         this.view = view;
@@ -66,6 +73,11 @@ public class ManageRoutesPresenter  {
         view.setDriverIDsList(driver_ids);
     }
 
+    /**
+     *  This method initializes the Presenter.
+     * @param date, a specific date
+     * @return "true" if the date is valid or else "false"
+     */
     private boolean validateDate(String date){
         String[] parts = date.replaceAll("\\s+"," ").split("/");
         try {
@@ -79,6 +91,10 @@ public class ManageRoutesPresenter  {
         }
     }
 
+    /**
+     * This method adds a route.
+     * Checks if the date and all the other objects we must have in order to create a route and then decides whether it can add the new route or not.
+     */
     public void addRoute(){
         RouteDAO routes = new RouteDAOMemory();
         String Destination = view.getDestination();
