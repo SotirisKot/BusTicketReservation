@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_employee;
     Button btn_owner;
 
-
+    /** This method creates the layout and initializes the activity.
+     * @param savedInstanceState, the Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_employee.setOnClickListener(this);
         btn_owner.setOnClickListener(this);
 
-
     }
 
+    /** This method is being called when a view has been clicked.So it chooses what to do after the user's specific click.
+     * @param v, the View that was clicked
+     */
     @Override
     public void onClick(View v) {
         switch(v.getId()){

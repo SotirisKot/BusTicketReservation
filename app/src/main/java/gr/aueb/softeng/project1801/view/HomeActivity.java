@@ -12,6 +12,10 @@ public class HomeActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 2000;
     private static boolean initialized = false;
+
+    /** This method creates the layout and initializes the activity.
+     * @param savedInstanceState, the Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
