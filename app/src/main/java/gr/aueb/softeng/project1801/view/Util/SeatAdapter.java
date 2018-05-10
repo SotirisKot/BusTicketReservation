@@ -13,27 +13,20 @@ import java.util.List;
 
 import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.DataRow;
+import gr.aueb.softeng.project1801.SysUtils.SeatRow;
 import gr.aueb.softeng.project1801.view.R;
 
 public class SeatAdapter extends BaseAdapter {
 
     private Context Context;
-    private Route selectedRoute;
-    private int totalSeats;
-    private List<Integer> dataList,copyOfData;
+    private List<SeatRow> dataList,copyOfData;
     private LayoutInflater inflater;
 
-    public SeatAdapter(Context context,Route selectedRoute){
+    public SeatAdapter(Context context){
         this.Context = context;
-        this.selectedRoute = selectedRoute;
-        totalSeats = selectedRoute.getAvailableSeats();
         dataList = new ArrayList<>();
         copyOfData = new ArrayList<>();
         inflater = (LayoutInflater) context.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    public int getTotalSeats(){
-        return totalSeats;
     }
 
     @Override
@@ -43,7 +36,7 @@ public class SeatAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return dataList.get(position);
     }
 
     @Override
@@ -54,19 +47,23 @@ public class SeatAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        int seat = dataList.get(position);
+        SeatRow seat = dataList.get(position);
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(Context);
             convertView = layoutInflater.inflate(R.layout.custom_seat, null);
         }
 
         ((ImageView)convertView.findViewById(R.id.seat_image)).setImageResource(R.drawable.ic_airline_seat_recline_extra_black_24dp);
-        ((TextView) convertView.findViewById(R.id.num_seat)).setText(String.valueOf(seat));
+        if(seat.isChecked()){
+            ((TextView) convertView.findViewById(R.id.num_seat)).setText("x");
+        }else{
+            ((TextView) convertView.findViewById(R.id.num_seat)).setText(String.valueOf(seat.getNum()));
+        }
 
         return convertView;
     }
 
-    public void loadData(List<Integer> data){
+    public void loadData(List<SeatRow> data){
         this.dataList = data;
         this.copyOfData = dataList.subList(0,dataList.size());
         notifyDataSetChanged();

@@ -91,7 +91,7 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
     }
 
     @Override
-    public void showAlertMessage(String message, final String destination, final String departurePoint, final String departureDate, final String departureTime,
+    public void showAlertMessage(String message, final String departurePoint, final String destination, final String departureDate, final String departureTime,
                                  final String seats){
         AlertDialog.Builder alert = new AlertDialog.Builder(SearchRouteActivity.this);
         alert.setCancelable(true);
