@@ -74,6 +74,10 @@
             android:name=".Passenger.Choose_Seat.ChooseSeatActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".Passenger.TicketOverview.TicketOverviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
     </application>
 
 </manifest>

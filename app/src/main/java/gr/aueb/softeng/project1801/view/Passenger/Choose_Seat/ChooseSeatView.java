@@ -23,4 +23,6 @@ public interface ChooseSeatView {
     void showAlertMessage(String message);
 
     void loadData(List<SeatRow> data);
+
+    void clickProceed(String destination,String departurePoint,String departureDate,String departureTime);
 }

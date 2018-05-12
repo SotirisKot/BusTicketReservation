@@ -237,7 +237,7 @@ public class Ticket {
 
 
     /**
-     * //Compliting purchase availability.
+     * //Completing purchase availability.
      *
      * This method completes the purchase of a ticket if it is available.
      * @param ticket must be an object.

@@ -23,7 +23,7 @@ public class Owner_View extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owner_view);
 
-        statistics = (Button) findViewById(R.id.statistics);
+        statistics = (Button) findViewById(R.id.statistic);
         statistics.setOnClickListener(this);
 
         AddRoute = (Button) findViewById(R.id.AddRoute);
@@ -36,9 +36,9 @@ public class Owner_View extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v){
         switch(v.getId()){
-            case R.id.statistics:
+            case R.id.statistic:
                 Intent intent = new Intent(Owner_View.this, StatisticsActivity.class);
-                intent.putExtra("button_id",R.id.statistics);
+                intent.putExtra("button_id",R.id.statistic);
                 startActivity(intent);
                 break;
             case R.id.AddRoute:

@@ -1,4 +1,6 @@
 package gr.aueb.softeng.project1801.view.Passenger.Choose_Seat;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -6,12 +8,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import java.io.Serializable;
 import java.util.List;
 import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.SeatRow;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.dao.RouteDAO;
 import gr.aueb.softeng.project1801.memorydao.RouteDAOMemory;
+import gr.aueb.softeng.project1801.view.Passenger.TicketOverview.TicketOverviewActivity;
 import gr.aueb.softeng.project1801.view.R;
 import gr.aueb.softeng.project1801.view.Util.SeatAdapter;
 
@@ -20,6 +25,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
     private GridView gridView;
     private SeatAdapter seatAdapter;
     private ChooseSeatPresenter presenter;
+
 
     @Override
     public String getDestination(){
@@ -79,10 +85,16 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
 
     @Override
     public void showAlertMessage(String message) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(null);
+        AlertDialog.Builder alert = new AlertDialog.Builder(ChooseSeatActivity.this);
         alert.setCancelable(true);
         alert.setMessage(message);
-        alert.setPositiveButton(R.string.yes_button,null);
+        DialogInterface.OnClickListener Positivelistener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                presenter.onClickProceed();
+            }
+        };
+        alert.setPositiveButton(R.string.yes_button,Positivelistener);
         alert.setNegativeButton(R.string.no_button,null);
         alert.create().show();
     }
@@ -96,6 +108,19 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
     @Override
     public void loadData(List<SeatRow> data) {
         seatAdapter.loadData(data);
+    }
+
+
+    @Override
+    public void clickProceed(String destination,String departurePoint,String departureDate,String departureTime){
+        List<SeatRow> seats = presenter.getSeatsSelected();
+        Intent intent = new Intent(this, TicketOverviewActivity.class);
+        intent.putExtra("destination",destination);
+        intent.putExtra("departurePoint",departurePoint);
+        intent.putExtra("departureDate",departureDate);
+        intent.putExtra("departureTime",departureTime);
+        intent.putExtra("seats", (Serializable) seats);
+        startActivity(intent);
     }
 
 

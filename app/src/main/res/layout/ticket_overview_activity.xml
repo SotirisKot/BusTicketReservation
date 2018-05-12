@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true">
@@ -22,13 +23,13 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/basic_info"
+                android:id="@+id/ticket_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/basic_info"
+                android:text="@string/ticket_info"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -152,93 +153,6 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/available_seats"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingRight="20dp"
-                android:text="@string/available_seats"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/text_seats"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingRight="20dp"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="12dp">
-
-            <TextView
-                android:id="@+id/bus_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingRight="20dp"
-                android:text="@string/bus_type"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/text_bus_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingRight="20dp"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/driver_id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingRight="20dp"
-                android:text="@string/driver_id"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/text_driver_id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingRight="20dp"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:gravity="center">
-
-            <TextView
                 android:id="@+id/arrival_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -267,23 +181,139 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/statistic"
+                android:id="@+id/type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:gravity="left"
                 android:maxLines="1"
                 android:paddingRight="20dp"
-                android:text="@string/statistic"
+                android:text="@string/ticket_type"
                 android:textSize="16sp" />
 
+            <Spinner
+                android:id="@+id/spinner_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp">
+
             <TextView
-                android:id="@+id/text_statistics"
+                android:id="@+id/firstname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:paddingRight="20dp"
+                android:text="@string/passenger_firstname"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edit_firstname"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:maxLines="1"
+                android:hint="Firstname"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/lastname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:paddingRight="20dp"
+                android:text="@string/passenger_lastname"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edit_lastname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Lastname"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/passenger_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:paddingRight="20dp"
+                android:text="@string/passenger_id"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_passenger_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/seats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:paddingRight="20dp"
+                android:text="@string/seats"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/seats_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="20dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:paddingRight="20dp"
+                android:text="@string/price"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/price_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:paddingRight="20dp"
                 android:textSize="16sp" />
         </TableRow>
@@ -300,15 +330,16 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/delete_route_button"
+                    android:id="@+id/buy_ticket_button"
                     android:layout_width="140dp"
                     android:layout_height="55dp"
                     android:layout_marginRight="10dp"
-                    android:text="@string/delete_route"
+                    android:background="@color/black"
+                    android:text="@string/buy_ticket"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="15dp"
-                    android:background="@color/black"/>
+                    android:textSize="15dp" />
+
             </RelativeLayout>
         </TableRow>
 

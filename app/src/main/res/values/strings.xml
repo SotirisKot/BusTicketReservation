@@ -18,6 +18,7 @@
 
     <string name="search">Search</string>
     <string name="basic_info">Basic Info</string>
+    <string name="ticket_info">Ticket Info</string>
     <string name="route_info">Enter Route Info</string>
     <string name="destination">Destination</string>
     <string name="departure_point">Departure Point</string>
@@ -37,4 +38,10 @@
     <string name="seats">Seats</string>
     <string name="Search_Route">Search Route</string>
     <string name="buy_tickets">Select a route to buy your tickets</string>
+    <string name="ticket_type">Type</string>
+    <string name="passenger_firstname">Firstname</string>
+    <string name="passenger_lastname">Lastname</string>
+    <string name="passenger_id">Passenger ID</string>
+    <string name="price">Price</string>
+    <string name="buy_ticket">Buy Ticket</string>
 </resources>

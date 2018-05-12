@@ -1,8 +1,9 @@
 package gr.aueb.softeng.project1801.SysUtils;
 
 
+import java.io.Serializable;
 
-public class SeatRow {
+public class SeatRow implements Serializable {
 
     private String seat;
     private boolean checked;

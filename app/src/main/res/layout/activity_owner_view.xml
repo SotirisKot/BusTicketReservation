@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/statistics"
+        android:id="@+id/statistic"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginBottom="457dp"
@@ -37,6 +37,6 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/statistics"
+        app:layout_constraintStart_toEndOf="@+id/statistic"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

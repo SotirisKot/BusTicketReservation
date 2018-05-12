@@ -9,6 +9,7 @@ public class ChooseSeatPresenter {
     private ChooseSeatView view;
     private Route selectedRoute;
     private int temp;
+    private List<SeatRow> seatsSelected = new ArrayList<>();
 
     public ChooseSeatPresenter(ChooseSeatView view, Route selectedRoute){
 
@@ -26,13 +27,15 @@ public class ChooseSeatPresenter {
 
         if(seat.isChecked()){
             seat.uncheck();
+            seatsSelected.remove(seat);
             route.setAvailableSeats(availableSeats + 1);
         }else{
             if(availableSeats > (temp - Integer.parseInt(view.getSeats()))){
                 seat.check();
+                seatsSelected.add(seat);
                 route.setAvailableSeats(availableSeats - 1);
             }else{
-                view.showToast("You cannot select more seats");
+                view.showAlertMessage("You cannot select more seats.Proceed to checkout?");
             }
 
         }
@@ -57,6 +60,14 @@ public class ChooseSeatPresenter {
 
     public void onShowtoast(String message){
         view.showToast(message);
+    }
+
+    public void onClickProceed(){
+        view.clickProceed(view.getDestination(),view.getDeparturePoint(),view.getDepartureDate(),view.getDepartureTime());
+    }
+
+    public List<SeatRow> getSeatsSelected(){
+        return seatsSelected;
     }
 
 }
