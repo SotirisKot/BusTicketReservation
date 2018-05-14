@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,6 +13,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="32dp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,6 +26,7 @@
         android:layout_marginRight="21dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/details"
         app:layout_constraintStart_toEndOf="@+id/first"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,6 +40,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="68dp"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -54,6 +57,8 @@
         android:layout_marginRight="49dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/identity"
         app:layout_constraintTop_toTopOf="parent" />

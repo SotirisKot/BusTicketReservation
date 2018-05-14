@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/back"
     android:fillViewport="true">
 
     <TableLayout
@@ -29,7 +30,9 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/route_info"
-                android:textSize="18sp" />
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic" />
         </TableRow>
 
         <TableRow
@@ -47,12 +50,14 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/destination"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/destinations_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
         </TableRow>
 
@@ -71,12 +76,14 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/departure_point"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/departure_points"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
         </TableRow>
 
@@ -95,6 +102,7 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/departure_date"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
@@ -106,6 +114,7 @@
                 android:hint="yyyy/MM/dd"
                 android:maxLines="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -124,12 +133,14 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/departure_time"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/departure_times"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
         </TableRow>
 
@@ -148,12 +159,14 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/bus_id"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/bus_ids"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
         </TableRow>
 
@@ -172,12 +185,14 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/driver_id"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/driver_ids"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
         </TableRow>
 
@@ -196,12 +211,15 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/arrival_time"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/arrival_times"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:popupBackground="@color/white" />
 
         </TableRow>
 
@@ -218,13 +236,13 @@
 
                 <Button
                     android:id="@+id/save_route_button"
-                    android:layout_width="140dp"
-                    android:layout_height="55dp"
+                    android:layout_width="145dp"
+                    android:layout_height="31dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/black"
+                    android:background="@color/white"
                     android:text="@string/save_route"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
             </RelativeLayout>
         </TableRow>

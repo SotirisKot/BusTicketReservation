@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/back"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/back"
     android:fillViewport="true">
 
     <TableLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:paddingTop="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -23,13 +23,13 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/basic_info"
+                android:id="@+id/card_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/route_info"
+                android:text="@string/card_info"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="italic" />
@@ -42,104 +42,121 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/destination"
+                android:id="@+id/cardholdername"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:gravity="left"
                 android:maxLines="1"
-                android:paddingEnd="20dp"
                 android:paddingRight="20dp"
-                android:text="@string/destination"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/destinations_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/departure_point"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/departure_point"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/departure_points"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/departure_date"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:gravity="left"
-                android:maxLines="1"
-                android:paddingEnd="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/departure_date"
+                android:text="@string/cardholder"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/departure_date_text"
+                android:id="@+id/text_holdername"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:hint="yyyy/MM/dd"
+                android:hint="Card holder Name"
                 android:maxLines="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="12dp">
+            android:padding="12dp"
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/seats_text"
-                android:layout_width="147dp"
+                android:id="@+id/card_id"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:text="@string/seats"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/cardid"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <Spinner
-                android:id="@+id/seats"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/text_card_id"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white" />
+                android:layout_weight="1"
+                android:gravity="left"
+                android:hint="Card id"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/expiration_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/expirationdate"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/text_expiration_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:hint="Expiration Date"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/cv_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:text="@string/cv"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/text_cv_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:hint="CV code"
+                android:maxLines="1"
+                android:paddingRight="20dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
         </TableRow>
 
@@ -155,16 +172,17 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/search_route_button"
-                    android:layout_width="151dp"
-                    android:layout_height="33dp"
-                    android:layout_marginEnd="10dp"
+                    android:id="@+id/checkout_button"
+                    android:layout_width="143dp"
+                    android:layout_height="29dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/white"
-                    android:text="@string/Search_Route"
+                    android:text="@string/checkout"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="15dp"
+                    android:textStyle="italic" />
+
             </RelativeLayout>
         </TableRow>
 

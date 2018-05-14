@@ -120,7 +120,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         intent.putExtra("departureDate",departureDate);
         intent.putExtra("departureTime",departureTime);
         intent.putExtra("seats", (Serializable) seats);
-        startActivity(intent);
+        startActivityForResult(intent,1);
     }
 
 
@@ -146,11 +146,20 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SeatRow seat = (SeatRow) parent.getItemAtPosition(position);
-                presenter.onClickSeat(route,seat);
+                presenter.onClickSeat(seat);
                 seatAdapter.notifyDataSetChanged();
             }
         });
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){//purchase successful...recreate the activity
+            finish();
+        }
+    }
 }
 

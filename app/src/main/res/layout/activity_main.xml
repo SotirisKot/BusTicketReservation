@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grad_bg"
+    android:background="@drawable/back"
     tools:context=".MainActivity">
 
     <TextView
@@ -18,7 +18,9 @@
         android:layout_marginTop="16dp"
         android:text="          ΣΥΣΤΗΜΑ ΚΡΑΤΗΣΗΣ ΕΙΣΙΤΗΡΙΩΝ "
         android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@color/white"
         android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:fontFamily="sans-serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -38,7 +40,9 @@
         android:layout_marginTop="8dp"
         android:text="Επιλέξτε ως τι θέλετε να συνδεθείτε:"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
+        android:textColor="@color/white"
         android:textColorLink="@color/colorPrimary"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

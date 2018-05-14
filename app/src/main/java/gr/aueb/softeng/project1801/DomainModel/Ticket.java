@@ -14,7 +14,7 @@ public class Ticket {
     private Passenger passenger;
     private String PassengerName;
     private String PassengerID;
-    private int PassengerSeat;
+    private String PassengerSeat;
     private String Type;
     private Route route;
 
@@ -40,7 +40,7 @@ public class Ticket {
      */
     public Ticket(String DestinationTicket,String DeparturePointTicket,String DepartureTimeTicket,
                   SystemCalendar DepartureDateTicket,String EstimatedArrivalTimeTicket,double Price,
-                  Passenger passenger,int PassengerSeat,String Type,Route route){
+                  Passenger passenger,String PassengerSeat,String Type,Route route){
 
         this.DestinationTicket = DestinationTicket;
         this.DeparturePointTicket = DeparturePointTicket;
@@ -102,7 +102,7 @@ public class Ticket {
     }
 
     /** @return PassengerSeat passed to the constructor.  */
-    public int getPassengerSeat() {
+    public String getPassengerSeat() {
         return PassengerSeat;
     }
 
@@ -179,7 +179,7 @@ public class Ticket {
      *
      * @param passengerSeat passenger Seat to set
      */
-    public void setPassengerSeat(int passengerSeat) {
+    public void setPassengerSeat(String passengerSeat) {
         this.PassengerSeat = passengerSeat;
     }
 
@@ -250,11 +250,6 @@ public class Ticket {
             if(!TicketExists(ticket)){
                 System.out.println("Ticket is available!!!");
                 setPassenger(passenger);
-                PassengerName = passenger.getFirstName() + passenger.getLastName();
-                PassengerID = passenger.getNumberID();
-
-                //here it will ask for card information TODO
-
                 route.addTicket(ticket);
                 return true;
             }else{
@@ -323,7 +318,7 @@ public class Ticket {
             return false;
         }
 
-        if(!(PassengerSeat == 0 ? theTicket.PassengerSeat == 0
+        if(!(PassengerSeat == null ? theTicket.PassengerSeat == null
                 : PassengerSeat == theTicket.PassengerSeat)){
             return false;
         }
@@ -362,7 +357,7 @@ public class Ticket {
     public int hashCode(){
         if(DestinationTicket == null && DeparturePointTicket == null & DepartureTimeTicket == null
                 && DepartureDateTicket == null && EstimatedArrivalTimeTicket == null &&
-                Price == 0 && passenger == null && PassengerSeat == 0
+                Price == 0 && passenger == null && PassengerSeat == null
                 && Type == null && route == null){
 
             return 0;
@@ -378,7 +373,7 @@ public class Ticket {
         result = passenger == null ? result : 13 * result + passenger.hashCode();
         result = PassengerName == null ? result : 13 * result + PassengerName.hashCode();
         result = PassengerID == null ? result : 13 * result + PassengerID.hashCode();
-        result = PassengerSeat == 0 ? result : 13 * result + PassengerSeat;
+        result = PassengerSeat == null ? result : 13 * result + PassengerSeat.hashCode();
         result = Type == null ? result : 13 * result + Type.hashCode();
 
         return result;

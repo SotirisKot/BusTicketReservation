@@ -54,7 +54,9 @@ public class SeatAdapter extends BaseAdapter {
         }
 
         ((ImageView)convertView.findViewById(R.id.seat_image)).setImageResource(R.drawable.ic_airline_seat_recline_extra_black_24dp);
-        if(seat.isChecked()){
+        if(seat.getText().equals("T")){
+            ((TextView) convertView.findViewById(R.id.num_seat)).setText("T");
+        }else if(seat.isChecked()){
             ((TextView) convertView.findViewById(R.id.num_seat)).setText("x");
         }else{
             ((TextView) convertView.findViewById(R.id.num_seat)).setText(String.valueOf(seat.getNum()));

@@ -59,7 +59,7 @@ public class TicketTest {
         ticket.setPassengerName(passenger.getFirstName() + passenger.getLastName());
         ticket.setPassengerID(passenger.getNumberID());
         ticket.setPrice(9);
-        ticket.setPassengerSeat(22);
+        ticket.setPassengerSeat("22");
         ticket.setRoute(route);
         Assert.assertTrue(route.friendRoutes().size() == 1);
         Assert.assertTrue(ticket.TicketExists(ticket));
@@ -82,7 +82,7 @@ public class TicketTest {
         ticket.setPassengerName(passenger.getFirstName() + passenger.getLastName());
         ticket.setPassengerID(passenger.getNumberID());
         ticket.setPrice(9);
-        ticket.setPassengerSeat(22);
+        ticket.setPassengerSeat("22");
         ticket.setRoute(route);
 
         Assert.assertTrue(route.friendRoutes().size() == 1);
@@ -96,7 +96,7 @@ public class TicketTest {
         Newticket.setPassengerName(passenger.getFirstName() + passenger.getLastName());
         Newticket.setPassengerID(passenger.getNumberID());
         Newticket.setPrice(9);
-        Newticket.setPassengerSeat(22);
+        Newticket.setPassengerSeat("22");
         Newticket.setRoute(route);
 
         Assert.assertTrue(Newticket.TicketExists(Newticket));
@@ -120,7 +120,7 @@ public class TicketTest {
         ticket.setPassengerName(passenger.getFirstName() + passenger.getLastName());
         ticket.setPassengerID(passenger.getNumberID());
         ticket.setPrice(9);
-        ticket.setPassengerSeat(22);
+        ticket.setPassengerSeat("22");
         ticket.setRoute(route);
 
         Assert.assertTrue(route.friendRoutes().size() == 1);
@@ -134,7 +134,7 @@ public class TicketTest {
         Newticket.setPassengerName(passenger.getFirstName() + passenger.getLastName());
         Newticket.setPassengerID(passenger.getNumberID());
         Newticket.setPrice(9);//not the same as before
-        Newticket.setPassengerSeat(23);//not the same as before
+        Newticket.setPassengerSeat("23");//not the same as before
         Newticket.setRoute(route);
 
         Assert.assertTrue(route.friendRoutes().size() == 2);
@@ -170,7 +170,7 @@ public class TicketTest {
         ticket.setPassengerName(passenger.getFirstName() + passenger.getLastName());
         ticket.setPassengerID(passenger.getNumberID());
         ticket.setPrice(9);
-        ticket.setPassengerSeat(22);
+        ticket.setPassengerSeat("22");
         ticket.setRoute(route);
         Assert.assertTrue(route.friendRoutes().size() == 1);
 
@@ -192,7 +192,7 @@ public class TicketTest {
         ticket.setEstimatedArrivalTimeTicket(route.getEstimatedArrivalTime());
         ticket.setDepartureDateTicket(route.getDepartureDate());
         ticket.setPrice(9);
-        ticket.setPassengerSeat(22);
+        ticket.setPassengerSeat("22");
 
         Assert.assertTrue(ticket.buyTicket(ticket,passenger,route));
 
@@ -284,8 +284,8 @@ public class TicketTest {
     @Test
     public void getPassengerSeat() {
         Ticket ticket = new Ticket();
-        ticket.setPassengerSeat(21);
-        assertTrue(ticket.getPassengerSeat() == 21);
+        ticket.setPassengerSeat("21");
+        assertTrue(ticket.getPassengerSeat() == "21");
     }
 
     /** Returns Type passed to the constructor.  */
@@ -372,8 +372,8 @@ public class TicketTest {
     @Test
     public void setPassengerSeat() {
         Ticket ticket = new Ticket();
-        ticket.setPassengerSeat(21);
-        assertTrue(ticket.getPassengerSeat() == 21);
+        ticket.setPassengerSeat("21");
+        assertTrue(ticket.getPassengerSeat() == "21");
     }
 
     @Test
@@ -431,7 +431,7 @@ public class TicketTest {
         passenger.setNumberID("U2168");
         String passengerName = "Sotiris";
         String passengerID = passenger.getNumberID();
-        int passengerSeat = 21;
+        String passengerSeat = "21";
         String type = "Aplos";
         Route route = new Route();
         route.setDepartureTime("11.00");

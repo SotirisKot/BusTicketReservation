@@ -39,7 +39,7 @@ public class RouteTest {
         ticket.setPassenger(passenger);
         ticket.setPassengerName(passenger.getFirstName()+passenger.getLastName());
         ticket.setPassengerID(passenger.getNumberID());
-        ticket.setPassengerSeat(9);
+        ticket.setPassengerSeat("9");
         ticket.setPrice(7.5);
         ticket.setEstimatedArrivalTimeTicket("10:00PM");
     }
@@ -132,7 +132,7 @@ public class RouteTest {
         Route route = new Route();
         route.addTicket(ticket);
 
-        ticket.setPassengerSeat(25);
+        ticket.setPassengerSeat("25");
         Assert.assertTrue(route.getTickets().size() == 1);
         Assert.assertTrue(!route.FindTicket(ticket));
     }

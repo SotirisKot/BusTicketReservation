@@ -40,9 +40,12 @@ public interface TicketOverviewView {
 
     void setEstimatedArrivalTime(String arrivalTime);
 
-    void clickContinue();
+    void clickContinue(String destination,String departurePoint,String departureDate,
+                       String departureTime,String firstname,String lastname,String id,String price,String seats,String type);
 
     void showToast(String value);
+
+    String getSeat();
 
     void showAlertMessage(String message);
 }

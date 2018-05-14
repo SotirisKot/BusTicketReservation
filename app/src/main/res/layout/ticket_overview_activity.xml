@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/back"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true">
@@ -30,7 +30,9 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/ticket_info"
-                android:textSize="18sp" />
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
         </TableRow>
 
         <TableRow
@@ -48,6 +50,7 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/destination"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -58,6 +61,7 @@
                 android:gravity="left"
                 android:maxLines="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -76,6 +80,7 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/departure_point"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -86,6 +91,7 @@
                 android:gravity="left"
                 android:maxLines="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -104,6 +110,7 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/departure_date"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -114,6 +121,7 @@
                 android:gravity="left"
                 android:maxLines="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -132,6 +140,7 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/departure_time"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -142,6 +151,7 @@
                 android:gravity="left"
                 android:maxLines="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
         </TableRow>
@@ -161,6 +171,7 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/arrival_time"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -171,6 +182,7 @@
                 android:gravity="left"
                 android:maxLines="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -189,12 +201,14 @@
                 android:maxLines="1"
                 android:paddingRight="20dp"
                 android:text="@string/ticket_type"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/spinner_type"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
 
         </TableRow>
 
@@ -211,6 +225,7 @@
                 android:layout_weight="0.75"
                 android:paddingRight="20dp"
                 android:text="@string/passenger_firstname"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
@@ -219,6 +234,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Firstname"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -235,6 +251,7 @@
                 android:layout_weight="0.75"
                 android:paddingRight="20dp"
                 android:text="@string/passenger_lastname"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
@@ -243,6 +260,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Lastname"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -259,6 +277,7 @@
                 android:layout_weight="0.75"
                 android:paddingRight="20dp"
                 android:text="@string/passenger_id"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -267,6 +286,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -283,6 +303,7 @@
                 android:layout_weight="0.75"
                 android:paddingRight="20dp"
                 android:text="@string/seats"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -291,6 +312,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -307,6 +329,7 @@
                 android:layout_weight="0.75"
                 android:paddingRight="20dp"
                 android:text="@string/price"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <TextView
@@ -315,6 +338,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingRight="20dp"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -331,13 +355,13 @@
 
                 <Button
                     android:id="@+id/buy_ticket_button"
-                    android:layout_width="140dp"
-                    android:layout_height="55dp"
+                    android:layout_width="137dp"
+                    android:layout_height="23dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/black"
+                    android:background="@color/white"
                     android:text="@string/buy_ticket"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
 
             </RelativeLayout>

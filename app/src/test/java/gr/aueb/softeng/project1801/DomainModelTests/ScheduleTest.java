@@ -607,7 +607,7 @@ public class ScheduleTest {
 
         for(int i=0; i<route1.getRouteBus().getBusSeats()/2; i++){
             Ticket ticket = new Ticket();
-            ticket.setPassengerSeat(i);
+            ticket.setPassengerSeat(String.valueOf(i));
             route1.addTicket(ticket);
         }
 

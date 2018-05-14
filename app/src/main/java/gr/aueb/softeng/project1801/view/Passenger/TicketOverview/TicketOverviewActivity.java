@@ -11,10 +11,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
-
 import gr.aueb.softeng.project1801.SysUtils.SeatRow;
+import gr.aueb.softeng.project1801.view.Passenger.Enter_card_info.cardInfoActivity;
 import gr.aueb.softeng.project1801.view.R;
 
 public class TicketOverviewActivity extends AppCompatActivity implements TicketOverviewView {
@@ -99,6 +98,15 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
     }
 
     @Override
+    public String getSeat(){
+        StringBuilder seatsN = new StringBuilder();
+        for(SeatRow seatRow : getSeats()){
+            seatsN.append(String.valueOf(seatRow.getNum())).append(",");
+        }
+        return seatsN.toString();
+    }
+
+    @Override
     public void setDepartureTime(String time){
         ((TextView)findViewById(R.id.text_departure_time)).setText(time);
     }
@@ -167,7 +175,23 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
     }
 
     @Override
-    public void clickContinue(){ }
+    public void clickContinue(String destination,String departurePoint,String departureDate,
+                              String departureTime,String firstname,String lastname,String id,String price
+                                ,String seats,String type){
+
+        Intent intent = new Intent(this, cardInfoActivity.class);
+        intent.putExtra("destination",destination);
+        intent.putExtra("departurePoint",departurePoint);
+        intent.putExtra("departureDate",departureDate);
+        intent.putExtra("departureTime",departureTime);
+        intent.putExtra("firstname",firstname);
+        intent.putExtra("lastname",lastname);
+        intent.putExtra("id",id);
+        intent.putExtra("price",price);
+        intent.putExtra("seats",seats);
+        intent.putExtra("type",type);
+        startActivityForResult(intent,1);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,5 +200,22 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
         presenter = new TicketOverviewPresenter(this);
 
+        findViewById(R.id.buy_ticket_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onClickContinue(presenter.OngetPassengerFirstname(),
+                        presenter.OngetPassengerLastname());
+            }
+        });
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){//purchase successful...recreate the activity
+            finish();
+        }
     }
 }

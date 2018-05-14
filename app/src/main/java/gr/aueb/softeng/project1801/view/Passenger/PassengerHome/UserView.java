@@ -26,8 +26,17 @@ public class UserView extends AppCompatActivity implements View.OnClickListener 
             case R.id.buy_ticket:
                 Intent intent = new Intent(UserView.this, BuyTicketActivity.class);
                 intent.putExtra("button_id", R.id.buy_ticket);
-                startActivity(intent);
+                startActivityForResult(intent,1);
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){//purchase successful...recreate the activity
+            recreate();
         }
     }
 }

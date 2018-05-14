@@ -122,7 +122,7 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         intent.putExtra("departureDate",departureDate);
         intent.putExtra("departureTime",departureTime);
         intent.putExtra("seats",seats);
-        startActivity(intent);
+        startActivityForResult(intent,1);
     }
 
     @Override
@@ -135,4 +135,12 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         getSupportActionBar().setTitle(title);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){//purchase successful...recreate the activity
+            finish();
+        }
+    }
 }

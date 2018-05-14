@@ -42,6 +42,8 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
         searchListRoute = (SearchView) findViewById(R.id.routes_list_search);
         searchListRoute.setOnQueryTextListener(this);
         searchListRoute.setOnCloseListener(this);
+        searchListRoute.setBackgroundColor(getResources().getColor(R.color.white));
+        searchListRoute.setIconified(false);
 
         presenter = new StatisticsPresenter(this, new RouteDAOMemory());
 

@@ -21,7 +21,7 @@ public class Route {
     private gr.aueb.softeng.project1801.DomainModel.Driver Driver;
     private int AvailableSeats;
     private Set<Ticket> tickets = new HashSet<>();
-
+    private Set<String> savedSeats = new HashSet<>();
 
     /**
      *
@@ -193,6 +193,22 @@ public class Route {
         if(ticket != null){
             ticket.setRoute(null);
         }
+    }
+
+    public void saveSeat(String seat){
+        if(!seat.equals("")){
+            savedSeats.add(seat);
+        }
+    }
+
+    public void removeSeat(String seat){
+        if(!seat.equals("")){
+            savedSeats.remove(seat);
+        }
+    }
+
+    public Set<String> getSavedSeats() {
+        return savedSeats;
     }
 
     /**

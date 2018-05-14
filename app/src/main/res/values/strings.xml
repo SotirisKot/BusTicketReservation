@@ -44,4 +44,10 @@
     <string name="passenger_id">Passenger ID</string>
     <string name="price">Price</string>
     <string name="buy_ticket">Buy Ticket</string>
+    <string name="card_info">Card Info</string>
+    <string name="cardholder">Card Holder</string>
+    <string name="cardid">Card ID</string>
+    <string name="expirationdate">Expiration Date</string>
+    <string name="cv">CV code</string>
+    <string name="checkout">Checkout</string>
 </resources>

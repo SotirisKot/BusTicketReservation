@@ -104,4 +104,13 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
             }
         });
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1){//purchase successful...recreate the activity
+            finish();
+        }
+    }
 }

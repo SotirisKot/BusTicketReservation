@@ -78,6 +78,10 @@
             android:name=".Passenger.TicketOverview.TicketOverviewActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name=".Passenger.Enter_card_info.cardInfoActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
     </application>
 
 </manifest>

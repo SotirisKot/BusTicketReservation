@@ -8,36 +8,37 @@ public class ChooseSeatPresenter {
 
     private ChooseSeatView view;
     private Route selectedRoute;
-    private int temp;
     private List<SeatRow> seatsSelected = new ArrayList<>();
+    private int temp;
 
     public ChooseSeatPresenter(ChooseSeatView view, Route selectedRoute){
 
         this.view = view;
         this.selectedRoute = selectedRoute;
-        this.temp = selectedRoute.getAvailableSeats();
 
         view.setActivityName("You must select: " + view.getSeats() + " seats");
+        temp = Integer.parseInt(view.getSeats());
         onloadData();
     }
 
-    public void onClickSeat(Route route,SeatRow seat){
+    public void onClickSeat(SeatRow seat){
 
-        int availableSeats = route.getAvailableSeats();
+        if(seat.getText().equals("T")){
 
-        if(seat.isChecked()){
+            view.showToast("Seat already taken");
+
+        }else if(seat.isChecked()){
             seat.uncheck();
             seatsSelected.remove(seat);
-            route.setAvailableSeats(availableSeats + 1);
+            temp++;
         }else{
-            if(availableSeats > (temp - Integer.parseInt(view.getSeats()))){
+            if( temp != 0){
                 seat.check();
                 seatsSelected.add(seat);
-                route.setAvailableSeats(availableSeats - 1);
+                temp--;
             }else{
                 view.showAlertMessage("You cannot select more seats.Proceed to checkout?");
             }
-
         }
     }
 
@@ -45,7 +46,12 @@ public class ChooseSeatPresenter {
         List<SeatRow> data = new ArrayList<>();
 
         for(int i=0; i<selectedRoute.getRouteBus().getBusSeats(); i++){
-            data.add(new SeatRow(String.valueOf(i),i));
+            if(selectedRoute.getSavedSeats().contains(String.valueOf(i))){
+                data.add(new SeatRow("T",i));
+            }else{
+                data.add(new SeatRow(String.valueOf(i),i));
+            }
+
         }
         return data;
     }
