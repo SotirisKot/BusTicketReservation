@@ -23,13 +23,13 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/basic_info"
+                android:id="@+id/track_basic_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/route_info"
+                android:text="@string/track_route_info"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="italic" />
@@ -128,16 +128,16 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/seats_text"
+                android:id="@+id/time"
                 android:layout_width="147dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:text="@string/seats"
+                android:text="@string/departure_time"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/seats"
+                android:id="@+id/times_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white" />
@@ -162,10 +162,11 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/white"
-                    android:text="@string/Search_Route"
+                    android:text="@string/track_route"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
             </RelativeLayout>
         </TableRow>
 

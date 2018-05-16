@@ -193,6 +193,8 @@ public class TicketTest {
         ticket.setDepartureDateTicket(route.getDepartureDate());
         ticket.setPrice(9);
         ticket.setPassengerSeat("22");
+        ticket.setPassengerName(passenger.getFirstName()+passenger.getLastName());
+        ticket.setPassengerID(passenger.getNumberID());
 
         Assert.assertTrue(ticket.buyTicket(ticket,passenger,route));
 

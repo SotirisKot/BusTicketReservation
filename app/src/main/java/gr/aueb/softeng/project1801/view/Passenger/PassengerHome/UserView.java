@@ -7,11 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 import gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket.BuyTicketActivity;
+import gr.aueb.softeng.project1801.view.Passenger.Track_Route.TrackRouteActivity;
 import gr.aueb.softeng.project1801.view.R;
 
 public class UserView extends AppCompatActivity implements View.OnClickListener {
 
-    Button buy_ticket;
+    Button buy_ticket,track_route;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,9 @@ public class UserView extends AppCompatActivity implements View.OnClickListener 
 
         buy_ticket = (Button) findViewById(R.id.buy_ticket);
         buy_ticket.setOnClickListener(this);
+
+        track_route = (Button) findViewById(R.id.track_route);
+        track_route.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -28,6 +32,9 @@ public class UserView extends AppCompatActivity implements View.OnClickListener 
                 intent.putExtra("button_id", R.id.buy_ticket);
                 startActivityForResult(intent,1);
                 break;
+            case R.id.track_route:
+                Intent intent1 = new Intent(UserView.this, TrackRouteActivity.class);
+                startActivityForResult(intent1,2);
         }
     }
 
@@ -36,6 +43,8 @@ public class UserView extends AppCompatActivity implements View.OnClickListener 
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == 1){//purchase successful...recreate the activity
+            recreate();
+        }else if(requestCode == 2){
             recreate();
         }
     }

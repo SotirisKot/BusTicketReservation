@@ -1,16 +1,17 @@
-package gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket;
+package gr.aueb.softeng.project1801.view.Passenger.Track_Route;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import gr.aueb.softeng.project1801.DomainModel.Schedule;
 import gr.aueb.softeng.project1801.dao.ScheduleDAO;
 
-public class BuyTicketPresenter {
+public class TrackRoutePresenter {
 
-    private BuyTicketsView view;
+    private TrackRouteView view;
     private ScheduleDAO schedule;
 
-    public BuyTicketPresenter(BuyTicketsView view,ScheduleDAO schedule){
+    public TrackRoutePresenter(TrackRouteView view , ScheduleDAO schedule){
         this.view = view;
         this.schedule = schedule;
 
@@ -18,17 +19,12 @@ public class BuyTicketPresenter {
 
         List<String> destinations = new ArrayList<>(sc.getDestinations());
         List<String> departurePoints = new ArrayList<>(sc.getDeparturePoints());
+        List<String> departureTimes = new ArrayList<>(sc.getDepartureTimes());
 
-        List<String> seats = new ArrayList<>();
-        seats.add(String.valueOf(1));
-        seats.add(String.valueOf(2));
-        seats.add(String.valueOf(3));
-        seats.add(String.valueOf(4));
-
-        view.setActivityName("Search for a Route!");
+        view.setActivityName("Track Route");
         view.setDestinationsList(destinations);
         view.setDeparturePointsList(departurePoints);
-        view.setNumberOfSeats(seats);
+        view.setDepartureTimesList(departureTimes);
     }
 
     private boolean validateDate(String date){
@@ -49,11 +45,11 @@ public class BuyTicketPresenter {
         view.ShowToast(value);
     }
 
-    void onSearchRoute(String destination,String departurePoint,String departureDate,String seats){
+    void onTrackRoute(String destination,String departurePoint,String departureDate,String time){
         if(!validateDate(departureDate)){
             view.showAlertMessage("Invalid Date...Try again!!");
         }else {
-            view.searchRoute(destination,departurePoint,departureDate,seats);
+            view.trackRoute(destination,departurePoint,departureDate,time);
         }
     }
 
@@ -69,7 +65,11 @@ public class BuyTicketPresenter {
         return view.getDepartureDate();
     }
 
-    public String onGetSeats(){
-        return view.getNumberOfSeats();
+    public String onGetDepartureTime(){
+        return view.getDepartureTime();
+    }
+
+    public void onShowAlertMessage(String message){
+        view.showAlertMessage(message);
     }
 }

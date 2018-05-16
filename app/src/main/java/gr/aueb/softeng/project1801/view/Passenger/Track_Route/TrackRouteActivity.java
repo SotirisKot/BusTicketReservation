@@ -1,5 +1,6 @@
-package gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket;
+package gr.aueb.softeng.project1801.view.Passenger.Track_Route;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -9,13 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import java.util.List;
 
 import gr.aueb.softeng.project1801.memorydao.ScheduleDAOMemory;
-import gr.aueb.softeng.project1801.view.Passenger.Search_Route.SearchRouteActivity;
+import gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket.BuyTicketPresenter;
+import gr.aueb.softeng.project1801.view.Passenger.TrackResults.TrackResultsActivity;
 import gr.aueb.softeng.project1801.view.R;
 
-public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsView {
+public class TrackRouteActivity extends AppCompatActivity implements TrackRouteView {
+
+    private TrackRoutePresenter presenter;
 
     @Override
     public String getDepartureDate(){
@@ -23,8 +28,8 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     @Override
-    public String getNumberOfSeats(){
-        return ((Spinner)findViewById(R.id.seats)).getSelectedItem().toString().trim();
+    public String getDepartureTime(){
+        return ((Spinner)findViewById(R.id.times_list)).getSelectedItem().toString().trim();
     }
 
     @Override
@@ -44,7 +49,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
 
     @Override
     public void showAlertMessage(String message) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(BuyTicketActivity.this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(TrackRouteActivity.this);
         alert.setCancelable(true);
         alert.setMessage(message);
         alert.setPositiveButton(R.string.ok_button,null);
@@ -66,52 +71,55 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
         ((Spinner) findViewById(R.id.departure_points)).setAdapter(arrayAdapter);
     }
 
-    @Override
-    public void setNumberOfSeats(List<String> seats) {
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,seats);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ((Spinner) findViewById(R.id.seats)).setAdapter(arrayAdapter);
-    }
 
+    @Override
+    public void setDepartureTimesList(List<String> departuretimes) {
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,departuretimes);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ((Spinner) findViewById(R.id.times_list)).setAdapter(arrayAdapter);
+    }
 
     @Override
     public void ShowToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-
-    @Override
-    public void searchRoute(String destination,String departurePoint,String departureDate,String seats){
-        Intent intent = new Intent(this,SearchRouteActivity.class);
-        intent.putExtra("destination",destination);
-        intent.putExtra("departurePoint",departurePoint);
-        intent.putExtra("departureDate",departureDate);
-        intent.putExtra("seats",seats);
-        startActivityForResult(intent,1);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.buy_ticket_activity);
+        setContentView(R.layout.track_route_activity);
 
-        final BuyTicketPresenter presenter = new BuyTicketPresenter(this,new ScheduleDAOMemory());
+        presenter = new TrackRoutePresenter(this,new ScheduleDAOMemory());
 
         findViewById(R.id.search_route_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onSearchRoute(presenter.onGetDestination(),presenter.onGetDeparture(),
-                        presenter.onGetDepartureDate(),presenter.onGetSeats());
+                presenter.onTrackRoute(presenter.onGetDestination(),presenter.onGetDeparture(),
+                        presenter.onGetDepartureDate(),presenter.onGetDepartureTime());
             }
         });
     }
 
     @Override
+    public void trackRoute(String destination,String departurePoint,String departureDate,String departureTime){
+        Intent intent = new Intent(this, TrackResultsActivity.class);
+        intent.putExtra("destination",destination);
+        intent.putExtra("departurePoint",departurePoint);
+        intent.putExtra("departureDate",departureDate);
+        intent.putExtra("departureTime",departureTime);
+        startActivityForResult(intent,10);
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 1){//purchase successful...recreate the activity
-            finish();
+        System.out.println("geaiaiaaiaiai");
+        if(resultCode == Activity.RESULT_CANCELED){
+            recreate();
+            presenter.onShowToast(data.getStringExtra("message_to_toast"));
+        }else{
+            recreate();
+            presenter.onShowToast(data.getStringExtra("message_to_toast"));
         }
     }
 }

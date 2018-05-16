@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/track_route"
         android:layout_width="234dp"
         android:layout_height="50dp"
         android:layout_marginBottom="240dp"

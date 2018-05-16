@@ -50,4 +50,8 @@
     <string name="expirationdate">Expiration Date</string>
     <string name="cv">CV code</string>
     <string name="checkout">Checkout</string>
+    <string name="track_route_info">Track the route you want</string>
+    <string name="track_route">Track Route</string>
+    <string name="title_activity_show_route">Map</string>
+    <string name="show_time">Show Time</string>
 </resources>
