@@ -104,9 +104,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         String destination = presenter.onGetDestination();
         llG = getCoordDestination(destination);
         for(int i=0; i< llG.size(); i++){
-            mMap.addMarker(new MarkerOptions().position(llG.get(i)).title("Destination"));
+            mMap.addMarker(new MarkerOptions().position(llG.get(i)).title(destination));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(llG.get(i)));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(12), 2000, null);
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(8), 2000, null);
             mMap.setTrafficEnabled(true);
 
             markerOptions.position(llG.get(i));
@@ -145,7 +145,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
                 markers.add(mMap.addMarker(markerOptions));
 
                 //move map camera
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, (float) 6.5));
             }
         }
     };
