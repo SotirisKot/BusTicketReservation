@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
 import android.os.Looper;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -120,6 +121,8 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
                 //Location Permission already granted
                 mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback , Looper.myLooper());
                 mMap.setMyLocationEnabled(true);
+            }else {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET},10);
             }
         }
         else {
@@ -127,6 +130,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
             mMap.setMyLocationEnabled(true);
         }
     }
+
 
 
     LocationCallback mLocationCallback = new LocationCallback() {
@@ -241,5 +245,16 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         retData.putExtra("message_to_toast", "Tracking ended");
         setResult(RESULT_OK, retData);
         finish();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 10:
+                presenter.onShowToast("Permission granted");
+                break;
+            default:
+                break;
+        }
     }
 }
