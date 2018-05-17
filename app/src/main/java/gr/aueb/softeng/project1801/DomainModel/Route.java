@@ -266,6 +266,17 @@ public class Route {
     }
 
 
+    public Ticket findTicket(String firstname,String lastname,String id){
+        String passengerName = firstname+lastname;
+        for(Ticket ticket : tickets){
+            if(ticket.getPassengerName().equals(passengerName) && ticket.getPassengerID().equals(id)){
+                return ticket;
+            }
+        }
+        return null;
+    }
+
+
     /**
      * Comparing two objects.
      *

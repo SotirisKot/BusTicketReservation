@@ -21,16 +21,16 @@ public class StatisticsDetailsPresenterTest {
         dataHelper = new DataInitializer();
         dataHelper.prepareData();
         viewSub = new StatisticsDetailsViewSub();
-        viewSub.setDepartureDate("2018/06/30");
-        viewSub.setDeparturePoint("Athens");
-        viewSub.setDestination("Argos");
-        System.out.println(dataHelper.getRouteData().toString());
+        viewSub.setDepartureDate("2018/04/23");
+        viewSub.setDeparturePoint("Ναυπλιο");
+        viewSub.setDestination("Αθηνα");
+        viewSub.setDepartureTime("9:00AM");
         presenter = new StatisticsDetailsPresenter(viewSub, dataHelper.getRouteData());
     }
 
     @Test
     public void onShowToast() {
-        Assert.assertEquals("2018/06/30", viewSub.getToast());
+        Assert.assertEquals("2018/04/23", viewSub.getToast());
         presenter.onShowToast("hello");
         Assert.assertEquals("hello", viewSub.getToast());
     }

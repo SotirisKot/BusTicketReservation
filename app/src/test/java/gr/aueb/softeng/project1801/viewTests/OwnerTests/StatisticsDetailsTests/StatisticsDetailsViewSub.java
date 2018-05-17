@@ -32,7 +32,6 @@ public class StatisticsDetailsViewSub implements StatisticsDetailsView {
         destination = departurePoint = departureDate = departureTime = estimatedArrivalTime = busType = driverID = message = value = warning = "";
         statistics = 0.0;
         availableSeats = 30;
-     //   value = "2018/06/30";
     }
 
 

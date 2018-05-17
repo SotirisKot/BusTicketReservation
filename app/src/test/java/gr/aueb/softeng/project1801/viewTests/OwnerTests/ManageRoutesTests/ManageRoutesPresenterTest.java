@@ -26,9 +26,6 @@ public class ManageRoutesPresenterTest {
     public void addRoute() {
         Assert.assertFalse(viewStub.isNewAdded());
         presenter.addRoute();
-    //    Assert.assertTrue(presenter != null);
-        //!!!!!!!!!
-
-
+        Assert.assertTrue(presenter != null);
     }
 }

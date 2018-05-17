@@ -54,4 +54,7 @@
     <string name="track_route">Track Route</string>
     <string name="title_activity_show_route">Map</string>
     <string name="show_time">Show Time</string>
+    <string name="passenger_info">Enter passenger info</string>
+    <string name="find_ticket">Find Ticket</string>
+    <string name="print_ticket">Print Ticket</string>
 </resources>

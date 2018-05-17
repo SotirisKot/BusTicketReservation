@@ -2,6 +2,8 @@ package gr.aueb.softeng.project1801.view.Passenger.TicketOverview;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.SeatRow;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
@@ -11,13 +13,15 @@ import gr.aueb.softeng.project1801.memorydao.RouteDAOMemory;
 public class TicketOverviewPresenter {
 
     private TicketOverviewView view;
-    private int passengerNum;
+    private int passengerNum1,passengerNum2,passengerNum;
     private String passengerID,price,typeTicket;
     private List<SeatRow> seats;
+    private Random random;
 
     public TicketOverviewPresenter(TicketOverviewView view){
         this.view = view;
 
+        random = new Random();
         RouteDAO routeDAO = new RouteDAOMemory();
         String date = view.getDepartureDate();
         String[] parts = date.split("/");
@@ -34,8 +38,11 @@ public class TicketOverviewPresenter {
         view.setDepartureDate(view.getDepartureDate());
         String initials1 = String.valueOf(route.getDeparturePoint().charAt(0));
         String initials2 = String.valueOf(route.getDestination().charAt(0));
+        passengerNum1 = random.nextInt();
+        passengerNum2 = random.nextInt();
+        passengerNum = passengerNum1 + passengerNum2;
         passengerID = initials1+initials2+String.valueOf(passengerNum);
-        passengerNum++;
+        System.out.println(passengerID);
         view.setPassengerId(passengerID);
 
         seats = view.getSeats();

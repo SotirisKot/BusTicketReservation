@@ -37,7 +37,7 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name=".Employee_login"
+            android:name=".Employee.EmployeeHome.Employee_login"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
@@ -86,6 +86,14 @@
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".Passenger.Track_Route.TrackRouteActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".Employee.FindPassenger.FindPassengerActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".Employee.EmployeeHome.Employee_View"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light" />
         <!--
