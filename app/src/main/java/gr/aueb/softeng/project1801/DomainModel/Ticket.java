@@ -249,7 +249,9 @@ public class Ticket {
         if(route.getAvailableSeats() != 0){
             if(!TicketExists(ticket)){
                 System.out.println("Ticket is available!!!");
-                setPassenger(passenger);
+                ticket.setPassenger(passenger);
+                ticket.setPassengerName(passenger.getFirstName()+" "+passenger.getLastName());
+                ticket.setPassengerID(passenger.getNumberID());
                 route.addTicket(ticket);
                 return true;
             }else{

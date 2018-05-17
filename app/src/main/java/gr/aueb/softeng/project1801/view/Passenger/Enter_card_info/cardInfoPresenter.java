@@ -42,7 +42,7 @@ public class cardInfoPresenter {
         presentedPassenger.setNumberID(view.getPassengerID());
 
         presentedTicket = new Ticket(presentedRoute.getDestination(),presentedRoute.getDeparturePoint(),presentedRoute.getDepartureTime(),
-                calendar,presentedRoute.getEstimatedArrivalTime(),Double.parseDouble(view.getPrice()),presentedPassenger,view.getSeats(),view.getType(),presentedRoute);
+                presentedRoute.getDepartureDate(),presentedRoute.getEstimatedArrivalTime(),Double.parseDouble(view.getPrice()),presentedPassenger,view.getSeats(),view.getType(),presentedRoute);
 
         presentedCard = new Card();
     }
@@ -121,7 +121,6 @@ public class cardInfoPresenter {
                 presentedRoute.saveSeat(parts1[i]);
                 System.out.println(parts1[i]);
             }
-
             view.clickCheckout("Purchase completed!");
         }else{
             view.showAlertMessage("Purchase failed.Check all your info again");

@@ -96,6 +96,10 @@
             android:name=".Employee.EmployeeHome.Employee_View"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".Employee.PrintTicketOverView.PrintTicketActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

@@ -1,15 +1,17 @@
-/*
 package gr.aueb.softeng.project1801.view.Employee.PrintTicketOverView;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import gr.aueb.softeng.project1801.memorydao.ScheduleDAOMemory;
 import gr.aueb.softeng.project1801.view.R;
 
 public class PrintTicketActivity extends AppCompatActivity implements PrintTicketView {
-
-    private PrintTicketPresenter presenter;
 
     @Override
     public void setActivityName(String title) {
@@ -72,25 +74,31 @@ public class PrintTicketActivity extends AppCompatActivity implements PrintTicke
     }
 
     @Override
+    public void setEstimatedArrivalTime(String arrivalTime){
+        ((TextView)findViewById(R.id.text_arrival_time)).setText(arrivalTime);
+    }
+
+    @Override
     public void showAlertMessage(String message) {
         AlertDialog.Builder alert = new AlertDialog.Builder(PrintTicketActivity.this);
         alert.setCancelable(true);
         alert.setMessage(message);
         alert.setPositiveButton(R.string.ok_button,null);
-
         alert.create().show();
     }
 
     @Override
     public void printTicket(String message){
-
+        Intent retData = new Intent();
+        retData.putExtra("message_to_toast", message);
+        setResult(10, retData);
+        finish();
     }
 
     @Override
     public String getPassengerID() {
         if(this.getIntent().hasExtra("id")){
             return this.getIntent().getExtras().getString("id");
-
         }else{
             return null;
         }
@@ -100,7 +108,6 @@ public class PrintTicketActivity extends AppCompatActivity implements PrintTicke
     public String getPassengerFirstname() {
         if(this.getIntent().hasExtra("firstname")){
             return this.getIntent().getExtras().getString("firstname");
-
         }else{
             return null;
         }
@@ -110,12 +117,32 @@ public class PrintTicketActivity extends AppCompatActivity implements PrintTicke
     public String getPassengerLastname() {
         if(this.getIntent().hasExtra("lastname")){
             return this.getIntent().getExtras().getString("lastname");
-
         }else{
             return null;
         }
     }
 
+    @Override
+    public void kill(){
+        Intent retData = new Intent();
+        retData.putExtra("message_to_toast", "Ticket does not exist");
+        setResult(11, retData);
+        finish();
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.print_ticket_activity);
+
+        final PrintTicketPresenter presenter = new PrintTicketPresenter(this,new ScheduleDAOMemory());
+
+        findViewById(R.id.print_ticket_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onPrintTicket("Ticket printed!");
+            }
+        });
+    }
 }
-*/
+

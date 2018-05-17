@@ -267,10 +267,16 @@ public class Route {
 
 
     public Ticket findTicket(String firstname,String lastname,String id){
-        String passengerName = firstname+lastname;
+        String passengerName = firstname+" "+lastname;
+        String ticketName;
+        String passid;
         for(Ticket ticket : tickets){
-            if(ticket.getPassengerName().equals(passengerName) && ticket.getPassengerID().equals(id)){
-                return ticket;
+            ticketName = ticket.getPassengerName();
+            passid = ticket.getPassengerID();
+            if(ticketName != null && passid != null){
+                if(ticketName.equals(passengerName) && passid.equals(id)){
+                    return ticket;
+                }
             }
         }
         return null;

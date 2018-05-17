@@ -22,7 +22,6 @@ public class PrintTicketPresenter {
 
         Ticket ticket = findTicketForPassenger();
         if(ticket == null){
-            view.showAlertMessage("Can not find Ticket");
             view.kill();
         }else{
             view.setDeparturePoint(ticket.getDeparturePointTicket());
@@ -67,5 +66,9 @@ public class PrintTicketPresenter {
 
     public void onShowAlertMessage(String message){
         view.showAlertMessage(message);
+    }
+
+    public void onPrintTicket(String message){
+        view.printTicket(message);
     }
 }
