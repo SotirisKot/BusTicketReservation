@@ -14,6 +14,9 @@ public class UserView extends AppCompatActivity implements View.OnClickListener 
 
     Button buy_ticket,track_route;
 
+    /** This method creates the layout and initializes the activity.
+     * @param savedInstanceState, the Instance state
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_view_activity);
@@ -25,6 +28,9 @@ public class UserView extends AppCompatActivity implements View.OnClickListener 
         track_route.setOnClickListener(this);
     }
 
+    /** This method is being called when a view has been clicked.So it chooses what to do after the user's specific click.
+     * @param v, the View that was clicked
+     */
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buy_ticket:
@@ -38,6 +44,11 @@ public class UserView extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
+    /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
+     * @param requestCode, the requested code
+     * @param resultCode, the result code
+     * @param data, the intent
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);

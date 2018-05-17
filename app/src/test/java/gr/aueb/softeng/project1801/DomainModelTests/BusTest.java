@@ -52,7 +52,7 @@ public class BusTest {
         assertTrue(bus.getBusType().equals("Diorofo"));
     }
 
-    /** Returns  ModelType passed to the constructor.  */
+    /** Returns ModelType passed to the constructor.  */
     @Test
     public void getModelType() {
         Bus bus = new Bus();

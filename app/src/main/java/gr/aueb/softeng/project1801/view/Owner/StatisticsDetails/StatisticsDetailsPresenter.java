@@ -64,14 +64,14 @@ public class StatisticsDetailsPresenter {
     /**
      * This method prints a warning dialog message before deletion in order to ensure the process that is going to be executed.
      */
-    void onClickDeleteButton(){
+    public void onClickDeleteButton(){
         view.ClickDeleteButton("Are you sure you want to delete this route?");
     }
 
     /**
      * This method deletes a specific route.
      */
-    void onDelete(){
+    public void onDelete(){
         ScheduleDAO sc = new ScheduleDAOMemory();
         Schedule schedule = sc.findAll().get(0);
         presentedRoute.getRouteBus().available();

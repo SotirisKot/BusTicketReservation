@@ -27,6 +27,9 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
     private ChooseSeatPresenter presenter;
 
 
+    /** This method returns a destination.
+     * @return a String object that has the name of the destination we asked
+     */
     @Override
     public String getDestination(){
         if(this.getIntent().hasExtra("destination")){
@@ -37,6 +40,9 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         }
     }
 
+    /** This method returns a departure point.
+     * @return a String object that has the departure point
+     */
     @Override
     public String getDeparturePoint(){
         if(this.getIntent().hasExtra("departurePoint")){
@@ -47,6 +53,9 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         }
     }
 
+    /** This method returns a departure date.
+     * @return a String object that has the departure date
+     */
     @Override
     public String getDepartureDate(){
         if(this.getIntent().hasExtra("departureDate")){
@@ -57,6 +66,9 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         }
     }
 
+    /** This method returns the number of seats.
+     * @return a String object that has the number of seats
+     */
     @Override
     public String getSeats(){
         if(this.getIntent().hasExtra("seats")){
@@ -67,6 +79,9 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         }
     }
 
+    /** This method returns a departure time.
+     * @return a String object that has the departure time
+     */
     @Override
     public String getDepartureTime(){
         if(this.getIntent().hasExtra("departureTime")){
@@ -77,12 +92,19 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         }
     }
 
+    /**
+     *  This method pops up a toast.
+     * @param value, the message we want to print in the toast
+     */
     @Override
     public void showToast(String value){
         Toast.makeText(this,value,Toast.LENGTH_LONG).show();
     }
 
 
+    /** This method shows alert messages
+     * @param message, the alert message we want to print
+     */
     @Override
     public void showAlertMessage(String message) {
         AlertDialog.Builder alert = new AlertDialog.Builder(ChooseSeatActivity.this);
@@ -99,18 +121,33 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         alert.create().show();
     }
 
+    /** This method sets name to a specific Activity.
+     * @param title, the name_value we want to set in a specific Activity
+     */
     @Override
     public void setActivityName(String title){
         getSupportActionBar().setTitle(title);
     }
 
 
+    /**
+     * This method loads the data(a List).
+     * @param data, the data that we want to load
+     */
     @Override
     public void loadData(List<SeatRow> data) {
         seatAdapter.loadData(data);
     }
 
 
+    /**
+     *
+     * This method method redirects the user to another activity after a click event.
+     * @param destination, the destination of the route
+     * @param departurePoint, the departure point of the route
+     * @param departureDate, the departure date of the route
+     * @param departureTime, the departure time of the route
+     */
     @Override
     public void clickProceed(String destination,String departurePoint,String departureDate,String departureTime){
         List<SeatRow> seats = presenter.getSeatsSelected();
@@ -124,6 +161,9 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
     }
 
 
+    /** This method creates the layout and initializes the activity.
+     * @param savedInstanceState, the Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -153,6 +193,11 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
     }
 
 
+    /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
+     * @param requestCode, the requested code
+     * @param resultCode, the result code
+     * @param data, the intent
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);

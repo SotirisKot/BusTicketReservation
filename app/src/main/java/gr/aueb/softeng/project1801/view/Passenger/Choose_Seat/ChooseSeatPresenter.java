@@ -11,6 +11,11 @@ public class ChooseSeatPresenter {
     private List<SeatRow> seatsSelected = new ArrayList<>();
     private int temp;
 
+    /**
+     * This method initializes the Presenter in order to be able a user to choose a seat.
+     * @param view, an instance of view
+     * @param selectedRoute, an instance of route
+     */
     public ChooseSeatPresenter(ChooseSeatView view, Route selectedRoute){
 
         this.view = view;
@@ -21,6 +26,10 @@ public class ChooseSeatPresenter {
         onloadData();
     }
 
+    /**
+     * This method helps us to understand if a seat is already taken by another user on not.
+     * @param seat, an instance of seatRow
+     */
     public void onClickSeat(SeatRow seat){
 
         if(seat.getText().equals("T")){
@@ -42,6 +51,10 @@ public class ChooseSeatPresenter {
         }
     }
 
+    /**
+     * This method returns a list of seats after their creation.
+     * @return a list of seats
+     */
     private List<SeatRow> createData(){
         List<SeatRow> data = new ArrayList<>();
 
@@ -56,22 +69,38 @@ public class ChooseSeatPresenter {
         return data;
     }
 
+    /**
+     * This method helps to load the data(a List).
+     */
     public void onloadData(){
         view.loadData(createData());
     }
 
+    /** This method shows alert messages
+     * @param message, the alert message we want to print
+     */
     public void onShowAlertMessage(String message){
         view.showAlertMessage(message);
     }
 
+    /**
+     * This method pops up a toast with a message.
+     * @param message, the message that is being displayed in the toast
+     */
     public void onShowtoast(String message){
         view.showToast(message);
     }
 
+    /**
+     * This method method helps to redirect the user to another activity after a click event.
+     */
     public void onClickProceed(){
         view.clickProceed(view.getDestination(),view.getDeparturePoint(),view.getDepartureDate(),view.getDepartureTime());
     }
 
+    /** This method returns a list of seat rows.
+     * @return a list of seat rows
+     */
     public List<SeatRow> getSeatsSelected(){
         return seatsSelected;
     }
