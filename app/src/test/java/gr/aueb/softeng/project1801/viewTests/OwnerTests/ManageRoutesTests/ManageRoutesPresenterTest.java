@@ -15,6 +15,11 @@ public class ManageRoutesPresenterTest {
     private ManageRoutesViewStub viewStub;
     private String date;
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,ManageRoutesPresenter,ManageRoutesViewStub object and sets values to it.
+     */
     @Before
     public void setUp() throws Exception {
         dataHelper = new DataInitializer();
@@ -24,6 +29,10 @@ public class ManageRoutesPresenterTest {
         date = "2018/06/29";
     }
 
+    /**
+     * This method adds a route.
+     * Checks if the date and all the other objects we must have in order to create a route and then decides whether it can add the new route or not.
+     */
     @Test
     public void addRoute() {
         Assert.assertFalse(viewStub.isNewAdded());
@@ -32,6 +41,9 @@ public class ManageRoutesPresenterTest {
         ///!!!!
     }
 
+    /**
+     * This method validates a day.
+     */
     @Test
     public void validateDate(){
         Assert.assertTrue(presenter.validateDate(date));

@@ -46,6 +46,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
     private FusedLocationProviderClient mFusedLocationClient;
     private LocationRequest mLocationRequest;
 
+    /** This method creates the layout and initializes the activity.
+     * @param savedInstanceState, the Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,6 +137,10 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
 
 
     LocationCallback mLocationCallback = new LocationCallback() {
+        /**
+         * This method helps us to locate the user
+         * @param locationResult, an instance of LocationResult
+         */
         @Override
         public void onLocationResult(LocationResult locationResult) {
             List<Location> locationList = locationResult.getLocations();
@@ -154,7 +161,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     };
 
-    //Επιστρεφει τον προορισμο του route
+    /** This method returns a destination.
+     * @return a String object that has the name of the destination we asked
+     */
     @Override
     public String getDestination() {
         if(this.getIntent().hasExtra("destination")){
@@ -165,7 +174,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-    //Επιστρεφει την αφετηρια του Route
+    /** This method returns a departure point.
+     * @return a String object that has the departure point
+     */
     @Override
     public String getDeparturePoint() {
         if(this.getIntent().hasExtra("departurePoint")){
@@ -175,7 +186,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-    //Επιστρεφει την ημερομηνια αναχωρησης του route
+    /** This method returns a departure date.
+     * @return a String object that has the departure date
+     */
     @Override
     public String getDepartureDate() {
         if(this.getIntent().hasExtra("departureDate")){
@@ -185,6 +198,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
+    /** This method returns a departure time.
+     * @return a String object that has the departure time
+     */
     @Override
     public String getDepartureTime() {
         if(this.getIntent().hasExtra("departureTime")){
@@ -194,6 +210,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
+    /** This method shows alert messages
+     * @param message, the alert message we want to print
+     */
     @Override
     public void showAlertMessage(String message) {
         AlertDialog.Builder alert = new AlertDialog.Builder(TrackResultsActivity.this);
@@ -204,11 +223,20 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         alert.create().show();
     }
 
+    /**
+     *  This method pops up a toast.
+     * @param message, the message we want to print in the toast
+     */
     @Override
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * This method helps us to get the coordinates.
+     * @param location, a specific location
+     * @return a list of LatLng objects
+     */
     private List<LatLng> getCoordDestination(String location){
         List<LatLng> ll = new ArrayList<>();
         if(Geocoder.isPresent()){
@@ -231,6 +259,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         return ll;
     }
 
+    /**
+     * This method terminates the process
+     */
     @Override
     public void kill(){
         Intent retData = new Intent();
@@ -239,6 +270,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         finish();
     }
 
+    /**
+     * This method helps to navigate to menu the back button is pressed.
+     */
     @Override
     public void onBackPressed(){
         Intent retData = new Intent();
@@ -247,6 +281,12 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         finish();
     }
 
+    /**
+     * This method helps us to grand the necessary permissions.
+     * @param requestCode, the requested code
+     * @param permissions, the permissions given
+     * @param grantResults, the results
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){

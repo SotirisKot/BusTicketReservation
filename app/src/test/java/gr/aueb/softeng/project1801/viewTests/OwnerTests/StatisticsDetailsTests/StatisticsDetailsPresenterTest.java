@@ -16,6 +16,11 @@ public class StatisticsDetailsPresenterTest {
     private StatisticsDetailsPresenter presenter;
     private StatisticsDetailsViewSub viewSub;
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,StatisticsDetailsPresenter,StatisticsDetailsViewSub object and sets values to it.
+     */
     @Before
     public void setUp() throws Exception {
         dataHelper = new DataInitializer();
@@ -28,6 +33,9 @@ public class StatisticsDetailsPresenterTest {
         presenter = new StatisticsDetailsPresenter(viewSub, dataHelper.getRouteData());
     }
 
+    /**
+     * This method pops up a toast.
+     */
     @Test
     public void onShowToast() {
         Assert.assertEquals("Route: Ναυπλιο-Αθηνα", viewSub.getToast());
@@ -35,12 +43,18 @@ public class StatisticsDetailsPresenterTest {
         Assert.assertEquals("hello", viewSub.getToast());
     }
 
+    /**
+     * This method prints a warning dialog message before deletion in order to ensure the process that is going to be executed.
+     */
     @Test
     public void onClickDeleteButton() {
         presenter.onClickDeleteButton();
         Assert.assertEquals(viewSub.getDeleteMessage(), "");
     }
 
+    /**
+     * This method deletes a specific route.
+     */
     @Test
     public void onDelete() {
         presenter.onDelete();

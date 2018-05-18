@@ -14,7 +14,7 @@ public class ChooseSeatPresenter {
     /**
      * This method initializes the Presenter in order to be able a user to choose a seat.
      * @param view, an instance of view
-     * @param selectedRoute, an instance of route
+     * @param selectedRoute, an instance of Route
      */
     public ChooseSeatPresenter(ChooseSeatView view, Route selectedRoute){
 

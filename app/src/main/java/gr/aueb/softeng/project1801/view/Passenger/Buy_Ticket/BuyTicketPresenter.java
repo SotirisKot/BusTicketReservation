@@ -78,28 +78,32 @@ public class BuyTicketPresenter {
         }
     }
 
-    /** This method returns a destination.
+    /**
+     *  This method returns a destination.
      * @return a String object that has the name of the destination we asked
      */
     public String onGetDestination(){
         return view.getDestination();
     }
 
-    /** This method returns a departure place.
+    /**
+     *  This method returns a departure place.
      * @return a String object that has the departure place
      */
     public String onGetDeparture(){
         return view.getDeparturepoint();
     }
 
-    /** This method returns a departure date.
+    /**
+     *  This method returns a departure date.
      * @return a String object that has the departure date
      */
     public String onGetDepartureDate(){
         return view.getDepartureDate();
     }
 
-    /** This method returns a number of seats.
+    /**
+     *  This method returns a number of seats.
      * @return a String object that has the number of sears
      */
     public String onGetSeats(){
