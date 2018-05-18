@@ -23,7 +23,8 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
     private ListView requestedRoutes;
     private CustomAdapter adapter;
 
-    /** This method creates the layout and initializes the activity.
+    /**
+     * This method creates the layout and initializes the activity.
      * @param savedInstanceState, the Instance state
      */
     @Override
@@ -48,7 +49,8 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         });
     }
 
-    /** This method returns a destination.
+    /**
+     * This method returns a destination.
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -61,7 +63,8 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         }
     }
 
-    /** This method returns a departure point.
+    /**
+     * This method returns a departure point.
      * @return a String object that has the departure point
      */
     @Override
@@ -73,7 +76,8 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         }
     }
 
-    /** This method returns a departure date.
+    /**
+     * This method returns a departure date.
      * @return a String object that has the departure date
      */
     @Override
@@ -98,7 +102,7 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
     }
 
     /**
-     *  This method pops up a toast.
+     * This method pops up a toast.
      * @param value, the message we want to print in the toast
      */
     @Override
@@ -106,7 +110,8 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         Toast.makeText(this, value, Toast.LENGTH_LONG).show();
     }
 
-    /** This method shows alert messages
+    /**
+     * This method shows alert messages
      * @param message, the alert message we want to print
      */
     @Override
@@ -162,7 +167,8 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         adapter.loadData(data);
     }
 
-    /** This method sets name to a specific Activity.
+    /**
+     * This method sets name to a specific Activity.
      * @param title, the name_value we want to set in a specific Activity
      */
     @Override
@@ -170,7 +176,8 @@ public class SearchRouteActivity extends AppCompatActivity implements SearchRout
         getSupportActionBar().setTitle(title);
     }
 
-    /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
+    /**
+     * This method recreates the activity with a new instance in case of the requested code gets the value "1".
      * @param requestCode, the requested code
      * @param resultCode, the result code
      * @param data, the intent

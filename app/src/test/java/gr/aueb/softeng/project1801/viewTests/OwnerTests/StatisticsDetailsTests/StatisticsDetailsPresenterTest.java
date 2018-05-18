@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import gr.aueb.softeng.project1801.SysUtils.SeatRow;
-import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 import gr.aueb.softeng.project1801.dao.Initializer;
 import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 import gr.aueb.softeng.project1801.view.Owner.StatisticsDetails.StatisticsDetailsPresenter;
@@ -14,23 +12,23 @@ public class StatisticsDetailsPresenterTest {
 
     private Initializer dataHelper;
     private StatisticsDetailsPresenter presenter;
-    private StatisticsDetailsViewSub viewSub;
+    private StatisticsDetailsViewStub viewStub;
 
     /**
      * Initializing the necessary objects.
      *
-     * This method creates a Initializer,StatisticsDetailsPresenter,StatisticsDetailsViewSub object and sets values to it.
+     * This method creates a Initializer,StatisticsDetailsPresenter,StatisticsDetailsViewStub object and sets values to it.
      */
     @Before
     public void setUp() throws Exception {
         dataHelper = new DataInitializer();
         dataHelper.prepareData();
-        viewSub = new StatisticsDetailsViewSub();
-        viewSub.setDepartureDate("2018/04/23");
-        viewSub.setDeparturePoint("Ναυπλιο");
-        viewSub.setDestination("Αθηνα");
-        viewSub.setDepartureTime("9:00AM");
-        presenter = new StatisticsDetailsPresenter(viewSub, dataHelper.getRouteData());
+        viewStub = new StatisticsDetailsViewStub();
+        viewStub.setDepartureDate("2018/04/23");
+        viewStub.setDeparturePoint("Ναυπλιο");
+        viewStub.setDestination("Αθηνα");
+        viewStub.setDepartureTime("9:00AM");
+        presenter = new StatisticsDetailsPresenter(viewStub, dataHelper.getRouteData());
     }
 
     /**
@@ -38,9 +36,9 @@ public class StatisticsDetailsPresenterTest {
      */
     @Test
     public void onShowToast() {
-        Assert.assertEquals("Route: Ναυπλιο-Αθηνα", viewSub.getToast());
+        Assert.assertEquals("Route: Ναυπλιο-Αθηνα", viewStub.getToast());
         presenter.onShowToast("hello");
-        Assert.assertEquals("hello", viewSub.getToast());
+        Assert.assertEquals("hello", viewStub.getToast());
     }
 
     /**
@@ -49,7 +47,7 @@ public class StatisticsDetailsPresenterTest {
     @Test
     public void onClickDeleteButton() {
         presenter.onClickDeleteButton();
-        Assert.assertEquals(viewSub.getDeleteMessage(), "");
+        Assert.assertEquals(viewStub.getDeleteMessage(), "");
     }
 
     /**
@@ -58,6 +56,6 @@ public class StatisticsDetailsPresenterTest {
     @Test
     public void onDelete() {
         presenter.onDelete();
-        Assert.assertEquals(viewSub.getDeleteMessage(), "Route successfully deleted!!");
+        Assert.assertEquals(viewStub.getDeleteMessage(), "Route successfully deleted!!");
     }
 }

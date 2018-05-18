@@ -61,7 +61,7 @@ public class TrackResultsPresenter {
     }
 
     /**
-     *  This method returns a departure date.
+     * This method returns a departure date.
      * @return a String object that has the departure date
      */
     public String onGetDepartureDate(){
@@ -69,12 +69,13 @@ public class TrackResultsPresenter {
     }
 
     /**
-     *  This method returns a departure time.
+     * This method returns a departure time.
      * @return a String object that has the departure time
      */
     public String onGetDepartureTime(){ return view.getDepartureTime(); }
 
-    /** This method shows alert messages
+    /**
+     * This method shows alert messages
      * @param message, the alert message we want to print
      */
     public void onShowAlert(String message){

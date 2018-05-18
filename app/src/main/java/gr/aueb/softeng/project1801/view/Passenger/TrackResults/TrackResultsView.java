@@ -3,7 +3,7 @@ package gr.aueb.softeng.project1801.view.Passenger.TrackResults;
 public interface TrackResultsView {
 
     /**
-     *  This method returns a destination.
+     * This method returns a destination.
      * @return a String object that has the name of the destination we asked
      */
     String getDestination();
@@ -15,7 +15,7 @@ public interface TrackResultsView {
     String getDeparturePoint();
 
     /**
-     *  This method returns a departure date.
+     * This method returns a departure date.
      * @return a String object that has the departure date
      */
     String getDepartureDate();
@@ -27,7 +27,7 @@ public interface TrackResultsView {
     String getDepartureTime();
 
     /**
-     *  This method pops up a toast.
+     * This method pops up a toast.
      * @param value, the message we want to print in the toast
      */
     void showToast(String value);

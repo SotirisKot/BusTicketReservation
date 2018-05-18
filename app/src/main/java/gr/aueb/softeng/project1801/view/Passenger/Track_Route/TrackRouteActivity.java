@@ -22,7 +22,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     private TrackRoutePresenter presenter;
 
-    /** This method returns a departure date.
+    /**
+     * This method returns a departure date.
      * @return a String object that has the departure date
      */
     @Override
@@ -30,7 +31,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         return ((EditText)findViewById(R.id.departure_date_text)).getText().toString().trim();
     }
 
-    /** This method returns a departure time.
+    /**
+     * This method returns a departure time.
      * @return a String object that has the departure time
      */
     @Override
@@ -38,7 +40,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         return ((Spinner)findViewById(R.id.times_list)).getSelectedItem().toString().trim();
     }
 
-    /** This method returns a destination.
+    /**
+     * This method returns a destination.
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -46,7 +49,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         return ((Spinner) findViewById(R.id.destinations_list)).getSelectedItem().toString().trim();
     }
 
-    /** This method returns a departure point.
+    /**
+     * This method returns a departure point.
      * @return a String object that has the departure point
      */
     @Override
@@ -54,7 +58,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         return ((Spinner) findViewById(R.id.departure_points)).getSelectedItem().toString().trim();
     }
 
-    /** This method sets name to a specific Activity.
+    /**
+     * This method sets name to a specific Activity.
      * @param title, the name_value we want to set in a specific Activity
      */
     @Override
@@ -62,7 +67,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         getSupportActionBar().setTitle(title);
     }
 
-    /** This method shows alert messages
+    /**
+     * This method shows alert messages
      * @param message, the alert message we want to print
      */
     @Override
@@ -75,7 +81,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         alert.create().show();
     }
 
-    /** This method sets a list of destinations.
+    /**
+     * This method sets a list of destinations.
      * @param destinations, a set of destinations we want to have
      */
     @Override
@@ -85,7 +92,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         ((Spinner) findViewById(R.id.destinations_list)).setAdapter(arrayAdapter);
     }
 
-    /** This method sets a list of departures.
+    /**
+     * This method sets a list of departures.
      * @param departures, a set of departures we want to have
      */
     @Override
@@ -95,7 +103,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         ((Spinner) findViewById(R.id.departure_points)).setAdapter(arrayAdapter);
     }
 
-    /** This method sets a list of times we want to departure our buses.
+    /**
+     * This method sets a list of times we want to departure our buses.
      * @param departuretimes, a set of times that the buses can start their routs
      */
     @Override
@@ -106,7 +115,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
     }
 
     /**
-     *  This method pops up a toast.
+     * This method pops up a toast.
      * @param message, the message we want to print in the toast
      */
     @Override
@@ -114,7 +123,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-    /** This method creates the layout and initializes the activity.
+    /**
+     * This method creates the layout and initializes the activity.
      * @param savedInstanceState, the Instance state
      */
     @Override
@@ -151,7 +161,8 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
         startActivityForResult(intent,10);
     }
 
-    /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
+    /**
+     * This method recreates the activity with a new instance in case of the requested code gets the value "1".
      * @param requestCode, the requested code
      * @param resultCode, the result code
      * @param data, the intent

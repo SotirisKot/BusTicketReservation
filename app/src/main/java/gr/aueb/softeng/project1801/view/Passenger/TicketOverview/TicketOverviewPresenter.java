@@ -78,7 +78,8 @@ public class TicketOverviewPresenter {
 
     }
 
-    /** This method sets a specific price on a ticket.
+    /**
+     * This method sets a specific price on a ticket.
      * @param type, a String object that contains the price of the ticket
      */
     public void onSetPrice(String type){
@@ -112,14 +113,16 @@ public class TicketOverviewPresenter {
         }
     }
 
-    /** This method returns a passenger's FirstName.
+    /**
+     * This method returns a passenger's FirstName.
      * @return a String object that has the passenger's FirstName
      */
     public String OngetPassengerFirstname(){
         return view.getPassengerFirstname();
     }
 
-    /** This method returns a passenger's LastName.
+    /**
+     * This method returns a passenger's LastName.
      * @return a String object that has the passenger's LastName
      */
     public String OngetPassengerLastname(){

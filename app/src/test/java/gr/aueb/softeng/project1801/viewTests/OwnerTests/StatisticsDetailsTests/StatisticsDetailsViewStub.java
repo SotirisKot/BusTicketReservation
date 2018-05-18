@@ -2,7 +2,7 @@ package gr.aueb.softeng.project1801.viewTests.OwnerTests.StatisticsDetailsTests;
 
 import gr.aueb.softeng.project1801.view.Owner.StatisticsDetails.StatisticsDetailsView;
 
-public class StatisticsDetailsViewSub implements StatisticsDetailsView {
+public class StatisticsDetailsViewStub implements StatisticsDetailsView {
 
     private String destination, departurePoint, departureDate, departureTime, estimatedArrivalTime, busType, driverID, message, value, warning;
     private double statistics;
@@ -43,7 +43,7 @@ public class StatisticsDetailsViewSub implements StatisticsDetailsView {
     /**
      * Constructor
      */
-    public StatisticsDetailsViewSub(){
+    public StatisticsDetailsViewStub(){
         destination = departurePoint = departureDate = departureTime = estimatedArrivalTime = busType = driverID = message = value = warning = "";
         statistics = 0.0;
         availableSeats = 30;

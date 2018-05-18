@@ -46,7 +46,8 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
     private FusedLocationProviderClient mFusedLocationClient;
     private LocationRequest mLocationRequest;
 
-    /** This method creates the layout and initializes the activity.
+    /**
+     * This method creates the layout and initializes the activity.
      * @param savedInstanceState, the Instance state
      */
     @Override
@@ -161,7 +162,8 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     };
 
-    /** This method returns a destination.
+    /**
+     * This method returns a destination.
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -174,7 +176,8 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-    /** This method returns a departure point.
+    /**
+     * This method returns a departure point.
      * @return a String object that has the departure point
      */
     @Override
@@ -186,7 +189,8 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-    /** This method returns a departure date.
+    /**
+     * This method returns a departure date.
      * @return a String object that has the departure date
      */
     @Override
@@ -198,7 +202,8 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-    /** This method returns a departure time.
+    /**
+     * This method returns a departure time.
      * @return a String object that has the departure time
      */
     @Override
@@ -210,7 +215,8 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
         }
     }
 
-    /** This method shows alert messages
+    /**
+     * This method shows alert messages
      * @param message, the alert message we want to print
      */
     @Override
@@ -224,7 +230,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
     }
 
     /**
-     *  This method pops up a toast.
+     * This method pops up a toast.
      * @param message, the message we want to print in the toast
      */
     @Override

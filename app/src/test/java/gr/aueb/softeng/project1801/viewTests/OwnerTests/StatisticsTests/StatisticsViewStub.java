@@ -8,7 +8,7 @@ import java.util.Map;
 import gr.aueb.softeng.project1801.SysUtils.DataRow;
 import gr.aueb.softeng.project1801.view.Owner.Statistics.StatisticsView;
 
-public class StatisticsViewSub implements StatisticsView {
+public class StatisticsViewStub implements StatisticsView {
 
     private String destination, departurePoint, departureDate, departureTime, value;
     private List<DataRow> data;
@@ -30,7 +30,7 @@ public class StatisticsViewSub implements StatisticsView {
     /**
      * Constructor
      */
-    public StatisticsViewSub(){
+    public StatisticsViewStub(){
         destination = departurePoint = departureDate = departureTime = value = "";
         data = new ArrayList<>();
         clicksCount = new HashMap<>();

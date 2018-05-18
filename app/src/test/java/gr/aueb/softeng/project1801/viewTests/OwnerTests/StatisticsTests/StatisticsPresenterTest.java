@@ -13,18 +13,18 @@ public class StatisticsPresenterTest {
 
     private Initializer dataHelper;
     private StatisticsPresenter presenter;
-    private StatisticsViewSub viewStub;
+    private StatisticsViewStub viewStub;
 
     /**
      * Initializing the necessary objects.
      *
-     * This method creates a Initializer,StatisticsPresenter,StatisticsViewSub object and sets values to it.
+     * This method creates a Initializer,StatisticsPresenter,StatisticsViewStub object and sets values to it.
      */
     @Before
     public void setUp() throws Exception {
         dataHelper = new DataInitializer();
         dataHelper.prepareData();
-        viewStub = new StatisticsViewSub();
+        viewStub = new StatisticsViewStub();
         presenter = new StatisticsPresenter(viewStub, dataHelper.getRouteData());
     }
 

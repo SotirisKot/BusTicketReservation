@@ -33,7 +33,7 @@ public class TrackRoutePresenter {
     }
 
     /**
-     *  This method validates a day.
+     * This method validates a day.
      * @param date, a specific date
      * @return "true" if the date is valid or else "false"
      */
