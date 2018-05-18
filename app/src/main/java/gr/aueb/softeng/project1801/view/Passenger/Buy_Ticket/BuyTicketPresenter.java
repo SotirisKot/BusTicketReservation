@@ -37,7 +37,7 @@ public class BuyTicketPresenter {
     }
 
     /**
-     *  This method initializes the Presenter.
+     *  This method validates a day.
      * @param date, a specific date
      * @return "true" if the date is valid or else "false"
      */

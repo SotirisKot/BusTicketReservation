@@ -21,6 +21,12 @@ public class cardInfoPresenter {
     private CardDAO cardDAO;
     private Route presentedRoute;
 
+    /**
+     * This method initializes the Presenter in order to be able a user to give card details.
+     * @param view, an instance of view
+     * @param passengerDAO, an instance of PassengerDAO
+     * @param cardDAO, an instance of CardDAO
+     */
     public cardInfoPresenter(cardInfoView view,PassengerDAO passengerDAO,CardDAO cardDAO){
 
         this.view = view;
@@ -48,6 +54,11 @@ public class cardInfoPresenter {
     }
 
 
+    /**
+     *  This method validates letters.
+     * @param name, a specific name
+     * @return "true" if the letter is valid or else "false"
+     */
     private boolean validateOnlyLetters(String name){
         if(name .equals("")){
             return false;
@@ -61,6 +72,11 @@ public class cardInfoPresenter {
         return true;
     }
 
+    /**
+     * This method validates a day.
+     * @param date, a specific date
+     * @return "true" if the date is valid or else "false"
+     */
     private boolean validateDate(String date){
         String[] parts = date.replaceAll("\\s+"," ").split("/");
         try {
@@ -74,6 +90,11 @@ public class cardInfoPresenter {
         }
     }
 
+    /**
+     *  This method validates digits.
+     * @param code, a specific code
+     * @return "true" if the code is valid or else "false"
+     */
     private boolean validateOnlyDigits(String code){
         for(int i = 0; i < code.length(); i++)
             if(!Character.isDigit(code.charAt(i)))
@@ -81,6 +102,13 @@ public class cardInfoPresenter {
         return true;
     }
 
+    /**
+     * This method method helps to redirect the user to another activity after a click event.
+     * @param name, a specific card holder name of the card
+     * @param code, a specific code of the card
+     * @param cv, a specific cv code of a card
+     * @param expirationDate, a specific expiration date of the card
+     */
     public void onClickContinue(String name,String code,String cv,String expirationDate){
         if(!validateOnlyLetters(name)){
             view.showAlertMessage("Name filed must not be empty and must be only letters.");
@@ -127,22 +155,41 @@ public class cardInfoPresenter {
         }
     }
 
+    /**
+     * This method pops up a toast with a message.
+     * @param message, the message that is being displayed in the toast
+     */
     public void onShowToast(String message){
         view.showToast(message);
     }
 
+    /** This method returns a cardHolderName.
+     * @return a String object that has the cardHolderName
+     */
     public String OngetCardHolderName(){
         return view.getCardHolderName();
     }
 
+    /**
+     * This method returns a cardID.
+     * @return a String object that has the cardID
+     */
     public String OngetCardCode(){
         return view.getCardId();
     }
 
+    /**
+     * This method returns a CVcode.
+     * @return a String object that has the CVcode
+     */
     public String OngetCV(){
         return view.getCVcode();
     }
 
+    /**
+     * This method returns an expirationDate.
+     * @return a String object that has the expirationDate
+     */
     public String OngetExpDate(){
         return view.getExpirationDate();
     }

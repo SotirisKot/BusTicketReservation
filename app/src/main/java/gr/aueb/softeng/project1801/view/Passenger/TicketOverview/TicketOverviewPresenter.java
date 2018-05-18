@@ -18,6 +18,10 @@ public class TicketOverviewPresenter {
     private List<SeatRow> seats;
     private Random random;
 
+    /**
+     * This method initializes the Presenter in order to be able to show the ticket overview.
+     * @param view, an instance of view
+     */
     public TicketOverviewPresenter(TicketOverviewView view){
         this.view = view;
 
@@ -55,6 +59,11 @@ public class TicketOverviewPresenter {
         view.setTypes(types);
     }
 
+    /**
+     *  This method validates letters.
+     * @param name, a specific name
+     * @return "true" if the letter is valid or else "false"
+     */
     private boolean validateOnlyLetters(String name){
         if(name .equals("")){
             return false;
@@ -69,7 +78,9 @@ public class TicketOverviewPresenter {
 
     }
 
-
+    /** This method sets a specific price on a ticket.
+     * @param type, a String object that contains the price of the ticket
+     */
     public void onSetPrice(String type){
         if(type.equals("Student 50% off : 7.5€")){
             view.setPrice("7.5");
@@ -82,7 +93,12 @@ public class TicketOverviewPresenter {
         }
     }
 
-
+    /**
+     *
+     * This method method redirects the user to another activity after a click event if the user's data are correct.
+     * @param firstname, the first name of the passenger
+     * @param lastname, the last name of the passenger
+     */
     public void onClickContinue(String firstname,String lastname){
         if(validateOnlyLetters(firstname) && validateOnlyLetters(lastname)){
 
@@ -96,10 +112,16 @@ public class TicketOverviewPresenter {
         }
     }
 
+    /** This method returns a passenger's FirstName.
+     * @return a String object that has the passenger's FirstName
+     */
     public String OngetPassengerFirstname(){
         return view.getPassengerFirstname();
     }
 
+    /** This method returns a passenger's LastName.
+     * @return a String object that has the passenger's LastName
+     */
     public String OngetPassengerLastname(){
         return view.getPassengerLastname();
     }

@@ -30,7 +30,7 @@ public class StatisticsDetailsPresenterTest {
 
     @Test
     public void onShowToast() {
-        Assert.assertEquals("2018/04/23", viewSub.getToast());
+        Assert.assertEquals("Route: Ναυπλιο-Αθηνα", viewSub.getToast());
         presenter.onShowToast("hello");
         Assert.assertEquals("hello", viewSub.getToast());
     }
@@ -44,6 +44,6 @@ public class StatisticsDetailsPresenterTest {
     @Test
     public void onDelete() {
         presenter.onDelete();
-        Assert.assertEquals(viewSub.getDeleteMessage(), "");
+        Assert.assertEquals(viewSub.getDeleteMessage(), "Route successfully deleted!!");
     }
 }

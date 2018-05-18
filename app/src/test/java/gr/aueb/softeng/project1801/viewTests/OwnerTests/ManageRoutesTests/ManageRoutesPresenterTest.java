@@ -13,6 +13,7 @@ public class ManageRoutesPresenterTest {
     private Initializer dataHelper;
     private ManageRoutesPresenter presenter;
     private ManageRoutesViewStub viewStub;
+    private String date;
 
     @Before
     public void setUp() throws Exception {
@@ -20,12 +21,22 @@ public class ManageRoutesPresenterTest {
         dataHelper.prepareData();
         viewStub = new ManageRoutesViewStub();
         presenter = new ManageRoutesPresenter(viewStub, dataHelper.getScheduleData(), dataHelper.getBusData(), dataHelper.getDriverData());
+        date = "2018/06/29";
     }
 
     @Test
     public void addRoute() {
         Assert.assertFalse(viewStub.isNewAdded());
         presenter.addRoute();
-        Assert.assertTrue(presenter != null);
+  //      Assert.assertTrue(presenter != null);
+        ///!!!!
     }
+
+    @Test
+    public void validateDate(){
+        Assert.assertTrue(presenter.validateDate(date));
+
+    }
+
+
 }
