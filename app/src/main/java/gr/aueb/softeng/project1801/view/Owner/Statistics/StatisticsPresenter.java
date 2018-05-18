@@ -17,7 +17,7 @@ public class StatisticsPresenter {
 
     /**
      * This method returns a list of route after their creation.
-     * @param routes, a list of routes
+     * @param routes , a list of routes
      * @return a list of routes
      */
     private List<DataRow> createData(List<Route> routes){
@@ -34,8 +34,8 @@ public class StatisticsPresenter {
 
     /**
      * This method initializes the Presenter in order to be able to show statistics of the routes in later time.
-     * @param view, an instance of view
-     * @param schedule, an instance of routeDao
+     * @param view , an instance of view
+     * @param schedule , an instance of routeDao
      */
     public StatisticsPresenter(StatisticsView view,RouteDAO schedule){
         this.view = view;
@@ -52,7 +52,7 @@ public class StatisticsPresenter {
 
     /**
      * This method pops up a toast with a message.
-     * @param value, the message that is being displayed in the toast
+     * @param value , the message that is being displayed in the toast
      */
     public void onShowToast(String value)
     {
@@ -61,10 +61,10 @@ public class StatisticsPresenter {
 
     /**
      * This method method redirects the user to another activity after a click event.
-     * @param destination, the destination of the route
-     * @param departurePoint, the departure point of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
+     * @param destination , the destination of the route
+     * @param departurePoint , the departure point of the route
+     * @param departureDate , the departure date of the route
+     * @param departureTime , the departure time of the route
      */
     public void onclickItem(String destination,String departurePoint,String departureDate,String departureTime){
         view.clickItem(destination,departurePoint,departureDate,departureTime);

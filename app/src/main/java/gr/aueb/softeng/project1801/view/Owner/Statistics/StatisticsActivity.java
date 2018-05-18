@@ -25,7 +25,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
 
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -58,7 +58,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
 
     /**
      * This method loads the data(a List).
-     * @param data, the list that is going to be loaded
+     * @param data , the list that is going to be loaded
      */
     public void loadData(List<DataRow> data) {
        adapter.loadData(data);
@@ -67,10 +67,10 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param departurePoint, the departure point of the route
-     * @param destination, the destination of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
+     * @param departurePoint , the departure point of the route
+     * @param destination , the destination of the route
+     * @param departureDate , the departure date of the route
+     * @param departureTime , the departure time of the route
      */
     public void clickItem(String departurePoint,String destination,String departureDate,String departureTime){
         Intent intent = new Intent(this,StatisticsDetailsActivity.class);
@@ -83,7 +83,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
 
     /**
      * This method pops up a toast.
-     * @param value, the message we want to print in the toast
+     * @param value , the message we want to print in the toast
      */
     @Override
     public void showToast(String value) {
@@ -92,7 +92,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
 
     /**
      * This method submits the text.
-     * @param query, sets the text as a query
+     * @param query , sets the text as a query
      * @return false
      */
     @Override
@@ -102,7 +102,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
 
     /**
      * This method alters the text.
-     * @param newText, the text that is going to be altered
+     * @param newText , the text that is going to be altered
      * @return true
      */
     @Override
@@ -132,9 +132,9 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticsV
     }
 
     /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
-     * @param requestCode, the requested code
-     * @param resultCode, the result code
-     * @param data, the intent
+     * @param requestCode , the requested code
+     * @param resultCode , the result code
+     * @param data , the intent
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){

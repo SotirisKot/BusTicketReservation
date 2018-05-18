@@ -98,9 +98,7 @@ public class RouteDAOMemoryTest {
 
     /**
      * Finding all the routes.
-     *
      * This method finds and returns all the routes that are saved in the database.
-     * @return all the routes
      */
     @Test
     public void findAll() {

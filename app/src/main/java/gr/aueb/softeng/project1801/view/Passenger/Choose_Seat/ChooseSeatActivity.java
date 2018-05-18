@@ -94,7 +94,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
 
     /**
      *  This method pops up a toast.
-     * @param value, the message we want to print in the toast
+     * @param value , the message we want to print in the toast
      */
     @Override
     public void showToast(String value){
@@ -103,7 +103,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
 
 
     /** This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     @Override
     public void showAlertMessage(String message) {
@@ -122,7 +122,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
     }
 
     /** This method sets name to a specific Activity.
-     * @param title, the name_value we want to set in a specific Activity
+     * @param title , the name_value we want to set in a specific Activity
      */
     @Override
     public void setActivityName(String title){
@@ -132,7 +132,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
 
     /**
      * This method loads the data(a List).
-     * @param data, the data that we want to load
+     * @param data , the data that we want to load
      */
     @Override
     public void loadData(List<SeatRow> data) {
@@ -143,10 +143,10 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param destination, the destination of the route
-     * @param departurePoint, the departure point of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
+     * @param destination , the destination of the route
+     * @param departurePoint , the departure point of the route
+     * @param departureDate , the departure date of the route
+     * @param departureTime , the departure time of the route
      */
     @Override
     public void clickProceed(String destination,String departurePoint,String departureDate,String departureTime){
@@ -162,7 +162,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
 
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -194,9 +194,9 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
 
 
     /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
-     * @param requestCode, the requested code
-     * @param resultCode, the result code
-     * @param data, the intent
+     * @param requestCode , the requested code
+     * @param resultCode , the result code
+     * @param data , the intent
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){

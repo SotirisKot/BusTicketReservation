@@ -38,7 +38,7 @@ public class SeatRow implements Serializable {
 
     /**
      * This method sets a specific text.
-     * @param text, the text that we want to set
+     * @param text , the text that we want to set
      */
     public void setText(String text){
         this.seat = text;

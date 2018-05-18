@@ -35,8 +35,8 @@ public class SearchRoutePresenter {
 
     /**
      * This method initializes the Presenter in order to be able a user to choose a seat.
-     * @param view, an instance of view
-     * @param scheduleDAO, an instance of ScheduleDAO
+     * @param view , an instance of view
+     * @param scheduleDAO , an instance of ScheduleDAO
      */
     public SearchRoutePresenter(SearchRouteView view,ScheduleDAO scheduleDAO){
         this.view = view;

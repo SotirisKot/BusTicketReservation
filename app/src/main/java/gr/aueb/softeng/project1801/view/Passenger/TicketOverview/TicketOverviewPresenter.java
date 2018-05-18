@@ -20,7 +20,7 @@ public class TicketOverviewPresenter {
 
     /**
      * This method initializes the Presenter in order to be able to show the ticket overview.
-     * @param view, an instance of view
+     * @param view , an instance of view
      */
     public TicketOverviewPresenter(TicketOverviewView view){
         this.view = view;
@@ -61,7 +61,7 @@ public class TicketOverviewPresenter {
 
     /**
      *  This method validates letters.
-     * @param name, a specific name
+     * @param name , a specific name
      * @return "true" if the letter is valid or else "false"
      */
     private boolean validateOnlyLetters(String name){
@@ -80,7 +80,7 @@ public class TicketOverviewPresenter {
 
     /**
      * This method sets a specific price on a ticket.
-     * @param type, a String object that contains the price of the ticket
+     * @param type , a String object that contains the price of the ticket
      */
     public void onSetPrice(String type){
         if(type.equals("Student 50% off : 7.5€")){
@@ -97,8 +97,8 @@ public class TicketOverviewPresenter {
     /**
      *
      * This method method redirects the user to another activity after a click event if the user's data are correct.
-     * @param firstname, the first name of the passenger
-     * @param lastname, the last name of the passenger
+     * @param firstname , the first name of the passenger
+     * @param lastname , the last name of the passenger
      */
     public void onClickContinue(String firstname,String lastname){
         if(validateOnlyLetters(firstname) && validateOnlyLetters(lastname)){

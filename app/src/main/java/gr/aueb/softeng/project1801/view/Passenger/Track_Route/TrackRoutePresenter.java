@@ -13,8 +13,8 @@ public class TrackRoutePresenter {
 
     /**
      * This method initializes the Presenter in order to be able a user to track a route.
-     * @param view, an instance of view
-     * @param schedule, an instance of ScheduleDAO
+     * @param view , an instance of view
+     * @param schedule , an instance of ScheduleDAO
      */
     public TrackRoutePresenter(TrackRouteView view , ScheduleDAO schedule){
         this.view = view;
@@ -34,7 +34,7 @@ public class TrackRoutePresenter {
 
     /**
      * This method validates a day.
-     * @param date, a specific date
+     * @param date , a specific date
      * @return "true" if the date is valid or else "false"
      */
     private boolean validateDate(String date){
@@ -52,7 +52,7 @@ public class TrackRoutePresenter {
 
     /**
      * This method pops up a toast with a message.
-     * @param value, the message that is being displayed in the toast
+     * @param value , the message that is being displayed in the toast
      */
     void onShowToast(String value)
     {
@@ -62,9 +62,9 @@ public class TrackRoutePresenter {
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param destination, the destination of the route
-     * @param departurePoint, the departure point of the route
-     * @param departureDate, the departure date of the route
+     * @param destination , the destination of the route
+     * @param departurePoint , the departure point of the route
+     * @param departureDate , the departure date of the route
      * @param time, the time of the route
      */
     void onTrackRoute(String destination,String departurePoint,String departureDate,String time){
@@ -108,7 +108,7 @@ public class TrackRoutePresenter {
     }
 
     /** This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     public void onShowAlertMessage(String message){
         view.showAlertMessage(message);

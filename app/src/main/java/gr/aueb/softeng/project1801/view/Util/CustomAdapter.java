@@ -26,7 +26,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable{
 
     /**
      *
-     * @param context, the Context that concerns the specific activity
+     * @param context , the Context that concerns the specific activity
      */
     public CustomAdapter(Context context){
         this.context = context;
@@ -46,7 +46,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable{
 
     /**
      * This method returns an object taking into consideration it's position inside the list.
-     * @param position, the position of the object
+     * @param position , the position of the object
      * @return the object
      */
     @Override
@@ -56,7 +56,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable{
 
     /**
      * This method returns the code of an object taking into consideration it's position inside the list.
-     * @param position, the position of the object
+     * @param position , the position of the object
      * @return the code of the object
      */
     @Override
@@ -66,9 +66,9 @@ public class CustomAdapter extends BaseAdapter implements Filterable{
 
     /**
      * This method returns the view taking into consideration the position of the object.
-     * @param position, the position of the object
-     * @param convertView, does not have any use
-     * @param parent, the parent of the view
+     * @param position , the position of the object
+     * @param convertView , does not have any use
+     * @param parent , the parent of the view
      * @return the view
      */
     @Override
@@ -97,7 +97,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable{
 
     /**
      * This method loads the data(from the list).It uses a copy of the list and not the original in order to be able to filter our search without any data loss.
-     * @param data, the list with the data
+     * @param data , the list with the data
      */
     public void loadData(List<DataRow> data){
         this.dataList = data;
@@ -123,7 +123,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable{
 
         /**
          * This method filters the results.
-         * @param constraint, the String of the restriction
+         * @param constraint , the String of the restriction
          * @return the filtered results
          */
         @Override
@@ -154,8 +154,8 @@ public class CustomAdapter extends BaseAdapter implements Filterable{
 
         /**
          * This method publishes the filtered results.
-         * @param constraint, the String of the restriction
-         * @param results the results
+         * @param constraint , the String of the restriction
+         * @param results , the results
          */
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {

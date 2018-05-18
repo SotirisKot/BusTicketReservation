@@ -12,8 +12,8 @@ public class BuyTicketPresenter {
 
     /**
      * This method initializes the Presenter in order to be able a user to buy a ticket.
-     * @param view, an instance of view
-     * @param schedule, an instance of scheduleDAO
+     * @param view , an instance of view
+     * @param schedule , an instance of scheduleDAO
      */
     public BuyTicketPresenter(BuyTicketsView view,ScheduleDAO schedule){
         this.view = view;
@@ -38,7 +38,7 @@ public class BuyTicketPresenter {
 
     /**
      *  This method validates a day.
-     * @param date, a specific date
+     * @param date , a specific date
      * @return "true" if the date is valid or else "false"
      */
     private boolean validateDate(String date){
@@ -56,7 +56,7 @@ public class BuyTicketPresenter {
 
     /**
      * This method pops up a toast with a message.
-     * @param value, the message that is being displayed in the toast
+     * @param value , the message that is being displayed in the toast
      */
     void onShowToast(String value)
     {

@@ -84,9 +84,7 @@ public class BusDAOMemoryTest {
 
     /**
      * Finding all the buses.
-     *
      * This method finds and returns all the buses that are saved in the database.
-     * @return all the buses
      */
     @Test
     public void findAll() {

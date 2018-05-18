@@ -60,7 +60,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method sets name to a specific Activity.
-     * @param title, the name_value we want to set in a specific Activity
+     * @param title , the name_value we want to set in a specific Activity
      */
     @Override
     public void setActivityName(String title) {
@@ -69,7 +69,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     @Override
     public void showAlertMessage(String message) {
@@ -83,7 +83,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method sets a list of destinations.
-     * @param destinations, a set of destinations we want to have
+     * @param destinations , a set of destinations we want to have
      */
     @Override
     public void setDestinationsList(List<String> destinations) {
@@ -94,7 +94,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method sets a list of departures.
-     * @param departures, a set of departures we want to have
+     * @param departures , a set of departures we want to have
      */
     @Override
     public void setDeparturePointsList(List<String> departures) {
@@ -105,7 +105,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method sets a list of times we want to departure our buses.
-     * @param departuretimes, a set of times that the buses can start their routs
+     * @param departuretimes , a set of times that the buses can start their routs
      */
     @Override
     public void setDepartureTimesList(List<String> departuretimes) {
@@ -116,7 +116,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method pops up a toast.
-     * @param message, the message we want to print in the toast
+     * @param message , the message we want to print in the toast
      */
     @Override
     public void ShowToast(String message) {
@@ -125,7 +125,7 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -146,10 +146,10 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param destination, the destination of the route
-     * @param departurePoint, the departure point of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
+     * @param destination , the destination of the route
+     * @param departurePoint , the departure point of the route
+     * @param departureDate , the departure date of the route
+     * @param departureTime , the departure time of the route
      */
     @Override
     public void trackRoute(String destination,String departurePoint,String departureDate,String departureTime){
@@ -163,9 +163,9 @@ public class TrackRouteActivity extends AppCompatActivity implements TrackRouteV
 
     /**
      * This method recreates the activity with a new instance in case of the requested code gets the value "1".
-     * @param requestCode, the requested code
-     * @param resultCode, the result code
-     * @param data, the intent
+     * @param requestCode , the requested code
+     * @param resultCode , the result code
+     * @param data , the intent
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){

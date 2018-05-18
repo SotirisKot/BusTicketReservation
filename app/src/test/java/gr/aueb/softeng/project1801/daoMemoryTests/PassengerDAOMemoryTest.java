@@ -82,9 +82,7 @@ public class PassengerDAOMemoryTest {
 
     /**
      * Finding all the passengers.
-     *
      * This method finds and returns all the passengers that are saved in the database.
-     * @return all the passengers
      */
     @Test
     public void findAll() {

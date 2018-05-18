@@ -14,7 +14,7 @@ public class HomeActivity extends AppCompatActivity {
     private static boolean initialized = false;
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

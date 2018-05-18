@@ -23,9 +23,9 @@ public class cardInfoPresenter {
 
     /**
      * This method initializes the Presenter in order to be able a user to give card details.
-     * @param view, an instance of view
-     * @param passengerDAO, an instance of PassengerDAO
-     * @param cardDAO, an instance of CardDAO
+     * @param view , an instance of view
+     * @param passengerDAO , an instance of PassengerDAO
+     * @param cardDAO , an instance of CardDAO
      */
     public cardInfoPresenter(cardInfoView view,PassengerDAO passengerDAO,CardDAO cardDAO){
 
@@ -56,7 +56,7 @@ public class cardInfoPresenter {
 
     /**
      *  This method validates letters.
-     * @param name, a specific name
+     * @param name , a specific name
      * @return "true" if the letter is valid or else "false"
      */
     private boolean validateOnlyLetters(String name){
@@ -74,7 +74,7 @@ public class cardInfoPresenter {
 
     /**
      * This method validates a day.
-     * @param date, a specific date
+     * @param date , a specific date
      * @return "true" if the date is valid or else "false"
      */
     private boolean validateDate(String date){
@@ -92,7 +92,7 @@ public class cardInfoPresenter {
 
     /**
      *  This method validates digits.
-     * @param code, a specific code
+     * @param code , a specific code
      * @return "true" if the code is valid or else "false"
      */
     private boolean validateOnlyDigits(String code){
@@ -104,10 +104,10 @@ public class cardInfoPresenter {
 
     /**
      * This method method helps to redirect the user to another activity after a click event.
-     * @param name, a specific card holder name of the card
-     * @param code, a specific code of the card
-     * @param cv, a specific cv code of a card
-     * @param expirationDate, a specific expiration date of the card
+     * @param name , a specific card holder name of the card
+     * @param code , a specific code of the card
+     * @param cv , a specific cv code of a card
+     * @param expirationDate , a specific expiration date of the card
      */
     public void onClickContinue(String name,String code,String cv,String expirationDate){
         if(!validateOnlyLetters(name)){
@@ -157,7 +157,7 @@ public class cardInfoPresenter {
 
     /**
      * This method pops up a toast with a message.
-     * @param message, the message that is being displayed in the toast
+     * @param message , the message that is being displayed in the toast
      */
     public void onShowToast(String message){
         view.showToast(message);

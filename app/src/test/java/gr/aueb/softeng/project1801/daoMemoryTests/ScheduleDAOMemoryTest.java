@@ -128,9 +128,7 @@ public class ScheduleDAOMemoryTest {
 
     /**
      * Finding all the schedules.
-     *
      * This method finds and returns all the schedules that are saved in the database.
-     * @return all the schedules
      */
     @Test
     public void findAll() {

@@ -99,7 +99,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a specific destination.
-     * @param destination, a String object that contains the destination
+     * @param destination , a String object that contains the destination
      */
     @Override
     public void setDestination(String destination){
@@ -108,7 +108,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a specific departure point.
-     * @param departurePoint, a String object that contains the departure point
+     * @param departurePoint , a String object that contains the departure point
      */
     @Override
     public void setDeparturePoint(String departurePoint){
@@ -117,7 +117,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a specific departure date.
-     * @param departureDate, a String object that contains the departure date
+     * @param departureDate , a String object that contains the departure date
      */
     @Override
     public void setDepartureDate(String departureDate){
@@ -126,7 +126,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a set of seats.
-     * @param seats, a list that contains the set of seats
+     * @param seats , a list that contains the set of seats
      */
     @Override
     public void setSeats(List<SeatRow> seats){
@@ -152,7 +152,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a specific departure time.
-     * @param time, a String object that contains the departure time
+     * @param time , a String object that contains the departure time
      */
     @Override
     public void setDepartureTime(String time){
@@ -161,7 +161,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a specific passenger ID.
-     * @param id, a String object that contains the passenger ID
+     * @param id , a String object that contains the passenger ID
      */
     @Override
     public void setPassengerId(String id){
@@ -170,7 +170,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a specific price on a ticket.
-     * @param price, a String object that contains the price of the ticket
+     * @param price , a String object that contains the price of the ticket
      */
     @Override
     public void setPrice(String price){
@@ -179,7 +179,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a set of ticket types.
-     * @param types, a list that contains the set of ticket types
+     * @param types , a list that contains the set of ticket types
      */
     @Override
     public void setTypes(List<String> types){
@@ -219,7 +219,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets a specific estimated arrival time.
-     * @param arrivalTime, a String object that contains the estimated arrival time
+     * @param arrivalTime , a String object that contains the estimated arrival time
      */
     @Override
     public void setEstimatedArrivalTime(String arrivalTime){
@@ -228,7 +228,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     @Override
     public void showAlertMessage(String message) {
@@ -242,7 +242,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method sets name to a specific Activity.
-     * @param title, the name_value we want to set in a specific Activity
+     * @param title , the name_value we want to set in a specific Activity
      */
     @Override
     public void setActivityName(String title) {
@@ -251,7 +251,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method pops up a toast.
-     * @param value, the message we want to print in the toast
+     * @param value , the message we want to print in the toast
      */
     @Override
     public void showToast(String value) {
@@ -261,16 +261,16 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param destination, the destination of the route
-     * @param departurePoint, the departure point of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
-     * @param firstname, the first name of the passenger
-     * @param lastname, the last name of the passenger
-     * @param id, the passenger id
-     * @param price, the price of the ticket
-     * @param seats, the seat of the ticket
-     * @param type, the type of the ticket
+     * @param destination , the destination of the route
+     * @param departurePoint , the departure point of the route
+     * @param departureDate , the departure date of the route
+     * @param departureTime , the departure time of the route
+     * @param firstname , the first name of the passenger
+     * @param lastname , the last name of the passenger
+     * @param id , the passenger id
+     * @param price , the price of the ticket
+     * @param seats , the seat of the ticket
+     * @param type , the type of the ticket
      */
     @Override
     public void clickContinue(String destination,String departurePoint,String departureDate,
@@ -293,7 +293,7 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -314,9 +314,9 @@ public class TicketOverviewActivity extends AppCompatActivity implements TicketO
 
     /**
      * This method recreates the activity with a new instance in case of the requested code gets the value "1".
-     * @param requestCode, the requested code
-     * @param resultCode, the result code
-     * @param data, the intent
+     * @param requestCode , the requested code
+     * @param resultCode , the result code
+     * @param data , the intent
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){

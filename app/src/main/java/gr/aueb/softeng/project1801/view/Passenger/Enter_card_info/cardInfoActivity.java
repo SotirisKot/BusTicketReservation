@@ -140,7 +140,7 @@ public class cardInfoActivity extends AppCompatActivity implements cardInfoView 
     }
 
     /** This method sets name to a specific Activity.
-     * @param title, the title we want to set in a specific Activity
+     * @param title , the title we want to set in a specific Activity
      */
     @Override
     public void setActivityName(String title) {
@@ -149,7 +149,7 @@ public class cardInfoActivity extends AppCompatActivity implements cardInfoView 
 
     /**
      *  This method pops up a toast.
-     * @param value, the message we want to print in the toast
+     * @param value , the message we want to print in the toast
      */
     @Override
     public void showToast(String value) {
@@ -184,7 +184,7 @@ public class cardInfoActivity extends AppCompatActivity implements cardInfoView 
     }
 
     /** This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     @Override
     public void showAlertMessage(String message) {
@@ -207,7 +207,7 @@ public class cardInfoActivity extends AppCompatActivity implements cardInfoView 
 
     /**
      *  This method pops up a toast.
-     * @param message, the message we want to show in the toast
+     * @param message , the message we want to show in the toast
      */
     @Override
     public void clickCheckout(String message){
@@ -216,7 +216,7 @@ public class cardInfoActivity extends AppCompatActivity implements cardInfoView 
     }
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

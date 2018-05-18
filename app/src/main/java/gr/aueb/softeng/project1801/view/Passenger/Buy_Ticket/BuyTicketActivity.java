@@ -50,7 +50,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     /** This method sets name to a specific Activity.
-     * @param title, the name_value we want to set in a specific Activity
+     * @param title , the name_value we want to set in a specific Activity
      */
     @Override
     public void setActivityName(String title) {
@@ -58,7 +58,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     /** This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     @Override
     public void showAlertMessage(String message) {
@@ -71,7 +71,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     /** This method sets a list of destinations.
-     * @param destinations, a set of destinations we want to have
+     * @param destinations , a set of destinations we want to have
      */
     @Override
     public void setDestinationsList(List<String> destinations) {
@@ -81,7 +81,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     /** This method sets a list of departures.
-     * @param departures, a set of departures we want to have
+     * @param departures , a set of departures we want to have
      */
     @Override
     public void setDeparturePointsList(List<String> departures) {
@@ -91,7 +91,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     /** This method sets a list of number of seats.
-     * @param seats, a set of number of seats
+     * @param seats , a set of number of seats
      */
     @Override
     public void setNumberOfSeats(List<String> seats) {
@@ -103,7 +103,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
 
     /**
      *  This method pops up a toast.
-     * @param message, the message we want to print in the toast
+     * @param message , the message we want to print in the toast
      */
     @Override
     public void ShowToast(String message) {
@@ -113,10 +113,10 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
 
     /**
      * This method search a route based on the details given.
-     * @param destination ,the destination
-     * @param departurePoint ,the departure point
+     * @param destination , the destination
+     * @param departurePoint , the departure point
      * @param departureDate , the departure date
-     * @param seats ,the seat
+     * @param seats , the seat
      */
     @Override
     public void searchRoute(String destination,String departurePoint,String departureDate,String seats){
@@ -129,7 +129,7 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -148,9 +148,9 @@ public class BuyTicketActivity extends AppCompatActivity implements BuyTicketsVi
     }
 
     /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
-     * @param requestCode, the requested code
-     * @param resultCode, the result code
-     * @param data, the intent
+     * @param requestCode , the requested code
+     * @param resultCode , the result code
+     * @param data , the intent
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){

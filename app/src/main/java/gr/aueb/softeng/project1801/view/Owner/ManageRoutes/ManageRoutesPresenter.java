@@ -30,10 +30,10 @@ public class ManageRoutesPresenter  {
 
     /**
      * This method initializes the Presenter.
-     * @param view, an instance of a view
-     * @param schedule, an instaces of scheduleDao
-     * @param bus, an instance of a bus
-     * @param driver, an instance of a driver
+     * @param view , an instance of a view
+     * @param schedule , an instaces of scheduleDao
+     * @param bus , an instance of a bus
+     * @param driver , an instance of a driver
      */
     public ManageRoutesPresenter(ManageRoutesView view,ScheduleDAO schedule,BusDAO bus,DriverDAO driver){
 
@@ -75,7 +75,7 @@ public class ManageRoutesPresenter  {
 
     /**
      *  This method initializes the Presenter.
-     * @param date, a specific date
+     * @param date , a specific date
      * @return "true" if the date is valid or else "false"
      */
     public boolean validateDate(String date){

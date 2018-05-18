@@ -13,8 +13,8 @@ public class ChooseSeatPresenter {
 
     /**
      * This method initializes the Presenter in order to be able a user to choose a seat.
-     * @param view, an instance of view
-     * @param selectedRoute, an instance of Route
+     * @param view , an instance of view
+     * @param selectedRoute , an instance of Route
      */
     public ChooseSeatPresenter(ChooseSeatView view, Route selectedRoute){
 
@@ -28,7 +28,7 @@ public class ChooseSeatPresenter {
 
     /**
      * This method helps us to understand if a seat is already taken by another user on not.
-     * @param seat, an instance of seatRow
+     * @param seat , an instance of seatRow
      */
     public void onClickSeat(SeatRow seat){
 
@@ -77,7 +77,7 @@ public class ChooseSeatPresenter {
     }
 
     /** This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     public void onShowAlertMessage(String message){
         view.showAlertMessage(message);
@@ -85,7 +85,7 @@ public class ChooseSeatPresenter {
 
     /**
      * This method pops up a toast with a message.
-     * @param message, the message that is being displayed in the toast
+     * @param message , the message that is being displayed in the toast
      */
     public void onShowtoast(String message){
         view.showToast(message);

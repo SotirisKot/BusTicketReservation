@@ -14,7 +14,7 @@ public class Employee_View extends AppCompatActivity implements View.OnClickList
     private Button find_passenger;
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Employee_View extends AppCompatActivity implements View.OnClickList
     }
 
     /** This method is being called when a view has been clicked.So it chooses what to do after the user's specific click.
-     * @param v, the View that was clicked
+     * @param v , the View that was clicked
      */
     @Override
     public void onClick(View v){

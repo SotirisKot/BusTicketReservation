@@ -80,7 +80,7 @@ public class ManageRoutesViewStub implements ManageRoutesView{
     }
 
     /** This method pops up a toast.
-     * @param message, the message we want to print in the toast
+     * @param message , the message we want to print in the toast
      */
     @Override
     public void ShowToast(String message) {
@@ -88,14 +88,14 @@ public class ManageRoutesViewStub implements ManageRoutesView{
     }
 
     /** This method sets name to a specific Activity.
-     * @param title, the name_value we want to set in a specific Activity
+     * @param title , the name_value we want to set in a specific Activity
      */
     public void setActivityName(String title) {
         this.title = title;
     }
 
     /** This method sets a list of destinations.
-     * @param destinations, a set of destinations we want to have
+     * @param destinations , a set of destinations we want to have
      */
     @Override
     public void setDestinationsList(List<String> destinations) {
@@ -104,7 +104,7 @@ public class ManageRoutesViewStub implements ManageRoutesView{
     }
 
     /** This method sets a list of departures.
-     * @param departures, a set of departures we want to have
+     * @param departures , a set of departures we want to have
      */
     @Override
     public void setDeparturePointsList(List<String> departures) {
@@ -112,7 +112,7 @@ public class ManageRoutesViewStub implements ManageRoutesView{
     }
 
     /** This method sets a list of BusIDs.
-     * @param bus_ids, a set of BusIDs we want to have
+     * @param bus_ids , a set of BusIDs we want to have
      */
     @Override
     public void setBusIDsList(List<String> bus_ids) {
@@ -120,7 +120,7 @@ public class ManageRoutesViewStub implements ManageRoutesView{
     }
 
     /** This method sets a list of DriverIDs.
-     * @param driver_ids, a set of DriverIDs we want to have
+     * @param driver_ids , a set of DriverIDs we want to have
      */
     @Override
     public void setDriverIDsList(List<String> driver_ids) {
@@ -128,7 +128,7 @@ public class ManageRoutesViewStub implements ManageRoutesView{
     }
 
     /** This method sets a list of times we want to departure our buses.
-     * @param times, a set of times that the buses can start their routs
+     * @param times , a set of times that the buses can start their routs
      */
     @Override
     public void setDepartureTimesList(List<String> times) {
@@ -136,7 +136,7 @@ public class ManageRoutesViewStub implements ManageRoutesView{
     }
 
     /** This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     public void showAlertMessage(String message) {
         this.message = message;
@@ -144,14 +144,13 @@ public class ManageRoutesViewStub implements ManageRoutesView{
 
 
     /** This method shows success messages.
-     * @param message, the success message we want to print
+     * @param message , the success message we want to print
      * */
     public void showSuccessMessage(String message) {
         this.message = message;
     }
 
-    public boolean isNewAdded()
-    {
+    public boolean isNewAdded(){
         return addedNew;
     }
 

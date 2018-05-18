@@ -48,7 +48,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
 
     /**
      * This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +140,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
     LocationCallback mLocationCallback = new LocationCallback() {
         /**
          * This method helps us to locate the user
-         * @param locationResult, an instance of LocationResult
+         * @param locationResult , an instance of LocationResult
          */
         @Override
         public void onLocationResult(LocationResult locationResult) {
@@ -217,7 +217,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
 
     /**
      * This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     @Override
     public void showAlertMessage(String message) {
@@ -231,7 +231,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
 
     /**
      * This method pops up a toast.
-     * @param message, the message we want to print in the toast
+     * @param message , the message we want to print in the toast
      */
     @Override
     public void showToast(String message) {
@@ -289,9 +289,9 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
 
     /**
      * This method helps us to grand the necessary permissions.
-     * @param requestCode, the requested code
-     * @param permissions, the permissions given
-     * @param grantResults, the results
+     * @param requestCode , the requested code
+     * @param permissions , the permissions given
+     * @param grantResults , the results
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

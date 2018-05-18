@@ -64,7 +64,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
     }
 
     /** This method sets name to a specific Activity.
-     * @param value, the name_value we want to set in a specific Activity
+     * @param value , the name_value we want to set in a specific Activity
      */
     @Override
     public void setActivityName(String value) {
@@ -73,7 +73,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets the number of available seats of a bus.
-     * @param availableSeats, the number of available seats of a bus
+     * @param availableSeats , the number of available seats of a bus
      */
     @Override
     public void setAvailableSeats(int availableSeats) {
@@ -82,7 +82,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets the bus type that is going to be used in a route.
-     * @param busType, the bus type being used in the route
+     * @param busType , the bus type being used in the route
      */
     @Override
     public void setBusType(String busType) {
@@ -91,7 +91,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets a departure date to a route.
-     * @param departureDate, the departure date of the route
+     * @param departureDate , the departure date of the route
      */
     @Override
     public void setDepartureDate(String departureDate) {
@@ -100,7 +100,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets a departure point to a route.
-     * @param departurePoint, the departure point of the route
+     * @param departurePoint , the departure point of the route
      */
     @Override
     public void setDeparturePoint(String departurePoint) {
@@ -109,7 +109,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets a departure time to a route.
-     * @param departureTime, the departure time of the route
+     * @param departureTime , the departure time of the route
      */
     @Override
     public void setDepartureTime(String departureTime) {
@@ -118,7 +118,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets a destination to a route.
-     * @param destination, the destination of the route
+     * @param destination , the destination of the route
      */
     @Override
     public void setDestination(String destination) {
@@ -127,7 +127,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets the driver's ID.
-     * @param driver, the driver's ID
+     * @param driver , the driver's ID
      */
     @Override
     public void setDriverID(String driver) {
@@ -136,7 +136,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets an estimated arrival time to a route.
-     * @param estimatedArrivalTime, the estimated arival time of the route
+     * @param estimatedArrivalTime , the estimated arival time of the route
      */
     @Override
     public void setEstimatedArrivalTime(String estimatedArrivalTime) {
@@ -145,7 +145,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method sets the statistics of a route.
-     * @param statistic, the statistics of a route
+     * @param statistic , the statistics of a route
      */
     @Override
     public void setStatistic(double statistic) {
@@ -155,7 +155,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
 
     /** This method prints a warning dialog message before deletion in order to ensure the process that is going to be executed.
-     * @param warning, the warning dialog message for deletion
+     * @param warning , the warning dialog message for deletion
      */
     @Override
     public void ClickDeleteButton(String warning) {
@@ -183,7 +183,7 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
 
     /**
      * This method pops up a toest with a deletion message.
-     * @param message, the deletion message
+     * @param message , the deletion message
      */
     @Override
     public void delete(String message) {
@@ -192,14 +192,14 @@ public class StatisticsDetailsActivity extends AppCompatActivity implements Stat
     }
 
     /** This method pops up a toast.
-     * @param value, the message we want to print in the toast
+     * @param value , the message we want to print in the toast
      */
     public void showToast(String value){
         Toast.makeText(this, value, Toast.LENGTH_LONG).show();
     }
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState){

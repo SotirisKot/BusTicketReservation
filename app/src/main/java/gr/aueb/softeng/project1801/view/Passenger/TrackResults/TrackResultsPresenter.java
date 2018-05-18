@@ -12,8 +12,8 @@ public class TrackResultsPresenter {
 
     /**
      * This method initializes the Presenter in order to be able a user to choose a seat.
-     * @param view, an instance of view
-     * @param routeDAO, an instance of RouteDAO
+     * @param view , an instance of view
+     * @param routeDAO , an instance of RouteDAO
      */
     public TrackResultsPresenter(TrackResultsView view,RouteDAO routeDAO){
 
@@ -37,7 +37,7 @@ public class TrackResultsPresenter {
 
     /**
      * This method pops up a toast with a message.
-     * @param value, the message that is being displayed in the toast
+     * @param value , the message that is being displayed in the toast
      */
     void onShowToast(String value)
     {
@@ -76,7 +76,7 @@ public class TrackResultsPresenter {
 
     /**
      * This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     public void onShowAlert(String message){
         view.showAlertMessage(message);

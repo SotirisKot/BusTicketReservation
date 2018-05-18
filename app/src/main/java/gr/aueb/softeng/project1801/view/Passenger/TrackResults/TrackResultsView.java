@@ -28,13 +28,13 @@ public interface TrackResultsView {
 
     /**
      * This method pops up a toast.
-     * @param value, the message we want to print in the toast
+     * @param value , the message we want to print in the toast
      */
     void showToast(String value);
 
     /**
      * This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     void showAlertMessage(String message);
 

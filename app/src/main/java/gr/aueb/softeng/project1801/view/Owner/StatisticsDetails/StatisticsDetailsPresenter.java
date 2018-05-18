@@ -20,8 +20,8 @@ public class StatisticsDetailsPresenter {
 
     /**
      * This method initializes the Presenter in order to be able to show statistics details of the routes in later time.
-     * @param view, an instance of view
-     * @param routes, an instance of routeDao
+     * @param view , an instance of view
+     * @param routes , an instance of routeDao
      */
     public StatisticsDetailsPresenter(StatisticsDetailsView view,RouteDAO routes){
         this.view = view;
@@ -54,7 +54,7 @@ public class StatisticsDetailsPresenter {
 
     /**
      * This method pops up a toast with a message.
-     * @param value, the message that is being displayed in the toast
+     * @param value , the message that is being displayed in the toast
      */
     public void onShowToast(String value)
     {

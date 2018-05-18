@@ -16,7 +16,7 @@ public class Owner_View extends AppCompatActivity implements View.OnClickListene
     Button AddRoute;
 
     /** This method creates the layout and initializes the activity.
-     * @param savedInstanceState, the Instance state
+     * @param savedInstanceState , the Instance state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class Owner_View extends AppCompatActivity implements View.OnClickListene
     }
 
     /** This method is being called when a view has been clicked.So it chooses what to do after the user's specific click.
-     * @param v, the View that was clicked
+     * @param v , the View that was clicked
      */
     @Override
     public void onClick(View v){
@@ -51,9 +51,9 @@ public class Owner_View extends AppCompatActivity implements View.OnClickListene
 
 
     /** This method recreates the activity with a new instance in case of the requested code gets the value "1".
-     * @param requestCode, the requested code
-     * @param resultCode, the result code
-     * @param data, the intent
+     * @param requestCode , the requested code
+     * @param resultCode , the result code
+     * @param data , the intent
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){

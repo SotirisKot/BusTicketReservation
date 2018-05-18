@@ -6,31 +6,31 @@ public interface TrackRouteView {
 
     /**
      *  This method pops up a toast.
-     * @param message, the message we want to print in the toast
+     * @param message , the message we want to print in the toast
      */
     void ShowToast(String message);
 
     /**
      * This method sets name to a specific Activity.
-     * @param value, the name_value we want to set in a specific Activity
+     * @param value , the name_value we want to set in a specific Activity
      */
     void setActivityName(String value);
 
     /**
      * This method sets a list of destinations.
-     * @param destinations, a set of destinations we want to have
+     * @param destinations , a set of destinations we want to have
      */
     void setDestinationsList(List<String> destinations);
 
     /**
      * This method sets a list of departures.
-     * @param departures, a set of departures we want to have
+     * @param departures , a set of departures we want to have
      */
     void setDeparturePointsList(List<String> departures);
 
     /**
      * This method sets a list of times we want to departure our buses.
-     * @param times, a set of times that the buses can start their routs
+     * @param times , a set of times that the buses can start their routs
      */
     void setDepartureTimesList(List<String> times);
 
@@ -60,17 +60,17 @@ public interface TrackRouteView {
 
     /**
      * This method shows alert messages
-     * @param message, the alert message we want to print
+     * @param message , the alert message we want to print
      */
     void showAlertMessage(String message);
 
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param destination, the destination of the route
-     * @param departurePoint, the departure point of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
+     * @param destination , the destination of the route
+     * @param departurePoint , the departure point of the route
+     * @param departureDate , the departure date of the route
+     * @param departureTime , the departure time of the route
      */
     void trackRoute(String destination,String departurePoint,String departureDate,String departureTime);
 }

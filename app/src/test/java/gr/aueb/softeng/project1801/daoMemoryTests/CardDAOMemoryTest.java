@@ -73,9 +73,7 @@ public class CardDAOMemoryTest {
 
     /**
      * Finding all the cards.
-     *
      * This method finds and returns all the cards that are saved in the database.
-     * @return all the cards
      */
     @Test
     public void findAll(){
