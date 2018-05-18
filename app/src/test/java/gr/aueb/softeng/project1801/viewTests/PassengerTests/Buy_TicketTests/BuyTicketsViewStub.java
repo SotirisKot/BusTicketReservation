@@ -68,10 +68,6 @@ public class BuyTicketsViewStub implements BuyTicketsView {
         destinationsList = new ArrayList<>();
         departurePointList = new ArrayList<>();
         numberOfSeatsList = new ArrayList<>();
-        destinationsList.add("");
-        departurePointList.add("");
-        numberOfSeatsList.add("");
-
     }
 
     /**
@@ -117,7 +113,14 @@ public class BuyTicketsViewStub implements BuyTicketsView {
     @Override
     public void showAlertMessage(String message) {
         this.message = message;
+    }
 
+    /**
+     * This method returns a message for testing.
+     * @return a String message
+     */
+    public String getMessage(){
+        return message;
     }
 
     /**

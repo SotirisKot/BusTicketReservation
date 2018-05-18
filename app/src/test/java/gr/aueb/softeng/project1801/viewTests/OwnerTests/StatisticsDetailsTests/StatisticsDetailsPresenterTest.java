@@ -36,7 +36,7 @@ public class StatisticsDetailsPresenterTest {
      */
     @Test
     public void onShowToast() {
-        Assert.assertEquals("Route: Ναυπλιο-Αθηνα", viewStub.getToast());
+        Assert.assertEquals("Route: Ναυπλιο-Αθηνα", viewStub.getActivity_name());
         presenter.onShowToast("hello");
         Assert.assertEquals("hello", viewStub.getToast());
     }
