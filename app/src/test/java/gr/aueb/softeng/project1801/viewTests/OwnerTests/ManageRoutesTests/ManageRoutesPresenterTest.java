@@ -47,7 +47,6 @@ public class ManageRoutesPresenterTest {
     @Test
     public void validateDate(){
         Assert.assertTrue(presenter.validateDate(date));
-
     }
 
 
