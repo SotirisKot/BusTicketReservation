@@ -15,21 +15,36 @@ public class FindPassengerActivity extends AppCompatActivity implements FindPass
 
     private FindPassengerPresenter presenter;
 
+    /**
+     * This method returns a passenger's FirstName.
+     * @return a String object that has the passenger's FirstName
+     */
     @Override
     public String getFirstname(){
         return ((EditText)findViewById(R.id.text_firstname)).getText().toString().trim();
     }
 
+    /**
+     * This method returns a passenger's LastName.
+     * @return a String object that has the passenger's LastName
+     */
     @Override
     public String getLastname(){
         return ((EditText)findViewById(R.id.text_lastname)).getText().toString().trim();
     }
 
+    /**
+     * This method sets a specific passenger ID.
+     */
     @Override
     public String getPassengerID(){
         return ((EditText)findViewById(R.id.text_passenger_id)).getText().toString().trim();
     }
 
+    /**
+     * This method shows alert messages
+     * @param message , the alert message we want to print
+     */
     @Override
     public void showAlertMessage(String message) {
         AlertDialog.Builder alert = new AlertDialog.Builder(FindPassengerActivity.this);
@@ -40,16 +55,30 @@ public class FindPassengerActivity extends AppCompatActivity implements FindPass
         alert.create().show();
     }
 
+    /**
+     * This method sets name to a specific Activity.
+     * @param title , the name_value we want to set in a specific Activity
+     */
     @Override
     public void setActivityName(String title) {
         getSupportActionBar().setTitle(title);
     }
 
+    /**
+     *  This method pops up a toast.
+     * @param value , the message we want to print in the toast
+     */
     @Override
     public void showToast(String value) {
         Toast.makeText(this, value, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * This methods helps us to find a specific passenger.
+     * @param firstname , the fistName of the passenger
+     * @param lastname , the lastName of the passenger
+     * @param id , the passegner's ID number
+     */
     @Override
     public void findPassenger(String firstname,String lastname,String id){
         Intent intent = new Intent(this, PrintTicketActivity.class);
@@ -59,6 +88,10 @@ public class FindPassengerActivity extends AppCompatActivity implements FindPass
         startActivityForResult(intent,10);
     }
 
+    /**
+     * This method creates the layout and initializes the activity.
+     * @param savedInstanceState , the Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +108,12 @@ public class FindPassengerActivity extends AppCompatActivity implements FindPass
         });
     }
 
+    /**
+     * This method recreates the activity with a new instance in case of the requested code gets the value "1".
+     * @param requestCode , the requested code
+     * @param resultCode , the result code
+     * @param data , the intent
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);

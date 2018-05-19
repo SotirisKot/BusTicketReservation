@@ -13,6 +13,11 @@ public class PrintTicketPresenter {
     private PrintTicketView view;
     private ScheduleDAO scheduleDAO;
 
+    /**
+     * This method initializes the Presenter in order to be able a user to choose a seat.
+     * @param view , an instance of view
+     * @param scheduleDAO , an instance of ScheduleDAO
+     */
     public PrintTicketPresenter(PrintTicketView view,ScheduleDAO scheduleDAO){
         this.view = view;
         this.scheduleDAO = scheduleDAO;
@@ -39,7 +44,10 @@ public class PrintTicketPresenter {
 
     }
 
-
+    /**
+     * This method helps is to find a ticket for any passenger.
+     * @return a Ticket object if there is any available(ticket) or else null
+     */
     private Ticket findTicketForPassenger(){
         Ticket presentedTicket = new Ticket();
         Schedule sc = scheduleDAO.findAll().get(0);
@@ -60,14 +68,25 @@ public class PrintTicketPresenter {
         }
     }
 
+    /**
+     * This method pops up a toast with a message.
+     * @param message , the message that is being displayed in the toast
+     */
     public void onShowToast(String message){
         view.showToast(message);
     }
 
+    /** This method shows alert messages
+     * @param message , the alert message we want to print
+     */
     public void onShowAlertMessage(String message){
         view.showAlertMessage(message);
     }
 
+    /**
+     * This method helps us to print a passenger's ticket.
+     * @param message, the message we want to print
+     */
     public void onPrintTicket(String message){
         view.printTicket(message);
     }

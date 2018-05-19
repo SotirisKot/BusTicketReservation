@@ -60,7 +60,7 @@ public class TicketOverviewPresenter {
     }
 
     /**
-     *  This method validates letters.
+     * This method validates letters.
      * @param name , a specific name
      * @return "true" if the letter is valid or else "false"
      */
