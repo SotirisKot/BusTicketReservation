@@ -120,6 +120,7 @@ public abstract class Initializer {
         Destinations.add("Λιγουριο");
         Destinations.add("Πορτοχελι");
         Destinations.add("Τριζινα");
+        Destinations.add("Κουτσοποδι");
 
         DeparturePoints.add("Αθηνα");
         DeparturePoints.add("Θεσσαλονικη");
@@ -141,6 +142,7 @@ public abstract class Initializer {
         DeparturePoints.add("Δρεπανο");
         DeparturePoints.add("Τολο");
         DeparturePoints.add("Καλαματα");
+        DeparturePoints.add("Κουτσοποδι");
 
         DepartureTimes.add("7:00PM");
         DepartureTimes.add("8:00PM");

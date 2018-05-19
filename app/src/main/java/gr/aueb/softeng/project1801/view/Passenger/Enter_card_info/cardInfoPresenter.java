@@ -59,7 +59,7 @@ public class cardInfoPresenter {
      * @param name , a specific name
      * @return "true" if the letter is valid or else "false"
      */
-    private boolean validateOnlyLetters(String name){
+    public boolean validateOnlyLetters(String name){
         if(name .equals("")){
             return false;
         }else {
@@ -77,7 +77,7 @@ public class cardInfoPresenter {
      * @param date , a specific date
      * @return "true" if the date is valid or else "false"
      */
-    private boolean validateDate(String date){
+    public boolean validateDate(String date){
         String[] parts = date.replaceAll("\\s+"," ").split("/");
         try {
             if(Integer.parseInt(parts[0]) >= 2018 && Integer.parseInt(parts[1]) > 0 && Integer.parseInt(parts[1]) <=12
@@ -95,7 +95,7 @@ public class cardInfoPresenter {
      * @param code , a specific code
      * @return "true" if the code is valid or else "false"
      */
-    private boolean validateOnlyDigits(String code){
+    public boolean validateOnlyDigits(String code){
         for(int i = 0; i < code.length(); i++)
             if(!Character.isDigit(code.charAt(i)))
                 return false;
@@ -111,7 +111,7 @@ public class cardInfoPresenter {
      */
     public void onClickContinue(String name,String code,String cv,String expirationDate){
         if(!validateOnlyLetters(name)){
-            view.showAlertMessage("Name filed must not be empty and must be only letters.");
+            view.showAlertMessage("Name field must not be empty and must be only letters.");
             return;
         }
 
@@ -147,7 +147,6 @@ public class cardInfoPresenter {
             for(int i=0; i<parts1.length; i++){
                 presentedRoute.setAvailableSeats(presentedRoute.getAvailableSeats() - 1);
                 presentedRoute.saveSeat(parts1[i]);
-                System.out.println(parts1[i]);
             }
             view.clickCheckout("Purchase completed!");
         }else{

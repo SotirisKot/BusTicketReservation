@@ -64,7 +64,7 @@ public class TicketOverviewPresenter {
      * @param name , a specific name
      * @return "true" if the letter is valid or else "false"
      */
-    private boolean validateOnlyLetters(String name){
+    public boolean validateOnlyLetters(String name){
         if(name .equals("")){
             return false;
         }else {

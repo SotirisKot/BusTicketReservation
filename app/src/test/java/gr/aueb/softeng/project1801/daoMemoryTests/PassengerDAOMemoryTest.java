@@ -1,10 +1,13 @@
 package gr.aueb.softeng.project1801.daoMemoryTests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import gr.aueb.softeng.project1801.DomainModel.Passenger;
+import gr.aueb.softeng.project1801.dao.Initializer;
 import gr.aueb.softeng.project1801.dao.PassengerDAO;
+import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 import gr.aueb.softeng.project1801.memorydao.PassengerDAOMemory;
 
 import static org.junit.Assert.*;
@@ -16,6 +19,7 @@ public class PassengerDAOMemoryTest {
     private Passenger passenger3 = new Passenger();
     private Passenger passenger4 = new Passenger();
     private PassengerDAO passengerDAO;
+    private Initializer dataHelper = new DataInitializer();
 
     /**
      * Initializing data.
@@ -28,8 +32,8 @@ public class PassengerDAOMemoryTest {
         passenger2.setNumberID("4512");
         passenger3.setNumberID("5733");
         passenger4.setNumberID("1674");
-
-        passengerDAO = new PassengerDAOMemory();
+        dataHelper.prepareData();
+        passengerDAO = dataHelper.getPassengerData();
 
         passengerDAO.save(passenger1);
         passengerDAO.save(passenger2);
@@ -38,13 +42,17 @@ public class PassengerDAOMemoryTest {
 
     }
 
+    @After
+    public void tearDown(){
+    }
+
     /**
      * Saving a new passenger.
      *
      * This method saves a new passenger in the database.
      */
     @Test
-    public void save() {
+    public void savePassenger() {
         Passenger passenger5 = new Passenger();
         passenger5.setNumberID("1542");
         passengerDAO.save(passenger5);
@@ -57,7 +65,7 @@ public class PassengerDAOMemoryTest {
      * This method deletes a passenger from the database.
      */
     @Test
-    public void delete() {
+    public void deletePassenger() {
         Passenger passenger5 = new Passenger();
         passenger5.setNumberID("1542");
         passengerDAO.save(passenger5);
@@ -72,7 +80,7 @@ public class PassengerDAOMemoryTest {
      * This method finds a passenger based on the PassengerID.
      */
     @Test
-    public void find() {
+    public void findPassenger() {
         Passenger passenger5 = new Passenger();
         passenger5.setNumberID("1542");
         passengerDAO.save(passenger5);
@@ -85,12 +93,12 @@ public class PassengerDAOMemoryTest {
      * This method finds and returns all the passengers that are saved in the database.
      */
     @Test
-    public void findAll() {
+    public void findAllPassenger() {
         assertTrue(passengerDAO.findAll().contains(passenger1));
         assertTrue(passengerDAO.findAll().contains(passenger2));
         assertTrue(passengerDAO.findAll().contains(passenger3));
         assertTrue(passengerDAO.findAll().contains(passenger4));
-        assertTrue(passengerDAO.findAll().size() == 4);
+        assertTrue(passengerDAO.findAll().size() == 5);
 
     }
 }

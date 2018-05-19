@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.SeatRow;
+import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
+import gr.aueb.softeng.project1801.dao.RouteDAO;
+import gr.aueb.softeng.project1801.memorydao.RouteDAOMemory;
 
 public class ChooseSeatPresenter {
 
@@ -14,12 +17,18 @@ public class ChooseSeatPresenter {
     /**
      * This method initializes the Presenter in order to be able a user to choose a seat.
      * @param view , an instance of view
-     * @param selectedRoute , an instance of Route
+     * @param routeDAO , an instance of Route
      */
-    public ChooseSeatPresenter(ChooseSeatView view, Route selectedRoute){
+    public ChooseSeatPresenter(ChooseSeatView view, RouteDAO routeDAO){
 
         this.view = view;
-        this.selectedRoute = selectedRoute;
+
+        routeDAO = new RouteDAOMemory();
+        String date = view.getDepartureDate();
+        String[] parts = date.split("/");
+        SystemCalendar calendar = new SystemCalendar(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
+
+        this.selectedRoute = routeDAO.find(view.getDestination(),view.getDepartureTime(),view.getDeparturePoint(),calendar);
 
         view.setActivityName("You must select: " + view.getSeats() + " seats");
         temp = Integer.parseInt(view.getSeats());
@@ -31,7 +40,6 @@ public class ChooseSeatPresenter {
      * @param seat , an instance of seatRow
      */
     public void onClickSeat(SeatRow seat){
-
         if(seat.getText().equals("T")){
 
             view.showToast("Seat already taken");
@@ -57,7 +65,6 @@ public class ChooseSeatPresenter {
      */
     private List<SeatRow> createData(){
         List<SeatRow> data = new ArrayList<>();
-
         for(int i=0; i<selectedRoute.getRouteBus().getBusSeats(); i++){
             if(selectedRoute.getSavedSeats().contains(String.valueOf(i))){
                 data.add(new SeatRow("T",i));

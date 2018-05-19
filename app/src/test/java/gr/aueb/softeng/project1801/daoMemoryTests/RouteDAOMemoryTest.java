@@ -1,12 +1,15 @@
 package gr.aueb.softeng.project1801.daoMemoryTests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 
 import gr.aueb.softeng.project1801.DomainModel.Route;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
+import gr.aueb.softeng.project1801.dao.Initializer;
 import gr.aueb.softeng.project1801.dao.RouteDAO;
+import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 import gr.aueb.softeng.project1801.memorydao.RouteDAOMemory;
 
 import static org.junit.Assert.*;
@@ -18,7 +21,7 @@ public class RouteDAOMemoryTest {
     private Route route3 = new Route();
     private Route route4 = new Route();
     private RouteDAO routeDAO;
-
+    private Initializer dataHelper = new DataInitializer();
 
     /**
      * Initializing data.
@@ -38,13 +41,17 @@ public class RouteDAOMemoryTest {
 
         route4.setDestination("Oropos");
         route4.setDepartureTime("13:00");
-
-        routeDAO = new RouteDAOMemory();
+        dataHelper.prepareData();
+        routeDAO = dataHelper.getRouteData();
         routeDAO.save(route1);
         routeDAO.save(route2);
         routeDAO.save(route3);
         routeDAO.save(route4);
 
+    }
+
+    @After
+    public void tearDown(){
     }
 
     /**
@@ -53,7 +60,7 @@ public class RouteDAOMemoryTest {
      * This method saves a new route in the database.
      */
     @Test
-    public void save() {
+    public void saveRoute() {
         Route route5 = new Route();
         route5.setDestination("Olimpos");
         route5.setDepartureTime("10:00");
@@ -68,7 +75,7 @@ public class RouteDAOMemoryTest {
      * This method deletes a route from the database.
      */
     @Test
-    public void delete() {
+    public void deleteRoute() {
         Route route5 = new Route();
         route5.setDestination("Olimpos");
         route5.setDepartureTime("10:00");
@@ -84,7 +91,7 @@ public class RouteDAOMemoryTest {
      * This method finds a route based on the Route destination.
      */
     @Test
-    public void find() {
+    public void findRoute() {
         Route route5 = new Route();
         route5.setDestination("Olimpos");
         route5.setDepartureTime("10:00");
@@ -101,12 +108,12 @@ public class RouteDAOMemoryTest {
      * This method finds and returns all the routes that are saved in the database.
      */
     @Test
-    public void findAll() {
+    public void findAllRoutes() {
         assertTrue(routeDAO.findAll().contains(route1));
         assertTrue(routeDAO.findAll().contains(route2));
         assertTrue(routeDAO.findAll().contains(route3));
         assertTrue(routeDAO.findAll().contains(route4));
-        assertTrue(routeDAO.findAll().size() == 4);
+        assertTrue(routeDAO.findAll().size() == 10);
 
     }
 }

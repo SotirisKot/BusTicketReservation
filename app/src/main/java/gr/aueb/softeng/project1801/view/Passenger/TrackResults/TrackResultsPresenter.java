@@ -39,7 +39,7 @@ public class TrackResultsPresenter {
      * This method pops up a toast with a message.
      * @param value , the message that is being displayed in the toast
      */
-    void onShowToast(String value)
+    public void onShowToast(String value)
     {
         view.showToast(value);
     }

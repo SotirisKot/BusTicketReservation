@@ -1,6 +1,8 @@
 package gr.aueb.softeng.project1801.DomainModel;
 
 
+import java.util.Objects;
+
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
 
 public class Card {
@@ -89,40 +91,17 @@ public class Card {
      * Comparing two objects.
      *
      * This method checks if two object are the same.
-     * @param other must be an object.
+     * @param o must be an object.
      */
     @Override
-    public boolean equals(Object other){
-        if(other == null){
-            return false;
-        }
-
-        if(this == other){
-            return false;
-        }
-
-        Card theCard = (Card) other;
-        if(! (CardHolderName == null ? theCard.CardHolderName == null
-                : CardHolderName.equals(theCard.CardHolderName))){
-            return false;
-        }
-
-        if(! (CardID == null ? theCard.CardID == null
-                : CardID.equals(theCard.CardID))){
-            return false;
-        }
-
-        if(! (ExpirationDate == null ? theCard.ExpirationDate == null
-                : ExpirationDate.equals(theCard.ExpirationDate))){
-            return false;
-        }
-
-        if(! (CVcode == 0 ? theCard.CVcode == 0
-                : CVcode == theCard.CVcode)){
-            return false;
-        }
-
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return CVcode == card.CVcode &&
+                CardHolderName.equals(card.CardHolderName) &&
+                CardID.equals(card.CardID) &&
+                ExpirationDate.equals(card.ExpirationDate);
     }
 
     /**

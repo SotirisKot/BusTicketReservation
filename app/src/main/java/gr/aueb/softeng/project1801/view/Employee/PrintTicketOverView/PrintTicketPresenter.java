@@ -48,7 +48,7 @@ public class PrintTicketPresenter {
      * This method helps is to find a ticket for any passenger.
      * @return a Ticket object if there is any available(ticket) or else null
      */
-    private Ticket findTicketForPassenger(){
+    public Ticket findTicketForPassenger(){
         Ticket presentedTicket = new Ticket();
         Schedule sc = scheduleDAO.findAll().get(0);
         boolean found = true;

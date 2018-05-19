@@ -4,7 +4,8 @@ import gr.aueb.softeng.project1801.view.Employee.PrintTicketOverView.PrintTicket
 
 public class PrintTicketViewStub implements PrintTicketView {
 
-    private String destination, departurePoint, departureDate, passengerID, estimatedArrivalTime, firstName, lastName, departureTime, price, type, seats, message, value, title;
+    private String destination, departurePoint, departureDate, passengerID, estimatedArrivalTime,
+            firstName, lastName, departureTime, price, type, seats, message, value, title,printMessage;
 
     /**
      * This method sets a specific destination.
@@ -100,7 +101,8 @@ public class PrintTicketViewStub implements PrintTicketView {
      * Constructor
      */
     public PrintTicketViewStub() {
-        destination = departurePoint = departureDate = passengerID = estimatedArrivalTime = firstName = lastName = departureTime = price = type = seats = message = value = title = "";
+        printMessage = destination = departurePoint = departureDate = passengerID = estimatedArrivalTime
+                = firstName = lastName = departureTime = price = type = seats = message = value = title = "";
     }
 
     /**
@@ -135,6 +137,7 @@ public class PrintTicketViewStub implements PrintTicketView {
      */
     @Override
     public void kill() {
+        showToast("Cannot find Ticket");
     }
 
     /**
@@ -166,11 +169,11 @@ public class PrintTicketViewStub implements PrintTicketView {
 
     /**
      * This method helps us to print a passenger's ticket.
-     * @param message , the message we want to print
+     * @param printMessage , the message we want to print
      */
     @Override
-    public void printTicket(String message) {
-        this.message = message;
+    public void printTicket(String printMessage) {
+        this.printMessage = printMessage;
     }
 
     /**
@@ -304,5 +307,9 @@ public class PrintTicketViewStub implements PrintTicketView {
      */
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getPrintMessage() {
+        return printMessage;
     }
 }

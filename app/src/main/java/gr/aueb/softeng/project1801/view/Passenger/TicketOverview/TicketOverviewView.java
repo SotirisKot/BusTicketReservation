@@ -139,7 +139,7 @@ public interface TicketOverviewView {
      * This method returns the number of seats.
      * @return a String object that has the number of seats
      */
-    String getSeat();
+     String getSeat();
 
     /**
      * This method shows alert messages

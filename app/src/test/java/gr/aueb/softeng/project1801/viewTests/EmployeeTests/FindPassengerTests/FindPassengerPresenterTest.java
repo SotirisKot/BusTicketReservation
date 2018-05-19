@@ -1,5 +1,6 @@
 package gr.aueb.softeng.project1801.viewTests.EmployeeTests.FindPassengerTests;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,6 +26,9 @@ public class FindPassengerPresenterTest {
         dataHelper = new DataInitializer();
         dataHelper.prepareData();
         viewStub = new FindPassengerViewStub();
+        viewStub.setFirstName("Sotiris");
+        viewStub.setLastName("Kotitsas");
+        viewStub.setPassengerID("ΝΑ1276442282");
         presenter = new FindPassengerPresenter(viewStub);
     }
 
@@ -33,6 +37,9 @@ public class FindPassengerPresenterTest {
      */
     @Test
     public void onShowToast() {
+        Assert.assertEquals("", viewStub.getValue());
+        presenter.onShowToast("hello");
+        Assert.assertEquals("hello", viewStub.getValue());
     }
 
     /**
@@ -40,6 +47,9 @@ public class FindPassengerPresenterTest {
      */
     @Test
     public void onShowAlertMessage() {
+        Assert.assertEquals("", viewStub.getMessage());
+        presenter.onShowAlertMessage("hello");
+        Assert.assertEquals("hello", viewStub.getMessage());
     }
 
     /**
@@ -48,6 +58,8 @@ public class FindPassengerPresenterTest {
      */
     @Test
     public void onGetPassengerFirstname() {
+        viewStub.setFirstName("Sotiris");
+        Assert.assertEquals("Sotiris", presenter.onGetPassengerFirstname());
     }
 
     /**
@@ -56,6 +68,8 @@ public class FindPassengerPresenterTest {
      */
     @Test
     public void onGetPassengerLastname() {
+        viewStub.setLastName("Kot");
+        Assert.assertEquals("Kot", presenter.onGetPassengerLastname());
     }
 
     /**
@@ -64,12 +78,50 @@ public class FindPassengerPresenterTest {
      */
     @Test
     public void onGetPassengerID() {
+        viewStub.setPassengerID("NA12345");
+        Assert.assertEquals("NA12345", presenter.onGetPassengerID());
     }
 
     /**
      * This methods helps us to find a specific passenger.
      */
     @Test
-    public void onFindPassenger() {
+    public void onFindPassengerWithInvalidFirstName() {
+        viewStub.setFirstName("Sotiris1");
+        presenter.onFindPassenger(viewStub.getFirstname(),viewStub.getLastname(),viewStub.getPassengerID());
+        Assert.assertEquals("Names must be only letters",viewStub.getMessage());
+    }
+
+    /**
+     * This methods helps us to find a specific passenger.
+     */
+    @Test
+    public void onFindPassengerWithInvalidLastName() {
+        viewStub.setLastName("Sotiris1");
+        presenter.onFindPassenger(viewStub.getFirstname(),viewStub.getLastname(),viewStub.getPassengerID());
+        Assert.assertEquals("Names must be only letters",viewStub.getMessage());
+    }
+
+    /**
+     * This methods helps us to find a specific passenger.
+     */
+    @Test
+    public void onFindPassengerWithValidInfo() {
+        presenter.onFindPassenger(viewStub.getFirstname(),viewStub.getLastname(),viewStub.getPassengerID());
+        Assert.assertEquals("Sotiris",viewStub.getFirstname());
+        Assert.assertEquals("Kotitsas",viewStub.getLastname());
+        Assert.assertEquals("ΝΑ1276442282",viewStub.getPassengerID());
+    }
+
+    @Test
+    public void ValidateLettersWithInvalidName() {
+        viewStub.setFirstName("Sotiris123");
+        Assert.assertTrue(!presenter.validateOnlyLetters(viewStub.getFirstname()));
+    }
+
+    @Test
+    public void ValidateLettersWithValidName() {
+        viewStub.setFirstName("sotiris");
+        Assert.assertTrue(presenter.validateOnlyLetters(viewStub.getFirstname()));
     }
 }

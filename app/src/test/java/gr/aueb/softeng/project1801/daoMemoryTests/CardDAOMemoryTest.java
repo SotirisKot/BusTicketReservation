@@ -1,12 +1,15 @@
 package gr.aueb.softeng.project1801.daoMemoryTests;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import gr.aueb.softeng.project1801.DomainModel.Card;
 import gr.aueb.softeng.project1801.dao.CardDAO;
+import gr.aueb.softeng.project1801.dao.Initializer;
 import gr.aueb.softeng.project1801.memorydao.CardDAOMemory;
+import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +20,7 @@ public class CardDAOMemoryTest {
     private Card card3 = new Card();
     private Card card4 = new Card();
     private CardDAO cardDAO;
+    private Initializer dataHelper = new DataInitializer();
 
     /**
      * Initializing data.
@@ -30,7 +34,8 @@ public class CardDAOMemoryTest {
         card3.setCardHolderName("Tasos Lepipas");
         card4.setCardHolderName("Nikos Lyberopoulos");
 
-        cardDAO = new CardDAOMemory();
+        dataHelper.prepareData();
+        cardDAO = dataHelper.getCardData();
         cardDAO.save(card1);
         cardDAO.save(card2);
         cardDAO.save(card3);
@@ -46,7 +51,7 @@ public class CardDAOMemoryTest {
      * This method deletes a card from the database.
      */
     @Test
-    public void delete() {
+    public void deleteCard() {
         Card card5 = new Card();
         card5.setCardHolderName("Toni Montana");
         cardDAO.save(card5);
@@ -61,14 +66,12 @@ public class CardDAOMemoryTest {
      * This method saves a new card in the database.
      */
     @Test
-    public void save(){
+    public void saveCard(){
         Card card5 = new Card();
         card5.setCardHolderName("Toni Montana");
         cardDAO.save(card5);
-
-        assertTrue(cardDAO.findAll().contains(card5));
-        assertTrue(cardDAO.find("Toni Montana").equals(card5));
-
+        Assert.assertTrue(cardDAO.findAll().contains(card5));
+        Assert.assertNotNull(cardDAO.find("Toni Montana"));
     }
 
     /**
@@ -76,7 +79,7 @@ public class CardDAOMemoryTest {
      * This method finds and returns all the cards that are saved in the database.
      */
     @Test
-    public void findAll(){
+    public void findAllCards(){
         assertTrue(cardDAO.findAll().contains(card1));
         assertTrue(cardDAO.findAll().contains(card2));
         assertTrue(cardDAO.findAll().contains(card3));
@@ -90,7 +93,7 @@ public class CardDAOMemoryTest {
      * This method finds a card based on the CardID.
      */
     @Test
-    public void find() {
+    public void findCard() {
         Card card5 = new Card();
         card5.setCardHolderName("Toni Montana");
         cardDAO.save(card5);

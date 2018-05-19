@@ -101,12 +101,6 @@ public class TrackResultsViewStub implements TrackResultsView {
         this.message = message;
     }
 
-    /**
-     * This method terminates the process
-     */
-    @Override
-    public void kill() {
-    }
 
     /** This method returns the value.
      * @return the value
@@ -136,5 +130,13 @@ public class TrackResultsViewStub implements TrackResultsView {
      */
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    /**
+     * This method terminates the process
+     */
+    @Override
+    public void kill() {
+        showAlertMessage("Route does not exist");
     }
 }

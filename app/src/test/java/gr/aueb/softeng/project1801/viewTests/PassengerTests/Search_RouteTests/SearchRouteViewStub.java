@@ -1,7 +1,9 @@
 package gr.aueb.softeng.project1801.viewTests.PassengerTests.Search_RouteTests;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import gr.aueb.softeng.project1801.SysUtils.DataRow;
 import gr.aueb.softeng.project1801.view.Passenger.Search_Route.SearchRouteView;
@@ -10,22 +12,23 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     private String destination, departurePoint, departureDate, departureTime, seats, value, message;
     private List<DataRow> data;
+    private Map<String, Integer> clicksCount;
 
     /**
-     * This method method redirects the user to another activity after a click event.
      *
-     * @param destination    , the destination of the route
-     * @param departurePoint , the departure point of the route
-     * @param departureDate  , the departure date of the route
-     * @param departureTime  , the departure time of the route
-     * @param seats          , a specific seat in the bus
+     * This method method redirects the user to another activity after a click event.
+     * @param departurePoint, the departure point of the route
+     * @param destination, the destination of the route
+     * @param departureDate, the departure date of the route
+     * @param departureTime, the departure time of the route
      */
     @Override
-    public void clickItem(String destination, String departurePoint, String departureDate, String departureTime, String seats) {
+    public void clickItem(String destination, String departurePoint, String departureDate, String departureTime,String seats) {
+        clicksCount.put(destination,(clicksCount.containsKey(destination) ? clicksCount.get(destination) : 0)+1);
         this.destination = destination;
         this.departurePoint = departurePoint;
         this.departureDate = departureDate;
-        this.departurePoint = departureTime;
+        this.departureTime = departureTime;
         this.seats = seats;
     }
 
@@ -55,6 +58,7 @@ public class SearchRouteViewStub implements SearchRouteView {
     public SearchRouteViewStub() {
         destination = departurePoint = departureDate = departureTime = seats = value = message = "";
         data = new ArrayList<>();
+        clicksCount = new HashMap<>();
     }
 
     /**
@@ -202,5 +206,24 @@ public class SearchRouteViewStub implements SearchRouteView {
      */
     public void setSeats(String seats) {
         this.seats = seats;
+    }
+
+    public List<DataRow> getData() {
+        return data;
+    }
+
+    public void setData(List<DataRow> data) {
+        this.data = data;
+    }
+
+    /** This method returns the number of times an item was clicked.
+     * @return the number of times an item was clicked
+     */
+    public int getTimesClickedItem(String destination){
+        return clicksCount.containsKey(destination) ? clicksCount.get(destination) : 0;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
     }
 }

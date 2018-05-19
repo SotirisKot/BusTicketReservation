@@ -1,5 +1,6 @@
 package gr.aueb.softeng.project1801.daoMemoryTests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,7 +9,9 @@ import java.util.Set;
 
 import gr.aueb.softeng.project1801.DomainModel.Schedule;
 import gr.aueb.softeng.project1801.SysUtils.SystemCalendar;
+import gr.aueb.softeng.project1801.dao.Initializer;
 import gr.aueb.softeng.project1801.dao.ScheduleDAO;
+import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 import gr.aueb.softeng.project1801.memorydao.ScheduleDAOMemory;
 
 import static org.junit.Assert.*;
@@ -20,6 +23,7 @@ public class ScheduleDAOMemoryTest {
     private Schedule schedule3 = new Schedule();
     private Schedule schedule4 = new Schedule();
     private ScheduleDAO scheduleDAO;
+    private Initializer dataHelper = new DataInitializer();
 
     /**
      * Initializing data.
@@ -39,13 +43,17 @@ public class ScheduleDAOMemoryTest {
 
         schedule4.setDestination("Oropos");
         schedule4.setDeparture("Athens");
-
-        scheduleDAO = new ScheduleDAOMemory();
+        dataHelper.prepareData();
+        scheduleDAO = dataHelper.getScheduleData();
         scheduleDAO.save(schedule1);
         scheduleDAO.save(schedule2);
         scheduleDAO.save(schedule3);
         scheduleDAO.save(schedule4);
 
+    }
+
+    @After
+    public void tearDown(){
     }
 
     /**
@@ -54,7 +62,7 @@ public class ScheduleDAOMemoryTest {
      * This method saves a new schedule in the database.
      */
     @Test
-    public void save() {
+    public void saveSchedule() {
         Schedule schedule5 = new Schedule();
         schedule5.setDestination("Olimpos");
         schedule5.setDeparture("Athens");
@@ -69,7 +77,7 @@ public class ScheduleDAOMemoryTest {
      * This method deletes a schedule from the database.
      */
     @Test
-    public void delete() {
+    public void deleteSchedule() {
         Schedule schedule5 = new Schedule();
         schedule5.setDestination("Olimpos");
         schedule5.setDeparture("Athens");
@@ -85,7 +93,7 @@ public class ScheduleDAOMemoryTest {
      * This method finds a schedule based on the Schedule destination.
      */
     @Test
-    public void find() {
+    public void findSchedule() {
         Set<String> Destinations = new HashSet<>();
         Set<String> DeparturePoints = new HashSet<>();
         Set<String> DepartureTimes = new HashSet<>();
@@ -131,12 +139,12 @@ public class ScheduleDAOMemoryTest {
      * This method finds and returns all the schedules that are saved in the database.
      */
     @Test
-    public void findAll() {
+    public void findAllSchedules() {
         assertTrue(scheduleDAO.findAll().contains(schedule1));
         assertTrue(scheduleDAO.findAll().contains(schedule2));
         assertTrue(scheduleDAO.findAll().contains(schedule3));
         assertTrue(scheduleDAO.findAll().contains(schedule4));
-        assertTrue(scheduleDAO.findAll().size() == 4);
+        assertTrue(scheduleDAO.findAll().size() == 5);
 
     }
 }

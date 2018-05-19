@@ -321,7 +321,7 @@ public class Ticket {
         }
 
         if(!(PassengerSeat == null ? theTicket.PassengerSeat == null
-                : PassengerSeat == theTicket.PassengerSeat)){
+                : PassengerSeat.equals(theTicket.PassengerSeat))){
             return false;
         }
 

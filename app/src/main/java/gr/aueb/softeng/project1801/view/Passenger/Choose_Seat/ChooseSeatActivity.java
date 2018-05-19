@@ -174,13 +174,7 @@ public class ChooseSeatActivity extends AppCompatActivity implements ChooseSeatV
         gridView = (GridView) findViewById(R.id.gridviewSeat);
         gridView.setAdapter(seatAdapter);
 
-        RouteDAO routeDAO = new RouteDAOMemory();
-        String date = getDepartureDate();
-        String[] parts = date.split("/");
-        SystemCalendar calendar = new SystemCalendar(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
-
-        final Route route = routeDAO.find(getDestination(),getDepartureTime(),getDeparturePoint(),calendar);
-        presenter = new ChooseSeatPresenter(this,route);
+        presenter = new ChooseSeatPresenter(this,new RouteDAOMemory());
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

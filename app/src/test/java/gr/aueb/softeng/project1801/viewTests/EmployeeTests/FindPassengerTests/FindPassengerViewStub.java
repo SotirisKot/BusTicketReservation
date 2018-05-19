@@ -4,7 +4,7 @@ import gr.aueb.softeng.project1801.view.Employee.FindPassenger.FindPassengerView
 
 public class FindPassengerViewStub implements FindPassengerView {
 
-    private String message, title, passengerID, firstName, lastName;
+    private String message, title, passengerID, firstName, lastName,value;
 
     /**
      * This method returns a passenger's FirstName.
@@ -58,18 +58,18 @@ public class FindPassengerViewStub implements FindPassengerView {
 
     /**
      * This method pops up a toast.
-     * @param message , the message we want to print in the toast
+     * @param value , the message we want to print in the toast
      */
     @Override
-    public void showToast(String message) {
-        this.message = message;
+    public void showToast(String value) {
+        this.value = value;
     }
 
     /**
      * Constructor
      */
     public FindPassengerViewStub() {
-        message = title = passengerID = firstName = lastName = "";
+        message = title = passengerID = firstName = lastName = value = "";
     }
 
     /**
@@ -132,5 +132,9 @@ public class FindPassengerViewStub implements FindPassengerView {
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

@@ -105,13 +105,10 @@ public class TrackRouteViewStub implements TrackRouteView {
      * Constructor
      */
     public TrackRouteViewStub () {
-        destination = departurePoint = departureDate = departureTime = message = value;
+        destination = departurePoint = departureDate = departureTime = message = value ="";
         destinations = new ArrayList<>();
         departures = new ArrayList<>();
         times = new ArrayList<>();
-        destinations.add("");
-        departures.add("");
-        times.add("");
     }
 
     /**
@@ -140,13 +137,28 @@ public class TrackRouteViewStub implements TrackRouteView {
         this.departurePoint = departureTime;
     }
 
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public void setDeparturePoint(String departurePoint) {
+        this.departurePoint = departurePoint;
+    }
+
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
     /** This method returns the message.
      * @return the message
      */
     public String getMessage() {
         return message;
     }
-
 
     /**
      * This method sets a message

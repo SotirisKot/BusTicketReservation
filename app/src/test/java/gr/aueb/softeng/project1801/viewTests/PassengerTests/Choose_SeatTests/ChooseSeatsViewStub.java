@@ -114,4 +114,84 @@ public class ChooseSeatsViewStub implements ChooseSeatView {
         this.departureDate = departureDate;
         this.departureTime = departureTime;
     }
+
+    /**
+     * This method returns a value.
+     * @return value , the name_value we want to get
+     */
+    public String getValue() {
+        return value;
+    }
+
+    /**
+     * This method returns a title.
+     * @return title , the title we want to get
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * This method sets a destination.
+     * @param destination , the destination we want to set
+     */
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    /**
+     * This method sets a departure point.
+     * @param departurePoint , the departure point we want to set
+     */
+    public void setDeparturePoint(String departurePoint) {
+        this.departurePoint = departurePoint;
+    }
+
+    /**
+     * This method sets a departure date.
+     * @param departureDate , the departure date we want to set
+     */
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    /**
+     * This method sets a departureTime.
+     * @param departureTime , the departureTime we want to set
+     */
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    /**
+     * This method returns a message.
+     * @return  message , the message we want to get
+     */
+    public String getMessage() {
+        return message;
+    }
+
+    /**
+     * This method sets the seats.
+     * @param seats , the seats we want to set
+     */
+    public void setSeats(String seats) {
+        this.seats = seats;
+    }
+
+    /**
+     * This method sets the data.
+     * @param data , the data we want to set
+     */
+    public void setData(List<SeatRow> data) {
+        this.data = data;
+    }
+
+    /**
+     * This method returns the data.
+     * @return data , the data we want to get
+     */
+    public List<SeatRow> getData(){
+        return data;
+    }
 }

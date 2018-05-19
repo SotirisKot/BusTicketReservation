@@ -198,7 +198,7 @@ public class TicketTest {
 
         Assert.assertTrue(ticket.buyTicket(ticket,passenger,route));
 
-        Assert.assertEquals(passenger.getFirstName() + passenger.getLastName(),ticket.getPassengerName());
+        Assert.assertEquals(passenger.getFirstName() +" "+ passenger.getLastName(),ticket.getPassengerName());
         Assert.assertEquals(passenger.getNumberID(),ticket.getPassengerID());
     }
 

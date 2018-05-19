@@ -37,7 +37,7 @@ public class TrackRoutePresenter {
      * @param date , a specific date
      * @return "true" if the date is valid or else "false"
      */
-    private boolean validateDate(String date){
+    public boolean validateDate(String date){
         String[] parts = date.replaceAll("\\s+"," ").split("/");
         try {
             if(Integer.parseInt(parts[0]) >= 2018 && Integer.parseInt(parts[1]) > 0 && Integer.parseInt(parts[1]) <=12
@@ -54,7 +54,7 @@ public class TrackRoutePresenter {
      * This method pops up a toast with a message.
      * @param value , the message that is being displayed in the toast
      */
-    void onShowToast(String value)
+    public void onShowToast(String value)
     {
         view.ShowToast(value);
     }
@@ -67,7 +67,7 @@ public class TrackRoutePresenter {
      * @param departureDate , the departure date of the route
      * @param time, the time of the route
      */
-    void onTrackRoute(String destination,String departurePoint,String departureDate,String time){
+    public void onTrackRoute(String destination,String departurePoint,String departureDate,String time){
         if(!validateDate(departureDate)){
             view.showAlertMessage("Invalid Date...Try again!!");
         }else {
