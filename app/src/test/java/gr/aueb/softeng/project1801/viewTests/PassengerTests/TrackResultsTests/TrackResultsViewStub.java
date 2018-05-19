@@ -10,7 +10,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method returns a destination.
-     *
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -20,7 +19,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method returns a departure point.
-     *
      * @return a String object that has the departure point
      */
     @Override
@@ -30,7 +28,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method returns a departure date.
-     *
      * @return a String object that has the departure date
      */
     @Override
@@ -40,7 +37,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method returns a departure time.
-     *
      * @return a String object that has the departure time
      */
     @Override
@@ -57,7 +53,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method sets a specific destination.
-     *
      * @param destination , a String object that contains the destination
      */
     public void setDestination(String destination) {
@@ -66,7 +61,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method sets a specific departure point.
-     *
      * @param departurePoint , a String object that contains the departure point
      */
     public void setDeparturePoint(String departurePoint) {
@@ -75,7 +69,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method sets a specific departure date.
-     *
      * @param departureDate , a String object that contains the departure date
      */
     public void setDepartureDate(String departureDate) {
@@ -84,7 +77,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method sets a specific departure time.
-     *
      * @param departureTime , a String object that contains the departure time
      */
     public void setDepartureTime(String departureTime) {
@@ -93,7 +85,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method pops up a toast.
-     *
      * @param value , the message we want to print in the toast
      */
     @Override
@@ -103,12 +94,18 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method shows alert messages
-     *
      * @param message , the alert message we want to print
      */
     @Override
     public void showAlertMessage(String message) {
         this.message = message;
+    }
+
+    /**
+     * This method terminates the process
+     */
+    @Override
+    public void kill() {
     }
 
     /** This method returns the value.
@@ -120,7 +117,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method sets a value
-     *
      * @param value , the message "value" we want to print
      */
     public void setValue(String value) {
@@ -136,7 +132,6 @@ public class TrackResultsViewStub implements TrackResultsView {
 
     /**
      * This method sets a message
-     *
      * @param message , the message we want to print
      */
     public void setMessage(String message) {

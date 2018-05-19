@@ -237,4 +237,20 @@ public class TicketOverviewViewStubs implements TicketOverviewView {
     public void showAlertMessage(String message) {
         this.message = message;
     }
+
+    /**
+     * This methods helps us to set the fistName of a passenger.
+     * @param firstName , the firstName of the passenger
+     */
+    public void setPassengerFirstname(String firstName) {
+        this.firstName = firstName;
+    }
+
+    /**
+     * This methods helps us to set the lastName of a passenger.
+     * @param lastName , the lastName of the passenger
+     */
+    public void setPassengerLastname(String lastName) {
+        this.lastName = lastName;
+    }
 }

@@ -15,6 +15,11 @@ public class BuyTicketPresenterTest {
     private BuyTicketsViewStub viewStub;
     private String date1,date2,date3,date4;
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,BuyTicketPresenter,BuyTicketsViewStub object and sets values to it.
+     */
     @Before
     public void setUp() throws Exception{
         dataHelper = new DataInitializer();
