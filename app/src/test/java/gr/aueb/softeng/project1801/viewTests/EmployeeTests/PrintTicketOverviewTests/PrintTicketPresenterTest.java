@@ -42,6 +42,23 @@ public class PrintTicketPresenterTest {
         viewStub.setPassengerFirstname("Sot");
         viewStub.setPassengerLastname("Kot");
         viewStub.setPassengerID("SK123");
+        passengerDAO = dataHelper.getPassengerData();
+        routeDAO = dataHelper.getRouteData();
+        Route route = routeDAO.find("Αθηνα","9:00AM","Ναυπλιο",new SystemCalendar(2018,4,23));
+        Passenger passenger = passengerDAO.find("SK123");
+        Ticket ticket = new Ticket();
+        ticket.setDestinationTicket(route.getDestination());
+        ticket.setDeparturePointTicket(route.getDeparturePoint());
+        ticket.setDepartureTimeTicket(route.getDepartureTime());
+        ticket.setDepartureDateTicket(route.getDepartureDate());
+        ticket.setPassenger(passenger);
+        ticket.setPassengerName(passenger.getFirstName()+" "+passenger.getLastName());
+        ticket.setPassengerID(passenger.getNumberID());
+        ticket.setPassengerSeat("9");
+        ticket.setPrice(7.5);
+        ticket.setEstimatedArrivalTimeTicket("11:00PM");
+        ticket.setRoute(route);
+        route.addTicket(ticket);
         presenter = new PrintTicketPresenter(viewStub, dataHelper.getScheduleData());
     }
 
@@ -49,10 +66,22 @@ public class PrintTicketPresenterTest {
      * This method pops up a toast.
      */
     @Test
-    public void onShowToastWhenTicketNull() {
-        Assert.assertEquals("Cannot find Ticket", viewStub.getValue());
+    public void onShowToastWhenTicketNotNull() {
+        Assert.assertEquals("", viewStub.getValue());
         presenter.onShowToast("hello");
         Assert.assertEquals("hello", viewStub.getValue());
+    }
+
+    /**
+     * This method pops up a toast.
+     */
+    @Test
+    public void onShowToastWhenTicketNull() {
+        PrintTicketViewStub viewStub1 = new PrintTicketViewStub();
+        PrintTicketPresenter presenter1 = new PrintTicketPresenter(viewStub1,dataHelper.getScheduleData());
+        Assert.assertEquals("Cannot find Ticket", viewStub1.getValue());
+        presenter1.onShowToast("hello");
+        Assert.assertEquals("hello", viewStub1.getValue());
     }
 
     /**

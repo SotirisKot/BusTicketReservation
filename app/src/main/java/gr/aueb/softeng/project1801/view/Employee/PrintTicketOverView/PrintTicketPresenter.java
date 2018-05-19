@@ -27,6 +27,7 @@ public class PrintTicketPresenter {
 
         Ticket ticket = findTicketForPassenger();
         if(ticket == null){
+            System.out.println("geiaa");
             view.kill();
         }else{
             view.setDeparturePoint(ticket.getDeparturePointTicket());
