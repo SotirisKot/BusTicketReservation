@@ -7,7 +7,7 @@ import gr.aueb.softeng.project1801.view.Passenger.Track_Route.TrackRouteView;
 
 public class TrackRouteViewStub implements TrackRouteView {
 
-    private String destination, departurePoint, departureDate, departureTime,message, value;
+    private String destination, departurePoint, departureDate, departureTime, message, value;
     private List<String> destinations, departures, times;
 
 
@@ -136,4 +136,22 @@ public class TrackRouteViewStub implements TrackRouteView {
         this.departureDate = departureDate;
         this.departurePoint = departureTime;
     }
+
+    /** This method returns the message.
+     * @return the message
+     */
+    public String getMessage() {
+        return message;
+    }
+
+
+    /**
+     * This method sets a message
+     *
+     * @param message , the message we want to print
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
 }
