@@ -31,6 +31,11 @@ public interface SearchRouteView {
 
     /** This method shows alert messages
      * @param message , the alert message we want to print
+     * @param destination    , the destination of the route
+     * @param departurePoint , the departure point of the route
+     * @param departureDate  , the departure date of the route
+     * @param departureTime  , the departure time of the route
+     * @param seats          , a specific seat in the bus
      */
     void showAlertMessage(String message,String destination,String departurePoint,String departureDate,String departureTime,String seats);
 

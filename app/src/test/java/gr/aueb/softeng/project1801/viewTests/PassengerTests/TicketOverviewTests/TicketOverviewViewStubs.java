@@ -162,6 +162,9 @@ public class TicketOverviewViewStubs implements TicketOverviewView {
         this.types = types;
     }
 
+    /**
+     * Constructor
+     */
     public TicketOverviewViewStubs() {
         destination = departurePoint = departureDate = passengerID = estimatedArrivalTime = firstName = lastName = departureTime = price = type = seats = message = value = title = "";
         seatsList = new ArrayList<>();

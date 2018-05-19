@@ -101,6 +101,9 @@ public class TrackRouteViewStub implements TrackRouteView {
         return departureTime;
     }
 
+    /**
+     * Constructor
+     */
     public TrackRouteViewStub () {
         destination = departurePoint = departureDate = departureTime = message = value;
         destinations = new ArrayList<>();

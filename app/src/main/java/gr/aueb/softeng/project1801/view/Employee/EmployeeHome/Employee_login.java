@@ -36,6 +36,9 @@ public class Employee_login extends AppCompatActivity implements View.OnClickLis
     }
 
 
+    /** This method is being called when a view has been clicked.So it chooses what to do after the user's specific click.
+     * @param v , the View that was clicked
+     */
     @Override
     public void onClick(View v){
         switch(v.getId()){
