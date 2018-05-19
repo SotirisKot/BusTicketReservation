@@ -5,12 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import gr.aueb.softeng.project1801.view.R;
 
 public class Owner_login extends AppCompatActivity implements View.OnClickListener {
     Button btn_next;
+    private String owner1 = "Sotiris";
+    private String owner2 = "Tasos";
+    private String owner3 = "George";
+    private String pass1 = "1801";
+    private EditText name,pass;
 
     /** This method creates the layout and initializes the activity.
      * @param savedInstanceState , the Instance state
@@ -22,6 +28,9 @@ public class Owner_login extends AppCompatActivity implements View.OnClickListen
 
         btn_next = (Button) findViewById(R.id.btn_next);
         btn_next.setOnClickListener(this);
+
+        name = (EditText) findViewById(R.id.name);
+        pass = (EditText) findViewById(R.id.pass);
     }
 
 
@@ -32,10 +41,16 @@ public class Owner_login extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v){
         switch(v.getId()){
             case R.id.btn_next:
-                Toast.makeText(this,"Ιδιοκτήτης εισήλθε!",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this,Owner_View.class);
-                startActivity(intent);
-                break;
+                if((name.getText().toString()).equals(owner1) || (name.getText().toString()).equals(owner2)
+                        || (name.getText().toString()).equals(owner3) && (pass.getText().toString()).equals(pass1)){
+
+                    Intent intent = new Intent(this,Owner_View.class);
+                    Toast.makeText(this,"Ιδιοκτητης εισήλθε",Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                    break;
+                }else{
+                    Toast.makeText(this,"Wrong username or password",Toast.LENGTH_LONG).show();
+                }
         }
     }
 }

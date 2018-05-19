@@ -98,6 +98,7 @@ public class ManageRoutesPresenter  {
     public void addRoute(){
         RouteDAO routes = new RouteDAOMemory();
         String Destination = view.getDestination();
+        System.out.println(Destination.equals(""));
         String DepartureTime = view.getDepartureTime();
         String DeparturePoint = view.getDeparturepoint();
         String EstimatedArrivalTime = view.getEstimatedArrivalTime();

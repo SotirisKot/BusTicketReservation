@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import gr.aueb.softeng.project1801.view.R;
@@ -12,8 +13,11 @@ import gr.aueb.softeng.project1801.view.R;
 public class Employee_login extends AppCompatActivity implements View.OnClickListener {
 
 
-
+    private String employee = "George";
+    private String passEmpl = "1801";
     private Button button_next;
+    private EditText name,pass;
+
 
 
     /** This method creates the layout and initializes the activity.
@@ -26,6 +30,9 @@ public class Employee_login extends AppCompatActivity implements View.OnClickLis
 
         button_next = (Button) findViewById(R.id.button_next);
         button_next.setOnClickListener(this);
+
+        name = (EditText) findViewById(R.id.name);
+        pass = (EditText) findViewById(R.id.pass);
     }
 
 
@@ -33,10 +40,15 @@ public class Employee_login extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v){
         switch(v.getId()){
             case R.id.button_next:
-                Toast.makeText(this,"Ιδιοκτήτης εισήλθε!",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this,Employee_View.class);
-                startActivity(intent);
-                break;
+                if((name.getText().toString()).equals(employee) && (pass.getText().toString()).equals(passEmpl)){
+                    Toast.makeText(this,"Ιδιοκτήτης εισήλθε!",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this,Employee_View.class);
+                    startActivity(intent);
+                    break;
+                }else{
+                    Toast.makeText(this,"Wrong username or password",Toast.LENGTH_LONG).show();
+                }
+
         }
     }
 }

@@ -4,7 +4,7 @@ import gr.aueb.softeng.project1801.view.Owner.StatisticsDetails.StatisticsDetail
 
 public class StatisticsDetailsViewStub implements StatisticsDetailsView {
 
-    private String destination, departurePoint, departureDate, departureTime, estimatedArrivalTime, busType, driverID, message, value, warning;
+    private String destination, departurePoint, departureDate, departureTime, estimatedArrivalTime, busType, driverID, message, value, warning,activity_name;
     private double statistics;
     private int availableSeats;
 
@@ -44,7 +44,7 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
      * Constructor
      */
     public StatisticsDetailsViewStub(){
-        destination = departurePoint = departureDate = departureTime = estimatedArrivalTime = busType = driverID = message = value = warning = "";
+        activity_name = destination = departurePoint = departureDate = departureTime = estimatedArrivalTime = busType = driverID = message = value = warning = "";
         statistics = 0.0;
         availableSeats = 30;
     }
@@ -143,7 +143,7 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
      */
     @Override
     public void setActivityName(String value) {
-        this.value = value;
+        this.activity_name = value;
     }
 
     /** This method prints a warning message before deletion.
@@ -177,4 +177,9 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
     {
         return message;
     }
+
+    /**
+     * This method returns the activity name.
+     */
+    public String getActivity_name(){ return activity_name; }
 }
