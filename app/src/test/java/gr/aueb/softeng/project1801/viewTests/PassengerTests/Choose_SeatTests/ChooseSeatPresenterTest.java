@@ -16,6 +16,11 @@ public class ChooseSeatPresenterTest {
     private ChooseSeatPresenter presenter;
     private SeatRow seatRow;
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,ChooseSeatPresenter,ChooseSeatsViewStub object and sets values to it.
+     */
     @Before
     public void setUp(){
         dataHelper = new DataInitializer();

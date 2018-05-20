@@ -15,6 +15,11 @@ public class SearchRoutePresenterTest {
     private SearchRoutePresenter presenter;
 
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,SearchRoutePresenter,SearchRouteViewStub object and sets values to it.
+     */
     @Before
     public void setUp(){
         dataHelper = new DataInitializer();
@@ -23,6 +28,10 @@ public class SearchRoutePresenterTest {
 
     }
 
+    /**
+     * This method tries to load the data.
+     * The data are invalid.
+     */
     @Test
     public void onLoadDataWithInvalidData() {
         viewStub.setDestination("Αμερικη");
@@ -35,6 +44,10 @@ public class SearchRoutePresenterTest {
         Assert.assertEquals("No results based on your request!!",viewStub.getValue());
     }
 
+    /**
+     * This method tries to load the data.
+     * The data are valid.
+     */
     @Test
     public void onLoadDataWithValidData() {
         viewStub.setDepartureDate("2018/04/23");
@@ -47,6 +60,9 @@ public class SearchRoutePresenterTest {
         Assert.assertEquals(1,viewStub.getData().size());
     }
 
+    /**
+     * This method helps us to test the ClickItem method.
+     */
     @Test
     public void onClickItem() {
         viewStub.setDepartureDate("2018/04/23");
@@ -62,6 +78,9 @@ public class SearchRoutePresenterTest {
         Assert.assertEquals("Are you sure this is the route you want?",viewStub.getMessage());
     }
 
+    /**
+     * This method helps us to test how many times the ClickItem method was called.
+     */
     @Test
     public void onclickItemTimes() {
         viewStub.setDepartureDate("2018/04/23");

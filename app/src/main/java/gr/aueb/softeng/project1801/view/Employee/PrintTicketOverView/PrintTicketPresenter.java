@@ -86,7 +86,7 @@ public class PrintTicketPresenter {
 
     /**
      * This method helps us to print a passenger's ticket.
-     * @param message, the message we want to print
+     * @param message , the message we want to print
      */
     public void onPrintTicket(String message){
         view.printTicket(message);

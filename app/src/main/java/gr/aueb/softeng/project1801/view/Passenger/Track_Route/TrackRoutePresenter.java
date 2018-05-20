@@ -65,7 +65,7 @@ public class TrackRoutePresenter {
      * @param destination , the destination of the route
      * @param departurePoint , the departure point of the route
      * @param departureDate , the departure date of the route
-     * @param time, the time of the route
+     * @param time , the time of the route
      */
     public void onTrackRoute(String destination,String departurePoint,String departureDate,String time){
         if(!validateDate(departureDate)){

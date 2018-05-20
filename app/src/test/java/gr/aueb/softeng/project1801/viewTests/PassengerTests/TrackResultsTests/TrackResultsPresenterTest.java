@@ -14,6 +14,11 @@ public class TrackResultsPresenterTest {
     private TrackResultsViewStub viewStub;
     private TrackResultsPresenter presenter;
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,TrackResultsPresenter,TrackResultsViewStub object and sets values to it.
+     */
     @Before
     public void setUp(){
         dataHelper = new DataInitializer();
@@ -23,7 +28,6 @@ public class TrackResultsPresenterTest {
         viewStub.setDeparturePoint("Ναυπλιο");
         viewStub.setDestination("Αθηνα");
         viewStub.setDepartureTime("9:00AM");
-
         presenter = new TrackResultsPresenter(viewStub,dataHelper.getRouteData());
 
     }
@@ -38,30 +42,45 @@ public class TrackResultsPresenterTest {
         Assert.assertEquals("hello", viewStub.getValue());
     }
 
+    /**
+     * This method returns a destination.
+     */
     @Test
     public void OnGetDestination() {
         viewStub.setDestination("Αθηνα");
         Assert.assertEquals("Αθηνα", viewStub.getDestination());
     }
 
+    /**
+     * This method returns a departure.
+     */
     @Test
     public void OnGetDeparture() {
         viewStub.setDeparturePoint("Ναυπλιο");
         Assert.assertEquals("Ναυπλιο", viewStub.getDeparturePoint());
     }
 
+    /**
+     * This method returns a departure date.
+     */
     @Test
     public void OnGetDepartureDate() {
         viewStub.setDepartureDate("2018/04/23");
         Assert.assertEquals("2018/04/23", viewStub.getDepartureDate());
     }
 
+    /**
+     * This method returns a departure time.
+     */
     @Test
     public void OnGetDepartureTime() {
         viewStub.setDepartureDate("9:00AM");
         Assert.assertEquals("9:00AM", viewStub.getDepartureTime());
     }
 
+    /**
+     * This method terminates a process.
+     */
     @Test
     public void Kill() {
         viewStub.setDepartureDate("2018/04/1");
@@ -74,6 +93,9 @@ public class TrackResultsPresenterTest {
         Assert.assertEquals("Route does not exist",viewStub.getMessage());
     }
 
+    /**
+     * This method shows alert messages
+     */
     @Test
     public void onShowAlert() {
         Assert.assertEquals("", viewStub.getMessage());

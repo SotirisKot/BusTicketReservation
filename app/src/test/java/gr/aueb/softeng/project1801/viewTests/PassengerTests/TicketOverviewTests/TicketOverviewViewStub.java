@@ -14,7 +14,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets name to a specific Activity.
-     *
      * @param title , the name_value we want to set in a specific Activity
      */
     @Override
@@ -24,7 +23,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a destination.
-     *
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -34,7 +32,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a departure point.
-     *
      * @return a String object that has the departure point
      */
     @Override
@@ -44,7 +41,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a departure date.
-     *
      * @return a String object that has the departure date
      */
     @Override
@@ -54,7 +50,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a set of SeatRow objects.
-     *
      * @return a list that has the SeatRow objects
      */
     @Override
@@ -64,7 +59,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a departure time.
-     *
      * @return a String object that has the departure time
      */
     @Override
@@ -74,7 +68,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a type of the card.
-     *
      * @return a String object that has the type of the card
      */
     @Override
@@ -84,7 +77,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a specific destination.
-     *
      * @param destination , a String object that contains the destination
      */
     @Override
@@ -94,7 +86,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a specific departure point.
-     *
      * @param departurePoint , a String object that contains the departure point
      */
     @Override
@@ -104,7 +95,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a specific departure date.
-     *
      * @param departureDate , a String object that contains the departure date
      */
     @Override
@@ -114,7 +104,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a set of seats.
-     *
      * @param seats , a list that contains the set of seats
      */
     @Override
@@ -124,7 +113,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a specific departure time.
-     *
      * @param time , a String object that contains the departure time
      */
     @Override
@@ -134,7 +122,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a specific passenger ID.
-     *
      * @param id , a String object that contains the passenger ID
      */
     @Override
@@ -144,7 +131,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a specific price on a ticket.
-     *
      * @param price , a String object that contains the price of the ticket
      */
     @Override
@@ -154,7 +140,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a set of ticket types.
-     *
      * @param types , a list that contains the set of ticket types
      */
     @Override
@@ -174,7 +159,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a passenger's FirstName.
-     *
      * @return a String object that has the passenger's FirstName
      */
     @Override
@@ -184,7 +168,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns a passenger's LastName.
-     *
      * @return a String object that has the passenger's LastName
      */
     @Override
@@ -194,7 +177,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method sets a specific estimated arrival time.
-     *
      * @param arrivalTime , a String object that contains the estimated arrival time
      */
     @Override
@@ -204,7 +186,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method method redirects the user to another activity after a click event.
-     *
      * @param destination    , the destination of the route
      * @param departurePoint , the departure point of the route
      * @param departureDate  , the departure date of the route
@@ -232,7 +213,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method pops up a toast.
-     *
      * @param value , the message we want to print in the toast
      */
     @Override
@@ -242,7 +222,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method returns the number of seats.
-     *
      * @return a String object that has the number of seats
      */
     @Override
@@ -256,7 +235,6 @@ public class TicketOverviewViewStub implements TicketOverviewView {
 
     /**
      * This method shows alert messages
-     *
      * @param message , the alert message we want to print
      */
     @Override
@@ -280,18 +258,34 @@ public class TicketOverviewViewStub implements TicketOverviewView {
         this.lastName = lastName;
     }
 
+    /**
+     * This method returns the price of a ticket.
+     * @return the price
+     */
     public String getPrice() {
         return price;
     }
 
+    /**
+     * This method sets the type.
+     * @param type , the type
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * This methods returns a message.
+     * @return the message
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     * This method returns a passengerID.
+     * @return a String object that has the passengerID
+     */
     public String getPassengerID() {
         return passengerID;
     }

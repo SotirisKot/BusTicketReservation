@@ -266,7 +266,7 @@ public class TrackResultsActivity extends FragmentActivity implements OnMapReady
     }
 
     /**
-     * This method terminates the process
+     * This method terminates a process.
      */
     @Override
     public void kill(){
