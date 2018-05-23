@@ -53,8 +53,8 @@ public class FindPassengerPresenterTest {
     }
 
     /**
-     * This method returns a passenger's FirstName.
-     * @return a String object that has the passenger's FirstName
+     * This method test if the getter returns a passenger's FirstName.
+     *
      */
     @Test
     public void onGetPassengerFirstname() {
@@ -63,8 +63,8 @@ public class FindPassengerPresenterTest {
     }
 
     /**
-     * This method returns a passenger's LastName.
-     * @return a String object that has the passenger's LastName
+     * This method test if the getter returns a passenger's LastName.
+     *
      */
     @Test
     public void onGetPassengerLastname() {
@@ -73,8 +73,8 @@ public class FindPassengerPresenterTest {
     }
 
     /**
-     * This method return a passenger's ID.
-     * @return a String object that has the passenger's ID
+     * This method test if the getter returns a passenger's ID.
+     * 
      */
     @Test
     public void onGetPassengerID() {

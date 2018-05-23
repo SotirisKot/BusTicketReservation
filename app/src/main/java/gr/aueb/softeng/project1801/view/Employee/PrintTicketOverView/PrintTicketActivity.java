@@ -145,7 +145,9 @@ public class PrintTicketActivity extends AppCompatActivity implements PrintTicke
 
     /**
      * This method helps us to print a passenger's ticket.
-     * @param message, the message we want to print
+     *
+     * @param message , the message we want to print
+     *
      */
     @Override
     public void printTicket(String message){

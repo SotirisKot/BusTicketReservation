@@ -17,10 +17,17 @@ public class SearchRouteViewStub implements SearchRouteView {
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param departurePoint, the departure point of the route
-     * @param destination, the destination of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
+     *
+     * @param destination the departure point of the route
+     *
+     * @param departurePoint the destination of the route
+     *
+     * @param departureDate the departure date of the route
+     *
+     * @param departureTime the departure time of the route
+     *
+     * @param seats the selected seats
+     *
      */
     @Override
     public void clickItem(String destination, String departurePoint, String departureDate, String departureTime,String seats) {

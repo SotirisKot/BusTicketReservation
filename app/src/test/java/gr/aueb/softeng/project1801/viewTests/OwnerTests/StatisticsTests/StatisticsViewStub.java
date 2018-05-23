@@ -18,10 +18,14 @@ public class StatisticsViewStub implements StatisticsView {
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     * @param departurePoint, the departure point of the route
-     * @param destination, the destination of the route
-     * @param departureDate, the departure date of the route
-     * @param departureTime, the departure time of the route
+     * @param destination , the destination of the route
+     *
+     * @param departurePoint , the departure point of the route
+     *
+     * @param departureDate , the departure date of the route
+     *
+     * @param departureTime , the departure time of the route
+     *
      */
     @Override
     public void clickItem(String destination, String departurePoint, String departureDate, String departureTime) {
@@ -39,7 +43,8 @@ public class StatisticsViewStub implements StatisticsView {
 
     /**
      * This method loads the data(a List).
-     * @param data, the list that is going to be loaded
+     * @param data , the list that is going to be loaded
+     *
      */
     @Override
     public void loadData(List<DataRow> data) {
@@ -48,7 +53,8 @@ public class StatisticsViewStub implements StatisticsView {
 
     /**
      * This method pops up a toast.
-     * @param value, the message we want to print in the toast
+     * @param value , the message we want to print in the toast
+     *
      */
     @Override
     public void showToast(String value) {
