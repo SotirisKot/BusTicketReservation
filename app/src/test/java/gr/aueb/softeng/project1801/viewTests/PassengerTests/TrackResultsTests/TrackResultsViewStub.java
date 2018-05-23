@@ -1,7 +1,6 @@
 package gr.aueb.softeng.project1801.viewTests.PassengerTests.TrackResultsTests;
 
 import gr.aueb.softeng.project1801.view.Passenger.TrackResults.TrackResultsView;
-import gr.aueb.softeng.project1801.viewTests.PassengerTests.TrackRouteTests.TrackRouteViewStub;
 
 public class TrackResultsViewStub implements TrackResultsView {
 
@@ -102,7 +101,8 @@ public class TrackResultsViewStub implements TrackResultsView {
     }
 
 
-    /** This method returns the value.
+    /**
+     * This method returns the value.
      * @return the value
      */
     public String getValue() {
@@ -117,7 +117,8 @@ public class TrackResultsViewStub implements TrackResultsView {
         this.value = value;
     }
 
-    /** This method returns the message.
+    /**
+     * This method returns the message.
      * @return the message
      */
     public String getMessage() {
@@ -133,7 +134,7 @@ public class TrackResultsViewStub implements TrackResultsView {
     }
 
     /**
-     * This method terminates the process
+     * This method terminates a process.
      */
     @Override
     public void kill() {

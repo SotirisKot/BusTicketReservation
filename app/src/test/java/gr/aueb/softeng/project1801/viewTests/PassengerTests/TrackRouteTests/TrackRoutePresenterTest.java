@@ -15,6 +15,11 @@ public class TrackRoutePresenterTest {
     private TrackRouteViewStub viewStub;
     private String date1,date2,date3,date4;
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,TrackRoutePresenter,TrackRouteViewStub object and sets values to it.
+     */
     @Before
     public void setUp(){
         dataHelper = new DataInitializer();
@@ -39,12 +44,20 @@ public class TrackRoutePresenterTest {
         Assert.assertTrue(!presenter.validateDate(date4));
     }
 
+    /**
+     * This method helps us to track a route of specific a date.
+     * The date is invalid .
+     */
     @Test
     public void testOnTrackRouteWhenDateNotValid(){
         presenter.onTrackRoute(viewStub.getDestination(),viewStub.getDeparturepoint(),date3,viewStub.getDepartureTime());
         Assert.assertEquals("Invalid Date...Try again!!",viewStub.getMessage());
     }
 
+    /**
+     * This method helps us to track a route of specific a date.
+     * The date is valid .
+     */
     @Test
     public void testOnTrackRouteWhenDataValid(){
         presenter.onTrackRoute(viewStub.getDestination(),viewStub.getDeparturepoint(),date3,viewStub.getDepartureTime());

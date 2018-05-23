@@ -145,9 +145,7 @@ public class PrintTicketActivity extends AppCompatActivity implements PrintTicke
 
     /**
      * This method helps us to print a passenger's ticket.
-     *
      * @param message , the message we want to print
-     *
      */
     @Override
     public void printTicket(String message){
@@ -197,7 +195,7 @@ public class PrintTicketActivity extends AppCompatActivity implements PrintTicke
     }
 
     /**
-     * This method terminates the process
+     * This method terminates a process.
      */
     @Override
     public void kill(){

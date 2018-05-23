@@ -15,6 +15,11 @@ public class cardInfoPresenterTest {
     private cardInfoPresenter presenter;
     private String date1,date2,date3,date4;
 
+    /**
+     * Initializing the necessary objects.
+     *
+     * This method creates a Initializer,cardInfoPresenter,cardInfoViewStub object and sets values to it.
+     */
     @Before
     public void setUp(){
         dataHelper = new DataInitializer();
@@ -38,6 +43,9 @@ public class cardInfoPresenterTest {
 
     }
 
+    /**
+     * This method helps us to validate a date.
+     */
     @Test
     public void testValidateDate(){
         Assert.assertTrue(presenter.validateDate(date1));
@@ -46,6 +54,9 @@ public class cardInfoPresenterTest {
         Assert.assertTrue(!presenter.validateDate(date4));
     }
 
+    /**
+     * This method helps us to validate letters.
+     */
     @Test
     public void testValidateLetters(){
         String name = "";
@@ -55,6 +66,9 @@ public class cardInfoPresenterTest {
         Assert.assertTrue(presenter.validateOnlyLetters(viewStub.getFirstName()));
     }
 
+    /**
+     * This method helps us to validate digits.
+     */
     @Test
     public void testValidateOnlyDigits(){
         String code = "123dfg";
@@ -64,6 +78,10 @@ public class cardInfoPresenterTest {
         Assert.assertTrue(presenter.validateOnlyDigits("12345567890"));
     }
 
+    /**
+     * This method helps us to test "click continue action" with a specific name.
+     * The name is invalid.
+     */
     @Test
     public void testOnClickContinueWhenNameNotValid(){
         viewStub.setCardHolderName("1213");
@@ -75,6 +93,10 @@ public class cardInfoPresenterTest {
         Assert.assertEquals("Name field must not be empty and must be only letters.",viewStub.getMessage());
     }
 
+    /**
+     * This method helps us to test "click continue action" with a specific cardID.
+     * The cardID is invalid.
+     */
     @Test
     public void testOnClickContinueWhenCardIDNotValid(){
         viewStub.setCardHolderName("Sotiris");
@@ -86,6 +108,10 @@ public class cardInfoPresenterTest {
         Assert.assertEquals("Invalid format for code.Only digits!",viewStub.getMessage());
     }
 
+    /**
+     * This method helps us to test "click continue action" with a specific CV code.
+     * The CV code is invalid.
+     */
     @Test
     public void testOnClickContinueWhenCVNotValid(){
         viewStub.setCardHolderName("Sotiris");
@@ -97,6 +123,10 @@ public class cardInfoPresenterTest {
         Assert.assertEquals("Invalid format for cv.Only digits.",viewStub.getMessage());
     }
 
+    /**
+     * This method helps us to test "click continue action" with a specific expiration date.
+     * The expiration date is invalid.
+     */
     @Test
     public void testOnClickContinueWhenExpDateNotValid(){
         viewStub.setCardHolderName("Sotiris");
@@ -108,6 +138,10 @@ public class cardInfoPresenterTest {
         Assert.assertEquals("Invalid date.",viewStub.getMessage());
     }
 
+    /**
+     * This method helps us to test "click continue action" with specific information .
+     * All the information are valid.
+     */
     @Test
     public void testOnClickContinueWhenAllValid(){
         viewStub.setCardHolderName("Sotiris");

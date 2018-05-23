@@ -8,7 +8,8 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
     private double statistics;
     private int availableSeats;
 
-    /** This method returns a destination.
+    /**
+     * This method returns a destination.
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -16,7 +17,8 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
         return destination;
     }
 
-    /** This method returns a departure point.
+    /**
+     * This method returns a departure point.
      * @return a String object that has the departure point
      */
     @Override
@@ -24,7 +26,8 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
         return departurePoint;
     }
 
-    /** This method returns a departure date.
+    /**
+     * This method returns a departure date.
      * @return a String object that has the departure date
      */
     @Override
@@ -32,7 +35,8 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
         return departureDate;
     }
 
-    /** This method returns a departure time.
+    /**
+     * This method returns a departure time.
      * @return a String object that has the departure time
      */
     @Override
@@ -130,7 +134,8 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
         this.statistics = statistic;
     }
 
-    /** This method pops up a toast.
+    /**
+     *  This method pops up a toast.
      * @param value , the message we want to print in the toast
      */
     @Override
@@ -138,7 +143,8 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
         this.value = value;
     }
 
-    /** This method sets name to a specific Activity.
+    /**
+     * This method sets name to a specific Activity.
      * @param value , the name_value we want to set in a specific Activity
      */
     @Override
@@ -146,7 +152,8 @@ public class StatisticsDetailsViewStub implements StatisticsDetailsView {
         this.activity_name = value;
     }
 
-    /** This method prints a warning message before deletion.
+    /**
+     * This method prints a warning message before deletion.
      * @param warning , the warning message for deletion
      */
     @Override

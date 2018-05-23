@@ -103,6 +103,10 @@ public class PrintTicketPresenterTest {
         Assert.assertEquals("Ticket printed",viewStub.getPrintMessage());
     }
 
+    /**
+     * This method helps us to find a ticket to a passenger.
+     * All the tickets have not been sold.
+     */
     @Test
     public void findTicketForPassengerWhenTicketExists() {
         passengerDAO = dataHelper.getPassengerData();
@@ -127,6 +131,10 @@ public class PrintTicketPresenterTest {
         Assert.assertTrue(passengersTicket!=null);
     }
 
+    /**
+     * This method helps us to try to find a ticket to a passenger.
+     * All the tickets have been sold.
+     */
     @Test
     public void findTicketForPassengerWhenTicketDoesNotExists() {
         passengerDAO = dataHelper.getPassengerData();

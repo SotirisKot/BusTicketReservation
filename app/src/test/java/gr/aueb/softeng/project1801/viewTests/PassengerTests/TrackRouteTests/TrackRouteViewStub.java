@@ -10,10 +10,8 @@ public class TrackRouteViewStub implements TrackRouteView {
     private String destination, departurePoint, departureDate, departureTime, message, value;
     private List<String> destinations, departures, times;
 
-
     /**
      * This method pops up a toast.
-     *
      * @param message , the message we want to print in the toast
      */
     @Override
@@ -23,7 +21,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method sets name to a specific Activity.
-     *
      * @param value , the name_value we want to set in a specific Activity
      */
     @Override
@@ -33,7 +30,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method sets a list of destinations.
-     *
      * @param destinations , a set of destinations we want to have
      */
     @Override
@@ -43,7 +39,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method sets a list of departures.
-     *
      * @param departures , a set of departures we want to have
      */
     @Override
@@ -53,7 +48,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method sets a list of times we want to departure our buses.
-     *
      * @param times , a set of times that the buses can start their routs
      */
     @Override
@@ -63,7 +57,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method returns a destination.
-     *
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -73,7 +66,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method returns a departure point.
-     *
      * @return a String object that has the departure point
      */
     @Override
@@ -83,7 +75,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method returns a departure date.
-     *
      * @return a String object that has the departure date
      */
     @Override
@@ -93,7 +84,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method returns a departure time.
-     *
      * @return a String object that has the departure time
      */
     @Override
@@ -113,7 +103,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method shows alert messages
-     *
      * @param message , the alert message we want to print
      */
     @Override
@@ -123,7 +112,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method method redirects the user to another activity after a click event.
-     *
      * @param destination    , the destination of the route
      * @param departurePoint , the departure point of the route
      * @param departureDate  , the departure date of the route
@@ -137,18 +125,34 @@ public class TrackRouteViewStub implements TrackRouteView {
         this.departurePoint = departureTime;
     }
 
+    /**
+     * This method sets a specific departure date.
+     * @param departureDate , a String object that contains the departure date
+     */
     public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 
+    /**
+     * This method sets a specific destination.
+     * @param destination , a String object that contains the destination
+     */
     public void setDestination(String destination) {
         this.destination = destination;
     }
 
+    /**
+     * This method sets a specific departure point.
+     * @param departurePoint , a String object that contains the departure point
+     */
     public void setDeparturePoint(String departurePoint) {
         this.departurePoint = departurePoint;
     }
 
+    /**
+     * This method sets a specific departure time.
+     * @param departureTime , a String object that contains the departure time
+     */
     public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
@@ -162,7 +166,6 @@ public class TrackRouteViewStub implements TrackRouteView {
 
     /**
      * This method sets a message
-     *
      * @param message , the message we want to print
      */
     public void setMessage(String message) {

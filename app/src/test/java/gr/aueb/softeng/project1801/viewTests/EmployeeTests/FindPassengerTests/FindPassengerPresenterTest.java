@@ -8,7 +8,6 @@ import gr.aueb.softeng.project1801.dao.Initializer;
 import gr.aueb.softeng.project1801.memorydao.DataInitializer;
 import gr.aueb.softeng.project1801.view.Employee.FindPassenger.FindPassengerPresenter;
 
-import static org.junit.Assert.*;
 
 public class FindPassengerPresenterTest {
 
@@ -53,8 +52,7 @@ public class FindPassengerPresenterTest {
     }
 
     /**
-     * This method test if the getter returns a passenger's FirstName.
-     *
+     * This method returns a passenger's FirstName.
      */
     @Test
     public void onGetPassengerFirstname() {
@@ -63,8 +61,7 @@ public class FindPassengerPresenterTest {
     }
 
     /**
-     * This method test if the getter returns a passenger's LastName.
-     *
+     * This method returns a passenger's LastName.
      */
     @Test
     public void onGetPassengerLastname() {
@@ -73,8 +70,7 @@ public class FindPassengerPresenterTest {
     }
 
     /**
-     * This method test if the getter returns a passenger's ID.
-     * 
+     * This method return a passenger's ID.
      */
     @Test
     public void onGetPassengerID() {
@@ -113,12 +109,20 @@ public class FindPassengerPresenterTest {
         Assert.assertEquals("ΝΑ1276442282",viewStub.getPassengerID());
     }
 
+    /**
+     * This method helps us to validate the letters of a name.
+     * The name contains invalid characters.
+     */
     @Test
     public void ValidateLettersWithInvalidName() {
         viewStub.setFirstName("Sotiris123");
         Assert.assertTrue(!presenter.validateOnlyLetters(viewStub.getFirstname()));
     }
 
+    /**
+     * This method helps us to validate the letters of a name.
+     * The name does not contain invalid characters.
+     */
     @Test
     public void ValidateLettersWithValidName() {
         viewStub.setFirstName("sotiris");

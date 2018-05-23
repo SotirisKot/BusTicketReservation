@@ -17,17 +17,10 @@ public class SearchRouteViewStub implements SearchRouteView {
     /**
      *
      * This method method redirects the user to another activity after a click event.
-     *
-     * @param destination the departure point of the route
-     *
-     * @param departurePoint the destination of the route
-     *
-     * @param departureDate the departure date of the route
-     *
-     * @param departureTime the departure time of the route
-     *
-     * @param seats the selected seats
-     *
+     * @param departurePoint , the departure point of the route
+     * @param destination , the destination of the route
+     * @param departureDate , the departure date of the route
+     * @param departureTime , the departure time of the route
      */
     @Override
     public void clickItem(String destination, String departurePoint, String departureDate, String departureTime,String seats) {
@@ -41,7 +34,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method loads the data(a List).
-     *
      * @param data , the data that we want to load
      */
     @Override
@@ -51,7 +43,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method pops up a toast.
-     *
      * @param value , the message we want to print in the toast
      */
     @Override
@@ -70,7 +61,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method shows alert messages
-     *
      * @param message        , the alert message we want to print
      * @param destination    , the destination of the route
      * @param departurePoint , the departure point of the route
@@ -90,7 +80,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method returns a destination.
-     *
      * @return a String object that has the name of the destination we asked
      */
     @Override
@@ -100,7 +89,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method returns a departure point.
-     *
      * @return a String object that has the departure point
      */
     @Override
@@ -110,7 +98,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method returns a departure date.
-     *
      * @return a String object that has the departure date
      */
     @Override
@@ -120,7 +107,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method returns the number of seats.
-     *
      * @return a String object that has the number of seats
      */
     @Override
@@ -130,7 +116,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets name to a specific Activity.
-     *
      * @param value , the name_value we want to set in a specific Activity
      */
     @Override
@@ -138,7 +123,8 @@ public class SearchRouteViewStub implements SearchRouteView {
         this.value = value;
     }
 
-    /** This method returns the value.
+    /**
+     * This method returns the value.
      * @return the value
      */
     public String getValue() {
@@ -147,14 +133,14 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets a value
-     *
      * @param value , the message "value" we want to print
      */
     public void setValue(String value) {
         this.value = value;
     }
 
-    /** This method returns the message.
+    /**
+     * This method returns the message.
      * @return the message
      */
     public String getMessage() {
@@ -163,7 +149,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets a message
-     *
      * @param message , the message we want to print
      */
     public void setMessage(String message) {
@@ -172,7 +157,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets a specific destination.
-     *
      * @param destination , a String object that contains the destination
      */
     public void setDestination(String destination) {
@@ -181,7 +165,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets a specific departure point.
-     *
      * @param departurePoint , a String object that contains the departure point
      */
     public void setDeparturePoint(String departurePoint) {
@@ -190,7 +173,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets a specific departure date.
-     *
      * @param departureDate , a String object that contains the departure date
      */
     public void setDepartureDate(String departureDate) {
@@ -199,7 +181,6 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets a specific departure time.
-     *
      * @param departureTime , a String object that contains the departure time
      */
     public void setDepartureTime(String departureTime) {
@@ -208,28 +189,40 @@ public class SearchRouteViewStub implements SearchRouteView {
 
     /**
      * This method sets a seat.
-     *
      * @param seats , a seat
      */
     public void setSeats(String seats) {
         this.seats = seats;
     }
 
+    /**
+     * This method returns the data.
+     * @return the data
+     */
     public List<DataRow> getData() {
         return data;
     }
 
+    /**
+     * This method sets the data.
+     * @param data , the date
+     */
     public void setData(List<DataRow> data) {
         this.data = data;
     }
 
-    /** This method returns the number of times an item was clicked.
+    /**
+     * This method returns the number of times an item was clicked.
      * @return the number of times an item was clicked
      */
     public int getTimesClickedItem(String destination){
         return clicksCount.containsKey(destination) ? clicksCount.get(destination) : 0;
     }
 
+    /**
+     * The method returns a departure time.
+     * @return the departure date
+     */
     public String getDepartureTime() {
         return departureTime;
     }

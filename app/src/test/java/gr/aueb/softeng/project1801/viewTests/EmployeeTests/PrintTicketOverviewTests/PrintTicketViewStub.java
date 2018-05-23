@@ -133,7 +133,7 @@ public class PrintTicketViewStub implements PrintTicketView {
     }
 
     /**
-     * This method terminates the process
+     * This method terminates a process.
      */
     @Override
     public void kill() {
