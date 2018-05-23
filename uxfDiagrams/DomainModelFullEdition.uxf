@@ -1,0 +1,2755 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3555</x>
+      <y>985</y>
+      <w>130</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Passenger
+Package::Domain
+--
+-FirstName: String
+-Lastname: String
+-NumberID: String
+-PassengerCard : Set&lt;Card&gt;
+--
++getFirstName():String{Firstname}
++setFirstName(Firstname:String)
++getLastName():String{Lastname}
++setLastName(Lastname:String)
++getNumberID():String{NumberID}
++setNumberID(NumberID:String)
++addCard(Card card) : void
++removeCard(Card card) : void
++getAllCards() : Set&lt;Card&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>755</x>
+      <y>1050</y>
+      <w>130</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Bus
+Package::Domain
+--
+-BusType: String
+-BusModel: String
+-BusID: String
+-BusSeats:Int
+-state:BusState
+--
++getBusType():String{BusType}
++setBusType(BusType:String)
++getBusModel():String{BusModel}
++setBusModel(BusModel:String)
++getBusID():String{BusID}
++setBusID(BusID:String)
++getBusSeats():Int{BusSeats}
++setBusSeats(BusSeats:Int)
++available():void
++not_available():void
++getState() : BusState
++setState(BusState state)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>1100</y>
+      <w>130</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>Driver
+Package::Domain
+--
+-DriverName: String
+-DriverID: String
+-state: DriverState
+--
++getDriverName():String{DriverName}
++setDriverName(DriverName:String)
++getDriverID():String{DriverID}
++setDriverID(DriverID:String)
++available():void
++not_available():void
++getState() : DriverState
++setState(DriverState state)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3695</x>
+      <y>1210</y>
+      <w>190</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>Card
+Package::Domain
+--
+-CardHolderName: String
+-CardID: String
+-ExpirationDate:SystemCalendar
+-CVcode:Int
+--
++getCardHolderName():String{CardHolderName}
++setCardHolderName(CardHolderName:String)
++getCardID():Long{CardID}
++setCardID(CardID:Long)
++getExpirationDate():SystemCalendar{ExpirationDate}
++setExpirationDate(ExpirationDate:SystemCalendar)
++getCVcode():Int{CVcode}
++setCVcode(CVcode:Int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>820</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ScheduleEntry
+Package::Domain
+--
+-DayOfWeek: int
+-DepartureTime: String
+-calendar: SystemCalendar
+--
++getDayOfWeek():int{DayOfWeek}
++setDayOfWeek(DayOfWeek:int)
++getDepartureTime():String{DepartureTime}
++setDepartureTime(DepartureTime:String)
++getCalendar():SystemCalendar{calendar}
++setCalendar(calendar:SystemCalendar)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>845</x>
+      <y>475</y>
+      <w>270</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>Schedule
+Package::Domain
+--
+-Destinations: Set&lt;String&gt;
+-DeparturePoints: Set&lt;String&gt;
+-DepartureTimes: Set&lt;String&gt;
+-DepartureDates: Set&lt;SystemCalendar&gt;
+-Destination: String
+-Departure: String
+-Routes : Set&lt;Routes&gt;
+-ScheduleEntry : set&lt;ScheduleEntry&gt;
+--
++getRoutes():Route{routes}
++setRoutes(routes:Route)
++addNewRoute(route:Route)
++deleteRoute(route:Route)
++addScheduleEntry(entry:ScheduleEntry)
++removeScheduleEntry(entry:ScheduleEntry)
++createRoute(Destination:String,DeparturePoint:String
+,DepartureTime:String,DepartureDate:SystemCalendar,EstimatedArrival:String
+,RouteBus:Bus,Driver:Driver):Route{route}
++findNextAvailableDate(entry:ScheduleEntry):ScheduleEntry{AvailableEntry}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3060</x>
+      <y>740</y>
+      <w>215</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Route
+Package::Domain
+--
+-Destination: String
+-DeparturePoint: String
+-DepartureTime: String
+-DepartureDate: SystemCalendar
+-EstimatedArrivalTime: String
+-RouteBus : Bus
+-Driver : Driver
+-AvailableSeats: Int
+-Tickets : Set&lt;Tickets&gt;
+--
+
++addTicket(ticket:Ticket)
++removeTicket(ticket:Ticket)
++FindTicket(ticket:Ticket):Boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3080</x>
+      <y>1060</y>
+      <w>250</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Ticket
+Package::Domain
+--
+-DestinationTicket: String
+-DeparturePointTicket: String
+-DepartureTimeTicket: String
+-DepartureDateTicket: SystemCalendar
+-EstimatedArrivalTimeTicket: String
+-Price:double
+-passenger : Passenger
+-PassengerName : String
+-PassengerID : String
+-route : Route
+-PassengerSeat: int
+-Type:String
+--
++TicketExists(ticket:Ticket):Boolean
++buyTicket(ticket:Ticket,passenger:Passenger,route:Route):Boolean
++setPassenger(passenger : Passenger)
++getPassenger():Passenger{passenger}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3610</x>
+      <y>1115</y>
+      <w>200</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-PassengerCard 0..*
+</panel_attributes>
+    <additional_attributes>270.0;190.0;220.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1715</x>
+      <y>1645</y>
+      <w>50</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1815</x>
+      <y>1645</y>
+      <w>50</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3180</x>
+      <y>865</y>
+      <w>50</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=-tickets 0..*
+
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;390.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>860</y>
+      <w>2190</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;520.0;4360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>645</x>
+      <y>865</y>
+      <w>2450</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;600.0;630.0;910.0;2970.0;940.0;3590.0;940.0;4880.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1110</x>
+      <y>565</y>
+      <w>1960</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -routes 0..*</panel_attributes>
+    <additional_attributes>3900.0;360.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>645</y>
+      <w>300</w>
+      <h>185</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-ScheduleEntry 0..*</panel_attributes>
+    <additional_attributes>10.0;350.0;50.0;270.0;580.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4470</x>
+      <y>810</y>
+      <w>145</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+CardDAO
+gr.aueb.softeng.project1801.dao
+--
+find(String):Card
+save(Card):void
+delete(Card):void
+findAll():List&lt;Card&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>730</y>
+      <w>145</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ScheduleDAO
+gr.aueb.softeng.project1801.dao
+--
+find(Schedule):Schedule
+save(Schedule):void
+delete(Schedule):void
+findAll():List&lt;Schedule&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>830</y>
+      <w>145</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+BusDAO
+gr.aueb.softeng.project1801.dao
+--
+find(String):Bus
+save(Bus):void
+delete(Bus):void
+findAll():List&lt;Bus&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>830</y>
+      <w>145</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+DriverDAO
+gr.aueb.softeng.project1801.dao
+--
+find(String):Driver
+save(Driver):void
+delete(Driver):void
+findAll():List&lt;Driver&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4040</x>
+      <y>805</y>
+      <w>145</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+PassengerDAO
+gr.aueb.softeng.project1801.dao
+--
+find(String):Passenger
+save(Passenger):void
+delete(Passenger):void
+findAll():List&lt;Passenger&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4665</x>
+      <y>805</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+RouteDAO
+gr.aueb.softeng.project1801.dao
+--
+find(String,String,SystemCalendar):Route
+save(Route):void
+delete(Route):void
+findAll():List&lt;Route&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1215</x>
+      <y>55</y>
+      <w>145</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Initializer
+gr.aueb.softeng.project1801.dao
+--
+Initializer()
+eraseData():void
+prepareData():void
+getBusData():BusDAO
+getCardData():CardDAO
+getPassengerData():PassengerDAO
+getRouteData():RouteDAO
+getDriverData():DriverDAO
+getScheduleData():ScheduleDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>1425</y>
+      <w>145</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Enumeration&gt;&gt;
+DriverState
+gr.aueb.softeng.project1801.DomainModel
+--
+AVAILABLE:DriverState
+NOT_AVAILABLE:DriverState
+--
+DriverState()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>1405</y>
+      <w>145</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Enumeration&gt;&gt;
+BusState
+gr.aueb.softeng.project1801.DomainModel
+--
+AVAILABLE:BusState
+NOT_AVAILABLE:BusState
+--
+BusState()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>515</y>
+      <w>145</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+BusDAOMemory
+gr.aueb.softeng.project1801.memorydao
+--
+BusDAOMemory()
+delete(Bus):void
+save(Bus):void
+findAll():List&lt;Bus&gt;
+find(String):Bus</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>515</y>
+      <w>145</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+DriverDAOMemory
+gr.aueb.softeng.project1801.memorydao
+--
+DriverDAOMemory()
+delete(Driver):void
+save(Driver):void
+findAll():List&lt;Driver&gt;
+find(String):Driver</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4550</x>
+      <y>415</y>
+      <w>145</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+CardDAOMemory
+gr.aueb.softeng.project1801.memorydao
+--
+CardDAOMemory()
+delete(Card):void
+save(Card):void
+findAll():List&lt;Card&gt;
+find(String):Card</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3975</x>
+      <y>670</y>
+      <w>145</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+PassengerDAOMemory
+gr.aueb.softeng.project1801.memorydao
+--
+PassengerDAOMemory()
+delete(Passenger):void
+save(Passenger):void
+findAll():List&lt;Passenger&gt;
+find(String):Passenger</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3650</x>
+      <y>420</y>
+      <w>145</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+RouteDAOMemory
+gr.aueb.softeng.project1801.memorydao
+--
+RouteDAOMemory()
+delete(Route):void
+save(Route):void
+findAll():List&lt;Route&gt;
+find(String,String,SystemCalendar):Route</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1640</x>
+      <y>105</y>
+      <w>145</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+ScheduleDAOMemory
+gr.aueb.softeng.project1801.memorydao
+--
+ScheduleDAOMemory()
+delete(Schedule):void
+save(Schedule):void
+findAll():List&lt;Schedule&gt;
+find(String):Schedule</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>320</y>
+      <w>145</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Initializer
+gr.aueb.softeng.project1801.memorydao
+--
+Initializer()
+eraseData():void
+prepareData():void
+getBusData():BusDAO
+getCardData():CardDAO
+getPassengerData():PassengerDAO
+getRouteData():RouteDAO
+getDriverData():DriverDAO
+getScheduleData():ScheduleDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3860</x>
+      <y>840</y>
+      <w>145</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+DataRow
+gr.aueb.softeng.project1801.SysUtils
+--
+data1:String
+data2:String
+data3:String
+data4:String
+--
+DataRow(String,String,String,String)
+getData1():String
+getData2():String
+getData3():String
+getData4():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2325</x>
+      <y>900</y>
+      <w>145</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+SeatRow
+gr.aueb.softeng.project1801.SysUtils
+--
+seat:String
+checked:boolean
+num:int
+--
+SeatRow(String,int)
+SeatRow()
+getText():String
+getText(String):void
+check():void
+uncheck():void
+isChecked():boolean
+getNum():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1345</x>
+      <y>1395</y>
+      <w>145</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+SystemCalendar
+gr.aueb.softeng.project1801.SysUtils
+--
+MILLIS_PER_DAY:long
+date:Calendar
+--
+SystemCalendar(int,int,int)
+SystemCalendar(Calendar)
+trimToDay(Calendar):void
+durationInDays(SystemCalendar):long
+getYear():int
+getMonth():int
+getDayOfMonth():int
+getDayOfWeek():int
+after(SystemCalendar):boolean
+before(SystemCalendar):boolean
+addDays(int):SystemCalendar
+getJavaCalendar():Calendar
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4590</x>
+      <y>50</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+FindPassengerActivity
+gr.aueb.softeng.project1801.Employee.FindPassenger
+
+--
+FindPassengerActivity()
+getFirstname():String
+getLastname():String
+getPassengerID():String
+showAlertMessage(String):void
+setActivityName(String):void
+showToast(String):void
+findPassenger(String,String,String):void
+onCreate(Bundle):void
+onActivityResult(int,int,Intent):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5085</x>
+      <y>410</y>
+      <w>180</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+FindPassengerPresenter
+gr.aueb.softeng.project1801.Employee.FindPassenger
+
+--
+FindPassengerPresenter(FindPassengerView)
+validateOnlyLetters(String):boolean
+onShowToast(String):void
+onShowAlertMessage(String):void
+onGetPassengerFirstName():String
+onGetPassengerLastName():String
+onGetPassengerID():String
+onFindPassenger(String,String,String):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5370</x>
+      <y>775</y>
+      <w>180</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+FindPassengerView
+gr.aueb.softeng.project1801.Employee.FindPassenger
+
+--
+FindPassengerActivity()
+getFirstname():String
+getLastname():String
+getPassengerID():String
+showAlertMessage(String):void
+setActivityName(String):void
+showToast(String):void
+findPassenger(String,String,String):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2255</x>
+      <y>415</y>
+      <w>195</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+PrintTicketActivity
+gr.aueb.softeng.project1801.Employee.PrintTicketOverView
+
+--
+printTicketActivity()
+setActivityName(String):void
+showToast(String):void
+printTicket(String):void
+getFirstname():String
+getLastname():String
+getPassengerID():String
+showAlertMessage(String):void
+setEstimatedArrivalTime(String):void
+setDestination(String):void
+setDepartureTime(String):void
+setSeat(String):void
+setType(String):void
+setPrice(String):void
+setDeparturePoint(String):void
+setPassengerFirstName(String):void
+setPassengerLastName(String):void
+kill():void
+onCreate(Bundle):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1825</x>
+      <y>480</y>
+      <w>200</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+PrintTicketPresenter
+gr.aueb.softeng.project1801.Employee.PrintTicketOverView
+
+--
+printTicketPresenter(PrintTicketView,ScheduleDAO)
+findTicketForPassenger():Ticket
+onShowToast(String):void
+onShowAlertMessage(String):void
+onPrintTicket(String):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1440</x>
+      <y>885</y>
+      <w>190</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+PrintTicketView
+gr.aueb.softeng.project1801.Employee.PrintTicketOverView
+
+--
+showToast(String):void
+printTicket(String):void
+getFirstname():String
+getLastname():String
+getPassengerID():String
+showAlertMessage(String):void
+setEstimatedArrivalTime(String):void
+setDestination(String):void
+setDepartureTime(String):void
+setSeat(String):void
+setType(String):void
+setPrice(String):void
+setDeparturePoint(String):void
+setPassengerFirstName(String):void
+setPassengerLastName(String):void
+kill():void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>470</y>
+      <w>195</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+ManageRoutesActivity
+gr.aueb.softeng.project1801.Owner.ManageRoutes
+--
+ManageRoutesActivity()
+setActivityName(String):void
+showToast(String):void
+showSuccessMessage(String):void
+showAlertMessage(String):void
+getEstimatedArrivalTime():String
+getDestination():String
+getDepartureTime():String
+getBusID():String
+getDriverID():String
+setBusIDsList(List&lt;String&gt;):void
+setDestinationList(List&lt;String&gt;):void
+setDriverIDsList(List&lt;String&gt;):void
+setDeparturePointsList(List&lt;String&gt;):void
+setDepartureTimesList(List&lt;String&gt;):void
+kill():void
+onCreate(Bundle):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>530</y>
+      <w>215</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+ManageRoutesPresenter
+gr.aueb.softeng.project1801.Owner.ManageRoutes
+
+--
+ManageRoutePresenter(ManageRoutesView,ScheduleDAO,BusDAO,DriverDAO)
+validateDate(String):boolean
+addRoute():void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>775</y>
+      <w>195</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+ManageRoutesView
+gr.aueb.softeng.project1801.Owner.ManageRoutes
+--
+setActivityName(String):void
+showToast(String):void
+showSuccessMessage(String):void
+showAlertMessage(String):void
+getEstimatedArrivalTime():String
+getDestination():String
+getDepartureTime():String
+getBusID():String
+getDriverID():String
+setBusIDsList(List&lt;String&gt;):void
+setDestinationList(List&lt;String&gt;):void
+setDriverIDsList(List&lt;String&gt;):void
+setDeparturePointsList(List&lt;String&gt;):void
+setDepartureTimesList(List&lt;String&gt;):void
+kill():void
+onCreate(Bundle):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3490</x>
+      <y>60</y>
+      <w>195</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+StatisticsActivity
+gr.aueb.softeng.project1801.Owner.Statistcs
+--
+routeList:ListView
+searchListRoute:SearchView
+--
+StatisticsActivity()
+onCreate(Bundle):void
+loadData(List&lt;DataRow&gt;):void
+clickItem(String,String,String,String):void
+showToast(String):void
+onQueryTextSubmit(String):boolean
+onQueryTextChange(String):boolean
+onClose():boolean
+clear_search_results():void
+onActivityResult(int,int,Intent):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3915</x>
+      <y>460</y>
+      <w>195</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+StatisticsPresenter
+gr.aueb.softeng.project1801.Owner.Statistcs
+--
+createData(List&lt;Route&gt;):List&lt;DataRow&gt;
+StatisticsPresenter(StatisticsView,RouteDAO)
+onloadData():void
+onClickItem(String,String,String,String):void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4225</x>
+      <y>825</y>
+      <w>195</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+StatisticsView
+gr.aueb.softeng.project1801.Owner.Statistcs
+--
+loadData(List&lt;Route&gt;):void
+ClickItem(String,String,String,String):void
+showToast(String):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4030</x>
+      <y>30</y>
+      <w>195</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+StatisticsDeatailsActivity
+gr.aueb.softeng.project1801.Owner.StatistcsDetails
+--
+StatisticsDetailsActivity()
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+setActivityName(String):void
+setAvailableSeat(int):void
+setBusType(String):void
+setDeparturePoint(String):void
+setDepartureDate(String):void
+setDepartureTime(String):void
+setDriverID(String):void
+setEstimatedArrivalTime(String):void
+setStatistics(double):void
+ClickDeleteButton(String):void
+delete(String):void
+showToast(String):void
+onCreate(Bundle):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4260</x>
+      <y>450</y>
+      <w>195</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+StatisticsDeatailsPresenter
+gr.aueb.softeng.project1801.Owner.StatistcsDetails
+--
+StatisticsDetailsPresenter(StatisticsDetailsView,RouteDAO)
+onShowtToast():void
+onClickDeleteButton():void
+onDelete():void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4865</x>
+      <y>740</y>
+      <w>195</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+StatisticsDetailsView
+gr.aueb.softeng.project1801.Owner.StatistcsDetails
+--
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+setActivityName(String):void
+setAvailableSeat(int):void
+setBusType(String):void
+setDeparturePoint(String):void
+setDepartureDate(String):void
+setDepartureTime(String):void
+setDriverID(String):void
+setEstimatedArrivalTime(String):void
+setStatistics(double):void
+ClickDeleteButton(String):void
+delete(String):void
+showToast(String):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1210</x>
+      <y>435</y>
+      <w>195</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+BuyTicketActivity
+gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket
+--
+BuyTicketActivity()
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getNumberOfSeats():String
+setActivityName(String):void
+setDestinationsList(List&lt;String&gt;):void
+setDestinationsPointsList(List&lt;String&gt;):void
+setNumberOfSeats(List&lt;String&gt;):void
+showToast(String):void
+searchRoute(String,String,String,String):void
+onCreate(Bundle):void
+onActivityResult(int,int,Intent):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1570</x>
+      <y>470</y>
+      <w>195</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+BuyTicketPpresenter
+gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket
+--
+BuyTicketActivity(BuyTicketsView,ScheduleDAO)
+validateDate(String):boolean
+onGetDestination():String
+onGetDepartureDate():String
+onGetSeats():String
+onShowToast(String):void
+onSearchRoute(String,String,String,String):void
+onCreate(Bundle):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1345</x>
+      <y>740</y>
+      <w>195</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+BuyTicketView
+gr.aueb.softeng.project1801.view.Passenger.Buy_Ticket
+--
+BuyTicketActivity()
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getNumberOfSeats():String
+setActivityName(String):void
+setDestinationsList(List&lt;String&gt;):void
+setDestinationsPointsList(List&lt;String&gt;):void
+setNumberOfSeats(List&lt;String&gt;):void
+showToast(String):void
+searchRoute(String,String,String,String):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2615</x>
+      <y>5</y>
+      <w>195</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+ChooseSeatActivity
+gr.aueb.softeng.project1801.view.Passenger.Choose_Seat
+--
+ChooseSeatActivity()
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getSeats():String
+getDepartureTime():String
+setActivityName(String):void
+showToast(String):void
+showAlertMessage(String):void
+loadData(List&lt;SeatRow&gt;):void
+clickProceed(String,String,String,String):void
+onCreate(Bundle):void
+onActivityResult(int,int,Intent):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2885</x>
+      <y>435</y>
+      <w>195</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+ChooseSeatPresented
+gr.aueb.softeng.project1801.view.Passenger.Choose_Seat
+--
+ChooseSeatActivity(ChooseSeat,RouteDAO)
+onClickSeats(SeatRow):void
+createData():List&lt;SeatRow&gt;
+onShowToast():void
+onShowAlertMessage(String):void
+onloadData():void
+onClickProceed():void
+getSeatsSelected():List&lt;SeatRow&gt;
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2825</x>
+      <y>795</y>
+      <w>195</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+ChooseSeatView
+gr.aueb.softeng.project1801.view.Passenger.Choose_Seat
+--
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getSeats():String
+getDepartureTime():String
+setActivityName(String):void
+showToast(String):void
+showAlertMessage(String):void
+loadData(List&lt;SeatRow&gt;):void
+clickProceed(String,String,String,String):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3175</x>
+      <y>430</y>
+      <w>195</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+cardInfoPresenter
+gr.aueb.softeng.project1801.view.Passenger.Enter_card_info
+--
+cardInfoActivity(cardInfoView,PassengerDAO,CardDAO)
+validateOnlyLetters(String):boolean
+validateOnlyDigits(String):boolean
+validateDate(String):boolean
+setActivityName(String):void
+onShowToast(String):void
+onGetCVcode():String
+onGetCardHolderName():String
+onGetExpDate():String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3180</x>
+      <y>0</y>
+      <w>195</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+cardInfoActivity
+gr.aueb.softeng.project1801.view.Passenger.Enter_card_info
+--
+cardInfoActivity()
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+getFirstname():String
+getLastname():String
+getPassengerID():String
+getPrice():String
+getSeats():String
+getType():String
+setActivityName(String):void
+showToast(String):void
+getCVcode():String
+getCardHolderName():String
+getCardId():String
+showAlertMessage(String):void
+getExpirationDate():String
+clickCheckout(String):void
+onCreate(Bundle):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3305</x>
+      <y>790</y>
+      <w>195</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+cardInfoView
+gr.aueb.softeng.project1801.view.Passenger.Enter_card_info
+--
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+getFirstname():String
+getLastname():String
+getPassengerID():String
+getPrice():String
+getSeats():String
+getType():String
+setActivityName(String):void
+showToast(String):void
+getCVcode():String
+getCardHolderName():String
+getCardId():String
+showAlertMessage(String):void
+getExpirationDate():String
+clickCheckout(String):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2915</x>
+      <y>20</y>
+      <w>190</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+SearchRouteActivity
+gr.aueb.softeng.project1801.view.Passenger.Search_Route
+--
+requestedRoutes:ListView
+--
+SearchRouteActivity()
+onCreate(Bundle):void
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getSeats():String
+showToast(String):void
+showAlertMessage(String,String,String,String):void
+clickItem(String,String,String,String):void
+loadData(List&lt;DataRow&gt;):void
+setActivityName(String):void
+onActivityResult(int,int,Intent):void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2680</x>
+      <y>440</y>
+      <w>190</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+SearchRoutePresenter
+gr.aueb.softeng.project1801.view.Passenger.Search_Route
+--
+createData(List&lt;Route&gt;):List&lt;DataRow&gt;
+SearchRoutePresenter(SearchRouteView,ScheduleDAO)
+onloadData():void
+onFinalClick(String,String,String,String):void
+onclickItem(String,String,String,String,String):void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2500</x>
+      <y>790</y>
+      <w>190</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+SearchRouteView
+gr.aueb.softeng.project1801.view.Passenger.Search_Route
+--
+clickItem(String,String,String,String):void
+loadData(List&lt;DataRow&gt;):void
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getSeats():String
+showToast(String):void
+showAlertMessage(String,String,String,String):void
+setActivityName(String):void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2325</x>
+      <y>0</y>
+      <w>190</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+TicketOverviewActivity
+gr.aueb.softeng.project1801.view.Passenger.TicketOverview
+--
+TicketOverviewActivity()
+onCreate(Bundle):void
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+getSeats():List&lt;SeatRow&gt;
+getType():String
+getSeat():String
+setDestination(String):void
+setDeparturePoint(String):void
+setDepartureDate(String):void
+setDepartureTime(String):void
+setSeats(List&lt;SeatRow&gt;):void
+setTypes(List&lt;String&gt;):void
+setPassengerId(String):void
+setPrice(String):void
+showToast(String):void
+showAlertMessage(String):void
+clickItem(String,String,String,String):void
+loadData(List&lt;DataRow&gt;):void
+setActivityName(String):void
+clickContinue(String,String,String,String,String,String,String):void
+onActivityResult(int,int,Intent):void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2480</x>
+      <y>440</y>
+      <w>190</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+TicketOverviewPresenter
+gr.aueb.softeng.project1801.view.Passenger.TicketOverview
+--
+passengerNum1:int
+passengerNum2:int
+passengerNum:int
+passengerID:String
+price:String
+typeTicket:String
+random:Random
+--
+TicketOverviewActivity(TicketOverviewView)
+validateOnlyLetters(String):boolean
+onSetPrice(String):void
+onClickContinue(String,String):void
+OngetPassengerFirstname():String
+OngetPassengerLastname():String
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2090</x>
+      <y>745</y>
+      <w>190</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+TicketOverviewView
+gr.aueb.softeng.project1801.view.Passenger.TicketOverview
+--
+onCreate(Bundle):void
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+getPassengerFirstName():String
+getPassengerLastName():String
+getSeats():List&lt;SeatRow&gt;
+getType():String
+getSeat():String
+setDestination(String):void
+setDeparturePoint(String):void
+setDepartureDate(String):void
+setDepartureTime(String):void
+setSeats(List&lt;SeatRow&gt;):void
+setTypes(List&lt;String&gt;):void
+setPassengerId(String):void
+setPrice(String):void
+setEstimatedArrivalTime(String):void
+showToast(String):void
+showAlertMessage(String):void
+setActivityName(String):void
+clickContinue(String,String,String,String,String,String,String):void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1850</x>
+      <y>85</y>
+      <w>190</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+TrackRouteActivity
+gr.aueb.softeng.project1801.view.Passenger.Track_Route
+--
+TrackRouteActivity()
+onCreate(Bundle):void
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+setActivityName(String):void
+setDestinationsList(List&lt;String&gt;):void
+setDeparturePointsList(List&lt;String&gt;):void
+setDepartureTimesList(List&lt;String&gt;):void
+showToast(String):void
+trackRoute(String,String,String,String):void
+onActivityResult(int,int,Intent):void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2055</x>
+      <y>485</y>
+      <w>190</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+TrackRoutePresenter
+gr.aueb.softeng.project1801.view.Passenger.Track_Route
+--
+TrackRoutePresenter(TrackRouteView,ScheduleDAO)
+validateDate(String):boolean
+onCreate(Bundle):void
+onGetDestination():String
+onGetDeparture():String
+onGetDepartureDate():String
+onGetDepartureTime():String
+onShowToast(String):void
+onShowAlertMessage(String):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1715</x>
+      <y>815</y>
+      <w>190</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+TrackRouteView
+gr.aueb.softeng.project1801.view.Passenger.Track_Route
+--
+ShowToast(String):void
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+ShowAlertMessage(String):void
+setActivityName(String):void
+setDestinationsList(List&lt;String&gt;):void
+setDeparturePointsList(List&lt;String&gt;):void
+setDepartureTimesList(List&lt;String&gt;):void
+trackRoute(String,String,String,String):void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4335</x>
+      <y>30</y>
+      <w>190</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+TrackResultsActivity
+gr.aueb.softeng.project1801.view.Passenger.TrackResults
+--
+TrackResultsActivity()
+onCreate(Bundle):void
+onMapReady(GoogleMap):void
+getDestination():String
+getDeparturePoint():String
+getDepartureDate():String
+getDepartureTime():String
+showAlertMessage(String):void
+showToast(String):void
+getCoordDestination(String):List&lt;LatLng&gt;
+kill():void
+onBackPressed():void
+onRequestPermissionsResults(int,String[],int[]):void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>4765</x>
+      <y>415</y>
+      <w>190</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+TrackResultsPresenter
+gr.aueb.softeng.project1801.view.Passenger.TrackResults
+--
+TrackResultsActivity(TrackResultsView,RouteDAO)
+onShowToast(String):void
+onGetDestination():String
+onGetDeparture():String
+onGetDepartureDate():String
+onGetDepartureTime():String
+onShowAlert(String):void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>5135</x>
+      <y>775</y>
+      <w>190</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Interface&gt;&gt;
+TrackResultsView
+gr.aueb.softeng.project1801.view.Passenger.TrackResults
+--
+TrackResultsActivity(TrackResultsView,RouteDAO)
+showToast(String):void
+getDestination():String
+getDepartureDate():String
+getDepartureTime():String
+getDeparturePoint():String
+showAlertMessage(String):void
+kill():void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3435</x>
+      <y>385</y>
+      <w>180</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+CustomAdpater
+gr.aueb.softeng.project1801.view.Util
+--
+context:Context
+inflater:LayoutInflater
+--
+CustomAdapter(Context)
+getCount():int
+getItem(int):Object
+getItemId(int):long
+getView(int,View,ViewGroup):View
+loadData(List&lt;DataRow&gt;):void
+getFilter():Filter
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2680</x>
+      <y>640</y>
+      <w>180</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+SeatAdpater
+gr.aueb.softeng.project1801.view.Util
+--
+context:Context
+inflater:LayoutInflater
+--
+SeatAdapter(Context)
+getCount():int
+getItem(int):Object
+getItemId(int):long
+getView(int,View,ViewGroup):View
+loadData(List&lt;DataRow&gt;):void
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3610</x>
+      <y>820</y>
+      <w>195</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+SearchFilter
+gr.aueb.softeng.project1801.view.Util
+--
+SearchFilter()
+performFiltering(CharSequence):FilterResults
+publishResults(CharSequence,FilterResults):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>455</x>
+      <y>1210</y>
+      <w>100</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-state 0..1</panel_attributes>
+    <additional_attributes>10.0;390.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>735</x>
+      <y>1205</y>
+      <w>85</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-state 0..1</panel_attributes>
+    <additional_attributes>10.0;440.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>915</x>
+      <y>155</y>
+      <w>370</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>720.0;10.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1110</x>
+      <y>185</y>
+      <w>605</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=#entities 0..*</panel_attributes>
+    <additional_attributes>10.0;680.0;120.0;490.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1075</x>
+      <y>185</y>
+      <w>640</w>
+      <h>555</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;1090.0;810.0;940.0;900.0;750.0;1010.0;440.0;1260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1940</x>
+      <y>215</y>
+      <w>210</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -presenter 0..1</panel_attributes>
+    <additional_attributes>320.0;540.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1800</x>
+      <y>215</y>
+      <w>155</w>
+      <h>610</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;1200.0;10.0;750.0;40.0;440.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2430</x>
+      <y>220</y>
+      <w>170</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -presenter 0..1</panel_attributes>
+    <additional_attributes>240.0;440.0;180.0;330.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2700</x>
+      <y>140</y>
+      <w>320</w>
+      <h>305</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -presenter 0..1</panel_attributes>
+    <additional_attributes>540.0;590.0;370.0;410.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2700</x>
+      <y>140</y>
+      <w>430</w>
+      <h>665</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>450.0;1310.0;750.0;1180.0;840.0;470.0;260.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2670</x>
+      <y>140</y>
+      <w>80</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -seatAdapter 0..1</panel_attributes>
+    <additional_attributes>50.0;1000.0;10.0;960.0;10.0;510.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2725</x>
+      <y>160</y>
+      <w>300</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -presenter 0..1</panel_attributes>
+    <additional_attributes>40.0;560.0;10.0;430.0;580.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3015</x>
+      <y>160</y>
+      <w>490</w>
+      <h>235</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -adapter 0..1</panel_attributes>
+    <additional_attributes>900.0;450.0;850.0;400.0;200.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3275</x>
+      <y>185</y>
+      <w>60</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presenter 0..1</panel_attributes>
+    <additional_attributes>10.0;490.0;10.0;420.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3285</x>
+      <y>185</y>
+      <w>155</w>
+      <h>615</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>200.0;1210.0;270.0;930.0;290.0;800.0;150.0;420.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3575</x>
+      <y>190</y>
+      <w>50</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -adapter 0..1</panel_attributes>
+    <additional_attributes>10.0;390.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3645</x>
+      <y>190</y>
+      <w>415</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -presenter 0..1</panel_attributes>
+    <additional_attributes>730.0;540.0;660.0;460.0;520.0;400.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3670</x>
+      <y>190</y>
+      <w>670</w>
+      <h>645</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>1320.0;1270.0;1320.0;990.0;700.0;330.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4125</x>
+      <y>200</y>
+      <w>250</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presenter 0..1</panel_attributes>
+    <additional_attributes>400.0;500.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4125</x>
+      <y>200</y>
+      <w>750</w>
+      <h>595</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>1480.0;1170.0;900.0;740.0;660.0;420.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4440</x>
+      <y>160</y>
+      <w>380</w>
+      <h>265</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presenter 0..1</panel_attributes>
+    <additional_attributes>740.0;510.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4445</x>
+      <y>160</y>
+      <w>795</w>
+      <h>625</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>1570.0;1230.0;830.0;910.0;650.0;730.0;470.0;450.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4675</x>
+      <y>165</y>
+      <w>420</w>
+      <h>285</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presenter 0..1</panel_attributes>
+    <additional_attributes>820.0;550.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4675</x>
+      <y>165</y>
+      <w>790</w>
+      <h>620</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>1560.0;1220.0;1120.0;1060.0;880.0;900.0;760.0;600.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>640</y>
+      <w>35</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;270.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>590</y>
+      <w>190</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>10.0;390.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>590</y>
+      <w>65</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-bus 0..1</panel_attributes>
+    <additional_attributes>10.0;480.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>590</y>
+      <w>125</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-driver 0..1</panel_attributes>
+    <additional_attributes>170.0;480.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>595</y>
+      <w>230</w>
+      <h>245</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;470.0;440.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>590</y>
+      <w>570</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-schedule 0..1</panel_attributes>
+    <additional_attributes>1120.0;300.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>595</y>
+      <w>210</w>
+      <h>465</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=#entities 0..*</panel_attributes>
+    <additional_attributes>320.0;910.0;350.0;280.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>505</x>
+      <y>595</y>
+      <w>240</w>
+      <h>245</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;470.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>565</x>
+      <y>595</y>
+      <w>190</w>
+      <h>515</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=#entities 0..*</panel_attributes>
+    <additional_attributes>30.0;1010.0;10.0;730.0;80.0;360.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>955</x>
+      <y>645</y>
+      <w>485</w>
+      <h>760</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -DepartureDates 0..*</panel_attributes>
+    <additional_attributes>830.0;1500.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1300</x>
+      <y>570</y>
+      <w>130</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;340.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1495</x>
+      <y>565</y>
+      <w>130</w>
+      <h>185</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>10.0;350.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1160</x>
+      <y>565</y>
+      <w>440</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-schedule 0..1</panel_attributes>
+    <additional_attributes>10.0;370.0;860.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1545</x>
+      <y>560</y>
+      <w>360</w>
+      <h>335</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -view 0..1</panel_attributes>
+    <additional_attributes>10.0;650.0;700.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1160</x>
+      <y>560</y>
+      <w>695</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-scheduleDAO 0..1</panel_attributes>
+    <additional_attributes>10.0;420.0;1370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1160</x>
+      <y>575</y>
+      <w>905</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-schedule 0..1</panel_attributes>
+    <additional_attributes>10.0;430.0;1790.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1825</x>
+      <y>585</y>
+      <w>260</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>10.0;460.0;500.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1880</x>
+      <y>600</y>
+      <w>425</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;430.0;830.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2205</x>
+      <y>185</y>
+      <w>130</w>
+      <h>570</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;1120.0;90.0;1000.0;90.0;390.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2255</x>
+      <y>575</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>10.0;340.0;80.0;240.0;580.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2395</x>
+      <y>575</y>
+      <w>180</w>
+      <h>335</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-seats 0..*</panel_attributes>
+    <additional_attributes>10.0;650.0;120.0;310.0;340.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2530</x>
+      <y>515</y>
+      <w>200</w>
+      <h>285</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>10.0;550.0;160.0;310.0;380.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1160</x>
+      <y>515</y>
+      <w>1585</w>
+      <h>235</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-scheduleDAO 0..1</panel_attributes>
+    <additional_attributes>10.0;440.0;2810.0;280.0;2880.0;250.0;3150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3040</x>
+      <y>530</y>
+      <w>145</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-selectedRoute 0..1</panel_attributes>
+    <additional_attributes>160.0;420.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2960</x>
+      <y>530</y>
+      <w>45</w>
+      <h>275</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>10.0;530.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2465</x>
+      <y>530</y>
+      <w>460</w>
+      <h>475</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-seatsSelected 0..*</panel_attributes>
+    <additional_attributes>10.0;930.0;570.0;770.0;690.0;550.0;820.0;400.0;900.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3205</x>
+      <y>530</y>
+      <w>80</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presentedRoute 0..1</panel_attributes>
+    <additional_attributes>10.0;420.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3265</x>
+      <y>530</y>
+      <w>85</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presentedTicket 0..1</panel_attributes>
+    <additional_attributes>10.0;1060.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3355</x>
+      <y>530</y>
+      <w>355</w>
+      <h>465</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presentedPassenger 0..1</panel_attributes>
+    <additional_attributes>540.0;910.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3360</x>
+      <y>530</y>
+      <w>535</w>
+      <h>690</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presentedCard 0..1</panel_attributes>
+    <additional_attributes>940.0;1360.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3245</x>
+      <y>530</y>
+      <w>115</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>160.0;520.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3365</x>
+      <y>490</y>
+      <w>685</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-passengerDAO 0..1</panel_attributes>
+    <additional_attributes>1350.0;660.0;740.0;430.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3365</x>
+      <y>475</y>
+      <w>1220</w>
+      <h>345</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-CardDAO 0..1</panel_attributes>
+    <additional_attributes>2340.0;670.0;2180.0;490.0;780.0;250.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3525</x>
+      <y>485</y>
+      <w>145</w>
+      <h>345</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;670.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3570</x>
+      <y>485</y>
+      <w>190</w>
+      <h>345</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -searchFilter 0..1</panel_attributes>
+    <additional_attributes>260.0;670.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3600</x>
+      <y>485</y>
+      <w>320</w>
+      <h>365</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -dataList 0..*</panel_attributes>
+    <additional_attributes>550.0;710.0;290.0;390.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3585</x>
+      <y>485</y>
+      <w>330</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -copyOfData 0..*</panel_attributes>
+    <additional_attributes>550.0;740.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3270</x>
+      <y>500</y>
+      <w>470</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-#entities 0..*</panel_attributes>
+    <additional_attributes>10.0;490.0;920.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3750</x>
+      <y>500</y>
+      <w>925</w>
+      <h>325</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>1830.0;630.0;1260.0;310.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4060</x>
+      <y>750</y>
+      <w>40</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>60.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3680</x>
+      <y>715</y>
+      <w>305</w>
+      <h>325</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=#entities 0..*
+</panel_attributes>
+    <additional_attributes>10.0;630.0;320.0;270.0;590.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4020</x>
+      <y>525</y>
+      <w>300</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>530.0;600.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4060</x>
+      <y>525</y>
+      <w>730</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-routeDAO 0..1</panel_attributes>
+    <additional_attributes>1360.0;560.0;1280.0;450.0;840.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3270</x>
+      <y>515</y>
+      <w>1080</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-presentedRoute 0..*</panel_attributes>
+    <additional_attributes>10.0;510.0;2140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4445</x>
+      <y>515</y>
+      <w>430</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>840.0;490.0;690.0;410.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4375</x>
+      <y>515</y>
+      <w>355</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-routes 0..1</panel_attributes>
+    <additional_attributes>630.0;580.0;550.0;490.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3880</x>
+      <y>495</y>
+      <w>765</w>
+      <h>795</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=#entities 0..*</panel_attributes>
+    <additional_attributes>10.0;1570.0;1510.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4585</x>
+      <y>495</y>
+      <w>20</w>
+      <h>325</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;630.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4790</x>
+      <y>500</y>
+      <w>75</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-routeDAO 0..1</panel_attributes>
+    <additional_attributes>10.0;610.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>4895</x>
+      <y>500</y>
+      <w>300</w>
+      <h>285</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>530.0;550.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>5165</x>
+      <y>510</y>
+      <w>260</w>
+      <h>275</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-view 0..1</panel_attributes>
+    <additional_attributes>450.0;530.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3230</x>
+      <y>865</y>
+      <w>45</w>
+      <h>205</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=-route 0..1
+
+</panel_attributes>
+    <additional_attributes>10.0;390.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1485</x>
+      <y>865</y>
+      <w>1645</w>
+      <h>605</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -DepartureDate 0..1</panel_attributes>
+    <additional_attributes>10.0;1180.0;1730.0;1180.0;3270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1485</x>
+      <y>1220</y>
+      <w>1605</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1= -DepartureDateTicket 0..1</panel_attributes>
+    <additional_attributes>10.0;510.0;1750.0;490.0;3190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3325</x>
+      <y>1025</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-passenger 0..1</panel_attributes>
+    <additional_attributes>460.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1485</x>
+      <y>1290</y>
+      <w>2220</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-ExpirationDate 0..1
+</panel_attributes>
+    <additional_attributes>10.0;470.0;1880.0;470.0;4220.0;160.0;4420.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>915</y>
+      <w>685</w>
+      <h>575</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=-calendar 0..1</panel_attributes>
+    <additional_attributes>1350.0;1120.0;120.0;860.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
