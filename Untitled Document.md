@@ -270,8 +270,51 @@ __*Σε οποιοδήποτε σημείο το λογισμικό καταρρ
 ![coverage1](imagesForMarkdown/aueb_coverage.png)
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Μετά έχουμε την κάλυψη του project μας η οποία είναι:
 ![coverage2](imagesForMarkdown/project_coverage.png)
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Τέλος για κάθε κλάσση έχουμε:
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Τέλος για κάθε κλάση έχουμε:
 ![coverage3](imagesForMarkdown/classes_coverage.png)
+
+
+# ΜΕΡΟΣ R4 
+
+### Sequence diagrams for basic methods
+
+### add new route
+![addnewroute](imagesForMarkdown/addNewRoute.jpg)
+
+### create data
+![createData](imagesForMarkdown/createData.jpg)
+
+### Passenger chooser seat
+![seatChooser](imagesForMarkdown/createDataPassengerChooseSeat.jpg)
+
+### find ticket for passenger
+![findticket](imagesForMarkdown/findTicketForPassenger.jpg)
+
+### On Click continue
+![continue](imagesForMarkdown/onClickContinue.jpg)
+
+### On Continue
+![continue](imagesForMarkdown/onContinue.jpg)
+
+### On Delete
+![delete](imagesForMarkdown/onDelete.jpg)
+
+### On find passenger
+![findData](imagesForMarkdown/onFindPassenger.jpg)
+
+### On load data
+![loadData](imagesForMarkdown/onloadData.jpg)
+
+### On track route
+![trackRoute](imagesForMarkdown/onTrackRoute.jpg)
+
+
+
+
+
+
+
+
 
 
 
